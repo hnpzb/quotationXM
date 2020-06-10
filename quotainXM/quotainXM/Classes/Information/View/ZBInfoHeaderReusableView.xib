@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InfoHeaderReusableView" id="U6b-Vx-4bR" customClass="ZBInfoHeaderReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_banner" translatesAutoresizingMaskIntoConstraints="NO" id="uhb-zL-1Zj">
+                    <rect key="frame" x="5" y="5" width="310" height="117"/>
+                </imageView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="zJm-ZU-pdL">
+                    <rect key="frame" x="124.5" y="77" width="71" height="37"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="zJm-ZU-pdL" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="6Lr-s0-Py9"/>
+                <constraint firstItem="9Gg-ye-v9C" firstAttribute="trailing" secondItem="uhb-zL-1Zj" secondAttribute="trailing" constant="5" id="8nT-LN-dAe"/>
+                <constraint firstItem="uhb-zL-1Zj" firstAttribute="leading" secondItem="9Gg-ye-v9C" secondAttribute="leading" constant="5" id="KMS-wu-ZaY"/>
+                <constraint firstItem="uhb-zL-1Zj" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="5" id="WsH-46-TNW"/>
+                <constraint firstItem="zJm-ZU-pdL" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" multiplier="1.5" id="j2b-8r-05A"/>
+                <constraint firstItem="9Gg-ye-v9C" firstAttribute="bottom" secondItem="uhb-zL-1Zj" secondAttribute="bottom" constant="5" id="sJM-C5-9cn"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="9Gg-ye-v9C"/>
+            <point key="canvasLocation" x="-1.4492753623188408" y="-22.433035714285712"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="pic_banner" width="366" height="161"/>
+    </resources>
+</document>

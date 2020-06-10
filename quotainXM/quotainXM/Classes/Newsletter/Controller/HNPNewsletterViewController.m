@@ -1,0 +1,74 @@
+//
+//  HNPNewsletterViewController.m
+//  quotationAPP
+//
+//  Created by 朱彬 on 2020/6/8.
+//  Copyright © 2020 朱彬. All rights reserved.
+//
+
+#import "HNPNewsletterViewController.h"
+#import "HNPNewSletterCell.h"
+#import "ZBNewSletterHeaderView.h"
+
+@interface HNPNewsletterViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@end
+
+@implementation HNPNewsletterViewController
+
+
+static NSString *ID = @"NewSletterID";
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    UITableView *tableView = [[UITableView alloc] init];
+       CGRect temp = self.view.bounds;
+       temp.origin = CGPointMake(0, 80);
+       tableView.frame = temp;
+    [self.view addSubview:tableView];
+       tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+       //注册cell加载xib
+    tableView.dataSource = self;
+    tableView.delegate = self;
+       [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+//cell的行数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    HNPNewSletterCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [HNPNewSletterCell NewSletterXib];
+        
+    }
+    return cell;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    ZBNewSletterHeaderView *view = [[ZBNewSletterHeaderView alloc] init];
+    view.backgroundColor = [UIColor whiteColor];
+    return view;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 44;
+}
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

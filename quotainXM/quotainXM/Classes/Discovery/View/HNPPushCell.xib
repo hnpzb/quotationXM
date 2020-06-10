@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PushCellID" rowHeight="117" id="KGk-i7-Jjw" customClass="HNPPushCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmx-nP-BSY">
+                        <rect key="frame" x="15" y="16" width="345" height="55"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_fabu" translatesAutoresizingMaskIntoConstraints="NO" id="IEw-aG-gql">
+                                <rect key="frame" x="18.5" y="18" width="18" height="19"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布动态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmD-4p-ULa">
+                                <rect key="frame" x="51.5" y="17" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="x8k-QK-WWQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_jinru" translatesAutoresizingMaskIntoConstraints="NO" id="fjs-u4-l2y">
+                                <rect key="frame" x="313" y="21.5" width="7" height="12"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IEw-aG-gql" firstAttribute="top" secondItem="pmx-nP-BSY" secondAttribute="top" constant="18" id="M6u-SC-URL"/>
+                            <constraint firstItem="IEw-aG-gql" firstAttribute="centerY" secondItem="pmx-nP-BSY" secondAttribute="centerY" id="cgA-LC-TZH"/>
+                            <constraint firstItem="LmD-4p-ULa" firstAttribute="top" secondItem="pmx-nP-BSY" secondAttribute="top" constant="17" id="dPK-T0-hec"/>
+                            <constraint firstItem="fjs-u4-l2y" firstAttribute="centerY" secondItem="IEw-aG-gql" secondAttribute="centerY" id="dS0-wP-Agm"/>
+                            <constraint firstItem="LmD-4p-ULa" firstAttribute="leading" secondItem="IEw-aG-gql" secondAttribute="trailing" constant="15" id="kcN-uX-nTJ"/>
+                            <constraint firstItem="LmD-4p-ULa" firstAttribute="centerY" secondItem="IEw-aG-gql" secondAttribute="centerY" id="nf5-i6-Fal"/>
+                            <constraint firstItem="IEw-aG-gql" firstAttribute="leading" secondItem="pmx-nP-BSY" secondAttribute="leading" constant="18.5" id="oZ1-kT-gvB"/>
+                            <constraint firstAttribute="trailing" secondItem="fjs-u4-l2y" secondAttribute="trailing" constant="25" id="sls-a8-Z0Z"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="pmx-nP-BSY" secondAttribute="trailing" constant="15" id="Vm5-tl-lmG"/>
+                    <constraint firstItem="pmx-nP-BSY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="wId-fY-5Cq"/>
+                    <constraint firstAttribute="bottom" secondItem="pmx-nP-BSY" secondAttribute="bottom" constant="16" id="xj3-c0-wkG"/>
+                    <constraint firstItem="pmx-nP-BSY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="yYk-ry-eoF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <point key="canvasLocation" x="92.028985507246389" y="-147.65625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_fabu" width="18" height="18"/>
+        <image name="icon_jinru" width="7" height="12"/>
+    </resources>
+</document>

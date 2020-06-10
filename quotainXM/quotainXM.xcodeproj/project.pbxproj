@@ -1,0 +1,1228 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B350BF9D249070D30026368F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BF9C249070D30026368F /* AppDelegate.m */; };
+		B350BFA3249070D30026368F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFA2249070D30026368F /* ViewController.m */; };
+		B350BFA6249070D30026368F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350BFA4249070D30026368F /* Main.storyboard */; };
+		B350BFA8249070D50026368F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B350BFA7249070D50026368F /* Assets.xcassets */; };
+		B350BFAB249070D50026368F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350BFA9249070D50026368F /* LaunchScreen.storyboard */; };
+		B350BFAE249070D50026368F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFAD249070D50026368F /* main.m */; };
+		B350C064249070F40026368F /* ZBQuotationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFB9249070F40026368F /* ZBQuotationTableViewCell.xib */; };
+		B350C065249070F40026368F /* ZBQuotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFBA249070F40026368F /* ZBQuotationViewController.xib */; };
+		B350C066249070F40026368F /* ZBQuotationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFBB249070F40026368F /* ZBQuotationTableViewCell.m */; };
+		B350C067249070F40026368F /* ZBQuotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFBC249070F40026368F /* ZBQuotationViewController.m */; };
+		B350C068249070F40026368F /* ZBQuotationModal.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFBF249070F40026368F /* ZBQuotationModal.m */; };
+		B350C069249070F40026368F /* ZBInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFC7249070F40026368F /* ZBInformationViewController.m */; };
+		B350C06A249070F40026368F /* ZBInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFC8249070F40026368F /* ZBInformationViewController.xib */; };
+		B350C06B249070F40026368F /* ZBInfoFooderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFCC249070F40026368F /* ZBInfoFooderReusableView.xib */; };
+		B350C06C249070F40026368F /* ZBInfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFCD249070F40026368F /* ZBInfoCollectionViewCell.m */; };
+		B350C06D249070F40026368F /* ZBInfoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFCF249070F40026368F /* ZBInfoCollectionView.m */; };
+		B350C06E249070F40026368F /* ZBInfoHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFD0249070F40026368F /* ZBInfoHeaderReusableView.xib */; };
+		B350C06F249070F40026368F /* ZBTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFD1249070F40026368F /* ZBTopTableViewCell.m */; };
+		B350C070249070F40026368F /* ZBTopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFD2249070F40026368F /* ZBTopTableViewCell.xib */; };
+		B350C071249070F40026368F /* ZBBottomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFD3249070F40026368F /* ZBBottomTableViewCell.m */; };
+		B350C072249070F40026368F /* ZBInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFD4249070F40026368F /* ZBInfoCollectionViewCell.xib */; };
+		B350C073249070F40026368F /* ZBInfoFooderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFD5249070F40026368F /* ZBInfoFooderReusableView.m */; };
+		B350C074249070F40026368F /* ZBInfoHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFD8249070F40026368F /* ZBInfoHeaderReusableView.m */; };
+		B350C075249070F40026368F /* ZBBottomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFD9249070F40026368F /* ZBBottomTableViewCell.xib */; };
+		B350C076249070F40026368F /* ZBCalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFE1249070F40026368F /* ZBCalendarTableViewCell.xib */; };
+		B350C077249070F40026368F /* ZBCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFE2249070F40026368F /* ZBCalendarViewController.xib */; };
+		B350C078249070F40026368F /* ZBCalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFE3249070F40026368F /* ZBCalendarTableViewCell.m */; };
+		B350C079249070F40026368F /* ZBCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFE4249070F40026368F /* ZBCalendarViewController.m */; };
+		B350C07A249070F40026368F /* ZBCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFE7249070F40026368F /* ZBCalendarHeaderView.m */; };
+		B350C07B249070F40026368F /* ZBFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFEB249070F40026368F /* ZBFollowViewController.m */; };
+		B350C07C249070F40026368F /* ZBFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFEC249070F40026368F /* ZBFollowViewController.xib */; };
+		B350C07D249070F40026368F /* HNPDiscoveryViewC.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFF2249070F40026368F /* HNPDiscoveryViewC.m */; };
+		B350C07E249070F40026368F /* ZBDiscoverMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFF3249070F40026368F /* ZBDiscoverMainVC.m */; };
+		B350C07F249070F40026368F /* ZBDiscoverMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFF4249070F40026368F /* ZBDiscoverMainVC.xib */; };
+		B350C080249070F40026368F /* HNPDiscoveryViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFF7249070F40026368F /* HNPDiscoveryViewC.xib */; };
+		B350C081249070F40026368F /* HNPDynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFFA249070F40026368F /* HNPDynamicCell.m */; };
+		B350C082249070F40026368F /* HNPDynamicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFFB249070F40026368F /* HNPDynamicCell.xib */; };
+		B350C083249070F40026368F /* HNPPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350BFFE249070F40026368F /* HNPPushCell.xib */; };
+		B350C084249070F40026368F /* HNPPushCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFFF249070F40026368F /* HNPPushCell.m */; };
+		B350C085249070F40026368F /* HNPDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C002249070F40026368F /* HNPDetailsVC.xib */; };
+		B350C086249070F40026368F /* HNPDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C003249070F40026368F /* HNPDetailsVC.m */; };
+		B350C087249070F40026368F /* HNPDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C006249070F40026368F /* HNPDetailsCell.xib */; };
+		B350C088249070F40026368F /* HNPDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C007249070F40026368F /* HNPDetailsCell.m */; };
+		B350C089249070F40026368F /* HNPCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C008249070F40026368F /* HNPCommentCell.m */; };
+		B350C08A249070F40026368F /* HNPCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C009249070F40026368F /* HNPCommentCell.xib */; };
+		B350C08B249070F40026368F /* ZBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C00F249070F40026368F /* ZBRegisterViewController.m */; };
+		B350C08C249070F40026368F /* ZBRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C010249070F40026368F /* ZBRegisterViewController.xib */; };
+		B350C08D249070F40026368F /* ZBSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C016249070F40026368F /* ZBSignInViewController.m */; };
+		B350C08E249070F40026368F /* ZBSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C017249070F40026368F /* ZBSignInViewController.xib */; };
+		B350C08F249070F40026368F /* HNPPersonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C01D249070F40026368F /* HNPPersonVC.m */; };
+		B350C090249070F40026368F /* HNPPersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C021249070F40026368F /* HNPPersonView.m */; };
+		B350C091249070F40026368F /* HNPPersonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C023249070F40026368F /* HNPPersonView.xib */; };
+		B350C092249070F40026368F /* ZBResetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C026249070F40026368F /* ZBResetPasswordController.xib */; };
+		B350C093249070F40026368F /* ZBResetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C027249070F40026368F /* ZBResetPasswordController.m */; };
+		B350C094249070F40026368F /* ZBMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C02C249070F40026368F /* ZBMineViewController.m */; };
+		B350C095249070F40026368F /* ZBMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C02D249070F40026368F /* ZBMineViewController.xib */; };
+		B350C096249070F40026368F /* ZBIndustryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C031249070F40026368F /* ZBIndustryTableViewCell.m */; };
+		B350C097249070F40026368F /* ZBIndustryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C032249070F40026368F /* ZBIndustryTableViewCell.xib */; };
+		B350C098249070F40026368F /* ZBIndustryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C034249070F40026368F /* ZBIndustryViewController.xib */; };
+		B350C099249070F40026368F /* ZBIndustryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C036249070F40026368F /* ZBIndustryViewController.m */; };
+		B350C09A249070F40026368F /* ZBIndustryMode.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C039249070F40026368F /* ZBIndustryMode.m */; };
+		B350C09B249070F40026368F /* HNPNewsletterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C03D249070F40026368F /* HNPNewsletterViewController.xib */; };
+		B350C09C249070F40026368F /* HNPNewsletterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C03E249070F40026368F /* HNPNewsletterViewController.m */; };
+		B350C09D249070F40026368F /* HNPNewSletterModle.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C041249070F40026368F /* HNPNewSletterModle.m */; };
+		B350C09E249070F40026368F /* ZBNewSletterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C044249070F40026368F /* ZBNewSletterHeaderView.m */; };
+		B350C09F249070F40026368F /* HNPNewSletterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C045249070F40026368F /* HNPNewSletterCell.xib */; };
+		B350C0A0249070F40026368F /* HNPNewSletterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C048249070F40026368F /* HNPNewSletterCell.m */; };
+		B350C0A1249070F40026368F /* ZBMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C04D249070F40026368F /* ZBMainViewController.xib */; };
+		B350C0A2249070F40026368F /* ZBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C04E249070F40026368F /* ZBMainViewController.m */; };
+		B350C0A3249070F40026368F /* ZBNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C04F249070F40026368F /* ZBNavigationController.xib */; };
+		B350C0A4249070F40026368F /* ZBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C050249070F40026368F /* ZBNavigationController.m */; };
+		B350C0A5249070F40026368F /* ZBFoundPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C056249070F40026368F /* ZBFoundPasswordController.m */; };
+		B350C0A6249070F40026368F /* ZBFoundPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C057249070F40026368F /* ZBFoundPasswordController.xib */; };
+		B350C0A7249070F40026368F /* ZBloginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C05D249070F40026368F /* ZBloginViewController.m */; };
+		B350C0A8249070F40026368F /* ZBLoginMainNavVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C05E249070F40026368F /* ZBLoginMainNavVC.xib */; };
+		B350C0A9249070F40026368F /* ZBLoginMainNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C05F249070F40026368F /* ZBLoginMainNavVC.m */; };
+		B350C0AA249070F40026368F /* ZBloginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C060249070F40026368F /* ZBloginViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B350BF98249070D30026368F /* quotainXM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotainXM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B350BF9B249070D30026368F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B350BF9C249070D30026368F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B350BFA1249070D30026368F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B350BFA2249070D30026368F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B350BFA5249070D30026368F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B350BFA7249070D50026368F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B350BFAA249070D50026368F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B350BFAC249070D50026368F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B350BFAD249070D50026368F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B350BFB7249070F40026368F /* ZBQuotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBQuotationViewController.h; sourceTree = "<group>"; };
+		B350BFB8249070F40026368F /* ZBQuotationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBQuotationTableViewCell.h; sourceTree = "<group>"; };
+		B350BFB9249070F40026368F /* ZBQuotationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBQuotationTableViewCell.xib; sourceTree = "<group>"; };
+		B350BFBA249070F40026368F /* ZBQuotationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBQuotationViewController.xib; sourceTree = "<group>"; };
+		B350BFBB249070F40026368F /* ZBQuotationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBQuotationTableViewCell.m; sourceTree = "<group>"; };
+		B350BFBC249070F40026368F /* ZBQuotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBQuotationViewController.m; sourceTree = "<group>"; };
+		B350BFBE249070F40026368F /* ZBQuotationModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBQuotationModal.h; sourceTree = "<group>"; };
+		B350BFBF249070F40026368F /* ZBQuotationModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBQuotationModal.m; sourceTree = "<group>"; };
+		B350BFC7249070F40026368F /* ZBInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBInformationViewController.m; sourceTree = "<group>"; };
+		B350BFC8249070F40026368F /* ZBInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBInformationViewController.xib; sourceTree = "<group>"; };
+		B350BFC9249070F40026368F /* ZBInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBInformationViewController.h; sourceTree = "<group>"; };
+		B350BFCC249070F40026368F /* ZBInfoFooderReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBInfoFooderReusableView.xib; sourceTree = "<group>"; };
+		B350BFCD249070F40026368F /* ZBInfoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBInfoCollectionViewCell.m; sourceTree = "<group>"; };
+		B350BFCE249070F40026368F /* ZBInfoHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBInfoHeaderReusableView.h; sourceTree = "<group>"; };
+		B350BFCF249070F40026368F /* ZBInfoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBInfoCollectionView.m; sourceTree = "<group>"; };
+		B350BFD0249070F40026368F /* ZBInfoHeaderReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBInfoHeaderReusableView.xib; sourceTree = "<group>"; };
+		B350BFD1249070F40026368F /* ZBTopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBTopTableViewCell.m; sourceTree = "<group>"; };
+		B350BFD2249070F40026368F /* ZBTopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBTopTableViewCell.xib; sourceTree = "<group>"; };
+		B350BFD3249070F40026368F /* ZBBottomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBottomTableViewCell.m; sourceTree = "<group>"; };
+		B350BFD4249070F40026368F /* ZBInfoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		B350BFD5249070F40026368F /* ZBInfoFooderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBInfoFooderReusableView.m; sourceTree = "<group>"; };
+		B350BFD6249070F40026368F /* ZBInfoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBInfoCollectionViewCell.h; sourceTree = "<group>"; };
+		B350BFD7249070F40026368F /* ZBInfoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBInfoCollectionView.h; sourceTree = "<group>"; };
+		B350BFD8249070F40026368F /* ZBInfoHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBInfoHeaderReusableView.m; sourceTree = "<group>"; };
+		B350BFD9249070F40026368F /* ZBBottomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBBottomTableViewCell.xib; sourceTree = "<group>"; };
+		B350BFDA249070F40026368F /* ZBBottomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBottomTableViewCell.h; sourceTree = "<group>"; };
+		B350BFDB249070F40026368F /* ZBTopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBTopTableViewCell.h; sourceTree = "<group>"; };
+		B350BFDC249070F40026368F /* ZBInfoFooderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBInfoFooderReusableView.h; sourceTree = "<group>"; };
+		B350BFDF249070F40026368F /* ZBCalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCalendarTableViewCell.h; sourceTree = "<group>"; };
+		B350BFE0249070F40026368F /* ZBCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCalendarViewController.h; sourceTree = "<group>"; };
+		B350BFE1249070F40026368F /* ZBCalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBCalendarTableViewCell.xib; sourceTree = "<group>"; };
+		B350BFE2249070F40026368F /* ZBCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBCalendarViewController.xib; sourceTree = "<group>"; };
+		B350BFE3249070F40026368F /* ZBCalendarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCalendarTableViewCell.m; sourceTree = "<group>"; };
+		B350BFE4249070F40026368F /* ZBCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCalendarViewController.m; sourceTree = "<group>"; };
+		B350BFE7249070F40026368F /* ZBCalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCalendarHeaderView.m; sourceTree = "<group>"; };
+		B350BFE8249070F40026368F /* ZBCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCalendarHeaderView.h; sourceTree = "<group>"; };
+		B350BFEB249070F40026368F /* ZBFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBFollowViewController.m; sourceTree = "<group>"; };
+		B350BFEC249070F40026368F /* ZBFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBFollowViewController.xib; sourceTree = "<group>"; };
+		B350BFED249070F40026368F /* ZBFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBFollowViewController.h; sourceTree = "<group>"; };
+		B350BFF2249070F40026368F /* HNPDiscoveryViewC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPDiscoveryViewC.m; sourceTree = "<group>"; };
+		B350BFF3249070F40026368F /* ZBDiscoverMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBDiscoverMainVC.m; sourceTree = "<group>"; };
+		B350BFF4249070F40026368F /* ZBDiscoverMainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBDiscoverMainVC.xib; sourceTree = "<group>"; };
+		B350BFF5249070F40026368F /* HNPDiscoveryViewC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPDiscoveryViewC.h; sourceTree = "<group>"; };
+		B350BFF6249070F40026368F /* ZBDiscoverMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBDiscoverMainVC.h; sourceTree = "<group>"; };
+		B350BFF7249070F40026368F /* HNPDiscoveryViewC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPDiscoveryViewC.xib; sourceTree = "<group>"; };
+		B350BFFA249070F40026368F /* HNPDynamicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPDynamicCell.m; sourceTree = "<group>"; };
+		B350BFFB249070F40026368F /* HNPDynamicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPDynamicCell.xib; sourceTree = "<group>"; };
+		B350BFFC249070F40026368F /* HNPPushCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPPushCell.h; sourceTree = "<group>"; };
+		B350BFFD249070F40026368F /* HNPDynamicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPDynamicCell.h; sourceTree = "<group>"; };
+		B350BFFE249070F40026368F /* HNPPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPPushCell.xib; sourceTree = "<group>"; };
+		B350BFFF249070F40026368F /* HNPPushCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPPushCell.m; sourceTree = "<group>"; };
+		B350C002249070F40026368F /* HNPDetailsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPDetailsVC.xib; sourceTree = "<group>"; };
+		B350C003249070F40026368F /* HNPDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPDetailsVC.m; sourceTree = "<group>"; };
+		B350C004249070F40026368F /* HNPDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPDetailsVC.h; sourceTree = "<group>"; };
+		B350C006249070F40026368F /* HNPDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPDetailsCell.xib; sourceTree = "<group>"; };
+		B350C007249070F40026368F /* HNPDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPDetailsCell.m; sourceTree = "<group>"; };
+		B350C008249070F40026368F /* HNPCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPCommentCell.m; sourceTree = "<group>"; };
+		B350C009249070F40026368F /* HNPCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPCommentCell.xib; sourceTree = "<group>"; };
+		B350C00A249070F40026368F /* HNPCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPCommentCell.h; sourceTree = "<group>"; };
+		B350C00B249070F40026368F /* HNPDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPDetailsCell.h; sourceTree = "<group>"; };
+		B350C00F249070F40026368F /* ZBRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRegisterViewController.m; sourceTree = "<group>"; };
+		B350C010249070F40026368F /* ZBRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBRegisterViewController.xib; sourceTree = "<group>"; };
+		B350C011249070F40026368F /* ZBRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRegisterViewController.h; sourceTree = "<group>"; };
+		B350C016249070F40026368F /* ZBSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBSignInViewController.m; sourceTree = "<group>"; };
+		B350C017249070F40026368F /* ZBSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBSignInViewController.xib; sourceTree = "<group>"; };
+		B350C018249070F40026368F /* ZBSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBSignInViewController.h; sourceTree = "<group>"; };
+		B350C01D249070F40026368F /* HNPPersonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPPersonVC.m; sourceTree = "<group>"; };
+		B350C01E249070F40026368F /* HNPPersonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPPersonVC.h; sourceTree = "<group>"; };
+		B350C021249070F40026368F /* HNPPersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPPersonView.m; sourceTree = "<group>"; };
+		B350C022249070F40026368F /* HNPPersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPPersonView.h; sourceTree = "<group>"; };
+		B350C023249070F40026368F /* HNPPersonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPPersonView.xib; sourceTree = "<group>"; };
+		B350C026249070F40026368F /* ZBResetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBResetPasswordController.xib; sourceTree = "<group>"; };
+		B350C027249070F40026368F /* ZBResetPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBResetPasswordController.m; sourceTree = "<group>"; };
+		B350C028249070F40026368F /* ZBResetPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBResetPasswordController.h; sourceTree = "<group>"; };
+		B350C02C249070F40026368F /* ZBMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBMineViewController.m; sourceTree = "<group>"; };
+		B350C02D249070F40026368F /* ZBMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBMineViewController.xib; sourceTree = "<group>"; };
+		B350C02E249070F40026368F /* ZBMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBMineViewController.h; sourceTree = "<group>"; };
+		B350C031249070F40026368F /* ZBIndustryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBIndustryTableViewCell.m; sourceTree = "<group>"; };
+		B350C032249070F40026368F /* ZBIndustryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBIndustryTableViewCell.xib; sourceTree = "<group>"; };
+		B350C033249070F40026368F /* ZBIndustryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBIndustryViewController.h; sourceTree = "<group>"; };
+		B350C034249070F40026368F /* ZBIndustryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBIndustryViewController.xib; sourceTree = "<group>"; };
+		B350C035249070F40026368F /* ZBIndustryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBIndustryTableViewCell.h; sourceTree = "<group>"; };
+		B350C036249070F40026368F /* ZBIndustryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBIndustryViewController.m; sourceTree = "<group>"; };
+		B350C038249070F40026368F /* ZBIndustryMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBIndustryMode.h; sourceTree = "<group>"; };
+		B350C039249070F40026368F /* ZBIndustryMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBIndustryMode.m; sourceTree = "<group>"; };
+		B350C03D249070F40026368F /* HNPNewsletterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPNewsletterViewController.xib; sourceTree = "<group>"; };
+		B350C03E249070F40026368F /* HNPNewsletterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPNewsletterViewController.m; sourceTree = "<group>"; };
+		B350C03F249070F40026368F /* HNPNewsletterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPNewsletterViewController.h; sourceTree = "<group>"; };
+		B350C041249070F40026368F /* HNPNewSletterModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterModle.m; sourceTree = "<group>"; };
+		B350C042249070F40026368F /* HNPNewSletterModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterModle.h; sourceTree = "<group>"; };
+		B350C044249070F40026368F /* ZBNewSletterHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNewSletterHeaderView.m; sourceTree = "<group>"; };
+		B350C045249070F40026368F /* HNPNewSletterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPNewSletterCell.xib; sourceTree = "<group>"; };
+		B350C046249070F40026368F /* HNPNewSletterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterCell.h; sourceTree = "<group>"; };
+		B350C047249070F40026368F /* ZBNewSletterHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNewSletterHeaderView.h; sourceTree = "<group>"; };
+		B350C048249070F40026368F /* HNPNewSletterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterCell.m; sourceTree = "<group>"; };
+		B350C04B249070F40026368F /* ZBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBMainViewController.h; sourceTree = "<group>"; };
+		B350C04C249070F40026368F /* ZBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNavigationController.h; sourceTree = "<group>"; };
+		B350C04D249070F40026368F /* ZBMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBMainViewController.xib; sourceTree = "<group>"; };
+		B350C04E249070F40026368F /* ZBMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBMainViewController.m; sourceTree = "<group>"; };
+		B350C04F249070F40026368F /* ZBNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBNavigationController.xib; sourceTree = "<group>"; };
+		B350C050249070F40026368F /* ZBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNavigationController.m; sourceTree = "<group>"; };
+		B350C055249070F40026368F /* ZBFoundPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBFoundPasswordController.h; sourceTree = "<group>"; };
+		B350C056249070F40026368F /* ZBFoundPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBFoundPasswordController.m; sourceTree = "<group>"; };
+		B350C057249070F40026368F /* ZBFoundPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBFoundPasswordController.xib; sourceTree = "<group>"; };
+		B350C05C249070F40026368F /* ZBLoginMainNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBLoginMainNavVC.h; sourceTree = "<group>"; };
+		B350C05D249070F40026368F /* ZBloginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBloginViewController.m; sourceTree = "<group>"; };
+		B350C05E249070F40026368F /* ZBLoginMainNavVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBLoginMainNavVC.xib; sourceTree = "<group>"; };
+		B350C05F249070F40026368F /* ZBLoginMainNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBLoginMainNavVC.m; sourceTree = "<group>"; };
+		B350C060249070F40026368F /* ZBloginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBloginViewController.xib; sourceTree = "<group>"; };
+		B350C061249070F40026368F /* ZBloginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBloginViewController.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B350BF95249070D30026368F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B350BF8F249070D30026368F = {
+			isa = PBXGroup;
+			children = (
+				B350BF9A249070D30026368F /* quotainXM */,
+				B350BF99249070D30026368F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B350BF99249070D30026368F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B350BF98249070D30026368F /* quotainXM.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B350BF9A249070D30026368F /* quotainXM */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFB4249070F40026368F /* Classes */,
+				B350BF9B249070D30026368F /* AppDelegate.h */,
+				B350BF9C249070D30026368F /* AppDelegate.m */,
+				B350BFA1249070D30026368F /* ViewController.h */,
+				B350BFA2249070D30026368F /* ViewController.m */,
+				B350BFA4249070D30026368F /* Main.storyboard */,
+				B350BFA7249070D50026368F /* Assets.xcassets */,
+				B350BFA9249070D50026368F /* LaunchScreen.storyboard */,
+				B350BFAC249070D50026368F /* Info.plist */,
+				B350BFAD249070D50026368F /* main.m */,
+			);
+			path = quotainXM;
+			sourceTree = "<group>";
+		};
+		B350BFB4249070F40026368F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFB5249070F40026368F /* Quotation */,
+				B350BFC1249070F40026368F /* Home */,
+				B350BFC5249070F40026368F /* Information */,
+				B350BFDD249070F40026368F /* Calendar */,
+				B350BFE9249070F40026368F /* Follow */,
+				B350BFF0249070F40026368F /* Discovery */,
+				B350C000249070F40026368F /* Details */,
+				B350C00D249070F40026368F /* Register */,
+				B350C014249070F40026368F /* signInCenter */,
+				B350C01B249070F40026368F /* Personal Center */,
+				B350C024249070F40026368F /* ResetPassword */,
+				B350C02B249070F40026368F /* Mine */,
+				B350C02F249070F40026368F /* Industry */,
+				B350C03B249070F40026368F /* Newsletter */,
+				B350C049249070F40026368F /* main */,
+				B350C053249070F40026368F /* FoundPassword */,
+				B350C05A249070F40026368F /* Login */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B350BFB5249070F40026368F /* Quotation */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFB6249070F40026368F /* Controller */,
+				B350BFBD249070F40026368F /* Model */,
+				B350BFC0249070F40026368F /* View */,
+			);
+			path = Quotation;
+			sourceTree = "<group>";
+		};
+		B350BFB6249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFB7249070F40026368F /* ZBQuotationViewController.h */,
+				B350BFB8249070F40026368F /* ZBQuotationTableViewCell.h */,
+				B350BFB9249070F40026368F /* ZBQuotationTableViewCell.xib */,
+				B350BFBA249070F40026368F /* ZBQuotationViewController.xib */,
+				B350BFBB249070F40026368F /* ZBQuotationTableViewCell.m */,
+				B350BFBC249070F40026368F /* ZBQuotationViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350BFBD249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFBE249070F40026368F /* ZBQuotationModal.h */,
+				B350BFBF249070F40026368F /* ZBQuotationModal.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350BFC0249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350BFC1249070F40026368F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFC2249070F40026368F /* Controller */,
+				B350BFC3249070F40026368F /* Model */,
+				B350BFC4249070F40026368F /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B350BFC2249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350BFC3249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350BFC4249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350BFC5249070F40026368F /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFC6249070F40026368F /* Controller */,
+				B350BFCA249070F40026368F /* Model */,
+				B350BFCB249070F40026368F /* View */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		B350BFC6249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFC7249070F40026368F /* ZBInformationViewController.m */,
+				B350BFC8249070F40026368F /* ZBInformationViewController.xib */,
+				B350BFC9249070F40026368F /* ZBInformationViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350BFCA249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350BFCB249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFCC249070F40026368F /* ZBInfoFooderReusableView.xib */,
+				B350BFCD249070F40026368F /* ZBInfoCollectionViewCell.m */,
+				B350BFCE249070F40026368F /* ZBInfoHeaderReusableView.h */,
+				B350BFCF249070F40026368F /* ZBInfoCollectionView.m */,
+				B350BFD0249070F40026368F /* ZBInfoHeaderReusableView.xib */,
+				B350BFD1249070F40026368F /* ZBTopTableViewCell.m */,
+				B350BFD2249070F40026368F /* ZBTopTableViewCell.xib */,
+				B350BFD3249070F40026368F /* ZBBottomTableViewCell.m */,
+				B350BFD4249070F40026368F /* ZBInfoCollectionViewCell.xib */,
+				B350BFD5249070F40026368F /* ZBInfoFooderReusableView.m */,
+				B350BFD6249070F40026368F /* ZBInfoCollectionViewCell.h */,
+				B350BFD7249070F40026368F /* ZBInfoCollectionView.h */,
+				B350BFD8249070F40026368F /* ZBInfoHeaderReusableView.m */,
+				B350BFD9249070F40026368F /* ZBBottomTableViewCell.xib */,
+				B350BFDA249070F40026368F /* ZBBottomTableViewCell.h */,
+				B350BFDB249070F40026368F /* ZBTopTableViewCell.h */,
+				B350BFDC249070F40026368F /* ZBInfoFooderReusableView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350BFDD249070F40026368F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFDE249070F40026368F /* Controller */,
+				B350BFE5249070F40026368F /* Model */,
+				B350BFE6249070F40026368F /* View */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		B350BFDE249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFDF249070F40026368F /* ZBCalendarTableViewCell.h */,
+				B350BFE0249070F40026368F /* ZBCalendarViewController.h */,
+				B350BFE1249070F40026368F /* ZBCalendarTableViewCell.xib */,
+				B350BFE2249070F40026368F /* ZBCalendarViewController.xib */,
+				B350BFE3249070F40026368F /* ZBCalendarTableViewCell.m */,
+				B350BFE4249070F40026368F /* ZBCalendarViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350BFE5249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350BFE6249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFE7249070F40026368F /* ZBCalendarHeaderView.m */,
+				B350BFE8249070F40026368F /* ZBCalendarHeaderView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350BFE9249070F40026368F /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFEA249070F40026368F /* Controller */,
+				B350BFEE249070F40026368F /* Model */,
+				B350BFEF249070F40026368F /* View */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		B350BFEA249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFEB249070F40026368F /* ZBFollowViewController.m */,
+				B350BFEC249070F40026368F /* ZBFollowViewController.xib */,
+				B350BFED249070F40026368F /* ZBFollowViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350BFEE249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350BFEF249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350BFF0249070F40026368F /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFF1249070F40026368F /* Controller */,
+				B350BFF8249070F40026368F /* Model */,
+				B350BFF9249070F40026368F /* View */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		B350BFF1249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFF2249070F40026368F /* HNPDiscoveryViewC.m */,
+				B350BFF3249070F40026368F /* ZBDiscoverMainVC.m */,
+				B350BFF4249070F40026368F /* ZBDiscoverMainVC.xib */,
+				B350BFF5249070F40026368F /* HNPDiscoveryViewC.h */,
+				B350BFF6249070F40026368F /* ZBDiscoverMainVC.h */,
+				B350BFF7249070F40026368F /* HNPDiscoveryViewC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350BFF8249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350BFF9249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B350BFFA249070F40026368F /* HNPDynamicCell.m */,
+				B350BFFB249070F40026368F /* HNPDynamicCell.xib */,
+				B350BFFC249070F40026368F /* HNPPushCell.h */,
+				B350BFFD249070F40026368F /* HNPDynamicCell.h */,
+				B350BFFE249070F40026368F /* HNPPushCell.xib */,
+				B350BFFF249070F40026368F /* HNPPushCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C000249070F40026368F /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				B350C001249070F40026368F /* Controller */,
+				B350C005249070F40026368F /* View */,
+				B350C00C249070F40026368F /* Modle */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		B350C001249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C002249070F40026368F /* HNPDetailsVC.xib */,
+				B350C003249070F40026368F /* HNPDetailsVC.m */,
+				B350C004249070F40026368F /* HNPDetailsVC.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C005249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B350C006249070F40026368F /* HNPDetailsCell.xib */,
+				B350C007249070F40026368F /* HNPDetailsCell.m */,
+				B350C008249070F40026368F /* HNPCommentCell.m */,
+				B350C009249070F40026368F /* HNPCommentCell.xib */,
+				B350C00A249070F40026368F /* HNPCommentCell.h */,
+				B350C00B249070F40026368F /* HNPDetailsCell.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C00C249070F40026368F /* Modle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modle;
+			sourceTree = "<group>";
+		};
+		B350C00D249070F40026368F /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B350C00E249070F40026368F /* Controller */,
+				B350C012249070F40026368F /* Model */,
+				B350C013249070F40026368F /* View */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		B350C00E249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C00F249070F40026368F /* ZBRegisterViewController.m */,
+				B350C010249070F40026368F /* ZBRegisterViewController.xib */,
+				B350C011249070F40026368F /* ZBRegisterViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C012249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350C013249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C014249070F40026368F /* signInCenter */ = {
+			isa = PBXGroup;
+			children = (
+				B350C015249070F40026368F /* Controller */,
+				B350C019249070F40026368F /* Model */,
+				B350C01A249070F40026368F /* View */,
+			);
+			path = signInCenter;
+			sourceTree = "<group>";
+		};
+		B350C015249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C016249070F40026368F /* ZBSignInViewController.m */,
+				B350C017249070F40026368F /* ZBSignInViewController.xib */,
+				B350C018249070F40026368F /* ZBSignInViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C019249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350C01A249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C01B249070F40026368F /* Personal Center */ = {
+			isa = PBXGroup;
+			children = (
+				B350C01C249070F40026368F /* Controller */,
+				B350C01F249070F40026368F /* Model */,
+				B350C020249070F40026368F /* View */,
+			);
+			path = "Personal Center";
+			sourceTree = "<group>";
+		};
+		B350C01C249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C01D249070F40026368F /* HNPPersonVC.m */,
+				B350C01E249070F40026368F /* HNPPersonVC.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C01F249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350C020249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B350C021249070F40026368F /* HNPPersonView.m */,
+				B350C022249070F40026368F /* HNPPersonView.h */,
+				B350C023249070F40026368F /* HNPPersonView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C024249070F40026368F /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				B350C025249070F40026368F /* Controller */,
+				B350C029249070F40026368F /* Model */,
+				B350C02A249070F40026368F /* View */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		B350C025249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C026249070F40026368F /* ZBResetPasswordController.xib */,
+				B350C027249070F40026368F /* ZBResetPasswordController.m */,
+				B350C028249070F40026368F /* ZBResetPasswordController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C029249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350C02A249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C02B249070F40026368F /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				B350C02C249070F40026368F /* ZBMineViewController.m */,
+				B350C02D249070F40026368F /* ZBMineViewController.xib */,
+				B350C02E249070F40026368F /* ZBMineViewController.h */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		B350C02F249070F40026368F /* Industry */ = {
+			isa = PBXGroup;
+			children = (
+				B350C030249070F40026368F /* Controller */,
+				B350C037249070F40026368F /* Model */,
+				B350C03A249070F40026368F /* View */,
+			);
+			path = Industry;
+			sourceTree = "<group>";
+		};
+		B350C030249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C031249070F40026368F /* ZBIndustryTableViewCell.m */,
+				B350C032249070F40026368F /* ZBIndustryTableViewCell.xib */,
+				B350C033249070F40026368F /* ZBIndustryViewController.h */,
+				B350C034249070F40026368F /* ZBIndustryViewController.xib */,
+				B350C035249070F40026368F /* ZBIndustryTableViewCell.h */,
+				B350C036249070F40026368F /* ZBIndustryViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C037249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B350C038249070F40026368F /* ZBIndustryMode.h */,
+				B350C039249070F40026368F /* ZBIndustryMode.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350C03A249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C03B249070F40026368F /* Newsletter */ = {
+			isa = PBXGroup;
+			children = (
+				B350C03C249070F40026368F /* Controller */,
+				B350C040249070F40026368F /* Model */,
+				B350C043249070F40026368F /* View */,
+			);
+			path = Newsletter;
+			sourceTree = "<group>";
+		};
+		B350C03C249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C03D249070F40026368F /* HNPNewsletterViewController.xib */,
+				B350C03E249070F40026368F /* HNPNewsletterViewController.m */,
+				B350C03F249070F40026368F /* HNPNewsletterViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C040249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B350C041249070F40026368F /* HNPNewSletterModle.m */,
+				B350C042249070F40026368F /* HNPNewSletterModle.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350C043249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B350C044249070F40026368F /* ZBNewSletterHeaderView.m */,
+				B350C045249070F40026368F /* HNPNewSletterCell.xib */,
+				B350C046249070F40026368F /* HNPNewSletterCell.h */,
+				B350C047249070F40026368F /* ZBNewSletterHeaderView.h */,
+				B350C048249070F40026368F /* HNPNewSletterCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C049249070F40026368F /* main */ = {
+			isa = PBXGroup;
+			children = (
+				B350C04A249070F40026368F /* Controller */,
+				B350C051249070F40026368F /* Model */,
+				B350C052249070F40026368F /* View */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		B350C04A249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C04B249070F40026368F /* ZBMainViewController.h */,
+				B350C04C249070F40026368F /* ZBNavigationController.h */,
+				B350C04D249070F40026368F /* ZBMainViewController.xib */,
+				B350C04E249070F40026368F /* ZBMainViewController.m */,
+				B350C04F249070F40026368F /* ZBNavigationController.xib */,
+				B350C050249070F40026368F /* ZBNavigationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C051249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350C052249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C053249070F40026368F /* FoundPassword */ = {
+			isa = PBXGroup;
+			children = (
+				B350C054249070F40026368F /* Controller */,
+				B350C058249070F40026368F /* Model */,
+				B350C059249070F40026368F /* View */,
+			);
+			path = FoundPassword;
+			sourceTree = "<group>";
+		};
+		B350C054249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C055249070F40026368F /* ZBFoundPasswordController.h */,
+				B350C056249070F40026368F /* ZBFoundPasswordController.m */,
+				B350C057249070F40026368F /* ZBFoundPasswordController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C058249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350C059249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B350C05A249070F40026368F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B350C05B249070F40026368F /* Controller */,
+				B350C062249070F40026368F /* Model */,
+				B350C063249070F40026368F /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B350C05B249070F40026368F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C05C249070F40026368F /* ZBLoginMainNavVC.h */,
+				B350C05D249070F40026368F /* ZBloginViewController.m */,
+				B350C05E249070F40026368F /* ZBLoginMainNavVC.xib */,
+				B350C05F249070F40026368F /* ZBLoginMainNavVC.m */,
+				B350C060249070F40026368F /* ZBloginViewController.xib */,
+				B350C061249070F40026368F /* ZBloginViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B350C062249070F40026368F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B350C063249070F40026368F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B350BF97249070D30026368F /* quotainXM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B350BFB1249070D50026368F /* Build configuration list for PBXNativeTarget "quotainXM" */;
+			buildPhases = (
+				B350BF94249070D30026368F /* Sources */,
+				B350BF95249070D30026368F /* Frameworks */,
+				B350BF96249070D30026368F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = quotainXM;
+			productName = quotainXM;
+			productReference = B350BF98249070D30026368F /* quotainXM.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B350BF90249070D30026368F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "朱彬";
+				TargetAttributes = {
+					B350BF97249070D30026368F = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = B350BF93249070D30026368F /* Build configuration list for PBXProject "quotainXM" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B350BF8F249070D30026368F;
+			productRefGroup = B350BF99249070D30026368F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B350BF97249070D30026368F /* quotainXM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B350BF96249070D30026368F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B350C083249070F40026368F /* HNPPushCell.xib in Resources */,
+				B350C064249070F40026368F /* ZBQuotationTableViewCell.xib in Resources */,
+				B350C098249070F40026368F /* ZBIndustryViewController.xib in Resources */,
+				B350C091249070F40026368F /* HNPPersonView.xib in Resources */,
+				B350C09B249070F40026368F /* HNPNewsletterViewController.xib in Resources */,
+				B350C06A249070F40026368F /* ZBInformationViewController.xib in Resources */,
+				B350C08C249070F40026368F /* ZBRegisterViewController.xib in Resources */,
+				B350C080249070F40026368F /* HNPDiscoveryViewC.xib in Resources */,
+				B350C0A1249070F40026368F /* ZBMainViewController.xib in Resources */,
+				B350C08E249070F40026368F /* ZBSignInViewController.xib in Resources */,
+				B350C097249070F40026368F /* ZBIndustryTableViewCell.xib in Resources */,
+				B350C095249070F40026368F /* ZBMineViewController.xib in Resources */,
+				B350BFAB249070D50026368F /* LaunchScreen.storyboard in Resources */,
+				B350C0A8249070F40026368F /* ZBLoginMainNavVC.xib in Resources */,
+				B350C065249070F40026368F /* ZBQuotationViewController.xib in Resources */,
+				B350C07F249070F40026368F /* ZBDiscoverMainVC.xib in Resources */,
+				B350C070249070F40026368F /* ZBTopTableViewCell.xib in Resources */,
+				B350C075249070F40026368F /* ZBBottomTableViewCell.xib in Resources */,
+				B350C0AA249070F40026368F /* ZBloginViewController.xib in Resources */,
+				B350C08A249070F40026368F /* HNPCommentCell.xib in Resources */,
+				B350C06E249070F40026368F /* ZBInfoHeaderReusableView.xib in Resources */,
+				B350C092249070F40026368F /* ZBResetPasswordController.xib in Resources */,
+				B350C072249070F40026368F /* ZBInfoCollectionViewCell.xib in Resources */,
+				B350BFA8249070D50026368F /* Assets.xcassets in Resources */,
+				B350C09F249070F40026368F /* HNPNewSletterCell.xib in Resources */,
+				B350C076249070F40026368F /* ZBCalendarTableViewCell.xib in Resources */,
+				B350BFA6249070D30026368F /* Main.storyboard in Resources */,
+				B350C06B249070F40026368F /* ZBInfoFooderReusableView.xib in Resources */,
+				B350C087249070F40026368F /* HNPDetailsCell.xib in Resources */,
+				B350C0A3249070F40026368F /* ZBNavigationController.xib in Resources */,
+				B350C082249070F40026368F /* HNPDynamicCell.xib in Resources */,
+				B350C085249070F40026368F /* HNPDetailsVC.xib in Resources */,
+				B350C077249070F40026368F /* ZBCalendarViewController.xib in Resources */,
+				B350C07C249070F40026368F /* ZBFollowViewController.xib in Resources */,
+				B350C0A6249070F40026368F /* ZBFoundPasswordController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B350BF94249070D30026368F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B350BFA3249070D30026368F /* ViewController.m in Sources */,
+				B350C073249070F40026368F /* ZBInfoFooderReusableView.m in Sources */,
+				B350C09E249070F40026368F /* ZBNewSletterHeaderView.m in Sources */,
+				B350C06C249070F40026368F /* ZBInfoCollectionViewCell.m in Sources */,
+				B350C08B249070F40026368F /* ZBRegisterViewController.m in Sources */,
+				B350C07A249070F40026368F /* ZBCalendarHeaderView.m in Sources */,
+				B350C09C249070F40026368F /* HNPNewsletterViewController.m in Sources */,
+				B350C071249070F40026368F /* ZBBottomTableViewCell.m in Sources */,
+				B350C08D249070F40026368F /* ZBSignInViewController.m in Sources */,
+				B350C069249070F40026368F /* ZBInformationViewController.m in Sources */,
+				B350C089249070F40026368F /* HNPCommentCell.m in Sources */,
+				B350C094249070F40026368F /* ZBMineViewController.m in Sources */,
+				B350C099249070F40026368F /* ZBIndustryViewController.m in Sources */,
+				B350C07D249070F40026368F /* HNPDiscoveryViewC.m in Sources */,
+				B350BF9D249070D30026368F /* AppDelegate.m in Sources */,
+				B350C090249070F40026368F /* HNPPersonView.m in Sources */,
+				B350BFAE249070D50026368F /* main.m in Sources */,
+				B350C067249070F40026368F /* ZBQuotationViewController.m in Sources */,
+				B350C07E249070F40026368F /* ZBDiscoverMainVC.m in Sources */,
+				B350C0A5249070F40026368F /* ZBFoundPasswordController.m in Sources */,
+				B350C0A0249070F40026368F /* HNPNewSletterCell.m in Sources */,
+				B350C08F249070F40026368F /* HNPPersonVC.m in Sources */,
+				B350C09D249070F40026368F /* HNPNewSletterModle.m in Sources */,
+				B350C093249070F40026368F /* ZBResetPasswordController.m in Sources */,
+				B350C07B249070F40026368F /* ZBFollowViewController.m in Sources */,
+				B350C066249070F40026368F /* ZBQuotationTableViewCell.m in Sources */,
+				B350C096249070F40026368F /* ZBIndustryTableViewCell.m in Sources */,
+				B350C081249070F40026368F /* HNPDynamicCell.m in Sources */,
+				B350C079249070F40026368F /* ZBCalendarViewController.m in Sources */,
+				B350C084249070F40026368F /* HNPPushCell.m in Sources */,
+				B350C086249070F40026368F /* HNPDetailsVC.m in Sources */,
+				B350C078249070F40026368F /* ZBCalendarTableViewCell.m in Sources */,
+				B350C0A2249070F40026368F /* ZBMainViewController.m in Sources */,
+				B350C09A249070F40026368F /* ZBIndustryMode.m in Sources */,
+				B350C06D249070F40026368F /* ZBInfoCollectionView.m in Sources */,
+				B350C0A4249070F40026368F /* ZBNavigationController.m in Sources */,
+				B350C06F249070F40026368F /* ZBTopTableViewCell.m in Sources */,
+				B350C074249070F40026368F /* ZBInfoHeaderReusableView.m in Sources */,
+				B350C068249070F40026368F /* ZBQuotationModal.m in Sources */,
+				B350C0A9249070F40026368F /* ZBLoginMainNavVC.m in Sources */,
+				B350C0A7249070F40026368F /* ZBloginViewController.m in Sources */,
+				B350C088249070F40026368F /* HNPDetailsCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B350BFA4249070D30026368F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B350BFA5249070D30026368F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B350BFA9249070D50026368F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B350BFAA249070D50026368F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B350BFAF249070D50026368F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B350BFB0249070D50026368F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B350BFB2249070D50026368F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = quotainXM/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = scrb.quotainXM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B350BFB3249070D50026368F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = quotainXM/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = scrb.quotainXM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B350BF93249070D30026368F /* Build configuration list for PBXProject "quotainXM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B350BFAF249070D50026368F /* Debug */,
+				B350BFB0249070D50026368F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B350BFB1249070D50026368F /* Build configuration list for PBXNativeTarget "quotainXM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B350BFB2249070D50026368F /* Debug */,
+				B350BFB3249070D50026368F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B350BF90249070D30026368F /* Project object */;
+}
