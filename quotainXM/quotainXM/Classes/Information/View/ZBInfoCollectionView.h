@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBInfoCollectionView : UIView
 
--(instancetype)initWithW:(NSInteger )colW;
+-(instancetype)initWithW:(CGFloat )colW;
 
 @end
 

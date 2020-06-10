@@ -27,7 +27,7 @@ static NSString *ID = @"InfoCollectionCell";
 static NSString *header_ID = @"InfoHeaderReusableView";
 static NSString *fooder_ID = @"InfoFooderReusableView";
 
--(instancetype)initWithW:(NSInteger )colW{
+-(instancetype)initWithW:(CGFloat )colW{
 
     self = [super init];
     if (self) {
@@ -52,11 +52,13 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
             flowL.footerReferenceSize = CGSizeMake(colW, 160);
 
             UICollectionView *colView = [[UICollectionView alloc] initWithFrame:temp collectionViewLayout:flowL];
+        colView.userInteractionEnabled = YES;
         //    colView.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
         //    colView.backgroundColor = [UIColor redColor];
             colView.backgroundColor = [UIColor grayColor];
             [self addSubview:colView];
         //        colView.frame = temp;
+        self.userInteractionEnabled = YES;
             colView.backgroundColor = [UIColor clearColor];
             colView.dataSource = self;
             colView.delegate = self;
@@ -78,6 +80,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 //    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     ZBInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    cell.userInteractionEnabled = YES;
     return cell;
 }
 
@@ -93,6 +96,9 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
        }
     return 0;
     
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"asd");
 }
 
 @end

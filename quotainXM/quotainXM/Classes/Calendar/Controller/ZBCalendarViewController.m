@@ -20,8 +20,8 @@ static  NSString  *ID = @"calendar";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     UITableView *tableView = [[UITableView alloc] init];
-    CGRect temp = [UIScreen mainScreen].bounds;
-       temp.origin = CGPointMake(0, 65);
+    CGRect temp = CGRectMake(0, 0, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
+    temp.origin = CGPointMake(0, [UIApplication sharedApplication].statusBarFrame.size.height +44);
        tableView.frame = temp;
     [self.view addSubview:tableView];
     tableView.dataSource = self;
@@ -42,7 +42,7 @@ static  NSString  *ID = @"calendar";
     return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 150;
+    return 100;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 20;

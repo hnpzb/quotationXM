@@ -60,21 +60,26 @@
         
         [self addChildViewController:nav];
     }
-    
+
     UIViewController *vc = self.childViewControllers[0];
-    vc.view.frame = [UIScreen mainScreen].bounds;
+    CGRect temp = self.mainV.bounds;
+//    temp.size = CGSizeMake([UIScreen mainScreen].bounds.size.width, 400);
+    vc.view.frame =temp;
+//    NSLog(@"%@",[UIScreen mainScreen].bounds);
     [self addTopView:vc.view];
     
     [self.mainV addSubview:vc.view];
+    NSLog(@"%lf",self.view.safeAreaInsets.top);
     
     
 }
 -(void)addTopView:(UIView *)view{
     
 //    UITapGestureRecognizer *top = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuClick:)];
+//    view.frame = [UIScreen mainScreen].bounds;
     CGFloat vc_X = view.frame.origin.x;
     CGFloat vc_Y = view.frame.origin.y;
-    CGFloat vc_W_old = view.frame.size.width;
+    CGFloat vc_W_old = [UIScreen mainScreen].bounds.size.width;
     CGFloat vc_H = view.frame.size.height;
     CGFloat vc_w_new = vc_W_old;
     self.vc_X = vc_X;
@@ -83,8 +88,15 @@
     self.vc_H = vc_H;
     self.vc_W_new = vc_w_new;
     
-    CGRect temp = CGRectMake(vc_X, vc_Y , vc_w_new, vc_H );
-    self.baiVC = [[UIView alloc] initWithFrame:CGRectMake(0, 40, vc_w_new, 44)];
+
+    self.baiVC = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height, vc_w_new, 44)];
+//    _baiVC.backgroundColor = [UIColor redColor];
+//    [self.baiVC mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.mainV.mas_left);
+//        make.top.equalTo(self).multipliedBy(0).offset(44);
+//        make.bottom.equalTo(self.mainV.bottomAnchor).multipliedBy(0).offset(44);
+//        make.right.equalTo(self.mainV.mas_right);
+//    }];
 //    self.baiVC.backgroundColor = [UIColor clearColor];
     
     UIButton *btn_if = [[UIButton alloc] init];
@@ -129,7 +141,6 @@
     
     [view addSubview:self.baiVC];
     
-    view.frame = temp;
     
     
     
@@ -174,7 +185,7 @@
     [preVC.view removeFromSuperview];
  
     UIViewController *curVC = self.childViewControllers[btn.tag - 1000];
-    curVC.view.frame = [UIScreen mainScreen].bounds;
+    curVC.view.frame = self.mainV.bounds;
     [curVC.view addSubview:self.baiVC];
     [self.mainV addSubview:curVC.view];
 }

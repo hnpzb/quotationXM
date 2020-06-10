@@ -13,6 +13,7 @@
 #import "ZBTopTableViewCell.h"
 #import "ZBBottomTableViewCell.h"
 #import "ZBMineViewController.h"
+#import "ZBInfoCollectionView.h"
 
 @interface ZBInformationViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -69,11 +70,15 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     
     //设置tableView
     UITableView *tableView = [[UITableView alloc] init];
-    CGRect tabTemp = CGRectMake(0,85, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height);
     tableView.frame = tabTemp;
     tableView.dataSource = self;
     tableView.delegate = self;
     [self.view addSubview:tableView];
+    
+     ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:tableView.frame.size.width];
+    tableView.tableHeaderView = view;
+    tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 500);
     
     [tableView registerNib:[UINib nibWithNibName:@"ZBTopTableViewCell" bundle:nil] forCellReuseIdentifier:top_ID];
     [tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
@@ -141,30 +146,33 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 1) {
+//    if (section == 1) {
         return 44;
-    }else{
-        return 0;
-    }
+//    }else{
+//        return 0;
+//    }
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 1;
-    }
+//    if (section == 0) {
+//        return 1;
+//    }
     return 20;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0 ) {
-        ZBTopTableViewCell *top_cell =[tableView dequeueReusableCellWithIdentifier:top_ID];
-        return top_cell;
-    }
-    else{
+//    if (indexPath.section == 0 ) {
+//        ZBTopTableViewCell *top_cell = [[ZBTopTableViewCell alloc] init];
+//        ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:tableView.frame.size.width];
+//        [top_cell addSubview:view];
+//
+//        return top_cell;
+//    }
+//    else{
         ZBBottomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bot_ID];
         return cell;
-    }
+//    }
 //      static NSString *test_ID = @"information";
 //      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:test_ID];
 //      if (cell == nil) {
@@ -174,17 +182,20 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 //      return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        return 500;
-    }
+//    if (indexPath.section == 0) {
+//        return 500;
+//    }
     return 150;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZBMineViewController *mineVC = [[ZBMineViewController alloc] init];
-    [self.navigationController pushViewController:mineVC animated:YES];
-    
+    NSLog(@"12345");
 }
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    ZBMineViewController *mineVC = [[ZBMineViewController alloc] init];
+//    [self.navigationController pushViewController:mineVC animated:YES];
+//    
+//}
 //- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
 //    return 44;
 //}

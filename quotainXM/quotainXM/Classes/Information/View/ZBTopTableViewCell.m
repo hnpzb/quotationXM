@@ -11,11 +11,15 @@
 
 @implementation ZBTopTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib{
     [super awakeFromNib];
     // Initialization code
-    ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:self.frame.size.width];
-    [self addSubview:view];
+//    ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:[UIScreen mainScreen].bounds.size.width];
+////    ZBInfoCollectionView *view = [[NSBundle mainBundle] loadNibNamed:@"ZBInfoCollectionView" owner:nil options:nil].lastObject;
+//    [self addSubview:view];
+//    ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:[UIScreen mainScreen].bounds.size.width];
+//           //    ZBInfoCollectionView *view = [[NSBundle mainBundle] loadNibNamed:@"ZBInfoCollectionView" owner:nil options:nil].lastObject;
+//               [self addSubview:view];
     
 }
 
