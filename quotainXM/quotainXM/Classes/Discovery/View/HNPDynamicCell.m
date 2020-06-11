@@ -7,13 +7,38 @@
 //
 
 #import "HNPDynamicCell.h"
+#import "HNPDetailsVC.h"
+
+@interface HNPDynamicCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *DynamicImageView;
+
+
+@end
 
 @implementation HNPDynamicCell
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    self.DynamicImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchImageView)];
+    [self.DynamicImageView addGestureRecognizer:tapGes];
+    
+    
+    
+    
 }
+
+-(void)touchImageView
+{
+    if ([self.delegate respondsToSelector:@selector(dynamicCellDidImageClick:)]) {
+        [self.delegate dynamicCellDidImageClick:self];
+    }
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -25,5 +50,7 @@
 {
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
+
+
 
 @end

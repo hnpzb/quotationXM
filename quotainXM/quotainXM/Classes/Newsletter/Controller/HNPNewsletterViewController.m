@@ -30,6 +30,7 @@ static NSString *ID = @"NewSletterID";
   
     tableView.dataSource = self;
     tableView.delegate = self;
+
     //注册cell加载xib
     [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
     
@@ -51,6 +52,7 @@ static NSString *ID = @"NewSletterID";
 {
     
     HNPNewSletterCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (cell == nil) {
         cell = [HNPNewSletterCell NewSletterXib];
         

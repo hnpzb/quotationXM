@@ -13,6 +13,8 @@
 #import "ZBFollowViewController.h"
 #import "ZBNavigationController.h"
 
+#import "HNPDetailsVC.h"
+
 @interface ZBDiscoverMainVC ()
 @property (strong, nonatomic) IBOutlet UIView *mainV;
 

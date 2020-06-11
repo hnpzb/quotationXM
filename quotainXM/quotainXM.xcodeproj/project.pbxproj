@@ -269,6 +269,30 @@
 				2043A1A5674EA90FB78ABAAB /* Pods-quotainXM.release.xcconfig */,
 			);
 			path = Pods;
+            sourceTree = "<group>";
+        };
+		1143F0002491D8E2006CD5F1 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1143F0012491D8E2006CD5F1 /* Category(fenlei) */,
+				1143F0022491D8E2006CD5F1 /* Lib */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		1143F0012491D8E2006CD5F1 /* Category(fenlei) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Category(fenlei)";
+			sourceTree = "<group>";
+		};
+		1143F0022491D8E2006CD5F1 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				B350C2BD2490A1790026368F /* Masonry */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 		114C5BA324907BEF00090FC4 /* Controller */ = {
@@ -317,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				B350BFB4249070F40026368F /* Classes */,
+				1143F0002491D8E2006CD5F1 /* Other */,
 				B350BF9B249070D30026368F /* AppDelegate.h */,
 				B350BF9C249070D30026368F /* AppDelegate.m */,
 				B350BFA1249070D30026368F /* ViewController.h */,
@@ -333,7 +358,6 @@
 		B350BFB4249070F40026368F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B350C2BD2490A1790026368F /* Masonry */,
 				B350BFB5249070F40026368F /* Quotation */,
 				B350BFC1249070F40026368F /* Home */,
 				B350BFC5249070F40026368F /* Information */,
@@ -582,10 +606,10 @@
 		B350BFF9249070F40026368F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B350BFFC249070F40026368F /* HNPPushCell.h */,
+				B350BFFD249070F40026368F /* HNPDynamicCell.h */,
 				B350BFFA249070F40026368F /* HNPDynamicCell.m */,
 				B350BFFB249070F40026368F /* HNPDynamicCell.xib */,
-				B350BFFD249070F40026368F /* HNPDynamicCell.h */,
+				B350BFFC249070F40026368F /* HNPPushCell.h */,
 				B350BFFF249070F40026368F /* HNPPushCell.m */,
 				B350BFFE249070F40026368F /* HNPPushCell.xib */,
 			);
@@ -1332,7 +1356,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = quotainXM/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1350,7 +1374,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = quotainXM/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

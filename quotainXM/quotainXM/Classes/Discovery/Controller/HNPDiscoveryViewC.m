@@ -12,7 +12,7 @@
 #import "ZBFollowViewController.h"
 #import "HNPDetailsVC.h"
 
-@interface HNPDiscoveryViewC ()<UITableViewDelegate,UITableViewDataSource>
+@interface HNPDiscoveryViewC ()<UITableViewDelegate,UITableViewDataSource,HNPDynamicCellDelegate>
 
 @property(nonatomic,strong)UIView *baiVC;
 @property(nonatomic,strong)UIButton *preSelectBtn;
@@ -179,6 +179,7 @@ static NSString *IDTwo = @"DynamicCellID";
 {
     return 2;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -187,6 +188,7 @@ static NSString *IDTwo = @"DynamicCellID";
         return 10;
     }
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //通过判断加载两个xib
@@ -194,20 +196,25 @@ static NSString *IDTwo = @"DynamicCellID";
             HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
             //cell的选中样式
             pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        NSLog(@"%zd-%p",indexPath.row,pushCell);
-
+            //NSLog(@"%zd-%p",indexPath.row,pushCell);
             return pushCell;
         } else {
             HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
             DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        NSLog(@"%zd-%p",indexPath.row,DynamicCell);
+            
+            DynamicCell.delegate = self;
             return DynamicCell;
         }
-  
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//}
+
+
+//自定义一个代理进行跳转
+-(void)dynamicCellDidImageClick:(HNPDynamicCell *)DynamicCell
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];  //此处有位置问题
     HNPDetailsVC *VC = [[HNPDetailsVC alloc] init];
     [self.navigationController pushViewController:VC animated:YES];
 }
