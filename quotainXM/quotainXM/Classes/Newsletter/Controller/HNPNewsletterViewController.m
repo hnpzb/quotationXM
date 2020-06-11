@@ -22,28 +22,17 @@ static NSString *ID = @"NewSletterID";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     UITableView *tableView = [[UITableView alloc] init];
-<<<<<<< HEAD
     CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
        temp.origin = CGPointMake(0, 80);
        tableView.frame = temp;
-=======
-    CGRect temp = self.view.bounds;
-    temp.origin = CGPointMake(0, 84);
-    tableView.frame = temp;
->>>>>>> e8e4dc19118bff75121d273af69dace6da668065
     [self.view addSubview:tableView];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
     tableView.dataSource = self;
     tableView.delegate = self;
-<<<<<<< HEAD
        [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
     tableView.estimatedRowHeight = 100;
     tableView.rowHeight = UITableViewAutomaticDimension;
-=======
-    //注册cell加载xib
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
->>>>>>> e8e4dc19118bff75121d273af69dace6da668065
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
