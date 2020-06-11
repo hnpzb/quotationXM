@@ -32,6 +32,9 @@ static NSString *ID = @"NewSletterID";
     tableView.delegate = self;
     //注册cell加载xib
     [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    
+    tableView.estimatedRowHeight = 100;
+    tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

@@ -40,6 +40,8 @@ static NSString *IDTwo = @"DynamicCellID";
     [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
     [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
     self.baiVC.backgroundColor = [UIColor whiteColor];
+    tableview.estimatedRowHeight = 100;
+    tableview.rowHeight = UITableViewAutomaticDimension;
 //    [self addTopView:self.mainV];
 //    [self addChildVC];
     
