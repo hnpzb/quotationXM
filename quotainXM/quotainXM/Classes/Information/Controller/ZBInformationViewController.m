@@ -14,10 +14,13 @@
 #import "ZBBottomTableViewCell.h"
 #import "ZBMineViewController.h"
 #import "ZBInfoCollectionView.h"
+#import <AFNetworking.h>
 
 @interface ZBInformationViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,assign)NSInteger heightconst;
+@property(nonatomic,strong)UITableView *tableView;
+
 
 @end
 
@@ -69,19 +72,26 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 //    [colView registerNib:[UINib nibWithNibName:@"ZBInfoFooderReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:fooder_ID];
     
     //设置tableView
-    UITableView *tableView = [[UITableView alloc] init];
     CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height);
-    tableView.frame = tabTemp;
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    [self.view addSubview:tableView];
+    _tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStylePlain];
     
-     ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:tableView.frame.size.width];
-    tableView.tableHeaderView = view;
-    tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 500);
+//    tableView.frame = tabTemp;
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.view addSubview:_tableView];
     
-    [tableView registerNib:[UINib nibWithNibName:@"ZBTopTableViewCell" bundle:nil] forCellReuseIdentifier:top_ID];
-    [tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
+     ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:_tableView.frame.size.width];
+    _tableView.tableHeaderView = view;
+    _tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 500);
+    
+    [_tableView registerNib:[UINib nibWithNibName:@"ZBTopTableViewCell" bundle:nil] forCellReuseIdentifier:top_ID];
+    [_tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
+    
+    //获取网络数据
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.yysc.online/apidocs/index.html"]];
+
+    
 //    [colView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
 //    UITableView *tableView = [[UITableView alloc] init];
 //    tableView.dataSource = self;
@@ -94,7 +104,11 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 //    tableView.frame = temp;
 //    tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear");
+}
 
 //- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
 //    return 1;
@@ -130,7 +144,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 //}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    view.backgroundColor = [UIColor whiteColor];
+    view.backgroundColor = [UIColor greenColor];
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.image = [UIImage imageNamed:@"icon_hot"];
     imageView.frame = CGRectMake(20, 20, 13, 15);

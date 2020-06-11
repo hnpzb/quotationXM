@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */; };
 		114C5BAA2490E68600090FC4 /* HNPPersonVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114C5BA92490E68600090FC4 /* HNPPersonVC.xib */; };
+		4F8A213B2D09C1CE2FA863E1 /* libPods-quotainXM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */; };
 		B350BF9D249070D30026368F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BF9C249070D30026368F /* AppDelegate.m */; };
 		B350BFA3249070D30026368F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFA2249070D30026368F /* ViewController.m */; };
 		B350BFA6249070D30026368F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350BFA4249070D30026368F /* Main.storyboard */; };
@@ -101,6 +102,8 @@
 		114C5BA62490C3FD00090FC4 /* HNPNewSletterHerderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterHerderView.h; sourceTree = "<group>"; };
 		114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterHerderView.m; sourceTree = "<group>"; };
 		114C5BA92490E68600090FC4 /* HNPPersonVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPPersonVC.xib; sourceTree = "<group>"; };
+		2043A1A5674EA90FB78ABAAB /* Pods-quotainXM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotainXM.release.xcconfig"; path = "Target Support Files/Pods-quotainXM/Pods-quotainXM.release.xcconfig"; sourceTree = "<group>"; };
+		40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quotainXM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B350BF98249070D30026368F /* quotainXM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotainXM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B350BF9B249070D30026368F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B350BF9C249070D30026368F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -244,6 +247,7 @@
 		B350C2D42490A17A0026368F /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		B350C2D52490A17A0026368F /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		B350C2D62490A17A0026368F /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		D30DA71F99E669AA946171CC /* Pods-quotainXM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotainXM.debug.xcconfig"; path = "Target Support Files/Pods-quotainXM/Pods-quotainXM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,12 +255,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F8A213B2D09C1CE2FA863E1 /* libPods-quotainXM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08BCB6BD694080711143F8B0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D30DA71F99E669AA946171CC /* Pods-quotainXM.debug.xcconfig */,
+				2043A1A5674EA90FB78ABAAB /* Pods-quotainXM.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		114C5BA324907BEF00090FC4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +300,8 @@
 			children = (
 				B350BF9A249070D30026368F /* quotainXM */,
 				B350BF99249070D30026368F /* Products */,
+				08BCB6BD694080711143F8B0 /* Pods */,
+				BE3B13BA74E5EC5D37FD0DC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -352,12 +368,12 @@
 		B350BFB6249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B350BFB7249070F40026368F /* ZBQuotationViewController.h */,
 				B350BFB8249070F40026368F /* ZBQuotationTableViewCell.h */,
-				B350BFB9249070F40026368F /* ZBQuotationTableViewCell.xib */,
-				B350BFBA249070F40026368F /* ZBQuotationViewController.xib */,
 				B350BFBB249070F40026368F /* ZBQuotationTableViewCell.m */,
+				B350BFB9249070F40026368F /* ZBQuotationTableViewCell.xib */,
+				B350BFB7249070F40026368F /* ZBQuotationViewController.h */,
 				B350BFBC249070F40026368F /* ZBQuotationViewController.m */,
+				B350BFBA249070F40026368F /* ZBQuotationViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -985,6 +1001,14 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		BE3B13BA74E5EC5D37FD0DC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -992,6 +1016,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B350BFB1249070D50026368F /* Build configuration list for PBXNativeTarget "quotainXM" */;
 			buildPhases = (
+				17CD102DE1C4E2E8498A3DA9 /* [CP] Check Pods Manifest.lock */,
 				B350BF94249070D30026368F /* Sources */,
 				B350BF95249070D30026368F /* Frameworks */,
 				B350BF96249070D30026368F /* Resources */,
@@ -1083,6 +1108,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17CD102DE1C4E2E8498A3DA9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-quotainXM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B350BF94249070D30026368F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1091,7 +1141,6 @@
 				B350C2D82490A17A0026368F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				B350BFA3249070D30026368F /* ViewController.m in Sources */,
 				B350C073249070F40026368F /* ZBInfoFooderReusableView.m in Sources */,
-				B350C09E249070F40026368F /* ZBNewSletterHeaderView.m in Sources */,
 				B350C2DA2490A17A0026368F /* MASCompositeConstraint.m in Sources */,
 				B350C06C249070F40026368F /* ZBInfoCollectionViewCell.m in Sources */,
 				B350C2E02490A17A0026368F /* MASViewConstraint.m in Sources */,
@@ -1278,6 +1327,7 @@
 		};
 		B350BFB2249070D50026368F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D30DA71F99E669AA946171CC /* Pods-quotainXM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1295,6 +1345,7 @@
 		};
 		B350BFB3249070D50026368F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2043A1A5674EA90FB78ABAAB /* Pods-quotainXM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

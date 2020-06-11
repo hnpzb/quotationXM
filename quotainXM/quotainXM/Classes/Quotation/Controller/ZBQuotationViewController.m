@@ -23,7 +23,7 @@ static NSString *ID = @"quotation";
     // Do any additional setup after loading the view from its nib.
     UITableView *tableView = [[UITableView alloc] init];
     CGRect temp = self.view.bounds;
-    temp.origin = CGPointMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 88);
+    temp.origin = CGPointMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 88);
 //    temp.size = CGSizeMake(self.view.frame.size.width - 40, self.view.frame.size.height);
     tableView.frame = temp;
     [self.view addSubview:tableView];
@@ -115,7 +115,7 @@ static NSString *ID = @"quotation";
 }
 -(void)addLabelTwo:(UIView *)view index:(NSInteger)i name:(NSString *)name {
     UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake((self.view.frame.size.width / 4 )  * i,0,self.view.frame.size.width / 4,44);
+    label.frame = CGRectMake(15+(self.view.frame.size.width / 4 + 8)  * i,0,self.view.frame.size.width / 4,44);
     label.numberOfLines = 0;
     [view addSubview:label];
     label.text = name;

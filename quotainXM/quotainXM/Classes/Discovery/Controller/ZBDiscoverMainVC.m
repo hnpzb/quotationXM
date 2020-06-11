@@ -68,7 +68,7 @@
     CGFloat vc_W_old = view.frame.size.width;
     CGFloat vc_w_new = vc_W_old;
     
-    self.baiVC = [[UIView alloc] initWithFrame:CGRectMake(0, 40, vc_w_new, 44)];
+    self.baiVC = [[UIView alloc] initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, vc_w_new, 44)];
 //    self.baiVC.backgroundColor = [UIColor clearColor];
     
     UIButton *btn_if = [[UIButton alloc] init];

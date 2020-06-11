@@ -26,7 +26,8 @@ static NSString *IDTwo = @"CommentCellID";
     
     UIView *vc = [[UIView alloc] init];
     vc.backgroundColor = [UIColor whiteColor];
-    vc.frame = CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, 60);
+    vc.frame = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIScreen mainScreen].bounds.size.width, 44);
+//    vc.backgroundColor = [UIColor redColor];
     
     UIButton *btn_back = [[UIButton alloc] init];
     
@@ -42,7 +43,7 @@ static NSString *IDTwo = @"CommentCellID";
     
     [self.view addSubview:vc];
     
-    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
+    UITableView *tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
     [self.view addSubview:tableview];
     tableview.dataSource = self;
     tableview.delegate = self;
@@ -59,7 +60,7 @@ static NSString *IDTwo = @"CommentCellID";
 }
 -(void)breakDeatail:(UIButton *)btn{
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

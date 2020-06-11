@@ -31,7 +31,7 @@ static NSString *IDTwo = @"DynamicCellID";
     [super viewDidLoad];
     //在view中添加tableView
     
-    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 84, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 60) style:UITableViewStylePlain];
+    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
 
     [self.view addSubview:tableview];
     tableview.dataSource = self;
@@ -42,7 +42,7 @@ static NSString *IDTwo = @"DynamicCellID";
     self.baiVC.backgroundColor = [UIColor whiteColor];
     tableview.estimatedRowHeight = 100;
     tableview.rowHeight = UITableViewAutomaticDimension;
-
+//      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showbai:) name:@"back" object:nil];
 //    [self addTopView:self.mainV];
 //    [self addChildVC];
     

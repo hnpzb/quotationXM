@@ -25,7 +25,7 @@
 }
 
 -(void)addImageView:(NSInteger)i{
-        CGFloat margin = 10;
+        CGFloat margin = 4;
         CGFloat imageViewW = 120;
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"pic_bg_%ld",i]];

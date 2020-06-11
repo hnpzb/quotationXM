@@ -184,13 +184,16 @@
     //3.当前点击的按钮成为上一个选中状态按钮
     self.preSelectBtn = btn;
     
-    UIViewController *preVC = self.childViewControllers[self.preSelectBtn.tag - 1000];
-    [preVC.view removeFromSuperview];
+//    UIViewController *preVC = self.childViewControllers[self.preSelectBtn.tag - 1000];
+//    [preVC.view removeFromSuperview];
+    [self.childViewControllers[self.preSelectBtn.tag - 1000].view removeFromSuperview];
  
-    UIViewController *curVC = self.childViewControllers[btn.tag - 1000];
-    curVC.view.frame = self.mainV.bounds;
-    [curVC.view addSubview:self.baiVC];
-    [self.mainV addSubview:curVC.view];
+//    UIViewController *curVC = self.childViewControllers[btn.tag - 1000];
+    [self.childViewControllers[btn.tag - 1000].view addSubview:self.baiVC];
+    [self.mainV addSubview:self.childViewControllers[btn.tag - 1000].view];//    curVC.view.frame = self.mainV.bounds;
+//    curVC.view.backgroundColor = [UIColor grayColor];
+//    [curVC.view addSubview:self.baiVC];
+//    [self.mainV addSubview:curVC.view];
 }
 
 //- (void)baiView:(UIView *)baiVC curBtnIndex:(NSInteger)curIndx preBtnIndex:(NSInteger)preBtnIndex{
