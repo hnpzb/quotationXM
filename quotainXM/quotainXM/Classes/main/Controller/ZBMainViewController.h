@@ -19,8 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 //@end
 
 @interface ZBMainViewController : UIViewController
+
+//xib的view
 @property (strong, nonatomic) IBOutlet UIView *mainV;
+//自定义的view
 @property(nonatomic,strong)UIView *baiVC;
+
 //@property(nonatomic,weak)id<ZBMainViewControllerDelegate> delegate;
 
 @end

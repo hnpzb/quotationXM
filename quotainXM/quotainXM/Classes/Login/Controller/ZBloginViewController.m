@@ -30,9 +30,9 @@
 }
 - (IBAction)logonClick:(id)sender {
 //    HNPPersonVC *vc = [[HNPPersonVC alloc] init];
-    ZBSignInViewController *vc = [[ZBSignInViewController alloc] init];
+    HNPPersonVC *vc = [[HNPPersonVC alloc] init];
     [self.navigationController  pushViewController:vc animated:YES];
-    NSLog(@"123");
+//    NSLog(@"123");
 }
 - (IBAction)resetPW:(id)sender {
     ZBResetPasswordController *vc = [[ZBResetPasswordController alloc] init];

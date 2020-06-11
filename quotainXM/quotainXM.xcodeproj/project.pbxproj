@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */; };
+		114C5BAA2490E68600090FC4 /* HNPPersonVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114C5BA92490E68600090FC4 /* HNPPersonVC.xib */; };
 		B350BF9D249070D30026368F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BF9C249070D30026368F /* AppDelegate.m */; };
 		B350BFA3249070D30026368F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFA2249070D30026368F /* ViewController.m */; };
 		B350BFA6249070D30026368F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350BFA4249070D30026368F /* Main.storyboard */; };
@@ -71,7 +73,6 @@
 		B350C09B249070F40026368F /* HNPNewsletterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C03D249070F40026368F /* HNPNewsletterViewController.xib */; };
 		B350C09C249070F40026368F /* HNPNewsletterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C03E249070F40026368F /* HNPNewsletterViewController.m */; };
 		B350C09D249070F40026368F /* HNPNewSletterModle.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C041249070F40026368F /* HNPNewSletterModle.m */; };
-		B350C09E249070F40026368F /* ZBNewSletterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C044249070F40026368F /* ZBNewSletterHeaderView.m */; };
 		B350C09F249070F40026368F /* HNPNewSletterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C045249070F40026368F /* HNPNewSletterCell.xib */; };
 		B350C0A0249070F40026368F /* HNPNewSletterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C048249070F40026368F /* HNPNewSletterCell.m */; };
 		B350C0A1249070F40026368F /* ZBMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350C04D249070F40026368F /* ZBMainViewController.xib */; };
@@ -87,6 +88,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		114C5BA62490C3FD00090FC4 /* HNPNewSletterHerderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterHerderView.h; sourceTree = "<group>"; };
+		114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterHerderView.m; sourceTree = "<group>"; };
+		114C5BA92490E68600090FC4 /* HNPPersonVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPPersonVC.xib; sourceTree = "<group>"; };
 		B350BF98249070D30026368F /* quotainXM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotainXM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B350BF9B249070D30026368F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B350BF9C249070D30026368F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -187,10 +191,8 @@
 		B350C03F249070F40026368F /* HNPNewsletterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPNewsletterViewController.h; sourceTree = "<group>"; };
 		B350C041249070F40026368F /* HNPNewSletterModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterModle.m; sourceTree = "<group>"; };
 		B350C042249070F40026368F /* HNPNewSletterModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterModle.h; sourceTree = "<group>"; };
-		B350C044249070F40026368F /* ZBNewSletterHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNewSletterHeaderView.m; sourceTree = "<group>"; };
 		B350C045249070F40026368F /* HNPNewSletterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPNewSletterCell.xib; sourceTree = "<group>"; };
 		B350C046249070F40026368F /* HNPNewSletterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterCell.h; sourceTree = "<group>"; };
-		B350C047249070F40026368F /* ZBNewSletterHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNewSletterHeaderView.h; sourceTree = "<group>"; };
 		B350C048249070F40026368F /* HNPNewSletterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterCell.m; sourceTree = "<group>"; };
 		B350C04B249070F40026368F /* ZBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBMainViewController.h; sourceTree = "<group>"; };
 		B350C04C249070F40026368F /* ZBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNavigationController.h; sourceTree = "<group>"; };
@@ -220,6 +222,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		114C5BA324907BEF00090FC4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B350C02E249070F40026368F /* ZBMineViewController.h */,
+				B350C02C249070F40026368F /* ZBMineViewController.m */,
+				B350C02D249070F40026368F /* ZBMineViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		114C5BA424907BEF00090FC4 /* Modle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modle;
+			sourceTree = "<group>";
+		};
+		114C5BA524907BEF00090FC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B350BF8F249070D30026368F = {
 			isa = PBXGroup;
 			children = (
@@ -360,9 +386,9 @@
 		B350BFC6249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B350BFC9249070F40026368F /* ZBInformationViewController.h */,
 				B350BFC7249070F40026368F /* ZBInformationViewController.m */,
 				B350BFC8249070F40026368F /* ZBInformationViewController.xib */,
-				B350BFC9249070F40026368F /* ZBInformationViewController.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -377,23 +403,23 @@
 		B350BFCB249070F40026368F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B350BFCC249070F40026368F /* ZBInfoFooderReusableView.xib */,
-				B350BFCD249070F40026368F /* ZBInfoCollectionViewCell.m */,
-				B350BFCE249070F40026368F /* ZBInfoHeaderReusableView.h */,
+				B350BFDA249070F40026368F /* ZBBottomTableViewCell.h */,
+				B350BFD3249070F40026368F /* ZBBottomTableViewCell.m */,
+				B350BFD9249070F40026368F /* ZBBottomTableViewCell.xib */,
+				B350BFD7249070F40026368F /* ZBInfoCollectionView.h */,
 				B350BFCF249070F40026368F /* ZBInfoCollectionView.m */,
+				B350BFD6249070F40026368F /* ZBInfoCollectionViewCell.h */,
+				B350BFCD249070F40026368F /* ZBInfoCollectionViewCell.m */,
+				B350BFD4249070F40026368F /* ZBInfoCollectionViewCell.xib */,
+				B350BFDC249070F40026368F /* ZBInfoFooderReusableView.h */,
+				B350BFD5249070F40026368F /* ZBInfoFooderReusableView.m */,
+				B350BFCC249070F40026368F /* ZBInfoFooderReusableView.xib */,
+				B350BFCE249070F40026368F /* ZBInfoHeaderReusableView.h */,
+				B350BFD8249070F40026368F /* ZBInfoHeaderReusableView.m */,
 				B350BFD0249070F40026368F /* ZBInfoHeaderReusableView.xib */,
+				B350BFDB249070F40026368F /* ZBTopTableViewCell.h */,
 				B350BFD1249070F40026368F /* ZBTopTableViewCell.m */,
 				B350BFD2249070F40026368F /* ZBTopTableViewCell.xib */,
-				B350BFD3249070F40026368F /* ZBBottomTableViewCell.m */,
-				B350BFD4249070F40026368F /* ZBInfoCollectionViewCell.xib */,
-				B350BFD5249070F40026368F /* ZBInfoFooderReusableView.m */,
-				B350BFD6249070F40026368F /* ZBInfoCollectionViewCell.h */,
-				B350BFD7249070F40026368F /* ZBInfoCollectionView.h */,
-				B350BFD8249070F40026368F /* ZBInfoHeaderReusableView.m */,
-				B350BFD9249070F40026368F /* ZBBottomTableViewCell.xib */,
-				B350BFDA249070F40026368F /* ZBBottomTableViewCell.h */,
-				B350BFDB249070F40026368F /* ZBTopTableViewCell.h */,
-				B350BFDC249070F40026368F /* ZBInfoFooderReusableView.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,12 +437,12 @@
 		B350BFDE249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B350BFDF249070F40026368F /* ZBCalendarTableViewCell.h */,
 				B350BFE0249070F40026368F /* ZBCalendarViewController.h */,
-				B350BFE1249070F40026368F /* ZBCalendarTableViewCell.xib */,
-				B350BFE2249070F40026368F /* ZBCalendarViewController.xib */,
-				B350BFE3249070F40026368F /* ZBCalendarTableViewCell.m */,
 				B350BFE4249070F40026368F /* ZBCalendarViewController.m */,
+				B350BFE2249070F40026368F /* ZBCalendarViewController.xib */,
+				B350BFDF249070F40026368F /* ZBCalendarTableViewCell.h */,
+				B350BFE3249070F40026368F /* ZBCalendarTableViewCell.m */,
+				B350BFE1249070F40026368F /* ZBCalendarTableViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -484,12 +510,12 @@
 		B350BFF1249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B350BFF5249070F40026368F /* HNPDiscoveryViewC.h */,
 				B350BFF2249070F40026368F /* HNPDiscoveryViewC.m */,
+				B350BFF7249070F40026368F /* HNPDiscoveryViewC.xib */,
+				B350BFF6249070F40026368F /* ZBDiscoverMainVC.h */,
 				B350BFF3249070F40026368F /* ZBDiscoverMainVC.m */,
 				B350BFF4249070F40026368F /* ZBDiscoverMainVC.xib */,
-				B350BFF5249070F40026368F /* HNPDiscoveryViewC.h */,
-				B350BFF6249070F40026368F /* ZBDiscoverMainVC.h */,
-				B350BFF7249070F40026368F /* HNPDiscoveryViewC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -504,12 +530,12 @@
 		B350BFF9249070F40026368F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B350BFFC249070F40026368F /* HNPPushCell.h */,
 				B350BFFA249070F40026368F /* HNPDynamicCell.m */,
 				B350BFFB249070F40026368F /* HNPDynamicCell.xib */,
-				B350BFFC249070F40026368F /* HNPPushCell.h */,
 				B350BFFD249070F40026368F /* HNPDynamicCell.h */,
-				B350BFFE249070F40026368F /* HNPPushCell.xib */,
 				B350BFFF249070F40026368F /* HNPPushCell.m */,
+				B350BFFE249070F40026368F /* HNPPushCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,8 +544,8 @@
 			isa = PBXGroup;
 			children = (
 				B350C001249070F40026368F /* Controller */,
-				B350C005249070F40026368F /* View */,
 				B350C00C249070F40026368F /* Modle */,
+				B350C005249070F40026368F /* View */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -527,9 +553,9 @@
 		B350C001249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B350C002249070F40026368F /* HNPDetailsVC.xib */,
-				B350C003249070F40026368F /* HNPDetailsVC.m */,
 				B350C004249070F40026368F /* HNPDetailsVC.h */,
+				B350C003249070F40026368F /* HNPDetailsVC.m */,
+				B350C002249070F40026368F /* HNPDetailsVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -637,6 +663,7 @@
 			children = (
 				B350C01D249070F40026368F /* HNPPersonVC.m */,
 				B350C01E249070F40026368F /* HNPPersonVC.h */,
+				114C5BA92490E68600090FC4 /* HNPPersonVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -695,9 +722,9 @@
 		B350C02B249070F40026368F /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				B350C02C249070F40026368F /* ZBMineViewController.m */,
-				B350C02D249070F40026368F /* ZBMineViewController.xib */,
-				B350C02E249070F40026368F /* ZBMineViewController.h */,
+				114C5BA324907BEF00090FC4 /* Controller */,
+				114C5BA424907BEF00090FC4 /* Modle */,
+				114C5BA524907BEF00090FC4 /* View */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -715,12 +742,12 @@
 		B350C030249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B350C031249070F40026368F /* ZBIndustryTableViewCell.m */,
-				B350C032249070F40026368F /* ZBIndustryTableViewCell.xib */,
 				B350C033249070F40026368F /* ZBIndustryViewController.h */,
+				B350C036249070F40026368F /* ZBIndustryViewController.m */,
 				B350C034249070F40026368F /* ZBIndustryViewController.xib */,
 				B350C035249070F40026368F /* ZBIndustryTableViewCell.h */,
-				B350C036249070F40026368F /* ZBIndustryViewController.m */,
+				B350C031249070F40026368F /* ZBIndustryTableViewCell.m */,
+				B350C032249070F40026368F /* ZBIndustryTableViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -754,9 +781,9 @@
 		B350C03C249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B350C03D249070F40026368F /* HNPNewsletterViewController.xib */,
-				B350C03E249070F40026368F /* HNPNewsletterViewController.m */,
 				B350C03F249070F40026368F /* HNPNewsletterViewController.h */,
+				B350C03E249070F40026368F /* HNPNewsletterViewController.m */,
+				B350C03D249070F40026368F /* HNPNewsletterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -773,11 +800,11 @@
 		B350C043249070F40026368F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B350C044249070F40026368F /* ZBNewSletterHeaderView.m */,
-				B350C045249070F40026368F /* HNPNewSletterCell.xib */,
 				B350C046249070F40026368F /* HNPNewSletterCell.h */,
-				B350C047249070F40026368F /* ZBNewSletterHeaderView.h */,
 				B350C048249070F40026368F /* HNPNewSletterCell.m */,
+				B350C045249070F40026368F /* HNPNewSletterCell.xib */,
+				114C5BA62490C3FD00090FC4 /* HNPNewSletterHerderView.h */,
+				114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -796,11 +823,11 @@
 			isa = PBXGroup;
 			children = (
 				B350C04B249070F40026368F /* ZBMainViewController.h */,
-				B350C04C249070F40026368F /* ZBNavigationController.h */,
-				B350C04D249070F40026368F /* ZBMainViewController.xib */,
 				B350C04E249070F40026368F /* ZBMainViewController.m */,
-				B350C04F249070F40026368F /* ZBNavigationController.xib */,
+				B350C04D249070F40026368F /* ZBMainViewController.xib */,
+				B350C04C249070F40026368F /* ZBNavigationController.h */,
 				B350C050249070F40026368F /* ZBNavigationController.m */,
+				B350C04F249070F40026368F /* ZBNavigationController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -867,11 +894,11 @@
 			isa = PBXGroup;
 			children = (
 				B350C05C249070F40026368F /* ZBLoginMainNavVC.h */,
-				B350C05D249070F40026368F /* ZBloginViewController.m */,
-				B350C05E249070F40026368F /* ZBLoginMainNavVC.xib */,
 				B350C05F249070F40026368F /* ZBLoginMainNavVC.m */,
-				B350C060249070F40026368F /* ZBloginViewController.xib */,
+				B350C05E249070F40026368F /* ZBLoginMainNavVC.xib */,
 				B350C061249070F40026368F /* ZBloginViewController.h */,
+				B350C05D249070F40026368F /* ZBloginViewController.m */,
+				B350C060249070F40026368F /* ZBloginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -973,6 +1000,7 @@
 				B350BFA8249070D50026368F /* Assets.xcassets in Resources */,
 				B350C09F249070F40026368F /* HNPNewSletterCell.xib in Resources */,
 				B350C076249070F40026368F /* ZBCalendarTableViewCell.xib in Resources */,
+				114C5BAA2490E68600090FC4 /* HNPPersonVC.xib in Resources */,
 				B350BFA6249070D30026368F /* Main.storyboard in Resources */,
 				B350C06B249070F40026368F /* ZBInfoFooderReusableView.xib in Resources */,
 				B350C087249070F40026368F /* HNPDetailsCell.xib in Resources */,
@@ -994,7 +1022,6 @@
 			files = (
 				B350BFA3249070D30026368F /* ViewController.m in Sources */,
 				B350C073249070F40026368F /* ZBInfoFooderReusableView.m in Sources */,
-				B350C09E249070F40026368F /* ZBNewSletterHeaderView.m in Sources */,
 				B350C06C249070F40026368F /* ZBInfoCollectionViewCell.m in Sources */,
 				B350C08B249070F40026368F /* ZBRegisterViewController.m in Sources */,
 				B350C07A249070F40026368F /* ZBCalendarHeaderView.m in Sources */,
@@ -1003,6 +1030,7 @@
 				B350C08D249070F40026368F /* ZBSignInViewController.m in Sources */,
 				B350C069249070F40026368F /* ZBInformationViewController.m in Sources */,
 				B350C089249070F40026368F /* HNPCommentCell.m in Sources */,
+				114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */,
 				B350C094249070F40026368F /* ZBMineViewController.m in Sources */,
 				B350C099249070F40026368F /* ZBIndustryViewController.m in Sources */,
 				B350C07D249070F40026368F /* HNPDiscoveryViewC.m in Sources */,

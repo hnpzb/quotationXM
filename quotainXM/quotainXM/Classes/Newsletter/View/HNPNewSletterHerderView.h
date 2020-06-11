@@ -1,8 +1,8 @@
 //
-//  ZBNewSletterHeaderView.h
-//  quotationAPP
+//  HNPNewSletterHerderView.h
+//  quotainXM
 //
-//  Created by 朱彬 on 2020/6/8.
+//  Created by henanping on 2020/6/10.
 //  Copyright © 2020 朱彬. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZBNewSletterHeaderView : UIView
+@interface HNPNewSletterHerderView : UIView
 
 @end
 

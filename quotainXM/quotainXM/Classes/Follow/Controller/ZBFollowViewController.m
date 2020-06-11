@@ -16,7 +16,8 @@
 
 @implementation ZBFollowViewController
 
-static NSString *ID = @"DynamicCellID";
+static NSString *IDOne = @"PushCellID";
+static NSString *IDTwo = @"DynamicCellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +28,8 @@ static NSString *ID = @"DynamicCellID";
     tableview.dataSource = self;
     tableview.delegate = self;
     
-    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
+    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -45,19 +47,17 @@ static NSString *ID = @"DynamicCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //通过判断加载两个xib
-        HNPPushCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PushCellID"];
-//    HNPDynamicCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-     if (cell == nil && indexPath.section == 0) {
-            cell = [HNPPushCell PushCellXib];
-       
-        }else{
-                cell = [HNPDynamicCell DynamicXib];
-
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    //cell选中样式
-
-    return cell;
+    if (indexPath.section == 0) {
+        HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
+        //cell的选中样式
+        pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return pushCell;
+        
+    } else {
+        HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
+        DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return DynamicCell;
+    }
 }
 
 /*

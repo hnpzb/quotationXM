@@ -277,7 +277,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="-89.855072463768124" y="-59.933035714285708"/>
+            <point key="canvasLocation" x="-591" y="-61"/>
         </tableViewCell>
     </objects>
     <resources>
@@ -286,7 +286,7 @@
         <image name="icon_qiandao" width="18" height="16.333333969116211"/>
         <image name="icon_shezhi" width="17" height="16"/>
         <image name="icon_wodedongtai" width="17" height="17.333333969116211"/>
-        <image name="pic_bg" width="375" height="265"/>
+        <image name="pic_bg" width="335" height="163.33332824707031"/>
         <image name="pic_head" width="65" height="65"/>
     </resources>
 </document>

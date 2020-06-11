@@ -8,7 +8,7 @@
 
 #import "HNPNewsletterViewController.h"
 #import "HNPNewSletterCell.h"
-#import "ZBNewSletterHeaderView.h"
+#import "HNPNewSletterHerderView.h"
 
 @interface HNPNewsletterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -16,21 +16,22 @@
 
 @implementation HNPNewsletterViewController
 
-
 static NSString *ID = @"NewSletterID";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     UITableView *tableView = [[UITableView alloc] init];
-       CGRect temp = self.view.bounds;
-       temp.origin = CGPointMake(0, 80);
-       tableView.frame = temp;
+    CGRect temp = self.view.bounds;
+    temp.origin = CGPointMake(0, 84);
+    tableView.frame = temp;
     [self.view addSubview:tableView];
-       tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-       //注册cell加载xib
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  
     tableView.dataSource = self;
     tableView.delegate = self;
-       [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    //注册cell加载xib
+    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -40,7 +41,7 @@ static NSString *ID = @"NewSletterID";
 
 //cell的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,12 +54,14 @@ static NSString *ID = @"NewSletterID";
     }
     return cell;
 }
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    ZBNewSletterHeaderView *view = [[ZBNewSletterHeaderView alloc] init];
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    HNPNewSletterHerderView *view = [[HNPNewSletterHerderView alloc] init];
     view.backgroundColor = [UIColor whiteColor];
     return view;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return 44;
 }
 /*
