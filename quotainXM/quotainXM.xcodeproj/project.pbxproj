@@ -269,8 +269,8 @@
 				2043A1A5674EA90FB78ABAAB /* Pods-quotainXM.release.xcconfig */,
 			);
 			path = Pods;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		1143F0002491D8E2006CD5F1 /* Other */ = {
 			isa = PBXGroup;
 			children = (
