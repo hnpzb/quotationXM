@@ -20,11 +20,9 @@
 static NSString *ID = @"quotation";
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     UITableView *tableView = [[UITableView alloc] init];
     CGRect temp = self.view.bounds;
     temp.origin = CGPointMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 88);
-//    temp.size = CGSizeMake(self.view.frame.size.width - 40, self.view.frame.size.height);
     tableView.frame = temp;
     [self.view addSubview:tableView];
     tableView.delegate = self;
@@ -35,7 +33,6 @@ static NSString *ID = @"quotation";
           @"volume":@"8910"
     };
     [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBQuotationTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
-//    tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
     
     UIView *view = [[UIView alloc] init];
     view.frame = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44,[UIApplication sharedApplication].statusBarFrame.size.width,44);
@@ -54,16 +51,6 @@ static NSString *ID = @"quotation";
     UIView *view = [[UIView alloc] init];
     view.frame = CGRectMake(0,0,self.view.frame.size.width,0);
     view.backgroundColor = [UIColor whiteColor];
-//    view.backgroundColor = [UIColor redColor];
-    
-//    UILabel *label_1 = [[UILabel alloc] init];
-//    label_1.frame = CGRectMake(0,0,82,44);
-//    label_1.numberOfLines = 0;
-//    [view addSubview:label_1];
-//    label_1.text = @"主力";
-//    label_1.textAlignment = NSTextAlignmentCenter;
-//    label_1.font = [UIFont fontWithName:@"PingFang SC" size: 17];
-//    label_1.textColor = [UIColor colorWithRed:189/255.0 green:192/255.0 blue:195/255.0 alpha:1.0];
    [self addLabelTwo:view index:0 name:@"合约名称"];
     [self addLabelTwo:view index:1 name:@"最新价"];
     [self addLabelTwo:view index:2 name:@"涨   跌"];
@@ -81,10 +68,6 @@ static NSString *ID = @"quotation";
     
     ZBQuotationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     cell.qutation =  [ZBQuotationModal quotationModalWithDict:self.dict];
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-//    if (cell == nil) {
-//        cell = [ZBQuotationTableViewCell quotation];
-//    }
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -92,14 +75,6 @@ static NSString *ID = @"quotation";
 }
 
 -(void)addLabelOne:(UIView *)view index:(NSInteger)i name:(NSString *)name {
-//    UILabel *label = [[UILabel alloc] init];
-//    label.frame = CGRectMake(75 * i,0,75,44);
-//    label.numberOfLines = 0;
-//    [view addSubview:label];
-//    label.text = name;
-//    label.textAlignment = NSTextAlignmentCenter;
-//    label.font = [UIFont fontWithName:@"PingFang SC" size: 17];
-//    label.textColor = [UIColor colorWithRed:189/255.0 green:192/255.0 blue:195/255.0 alpha:1.0];
     UIButton *btn = [[UIButton alloc] init];
     btn.frame = CGRectMake(([UIApplication sharedApplication].statusBarFrame.size.width / 5) * i, 0, self.view.frame.size.width / 5, 44);
     [view addSubview:btn];
@@ -140,14 +115,6 @@ static NSString *ID = @"quotation";
     self.preSelectBtn = btn;
 
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

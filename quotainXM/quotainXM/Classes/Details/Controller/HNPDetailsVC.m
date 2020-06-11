@@ -12,6 +12,8 @@
 #import "ZBDiscoverMainVC.h"
 @interface HNPDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,strong)UITableView *tableView;
+
 @end
 
 @implementation HNPDetailsVC
@@ -25,30 +27,8 @@ static NSString *IDTwo = @"CommentCellID";
     [super viewDidLoad];
     //在view中添加tableView
     
-    UIView *vc = [[UIView alloc] init];
-    vc.backgroundColor = [UIColor whiteColor];
-    vc.frame = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIScreen mainScreen].bounds.size.width, 44);
-//    vc.backgroundColor = [UIColor redColor];
-    
-    UIButton *btn_back = [[UIButton alloc] init];
-    
-    btn_back.frame = CGRectMake(10.5,20,20,20);
-    [btn_back setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [vc addSubview:btn_back];
-    [btn_back addTarget:self action:@selector(breakDeatail:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *btn_gd = [[UIButton alloc] init];
-    btn_gd.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 30,20,10,20);
-    [btn_gd setImage:[UIImage imageNamed:@"gengduo2"] forState:UIControlStateNormal];
-    [vc addSubview:btn_gd];
-    
-    [self.view addSubview:vc];
-    
-    UITableView *tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
-    [self.view addSubview:tableview];
-    tableview.dataSource = self;
-    tableview.delegate = self;
-    [self creatTableView];
+
+    [self creatTopView];
     [self creatTableView];
     
     //清扫返回上个界面手势
@@ -97,18 +77,18 @@ static NSString *IDTwo = @"CommentCellID";
 - (void)creatTableView
 {
     //在view中添加tableView
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
-    [self.view addSubview:tableView];
-    tableView.dataSource = self;
-    tableView.delegate = self;
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
+    [self.view addSubview:_tableView];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
     
     //注册xib
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDetailsCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPCommentCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
+    [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDetailsCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
+    [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPCommentCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
     
     //tableViewCell自适应高度
-    tableView.estimatedRowHeight = 100;
-    tableView.rowHeight = UITableViewAutomaticDimension;
+    _tableView.estimatedRowHeight = 100;
+    _tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 /**
@@ -134,6 +114,7 @@ static NSString *IDTwo = @"CommentCellID";
         return 5;
     }
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

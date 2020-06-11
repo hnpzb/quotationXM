@@ -91,37 +91,11 @@
      [self setWithBtn:btn_ns name:@"关注"];
     [btn_ns addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
     
-//    UIButton *btn_qa = [[UIButton alloc] init];
-//    [self.baiVC addSubview:btn_qa];
-//    btn_qa.frame = CGRectMake(vc_w_new * 0.2 * 2.0, 0, vc_w_new * 0.2, 44);
-//    btn_qa.tag = 1000 + 2;
-//     [self setWithBtn:btn_qa name:@"行情"];
-//    [btn_qa addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
-//
-//    UIButton *btn_Indu = [[UIButton alloc] init];
-//    [self.baiVC addSubview:btn_Indu];
-//    btn_Indu.frame = CGRectMake(vc_w_new * 0.2 * 3.0, 0, vc_w_new * 0.2, 44);
-//    btn_Indu.tag = 1000 + 3;
-//    [self setWithBtn:btn_Indu name:@"行业"];
-//    [btn_Indu addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
-//
-//    //日历按钮
-//    UIButton *btn_calend = [[UIButton alloc] init];
-//    [self.baiVC addSubview:btn_calend];
-//    btn_calend.frame = CGRectMake(vc_w_new * 0.2 * 4.0, 0, vc_w_new * 0.2, 44);
-//    btn_calend.tag = 1000 + 4;
-//    [self setWithBtn:btn_calend name:@"日历"];
-//    [btn_calend addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
-    
       UIButton *sosuo = [[UIButton alloc] init];
-    //    [self.baiVC addSubview:btn_calend];
+
     [self.baiVC addSubview:sosuo];
-    //    btn_calend.frame = CGRectMake(vc_w_new * 0.2 * 4.0, 0, vc_w_new * 0.2, 44);
     sosuo.frame = CGRectMake(vc_w_new * 0.2 * 4.0 + 40, 10 ,15, 15);
     [sosuo setBackgroundImage:[UIImage imageNamed:@"icon_souso "] forState:UIControlStateNormal];
-    //    btn_calend.tag = 1000 + 4;
-    //    [self setWithBtn:btn_calend name:@"日历"];
-    //    [btn_calend addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [view addSubview:self.baiVC];
     
@@ -150,9 +124,7 @@
 -(void)menuClick:(UIButton *)btn{
     //调用代理方法
     
-//    if ([self.delegate respondsToSelector:@selector(baiView: curBtnIndex:preBtnIndex:)]) {
-//        [self.delegate baiView:self.baiVC curBtnIndex:btn.tag preBtnIndex:self.preSelectBtn.tag];
-//    }
+
     UIView *view_cur = btn.subviews.firstObject;
     view_cur.hidden = !(view_cur.hidden);
     
@@ -175,15 +147,5 @@
 }
 
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

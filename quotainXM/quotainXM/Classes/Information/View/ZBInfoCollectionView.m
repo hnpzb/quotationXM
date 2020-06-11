@@ -16,13 +16,7 @@
 @end
 @implementation ZBInfoCollectionView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+
 static NSString *ID = @"InfoCollectionCell";
 static NSString *header_ID = @"InfoHeaderReusableView";
 static NSString *fooder_ID = @"InfoFooderReusableView";
@@ -78,7 +72,6 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     return 4;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     ZBInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     cell.userInteractionEnabled = YES;
     return cell;

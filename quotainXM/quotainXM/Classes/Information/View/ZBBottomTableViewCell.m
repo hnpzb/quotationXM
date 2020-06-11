@@ -23,7 +23,6 @@
     label.numberOfLines = 0;
     [self addSubview:label];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"在中国，月入多少才算是高端人群?" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 16],NSForegroundColorAttributeName: [UIColor colorWithRed:38/255.0 green:38/255.0 blue:38/255.0 alpha:1.0]}];
-//    [string addAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 16]} range:NSMakeRange(0, 18)];
 
     label.attributedText = string;
     

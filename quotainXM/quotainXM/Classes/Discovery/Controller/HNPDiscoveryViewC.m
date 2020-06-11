@@ -18,7 +18,7 @@
 @property(nonatomic,strong)UIButton *preSelectBtn;
 
 @property (strong, nonatomic) IBOutlet UIView *mainV;
-
+@property(nonatomic,strong)UITableView *tableview;
 @end
 
 @implementation HNPDiscoveryViewC
@@ -31,20 +31,18 @@ static NSString *IDTwo = @"DynamicCellID";
     [super viewDidLoad];
     //在view中添加tableView
     
-    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
 
-    [self.view addSubview:tableview];
-    tableview.dataSource = self;
-    tableview.delegate = self;
+    [self.view addSubview:_tableview];
+    _tableview.dataSource = self;
+    _tableview.delegate = self;
     
-    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
-    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
+    [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
+    [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
     self.baiVC.backgroundColor = [UIColor whiteColor];
-    tableview.estimatedRowHeight = 100;
-    tableview.rowHeight = UITableViewAutomaticDimension;
-//      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showbai:) name:@"back" object:nil];
-//    [self addTopView:self.mainV];
-//    [self addChildVC];
+    _tableview.estimatedRowHeight = 100;
+    _tableview.rowHeight = UITableViewAutomaticDimension;
+
     
 }
 
@@ -61,7 +59,6 @@ static NSString *IDTwo = @"DynamicCellID";
     UIViewController *vc = self.childViewControllers[0];
 
     [self addChildViewController:vc];
-//    vc.view.frame = self.view.bounds;
 
     [self addTopView:vc.view];
 
@@ -72,7 +69,6 @@ static NSString *IDTwo = @"DynamicCellID";
 
 -(void)addTopView:(UIView *)view{
     
-//    UITapGestureRecognizer *top = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuClick:)];
     CGFloat vc_X = view.frame.origin.x;
     CGFloat vc_Y = view.frame.origin.y;
     CGFloat vc_W_old = view.frame.size.width;
@@ -81,7 +77,6 @@ static NSString *IDTwo = @"DynamicCellID";
     
     CGRect temp = CGRectMake(vc_X, vc_Y , vc_w_new, vc_H );
     self.baiVC = [[UIView alloc] initWithFrame:CGRectMake(0, 40, vc_w_new, 44)];
-//    self.baiVC.backgroundColor = [UIColor clearColor];
     
     UIButton *btn_if = [[UIButton alloc] init];
     [self.baiVC addSubview:btn_if];
@@ -101,27 +96,6 @@ static NSString *IDTwo = @"DynamicCellID";
      [self setWithBtn:btn_ns name:@"关注"];
     [btn_ns addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
     
-//    UIButton *btn_qa = [[UIButton alloc] init];
-//    [self.baiVC addSubview:btn_qa];
-//    btn_qa.frame = CGRectMake(vc_w_new * 0.2 * 2.0, 0, vc_w_new * 0.2, 44);
-//    btn_qa.tag = 1000 + 2;
-//     [self setWithBtn:btn_qa name:@"行情"];
-//    [btn_qa addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
-//
-//    UIButton *btn_Indu = [[UIButton alloc] init];
-//    [self.baiVC addSubview:btn_Indu];
-//    btn_Indu.frame = CGRectMake(vc_w_new * 0.2 * 3.0, 0, vc_w_new * 0.2, 44);
-//    btn_Indu.tag = 1000 + 3;
-//    [self setWithBtn:btn_Indu name:@"行业"];
-//    [btn_Indu addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
-//
-//    //日历按钮
-//    UIButton *btn_calend = [[UIButton alloc] init];
-//    [self.baiVC addSubview:btn_calend];
-//    btn_calend.frame = CGRectMake(vc_w_new * 0.2 * 4.0, 0, vc_w_new * 0.2, 44);
-//    btn_calend.tag = 1000 + 4;
-//    [self setWithBtn:btn_calend name:@"日历"];
-//    [btn_calend addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [view addSubview:self.baiVC];
     
@@ -151,9 +125,6 @@ static NSString *IDTwo = @"DynamicCellID";
 -(void)menuClick:(UIButton *)btn{
     //调用代理方法
     
-//    if ([self.delegate respondsToSelector:@selector(baiView: curBtnIndex:preBtnIndex:)]) {
-//        [self.delegate baiView:self.baiVC curBtnIndex:btn.tag preBtnIndex:self.preSelectBtn.tag];
-//    }
     UIView *view_cur = btn.subviews.firstObject;
     view_cur.hidden = !(view_cur.hidden);
     
@@ -166,13 +137,6 @@ static NSString *IDTwo = @"DynamicCellID";
     //3.当前点击的按钮成为上一个选中状态按钮
     self.preSelectBtn = btn;
     
-//    UIViewController *preVC = self.childViewControllers[self.preSelectBtn.tag - 1000];
-//    [preVC.view removeFromSuperview];
-////
-//    UIViewController *curVC = self.childViewControllers[btn.tag - 1000];
-////    curVC.view.frame = self.view.bounds;
-//    [curVC.view addSubview:self.baiVC];
-//    [self.mainV addSubview:curVC.view];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

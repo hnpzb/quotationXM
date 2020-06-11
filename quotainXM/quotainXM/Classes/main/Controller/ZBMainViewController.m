@@ -34,14 +34,9 @@
     [super viewDidLoad];
     
     [self addChildVC];
-//     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(baiChange:) name:@"jump" object:nil];
     
 }
 
-//-(void)baiChange:(NSNotification *)notice{
-//    self.baiVC.hidden = YES;
-//    NSLog(@"123");
-//}
 
 - (void)dealloc
 {
@@ -77,8 +72,6 @@
 }
 -(void)addTopView:(UIView *)view{
     
-//    UITapGestureRecognizer *top = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuClick:)];
-//    view.frame = [UIScreen mainScreen].bounds;
     CGFloat vc_X = view.frame.origin.x;
     CGFloat vc_Y = view.frame.origin.y;
     CGFloat vc_W_old = [UIScreen mainScreen].bounds.size.width;
@@ -92,14 +85,7 @@
     
 
     self.baiVC = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height, vc_w_new, 44)];
-//    _baiVC.backgroundColor = [UIColor redColor];
-//    [self.baiVC mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.mainV.mas_left);
-//        make.top.equalTo(self).multipliedBy(0).offset(44);
-//        make.bottom.equalTo(self.mainV.bottomAnchor).multipliedBy(0).offset(44);
-//        make.right.equalTo(self.mainV.mas_right);
-//    }];
-//    self.baiVC.backgroundColor = [UIColor clearColor];
+
     
     UIButton *btn_if = [[UIButton alloc] init];
     [self.baiVC addSubview:btn_if];
@@ -169,9 +155,6 @@
 -(void)menuClick:(UIButton *)btn{
     //调用代理方法
     
-//    if ([self.delegate respondsToSelector:@selector(baiView: curBtnIndex:preBtnIndex:)]) {
-//        [self.delegate baiView:self.baiVC curBtnIndex:btn.tag preBtnIndex:self.preSelectBtn.tag];
-//    }
     UIView *view_cur = btn.subviews.firstObject;
     view_cur.hidden = !(view_cur.hidden);
     
@@ -184,35 +167,13 @@
     //3.当前点击的按钮成为上一个选中状态按钮
     self.preSelectBtn = btn;
     
-//    UIViewController *preVC = self.childViewControllers[self.preSelectBtn.tag - 1000];
-//    [preVC.view removeFromSuperview];
+
     [self.childViewControllers[self.preSelectBtn.tag - 1000].view removeFromSuperview];
  
 //    UIViewController *curVC = self.childViewControllers[btn.tag - 1000];
     [self.childViewControllers[btn.tag - 1000].view addSubview:self.baiVC];
-    [self.mainV addSubview:self.childViewControllers[btn.tag - 1000].view];//    curVC.view.frame = self.mainV.bounds;
-//    curVC.view.backgroundColor = [UIColor grayColor];
-//    [curVC.view addSubview:self.baiVC];
-//    [self.mainV addSubview:curVC.view];
+    [self.mainV addSubview:self.childViewControllers[btn.tag - 1000].view];//
 }
 
-//- (void)baiView:(UIView *)baiVC curBtnIndex:(NSInteger)curIndx preBtnIndex:(NSInteger)preBtnIndex{
-//    UIViewController *preVC = self.childViewControllers[preBtnIndex - 1000];
-//    [preVC.view removeFromSuperview];
-//
-//    UIViewController *curVC = self.childViewControllers[curIndx - 1000];
-//    curVC.view.frame = self.mainV.frame;
-//    [self.mainV addSubview:curVC.view];
-//}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
