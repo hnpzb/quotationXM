@@ -8,7 +8,7 @@
 
 #import "HNPNewsletterViewController.h"
 #import "HNPNewSletterCell.h"
-#import "ZBNewSletterHeaderView.h"
+#import "HNPNewSletterHerderView.h"
 
 @interface HNPNewsletterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -16,23 +16,34 @@
 
 @implementation HNPNewsletterViewController
 
-
 static NSString *ID = @"NewSletterID";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     UITableView *tableView = [[UITableView alloc] init];
+<<<<<<< HEAD
     CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
        temp.origin = CGPointMake(0, 80);
        tableView.frame = temp;
+=======
+    CGRect temp = self.view.bounds;
+    temp.origin = CGPointMake(0, 84);
+    tableView.frame = temp;
+>>>>>>> e8e4dc19118bff75121d273af69dace6da668065
     [self.view addSubview:tableView];
-       tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-       //注册cell加载xib
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  
     tableView.dataSource = self;
     tableView.delegate = self;
+<<<<<<< HEAD
        [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
     tableView.estimatedRowHeight = 100;
     tableView.rowHeight = UITableViewAutomaticDimension;
+=======
+    //注册cell加载xib
+    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
+>>>>>>> e8e4dc19118bff75121d273af69dace6da668065
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -42,7 +53,7 @@ static NSString *ID = @"NewSletterID";
 
 //cell的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,12 +66,14 @@ static NSString *ID = @"NewSletterID";
     }
     return cell;
 }
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    ZBNewSletterHeaderView *view = [[ZBNewSletterHeaderView alloc] init];
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    HNPNewSletterHerderView *view = [[HNPNewSletterHerderView alloc] init];
     view.backgroundColor = [UIColor whiteColor];
     return view;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return 44;
 }
 /*

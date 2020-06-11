@@ -23,19 +23,22 @@
 
 @implementation HNPDiscoveryViewC
 
-static NSString *ID = @"DynamicCellID";
+static NSString *IDOne = @"PushCellID";
+static NSString *IDTwo = @"DynamicCellID";
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     //在view中添加tableView
-
+    
     UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 84, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 60) style:UITableViewStylePlain];
 
     [self.view addSubview:tableview];
     tableview.dataSource = self;
     tableview.delegate = self;
-    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    
+    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
+    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
     self.baiVC.backgroundColor = [UIColor whiteColor];
     tableview.estimatedRowHeight = 100;
     tableview.rowHeight = UITableViewAutomaticDimension;
@@ -181,25 +184,26 @@ static NSString *ID = @"DynamicCellID";
     if (section == 0) {
         return 1;
     }else{
-        return 5;
+        return 10;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //通过判断加载两个xib
-        HNPPushCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PushCellID"];
-//    HNPDynamicCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-     if (cell == nil && indexPath.section == 0) {
-            cell = [HNPPushCell PushCellXib];
-       
-        }else{
-                cell = [HNPDynamicCell DynamicXib];
+    if (indexPath.section == 0) {
+            HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
+            //cell的选中样式
+            pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        NSLog(@"%zd-%p",indexPath.row,pushCell);
 
+            return pushCell;
+        } else {
+            HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
+            DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        NSLog(@"%zd-%p",indexPath.row,DynamicCell);
+            return DynamicCell;
         }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    //cell选中样式
-
-    return cell;
+  
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

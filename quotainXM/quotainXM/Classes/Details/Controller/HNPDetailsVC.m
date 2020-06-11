@@ -42,7 +42,7 @@ static NSString *IDTwo = @"CommentCellID";
     
     [self.view addSubview:vc];
     
-    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 120, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
+    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
     [self.view addSubview:tableview];
     tableview.dataSource = self;
     tableview.delegate = self;
@@ -56,7 +56,7 @@ static NSString *IDTwo = @"CommentCellID";
 }
 -(void)breakDeatail:(UIButton *)btn{
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -74,17 +74,16 @@ static NSString *IDTwo = @"CommentCellID";
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //通过判断加载两个xib
-    HNPDetailsCell *cell = [HNPDetailsCell DetailsCellXib];
-    if (cell == nil && indexPath.section == 0) {
-            cell = [HNPDetailsCell DetailsCellXib];
-        }else{
-//            cell = [tableView dequeueReusableCellWithIdentifier:IDTwo]; //有缓存池性能问题  无法判断加载cell
-        }
-    NSLog(@"%zd-%p",indexPath.row,cell);
-    //cell选中样式
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    if (indexPath.section == 0) {
+        HNPDetailsCell *DetailsCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
+        //cell的选中样式
+        DetailsCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return DetailsCell;
+    } else {
+        HNPCommentCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
+        DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return DynamicCell;
+    }
 }
 
 

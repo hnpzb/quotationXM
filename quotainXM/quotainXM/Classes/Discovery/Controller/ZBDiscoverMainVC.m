@@ -34,7 +34,6 @@
 }
 -(void)baiChange:(NSNotification *)notice{
     self.baiVC.hidden = YES;
-    
 }
 
 -(void)showbai:(NSNotification *)notice{

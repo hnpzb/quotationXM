@@ -18,19 +18,21 @@
 @interface ZBMainViewController ()
 
 @property(nonatomic,strong)UIButton *preSelectBtn;
+
 //@property(nonatomic,assign)CGRect *temp;
 @property(nonatomic,assign)CGFloat vc_X;
 @property(nonatomic,assign)CGFloat vc_Y;
 @property(nonatomic,assign)CGFloat vc_W_old;
 @property(nonatomic,assign)CGFloat vc_H;
 @property(nonatomic,assign)CGFloat vc_W_new;
+
 @end
 
 @implementation ZBMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     [self addChildVC];
 //     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(baiChange:) name:@"jump" object:nil];
     
@@ -44,8 +46,8 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
 }
+
 -(void)addChildVC{
     
     NSArray *childClassName = @[@"ZBInformationViewController",
@@ -57,7 +59,7 @@
         UIViewController *vc = [[NSClassFromString(className) alloc] init];
          ZBNavigationController *nav = [[ZBNavigationController alloc] initWithRootViewController:vc];
         nav.navigationBar.hidden = YES;
-        
+        //添加控制器
         [self addChildViewController:nav];
     }
 
@@ -148,9 +150,10 @@
 
 -(void)setWithBtn:(UIButton *)btn name:(NSString *)name {
     btn.backgroundColor = [UIColor clearColor];
+    //按钮正常状态
     NSMutableAttributedString *string_n = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0]}];
     [btn setAttributedTitle:string_n forState:UIControlStateNormal];
-    
+    //按钮选中状态
     NSMutableAttributedString *string_s = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 20],NSForegroundColorAttributeName: [UIColor colorWithRed:38/255.0 green:38/255.0 blue:38/255.0 alpha:1.0]}];
     [btn setAttributedTitle:string_s forState:UIControlStateSelected];
     

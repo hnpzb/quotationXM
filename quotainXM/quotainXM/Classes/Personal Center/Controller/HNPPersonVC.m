@@ -9,7 +9,8 @@
 #import "HNPPersonVC.h"
 #import "HNPPersonView.h"
 #import "ZBSignInViewController.h"
-@interface HNPPersonVC ()<UITableViewDataSource,UITableViewDelegate>
+#import "HNPDetailsVC.h"
+@interface HNPPersonVC ()<UITableViewDelegate>
 
 @end
 
@@ -17,12 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    
-    HNPPersonView *personView = [HNPPersonView personView];
-    personView.frame = self.view.bounds;
-    [self.view addSubview:personView];
 
 }
+
+- (IBAction)dynamicClick:(UIButton *)sender
+{
+    HNPDetailsVC *detailsVc = [[HNPDetailsVC alloc]init];
+    [self.navigationController pushViewController:detailsVc animated:YES];
+}
+
+
 
 @end
