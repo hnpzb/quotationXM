@@ -42,7 +42,8 @@
 //    [tabVC addChildViewController:informationVC];
     
     ZBMainViewController *mainVC = [[ZBMainViewController alloc] init];
-    mainVC.view.frame = [UIScreen mainScreen].bounds;
+//    mainVC.view.frame = [UIScreen mainScreen].bounds;
+//    mainVC.view.frame = CGRectMake(0, 0, 200, 200);
     mainVC.tabBarItem.title = @"首页";
     mainVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_home_icon_normal"];
     [tabVC addChildViewController:mainVC];

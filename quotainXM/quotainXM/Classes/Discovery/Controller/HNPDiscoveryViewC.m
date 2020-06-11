@@ -42,6 +42,7 @@ static NSString *IDTwo = @"DynamicCellID";
     self.baiVC.backgroundColor = [UIColor whiteColor];
     tableview.estimatedRowHeight = 100;
     tableview.rowHeight = UITableViewAutomaticDimension;
+
 //    [self addTopView:self.mainV];
 //    [self addChildVC];
     

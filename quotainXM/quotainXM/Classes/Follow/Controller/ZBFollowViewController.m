@@ -28,6 +28,9 @@ static NSString *IDTwo = @"DynamicCellID";
     tableview.dataSource = self;
     tableview.delegate = self;
     
+    tableview.estimatedRowHeight = 80;
+    tableview.rowHeight = UITableViewAutomaticDimension;
+
     [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
     [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
 }
@@ -47,6 +50,19 @@ static NSString *IDTwo = @"DynamicCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //通过判断加载两个xib
+        HNPPushCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HNPPushCell"];
+//    HNPDynamicCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+     if (cell == nil && indexPath.section == 0) {
+            cell = [HNPPushCell PushCellXib];
+
+        }else{
+                cell = [HNPDynamicCell DynamicXib];
+
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //cell选中样式
+
+    return cell;
     if (indexPath.section == 0) {
         HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
         //cell的选中样式

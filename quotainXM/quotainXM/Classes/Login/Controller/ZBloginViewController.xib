@@ -86,16 +86,6 @@
                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oeO-fE-A6d">
                     <rect key="frame" x="20" y="157" width="354" height="200"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EFT-09-k7c">
-                            <rect key="frame" x="20" y="106.00000000000003" width="314" height="35"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="35" id="YDP-LE-o0b"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="k7B-sf-SzL"/>
-                            </constraints>
-                            <color key="textColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0z-jq-wAW">
                             <rect key="frame" x="20" y="10" width="37" height="22"/>
                             <constraints>
@@ -172,6 +162,16 @@
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="av7-mX-c79"/>
                             </constraints>
                         </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EFT-09-k7c">
+                            <rect key="frame" x="20" y="106.00000000000003" width="314" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="YDP-LE-o0b"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="k7B-sf-SzL"/>
+                            </constraints>
+                            <color key="textColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>

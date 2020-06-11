@@ -68,7 +68,7 @@
 
 -(void)addDayLabel:(UIView *)view index:(NSInteger)i name:(NSString *)name{
     UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake(24 + 50 * i,45,12,11);
+    label.frame = CGRectMake(24 + ([UIApplication sharedApplication].statusBarFrame.size.width/7) * i,45,12,11);
     label.numberOfLines = 0;
     [view addSubview:label];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0]}];
@@ -76,7 +76,7 @@
 }
 -(void)addDayBtn:(UIView *)view index:(NSInteger)i name:(NSString *)name{
     UIButton *btn = [[UIButton alloc] init];
-    btn.frame = CGRectMake(5 + 50 * i, 58, 50, 45);
+    btn.frame = CGRectMake(5 + ([UIApplication sharedApplication].statusBarFrame.size.width/7) * i, 58, 50, 45);
     [view addSubview:btn];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 14],NSForegroundColorAttributeName: [UIColor colorWithRed:38/255.0 green:38/255.0 blue:38/255.0 alpha:1.0]}];
 //    btn.titleLabel.attributedText = string;

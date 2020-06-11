@@ -23,7 +23,7 @@ static NSString *ID = @"quotation";
     // Do any additional setup after loading the view from its nib.
     UITableView *tableView = [[UITableView alloc] init];
     CGRect temp = self.view.bounds;
-    temp.origin = CGPointMake(0, 120);
+    temp.origin = CGPointMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 88);
 //    temp.size = CGSizeMake(self.view.frame.size.width - 40, self.view.frame.size.height);
     tableView.frame = temp;
     [self.view addSubview:tableView];
@@ -38,7 +38,7 @@ static NSString *ID = @"quotation";
 //    tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
     
     UIView *view = [[UIView alloc] init];
-    view.frame = CGRectMake(0,84,self.view.frame.size.width,40);
+    view.frame = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44,[UIApplication sharedApplication].statusBarFrame.size.width,44);
     view.backgroundColor = [UIColor colorWithRed:247/255.0 green:248/255.0 blue:251/255.0 alpha:1.0];
     [self addLabelOne:view index:0 name:@"主力"];
     [self addLabelOne:view index:1 name:@"大连"];
@@ -52,7 +52,7 @@ static NSString *ID = @"quotation";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] init];
-    view.frame = CGRectMake(0,22,self.view.frame.size.width,40);
+    view.frame = CGRectMake(0,0,self.view.frame.size.width,0);
     view.backgroundColor = [UIColor whiteColor];
 //    view.backgroundColor = [UIColor redColor];
     
@@ -72,7 +72,7 @@ static NSString *ID = @"quotation";
     return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 44;
+    return 40;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 40;
@@ -101,7 +101,7 @@ static NSString *ID = @"quotation";
 //    label.font = [UIFont fontWithName:@"PingFang SC" size: 17];
 //    label.textColor = [UIColor colorWithRed:189/255.0 green:192/255.0 blue:195/255.0 alpha:1.0];
     UIButton *btn = [[UIButton alloc] init];
-    btn.frame = CGRectMake((self.view.frame.size.width / 5) * i, 0, self.view.frame.size.width / 5, 44);
+    btn.frame = CGRectMake(([UIApplication sharedApplication].statusBarFrame.size.width / 5) * i, 0, self.view.frame.size.width / 5, 44);
     [view addSubview:btn];
 
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 17],NSForegroundColorAttributeName: [UIColor colorWithRed:189/255.0 green:192/255.0 blue:195/255.0 alpha:1.0]}];
@@ -115,7 +115,7 @@ static NSString *ID = @"quotation";
 }
 -(void)addLabelTwo:(UIView *)view index:(NSInteger)i name:(NSString *)name {
     UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake((self.view.frame.size.width / 4)  * i,0,self.view.frame.size.width / 4,44);
+    label.frame = CGRectMake((self.view.frame.size.width / 4 )  * i,0,self.view.frame.size.width / 4,44);
     label.numberOfLines = 0;
     [view addSubview:label];
     label.text = name;

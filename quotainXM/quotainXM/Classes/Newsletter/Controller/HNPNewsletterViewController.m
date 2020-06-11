@@ -22,9 +22,9 @@ static NSString *ID = @"NewSletterID";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     UITableView *tableView = [[UITableView alloc] init];
-    CGRect temp = self.view.bounds;
-    temp.origin = CGPointMake(0, 84);
-    tableView.frame = temp;
+    CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
+       temp.origin = CGPointMake(0, 80);
+       tableView.frame = temp;
     [self.view addSubview:tableView];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
