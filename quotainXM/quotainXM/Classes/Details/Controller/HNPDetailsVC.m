@@ -49,6 +49,8 @@ static NSString *IDTwo = @"CommentCellID";
     
     [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDetailsCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
     [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPCommentCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
+    tableview.estimatedRowHeight = 100;
+    tableview.rowHeight = UITableViewAutomaticDimension;
     
     
 }

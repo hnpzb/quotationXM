@@ -37,6 +37,9 @@ static NSString *ID = @"DynamicCellID";
     tableview.delegate = self;
     [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:ID];
     self.baiVC.backgroundColor = [UIColor whiteColor];
+    tableview.estimatedRowHeight = 100;
+    tableview.rowHeight = UITableViewAutomaticDimension;
+    
 //    [self addTopView:self.mainV];
 //    [self addChildVC];
     

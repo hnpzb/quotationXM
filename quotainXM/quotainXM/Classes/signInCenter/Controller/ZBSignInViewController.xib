@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJf-Z2-Ehc">
-                    <rect key="frame" x="0.0" y="124" width="414" height="757"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="777"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_qiandaokuang" translatesAutoresizingMaskIntoConstraints="NO" id="ODR-Qt-rVn">
                             <rect key="frame" x="10" y="106" width="394" height="371"/>
@@ -289,7 +289,7 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="iJf-Z2-Ehc" secondAttribute="trailing" id="79G-O8-qxb"/>
                 <constraint firstItem="iJf-Z2-Ehc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Uo7-5x-7Au"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="iJf-Z2-Ehc" secondAttribute="bottom" id="s9u-az-Jxc"/>
-                <constraint firstItem="iJf-Z2-Ehc" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="80" id="sRq-l0-iiK"/>
+                <constraint firstItem="iJf-Z2-Ehc" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="60" id="sRq-l0-iiK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
@@ -297,7 +297,7 @@
         </view>
     </objects>
     <resources>
-        <image name="pic_bg" width="375" height="265"/>
+        <image name="pic_bg" width="335" height="163.5"/>
         <image name="pic_qiandaokuang" width="355" height="371"/>
         <image name="pic_qiandap " width="332" height="48"/>
         <image name="元素右" width="13" height="14.5"/>

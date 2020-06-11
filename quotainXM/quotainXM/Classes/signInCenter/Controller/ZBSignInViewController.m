@@ -22,6 +22,16 @@
     
 //    self.view.backgroundColor = [UIColor redColor];
 //    [self addHeaderView];
+    UIView *vc = [[UIView alloc] init];
+    vc.backgroundColor = [UIColor whiteColor];
+    vc.frame = CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, 60);
+       UIButton *btn_back = [[UIButton alloc] init];
+    [self.view addSubview:vc];
+    
+    btn_back.frame = CGRectMake(10.5,20,20,20);
+       [btn_back setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+       [vc addSubview:btn_back];
+       [btn_back addTarget:self action:@selector(breakDeatail:) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)addHeaderView{
    
@@ -41,6 +51,11 @@
     [self addDayBtn:self.view index:5 name:@"6"];
     [self addDayBtn:self.view index:6 name:@"7"];
            
+}
+-(void)breakDeatail:(UIButton *)btn{
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)addDayLabel:(UIView *)view index:(NSInteger)i name:(NSString *)name{

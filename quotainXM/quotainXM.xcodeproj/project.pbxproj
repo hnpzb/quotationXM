@@ -520,12 +520,12 @@
 		B350BFF1249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B350BFF5249070F40026368F /* HNPDiscoveryViewC.h */,
 				B350BFF2249070F40026368F /* HNPDiscoveryViewC.m */,
+				B350BFF7249070F40026368F /* HNPDiscoveryViewC.xib */,
+				B350BFF6249070F40026368F /* ZBDiscoverMainVC.h */,
 				B350BFF3249070F40026368F /* ZBDiscoverMainVC.m */,
 				B350BFF4249070F40026368F /* ZBDiscoverMainVC.xib */,
-				B350BFF5249070F40026368F /* HNPDiscoveryViewC.h */,
-				B350BFF6249070F40026368F /* ZBDiscoverMainVC.h */,
-				B350BFF7249070F40026368F /* HNPDiscoveryViewC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -903,11 +903,11 @@
 			isa = PBXGroup;
 			children = (
 				B350C05C249070F40026368F /* ZBLoginMainNavVC.h */,
-				B350C05D249070F40026368F /* ZBloginViewController.m */,
-				B350C05E249070F40026368F /* ZBLoginMainNavVC.xib */,
 				B350C05F249070F40026368F /* ZBLoginMainNavVC.m */,
-				B350C060249070F40026368F /* ZBloginViewController.xib */,
+				B350C05E249070F40026368F /* ZBLoginMainNavVC.xib */,
 				B350C061249070F40026368F /* ZBloginViewController.h */,
+				B350C05D249070F40026368F /* ZBloginViewController.m */,
+				B350C060249070F40026368F /* ZBloginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1253,6 +1253,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = quotainXM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1269,6 +1270,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = quotainXM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

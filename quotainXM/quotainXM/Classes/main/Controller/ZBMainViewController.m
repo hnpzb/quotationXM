@@ -69,7 +69,7 @@
     [self addTopView:vc.view];
     
     [self.mainV addSubview:vc.view];
-    NSLog(@"%lf",self.view.safeAreaInsets.top);
+//    NSLog(@"%lf",self.view.safeAreaInsets.top);
     
     
 }

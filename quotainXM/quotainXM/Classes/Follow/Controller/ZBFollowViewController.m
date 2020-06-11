@@ -28,6 +28,8 @@ static NSString *ID = @"DynamicCellID";
     tableview.delegate = self;
     
     [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    tableview.estimatedRowHeight = 80;
+    tableview.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -45,11 +47,11 @@ static NSString *ID = @"DynamicCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //通过判断加载两个xib
-        HNPPushCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PushCellID"];
+        HNPPushCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HNPPushCell"];
 //    HNPDynamicCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
      if (cell == nil && indexPath.section == 0) {
             cell = [HNPPushCell PushCellXib];
-       
+
         }else{
                 cell = [HNPDynamicCell DynamicXib];
 
