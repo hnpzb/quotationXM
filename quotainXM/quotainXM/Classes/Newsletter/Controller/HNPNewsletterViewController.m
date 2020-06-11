@@ -12,6 +12,8 @@
 
 @interface HNPNewsletterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,strong)UITableView *tableView;
+
 @end
 
 @implementation HNPNewsletterViewController
@@ -21,21 +23,20 @@ static NSString *ID = @"NewSletterID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UITableView *tableView = [[UITableView alloc] init];
+    _tableView = [[UITableView alloc] init];
     CGRect temp = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
 //       temp.origin = CGPointMake(0, 80);
-       tableView.frame = temp;
-    [self.view addSubview:tableView];
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+       _tableView.frame = temp;
+    [self.view addSubview:_tableView];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
-    tableView.dataSource = self;
-    tableView.delegate = self;
-
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
     //注册cell加载xib
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HNPNewSletterCell class]) bundle:nil] forCellReuseIdentifier:ID];
     
-    tableView.estimatedRowHeight = 44;
-    tableView.rowHeight = UITableViewAutomaticDimension;
+    _tableView.estimatedRowHeight = 44;
+    _tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

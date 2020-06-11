@@ -11,7 +11,7 @@
 @interface ZBIndustryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)NSArray *dataArray;
-
+@property(nonatomic,strong)UITableView *tabView;
 @end
 
 @implementation ZBIndustryViewController
@@ -20,16 +20,16 @@ static NSString *ID = @"industry";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UITableView *tabView = [[UITableView alloc] init];
-    [self.view addSubview:tabView];
+    _tabView = [[UITableView alloc] init];
+    [self.view addSubview:_tabView];
 //    tabView.frame = self.view.bounds;
     CGRect temp = CGRectMake(0, 0, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
     temp.origin = CGPointMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44 );
-       tabView.frame = temp;
-    tabView.dataSource =self ;
-    tabView.delegate = self ;
+       _tabView.frame = temp;
+    _tabView.dataSource =self ;
+    _tabView.delegate = self ;
     
-    [tabView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBIndustryTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    [_tabView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBIndustryTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
     
 //    tabView.contentInset = UIEdgeInsetsMake(22, 0, 0, 0);
 }

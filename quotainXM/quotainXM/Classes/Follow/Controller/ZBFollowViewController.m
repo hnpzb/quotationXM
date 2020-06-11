@@ -12,6 +12,8 @@
 
 @interface ZBFollowViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,strong)UITableView *tableview;
+
 @end
 
 @implementation ZBFollowViewController
@@ -22,17 +24,17 @@ static NSString *IDTwo = @"DynamicCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
+    _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
 
-    [self.view addSubview:tableview];
-    tableview.dataSource = self;
-    tableview.delegate = self;
+    [self.view addSubview:_tableview];
+    _tableview.dataSource = self;
+    _tableview.delegate = self;
     
-    tableview.estimatedRowHeight = 80;
-    tableview.rowHeight = UITableViewAutomaticDimension;
+    _tableview.estimatedRowHeight = 80;
+    _tableview.rowHeight = UITableViewAutomaticDimension;
 
-    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
-    [tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
+    [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
+    [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

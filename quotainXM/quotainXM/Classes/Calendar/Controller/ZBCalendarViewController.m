@@ -11,6 +11,8 @@
 
 @interface ZBCalendarViewController ()<UITableViewDataSource,UITableViewDelegate>
 
+@property(nonatomic,strong)UITableView *tableView;
+
 @end
 
 @implementation ZBCalendarViewController
@@ -19,15 +21,15 @@ static  NSString  *ID = @"calendar";
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UITableView *tableView = [[UITableView alloc] init];
+    _tableView = [[UITableView alloc] init];
     CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height +44, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
 //    temp.origin = CGPointMake(0,[UIApplication sharedApplication].statusBarFrame.size.height +44);
-       tableView.frame = temp;
-    [self.view addSubview:tableView];
-    tableView.dataSource = self;
-    tableView.delegate = self;
+       _tableView.frame = temp;
+    [self.view addSubview:_tableView];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
     
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBCalendarTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];;
+    [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBCalendarTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];;
 //    UIView *view = [[UIView alloc] init];
 //    view.backgroundColor = [UIColor redColor];
 //    view.frame = CGRectMake(0, 65, self.view.frame.size.width, 150);

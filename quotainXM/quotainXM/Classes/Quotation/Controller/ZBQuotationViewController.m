@@ -12,6 +12,7 @@
 
 @property(nonatomic,strong)NSDictionary *dict;
 @property(nonatomic,strong)UIButton *preSelectBtn;
+@property(nonatomic,strong)UITableView *tableView;
 
 @end
 
@@ -20,19 +21,19 @@
 static NSString *ID = @"quotation";
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UITableView *tableView = [[UITableView alloc] init];
+    _tableView = [[UITableView alloc] init];
     CGRect temp = self.view.bounds;
     temp.origin = CGPointMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 88);
-    tableView.frame = temp;
-    [self.view addSubview:tableView];
-    tableView.delegate = self;
-    tableView.dataSource = self;
+    _tableView.frame = temp;
+    [self.view addSubview:_tableView];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     self.dict =@{@"contract":@"沪铜1811",
           @"price":@"48770",
           @"dataChang":@"-0.12",
           @"volume":@"8910"
     };
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBQuotationTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBQuotationTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
     
     UIView *view = [[UIView alloc] init];
     view.frame = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44,[UIApplication sharedApplication].statusBarFrame.size.width,44);
