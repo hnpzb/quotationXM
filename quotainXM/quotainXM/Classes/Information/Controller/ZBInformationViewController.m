@@ -55,21 +55,80 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     [_tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
     
     //获取网络数据
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.yysc.online/apidocs/index.html"]];
+    /*AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.yysc.online/user/talk/getRecommandTalk?project&userId&pageNumber&pageSize"]];
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:nil completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+
+    }]*/
+   
+    
+    //通过AFN框架获取网络数据，不需转码（get）
+    /*AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://api.yysc.online/user/talk/getTalkListByProject?pageNumber&pageSize&project=futures" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+        NSDictionary *dada = responseObject[@"data"][@"list"];
+            NSMutableArray *arrayN = [NSMutableArray array];
+            for (NSArray *dict in dada) {
+            [arrayN addObject:[TGIMGmode yy_modelWithDictionary:dict]];
+        }
+        self.AArray= arrayN;
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.Tableview reloadData];
+        }];
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"@");
+    }];*/
+    
+   
+  /*  AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://api.yysc.online/user/talk/getRecommandTalk?project&userId&pageNumber&pageSize" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *data = responseObject;
+//        NSMutableArray *array = [NSMutableArray array];/Users/zhubin/Desktop/
+//        [data writeToFile:@"/Users/zhubin/Desktop/test.plist" atomically:YES];
+        NSLog(@"%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failure");
+    }];
+    */
+
+ 
+    
+    //通过系统提供的方法获取网络数据，需转码（get）
+    
+       /*NSURL *url = [NSURL URLWithString:@"http:api.yysc.online/user/talk/getRecommandTalk?project&userId&pageNumber&pageSize"];
+           NSURLSession *session = [NSURLSession sharedSession];
+           [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error){
+               NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+               NSLog(@"%@",data);
+               NSArray *arr = dict[@"data"][@"list"];
+               NSMutableArray *arrayM = [NSMutableArray array];
+               for (NSDictionary *smallDic in arr) {
+                   [arrayM addObject:[SheQuModel SheQuWithDict:smallDic]];
+               }
+               self.guanzhus = arrayM;
+               [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                   [self.tableView reloadData];
+               }];
+           }]resume];*/
+    
+    /*
+    NSURL *url = [NSURL URLWithString:@"http://api.yysc.online/apidocs//banner/getBannerList?project="];
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        NSArray *arr = dict[@"data"];
+        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+    }]resume];*/
 
     
 
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    NSLog(@"viewWillAppear");
-}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    view.backgroundColor = [UIColor greenColor];
+//    view.backgroundColor = [UIColor greenColor];
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.image = [UIImage imageNamed:@"icon_hot"];
     imageView.frame = CGRectMake(20, 20, 13, 15);

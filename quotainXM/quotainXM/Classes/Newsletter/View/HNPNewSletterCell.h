@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HNPNewSletterModle.h"
+#import "HNPNewSletterModle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

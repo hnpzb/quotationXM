@@ -10,8 +10,10 @@
 #import "ZBInfoCollectionViewCell.h"
 #import "ZBInfoHeaderReusableView.h"
 #import "ZBInfoFooderReusableView.h"
+#import "SDCycleScrollView.h"
 
-@interface ZBInfoCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface ZBInfoCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource,SDCycleScrollViewDelegate>
+
 
 @end
 @implementation ZBInfoCollectionView
@@ -46,10 +48,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
             flowL.footerReferenceSize = CGSizeMake(colW, 160);
 
             UICollectionView *colView = [[UICollectionView alloc] initWithFrame:temp collectionViewLayout:flowL];
-        colView.userInteractionEnabled = YES;
-        //    colView.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
-        //    colView.backgroundColor = [UIColor redColor];
-            colView.backgroundColor = [UIColor grayColor];
+        colView.userInteractionEnabled = YES;;
             [self addSubview:colView];
         //        colView.frame = temp;
         self.userInteractionEnabled = YES;
@@ -82,16 +81,95 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
        if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
            
           ZBInfoHeaderReusableView  *headerV = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:header_ID forIndexPath:indexPath];
+           [self setCycleScrollView:headerV];
            return headerV;
        }else if([kind isEqualToString:UICollectionElementKindSectionFooter]){
            ZBInfoFooderReusableView *fooderV = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:fooder_ID forIndexPath:indexPath];
+           [self setFooderView:fooderV];
            return fooderV;
        }
     return 0;
     
 }
+
+-(void)setFooderView:(UIView *)view{
+    [self addImageView:1 view:view];
+    [self addImageView:2 view:view];
+    [self addImageView:3 view:view];
+    
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.image = [UIImage imageNamed:@"pic_qiandap "];
+    imageView.frame = CGRectMake(20, 80, [UIApplication sharedApplication].statusBarFrame.size.width - 40, 48);
+    [view addSubview:imageView];
+}
+-(void)addImageView:(NSInteger)i view:(UIView *)view{
+        CGFloat margin = 5;
+    CGFloat imageViewW = ([UIApplication sharedApplication].statusBarFrame.size.width-20) /3 ;
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"pic_bg_%ld",i]];
+        imageView.frame = CGRectMake(margin + ( margin + imageViewW) * (i - 1) ,margin * 2, imageViewW, 54);
+        [self addLabelOne:imageView];
+        [self addLabelTwo:imageView];
+        [view addSubview:imageView];
+}
+
+-(void)addLabelOne:(UIView *)view{
+       UILabel *label = [[UILabel alloc] init];
+        label.frame = CGRectMake(10,10,75.5,13.5);
+        label.numberOfLines = 1;
+        [view addSubview:label];
+
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"每日动态" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 14],NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]}];
+
+        label.attributedText = string;
+}
+-(void)addLabelTwo:(UIView *)view{
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = CGRectMake(10,30,59.5,9.5);
+    label.numberOfLines = 1;
+    [view addSubview:label];
+
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"精彩不断" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 10],NSForegroundColorAttributeName: [UIColor colorWithRed:255/255.0 green:208/255.0 blue:213/255.0 alpha:1.0]}];
+
+    label.attributedText = string;
+}
+
+-(void)setCycleScrollView:(UIView *)view{
+    UIImageView *backgroundView = [[UIImageView alloc] init];
+    backgroundView.frame = view.bounds;
+    [view addSubview:backgroundView];
+    
+    UIScrollView *demoContainerView = [[UIScrollView alloc] initWithFrame:self.frame];
+//    demoContainerView.contentSize = CGSizeMake(view.frame.size.width, 100);
+    [view addSubview:demoContainerView];
+    
+    // 情景一：采用本地图片实现
+    NSArray *imageNames = @[@"pic_banner",
+                            @"banner_home",
+                            @"banner_hangqing",
+                            ];
+
+     CGFloat w = view.bounds.size.width;
+    CGFloat h = view.bounds.size.height;
+    
+    
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, w, h) shouldInfiniteLoop:YES imageNamesGroup:imageNames];
+    cycleScrollView.backgroundColor = [UIColor whiteColor];
+    cycleScrollView.delegate = self;
+    cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
+    [demoContainerView addSubview:cycleScrollView];
+    cycleScrollView.autoScrollTimeInterval = 2.0;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"asd");
 }
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    NSLog(@"---点击了第%ld张图片", (long)index);
+    
+//    [self.navigationController pushViewController:[NSClassFromString(@"DemoVCWithXib") new] animated:YES];
+}
+
 
 @end

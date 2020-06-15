@@ -10,11 +10,12 @@
 
 @interface ZBIndustryViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property(nonatomic,strong)NSArray *dataArray;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,strong)UITableView *tabView;
 @end
 
 @implementation ZBIndustryViewController
+
 
 static NSString *ID = @"industry";
 - (void)viewDidLoad {
@@ -28,34 +29,72 @@ static NSString *ID = @"industry";
        _tabView.frame = temp;
     _tabView.dataSource =self ;
     _tabView.delegate = self ;
+    _tabView.estimatedRowHeight = 44;
+    _tabView.rowHeight = UITableViewAutomaticDimension;
     
     [_tabView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBIndustryTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
-    
-//    tabView.contentInset = UIEdgeInsetsMake(22, 0, 0, 0);
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [self setArrayData];
+}
+
+- (NSMutableArray *)dataArray{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self setArrayData];
+    }
+    return self;
+}
+
+-(void)setArrayData{
+     NSURL *url = [NSURL URLWithString:@"http://api.yysc.online/admin/getFinanceAffairs?pageNum&pageSize&date"];
+        NSURLSession *session = [NSURLSession sharedSession];
+        [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    //        NSArray *arr = dict[@"data"];
+            NSMutableArray *temp = [NSMutableArray array];
+            NSArray *array= dict[@"data"];
+            for (NSDictionary *dict in array) {
+                ZBIndustryMode *model = [ZBIndustryMode ZBIndustryModeWithDict:dict];
+                [temp addObject:model];
+            }
+            self.dataArray = temp;
+//            HNPNewSletterModle *model = self.dataArray[0];
+//            NSLog(@"%@",model.content);
+//            NSLog(@"%@",self.dataArray);
+    //        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+//            }];
+        }]resume];
+    [self.tabView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.dataArray.count;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ZBIndustryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
+    cell.industryModel = _dataArray[indexPath.row];
     return cell;
 }
-ZBIndustryTableViewCell *cell;
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    // 创建一个临时的cell(目的:为了传递indexPath这一行对应的模型数据去布局所有的子控件,得到所有子控件的frame,进而计算cell的高度)
-     if (cell == nil) {
-         cell = [tableView dequeueReusableCellWithIdentifier:ID];
-     }
-     
-     // 传递数据
-//    cell.industryModel = self.dataArray[indexPath.row];
-    
-     
-     return cell.cellHeight;
-}
+//ZBIndustryTableViewCell *cell;
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    // 创建一个临时的cell(目的:为了传递indexPath这一行对应的模型数据去布局所有的子控件,得到所有子控件的frame,进而计算cell的高度)
+//     if (cell == nil) {
+//         cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//     }
+//
+//
+//    return cell.cellHeight;
+//}
 /*
 #pragma mark - Navigation
 

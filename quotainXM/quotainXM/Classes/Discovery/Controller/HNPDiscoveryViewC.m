@@ -46,7 +46,6 @@ static NSString *IDTwo = @"DynamicCellID";
     
 }
 
-
 -(void)addChildVC{
     
     NSArray *childClassName = @[@"HNPDiscoveryViewC",

@@ -12,24 +12,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-    [self addImageView:1];
-    [self addImageView:2];
-    [self addImageView:3];
-    
-    UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.image = [UIImage imageNamed:@"pic_qiandap "];
-    imageView.frame = CGRectMake(20, 80, 332, 48);
-    [self addSubview:imageView];
     
 }
-
+/*
 -(void)addImageView:(NSInteger)i{
-        CGFloat margin = 4;
-        CGFloat imageViewW = 120;
+        CGFloat margin = 5;
+    CGFloat imageViewW = self.frame.size.width / 3 - 20;
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"pic_bg_%ld",i]];
-        imageView.frame = CGRectMake(margin + (margin + imageViewW) * (i - 1) ,margin, imageViewW, 54);
+        imageView.frame = CGRectMake(margin + ( margin + imageViewW) * (i - 1) ,margin, imageViewW, 54);
         [self addLabelOne:imageView];
         [self addLabelTwo:imageView];
         [self addSubview:imageView];
@@ -55,4 +46,6 @@
 
     label.attributedText = string;
 }
+ */
+ 
 @end

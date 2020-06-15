@@ -15,17 +15,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  新闻时间
  */
-@property (nonatomic ,copy)NSNumber *timeLable;
+//@property (nonatomic ,copy)NSString *content;
 
 /**
  新闻内容
  */
-@property (nonatomic ,copy)NSString *newsLablel;
+@property (nonatomic ,copy)NSString *content;
 
 /**
  新闻发送者
  */
-@property (nonatomic ,copy)NSString *nameLable;
+//@property (nonatomic ,copy)NSString *author;
 
 +(instancetype)NewSletterModleWithDict:(NSDictionary *)dict;
 
