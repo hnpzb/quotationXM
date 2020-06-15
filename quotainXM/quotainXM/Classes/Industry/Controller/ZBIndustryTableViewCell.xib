@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,14 +33,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sJ-Wg-1eo">
-                        <rect key="frame" x="10" y="30.5" width="343" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sJ-Wg-1eo">
+                        <rect key="frame" x="10" y="30.5" width="343" height="29.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行业风暴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7O-SI-WxP">
-                        <rect key="frame" x="10" y="61" width="55" height="23"/>
+                        <rect key="frame" x="10" y="70" width="55" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="Ia7-Im-LWP"/>
                             <constraint firstAttribute="width" constant="55" id="NCB-0b-2g8"/>
@@ -51,10 +52,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="hFz-n0-KHV" firstAttribute="centerY" secondItem="yiy-4V-je1" secondAttribute="centerY" id="3c8-Af-hJr"/>
-                    <constraint firstItem="r7O-SI-WxP" firstAttribute="top" secondItem="1sJ-Wg-1eo" secondAttribute="bottom" constant="10" id="AKZ-pn-PrK"/>
                     <constraint firstAttribute="trailing" secondItem="1sJ-Wg-1eo" secondAttribute="trailing" constant="30" id="Jys-mi-6lZ"/>
                     <constraint firstItem="hFz-n0-KHV" firstAttribute="leading" secondItem="yiy-4V-je1" secondAttribute="trailing" constant="10" id="Peu-Tw-TEK"/>
                     <constraint firstItem="1sJ-Wg-1eo" firstAttribute="top" secondItem="yiy-4V-je1" secondAttribute="bottom" constant="10" id="UEJ-7N-1zE"/>
+                    <constraint firstItem="r7O-SI-WxP" firstAttribute="top" secondItem="1sJ-Wg-1eo" secondAttribute="bottom" constant="10" id="c62-ii-ErV"/>
+                    <constraint firstAttribute="bottom" secondItem="r7O-SI-WxP" secondAttribute="bottom" constant="10" id="hkX-np-Yb2"/>
                     <constraint firstItem="1sJ-Wg-1eo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jO8-3L-hkB"/>
                     <constraint firstItem="yiy-4V-je1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="l2i-Kd-4HJ"/>
                     <constraint firstItem="r7O-SI-WxP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="rif-D8-eVj"/>
@@ -67,7 +69,7 @@
                 <outlet property="tagLabel" destination="r7O-SI-WxP" id="jWU-of-HgV"/>
                 <outlet property="timerLabel" destination="hFz-n0-KHV" id="Ogh-DW-KCh"/>
             </connections>
-            <point key="canvasLocation" x="-207.97101449275365" y="37.834821428571423"/>
+            <point key="canvasLocation" x="-207.97101449275365" y="37.165178571428569"/>
         </tableViewCell>
     </objects>
     <resources>

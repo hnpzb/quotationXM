@@ -747,8 +747,8 @@
 		B350C01C249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B350C01D249070F40026368F /* HNPPersonVC.m */,
 				B350C01E249070F40026368F /* HNPPersonVC.h */,
+				B350C01D249070F40026368F /* HNPPersonVC.m */,
 				114C5BA92490E68600090FC4 /* HNPPersonVC.xib */,
 			);
 			path = Controller;
@@ -828,12 +828,12 @@
 		B350C030249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B350C033249070F40026368F /* ZBIndustryViewController.h */,
-				B350C036249070F40026368F /* ZBIndustryViewController.m */,
-				B350C034249070F40026368F /* ZBIndustryViewController.xib */,
 				B350C035249070F40026368F /* ZBIndustryTableViewCell.h */,
 				B350C031249070F40026368F /* ZBIndustryTableViewCell.m */,
 				B350C032249070F40026368F /* ZBIndustryTableViewCell.xib */,
+				B350C033249070F40026368F /* ZBIndustryViewController.h */,
+				B350C036249070F40026368F /* ZBIndustryViewController.m */,
+				B350C034249070F40026368F /* ZBIndustryViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

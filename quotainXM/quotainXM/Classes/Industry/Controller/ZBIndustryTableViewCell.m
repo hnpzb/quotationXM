@@ -26,9 +26,9 @@
 
 - (void)setIndustryModel:(ZBIndustryMode *)industryModel{
     _industryModel = industryModel;
-    self.timerLabel.text = industryModel.timer;
+//    self.timerLabel.text = industryModel.timer;
     self.contentLabel.text = industryModel.content;
-    self.tagLabel.text = industryModel.classtag;
+//    self.tagLabel.text = industryModel.classtag;
     
     
 }
@@ -38,7 +38,7 @@
     // 强制刷新(目的:让label根据显示的文字计算自己的宽度和高度)
     [self layoutIfNeeded];
     
-    return CGRectGetMaxY(self.contentLabel.frame) + 35;
+    return CGRectGetMaxY(self.tagLabel.frame)+10;
     
 }
 

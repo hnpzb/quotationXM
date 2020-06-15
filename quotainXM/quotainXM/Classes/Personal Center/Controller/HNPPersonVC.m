@@ -26,7 +26,9 @@
     HNPDetailsVC *detailsVc = [[HNPDetailsVC alloc]init];
     [self.navigationController pushViewController:detailsVc animated:YES];
 }
-
+//- (void)viewDidAppear:(BOOL)animated{
+//    NSLog(@"oooop");
+//}
 
 
 @end

@@ -13,9 +13,10 @@
 +(instancetype)NewSletterModleWithDict:(NSDictionary *)dict
 {
     HNPNewSletterModle *modle = [[HNPNewSletterModle alloc]init];
-    modle.timeLable = dict[@"tameLable"];
-    modle.newsLablel = dict[@"newsLablel"];
-    modle.nameLable = dict[@"nameLable"];
+//    modle.timeLable = dict[@"tameLable"];
+//    modle.newsLablel = dict[@"newsLablel"];
+//    modle.nameLable = dict[@"nameLable"];
+    modle.content = dict[@"content"];
     return modle;
 }
 

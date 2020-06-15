@@ -12,10 +12,10 @@
 
 +(instancetype)ZBIndustryModeWithDict:(NSDictionary *)dict{
     ZBIndustryMode *mode = [[ZBIndustryMode alloc] init];
-    mode.timer = dict[@" "];
-    mode.timer = dict[@" "];
-    mode.timer = dict[@" "];
-    mode.timer = dict[@" "];
+    mode.content = dict[@"content"];
+//    mode.timer = dict[@" "];
+//    mode.timer = dict[@" "];
+//    mode.timer = dict[@" "];
     return mode;
     
 }

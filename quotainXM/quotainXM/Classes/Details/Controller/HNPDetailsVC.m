@@ -96,7 +96,7 @@ static NSString *IDTwo = @"CommentCellID";
  */
 -(void)breakDeatail:(UIButton *)btn
 {
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

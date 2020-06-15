@@ -5,6 +5,7 @@ target 'quotainXM' do
 
   pod 'AFNetworking', '~> 4.0.1'
   pod 'SDWebImage'
+  pod 'SDCycleScrollView','~> 1.61'
   pod 'MJExtension', '~> 3.2.1'
 
 end
