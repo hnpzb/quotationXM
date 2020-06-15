@@ -62,7 +62,6 @@ static NSString *ID = @"NewSletterID";
     _tableView.rowHeight = UITableViewAutomaticDimension;
   
 
-    
         /*AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         [manager GET:@"http://api.yysc.online/admin/getFinanceTalk?pageNum&pageSize&date" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //            NSDictionary *data = responseObject;
