@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110D603124934F850024F644 /* HNPDynamicModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D603024934F850024F644 /* HNPDynamicModle.m */; };
+		110D6034249370A10024F644 /* HNPDynamicUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D6033249370A10024F644 /* HNPDynamicUserModel.m */; };
 		114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */; };
 		114C5BAA2490E68600090FC4 /* HNPPersonVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114C5BA92490E68600090FC4 /* HNPPersonVC.xib */; };
 		4F8A213B2D09C1CE2FA863E1 /* libPods-quotainXM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */; };
@@ -99,6 +101,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110D602F24934F850024F644 /* HNPDynamicModle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HNPDynamicModle.h; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicModle.h"; sourceTree = SOURCE_ROOT; };
+		110D603024934F850024F644 /* HNPDynamicModle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HNPDynamicModle.m; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicModle.m"; sourceTree = SOURCE_ROOT; };
+		110D6032249370A10024F644 /* HNPDynamicUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HNPDynamicUserModel.h; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicUserModel.h"; sourceTree = SOURCE_ROOT; };
+		110D6033249370A10024F644 /* HNPDynamicUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HNPDynamicUserModel.m; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicUserModel.m"; sourceTree = SOURCE_ROOT; };
 		114C5BA62490C3FD00090FC4 /* HNPNewSletterHerderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterHerderView.h; sourceTree = "<group>"; };
 		114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterHerderView.m; sourceTree = "<group>"; };
 		114C5BA92490E68600090FC4 /* HNPPersonVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPPersonVC.xib; sourceTree = "<group>"; };
@@ -599,6 +605,10 @@
 		B350BFF8249070F40026368F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				110D602F24934F850024F644 /* HNPDynamicModle.h */,
+				110D603024934F850024F644 /* HNPDynamicModle.m */,
+				110D6032249370A10024F644 /* HNPDynamicUserModel.h */,
+				110D6033249370A10024F644 /* HNPDynamicUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1172,6 +1182,7 @@
 				B350C07A249070F40026368F /* ZBCalendarHeaderView.m in Sources */,
 				B350C09C249070F40026368F /* HNPNewsletterViewController.m in Sources */,
 				B350C071249070F40026368F /* ZBBottomTableViewCell.m in Sources */,
+				110D603124934F850024F644 /* HNPDynamicModle.m in Sources */,
 				B350C08D249070F40026368F /* ZBSignInViewController.m in Sources */,
 				B350C069249070F40026368F /* ZBInformationViewController.m in Sources */,
 				B350C089249070F40026368F /* HNPCommentCell.m in Sources */,
@@ -1212,6 +1223,7 @@
 				B350C068249070F40026368F /* ZBQuotationModal.m in Sources */,
 				B350C2DD2490A17A0026368F /* NSArray+MASAdditions.m in Sources */,
 				B350C0A9249070F40026368F /* ZBLoginMainNavVC.m in Sources */,
+				110D6034249370A10024F644 /* HNPDynamicUserModel.m in Sources */,
 				B350C0A7249070F40026368F /* ZBloginViewController.m in Sources */,
 				B350C088249070F40026368F /* HNPDetailsCell.m in Sources */,
 			);

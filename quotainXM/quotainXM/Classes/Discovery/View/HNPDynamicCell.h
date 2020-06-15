@@ -8,25 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@class HNPDynamicCell;
+@class HNPDynamicCell,HNPDynamicModle;
 @protocol HNPDynamicCellDelegate <NSObject>
 
 - (void)dynamicCellDidImageClick:(HNPDynamicCell *)DynamicCell;
 
 @end
 
+
+
 @interface HNPDynamicCell : UITableViewCell
 
+@property (nonatomic ,weak) id<HNPDynamicCellDelegate> delegate;
 
+//定义模型属性接收数据
+@property (nonatomic,strong)HNPDynamicModle *DTModel;
 
 //动态
 +(instancetype)DynamicXib;
 
-@property (nonatomic ,weak) id<HNPDynamicCellDelegate> delegate;
-
 
 @end
 
-NS_ASSUME_NONNULL_END

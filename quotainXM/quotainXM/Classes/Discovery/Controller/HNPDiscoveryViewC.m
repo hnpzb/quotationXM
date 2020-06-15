@@ -11,14 +11,18 @@
 #import "HNPDynamicCell.h"
 #import "ZBFollowViewController.h"
 #import "HNPDetailsVC.h"
+#import "HNPDynamicModle.h"
 
 @interface HNPDiscoveryViewC ()<UITableViewDelegate,UITableViewDataSource,HNPDynamicCellDelegate>
 
 @property(nonatomic,strong)UIView *baiVC;
 @property(nonatomic,strong)UIButton *preSelectBtn;
-
 @property (strong, nonatomic) IBOutlet UIView *mainV;
+
 @property(nonatomic,strong)UITableView *tableview;
+//动态的可变数组
+@property (nonatomic,strong)NSMutableArray *DTArray;
+
 @end
 
 @implementation HNPDiscoveryViewC
@@ -26,11 +30,14 @@
 static NSString *IDOne = @"PushCellID";
 static NSString *IDTwo = @"DynamicCellID";
 
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    //在view中添加tableView
-    
+ 
+    //加载网络数据解析Json并且进行字典转模型
+    [self DTJson];
+       //在view中添加tableView
     _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
 
     [self.view addSubview:_tableview];
@@ -45,7 +52,35 @@ static NSString *IDTwo = @"DynamicCellID";
 
     
 }
-
+- (void)DTJson{
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.yysc.online/user/talk/getTalkListByProject?project=futures&pageNumber&pageSize"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+    {
+        //Json转字典
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        //临时可变数组
+        NSMutableArray *tempMutableArray = [NSMutableArray array];
+        //字典数组
+        NSArray *listArray = dict[@"data"][@"list"];
+        //遍历字典数组
+        for (NSDictionary *dict in listArray) {
+//            NSDictionary *userDict = dict[@"user"];
+            HNPDynamicModle *tempModel = [[HNPDynamicModle alloc] init];
+            tempModel = [HNPDynamicModle DynamicWithDict:dict];
+            [tempMutableArray addObject:tempModel];
+        }
+/**
+        NSDictionary *arr =dict[@"data"][@"list"][0][@"user"];
+        NSMutableArray *arrayM = [NSMutableArray array];
+        for (NSDictionary *dict in arr) {
+            [arrayM addObject:[HNPDynamicModle DynamicWithDict:dict]];
+        }*/
+        self.DTArray = tempMutableArray;
+//刷新UI
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.tableview reloadData];
+        }];
+         }]resume];
+}
 
 -(void)addChildVC{
     
@@ -149,7 +184,7 @@ static NSString *IDTwo = @"DynamicCellID";
     if (section == 0) {
         return 1;
     }else{
-        return 10;
+        return self.DTArray.count;
     }
 }
 
@@ -165,14 +200,20 @@ static NSString *IDTwo = @"DynamicCellID";
         } else {
             HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
             DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
+            DynamicCell.DTModel = self.DTArray[indexPath.row];
             DynamicCell.delegate = self;
             return DynamicCell;
         }
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.yysc.online/user/talk/getRecommandTalk?project&userId&pageNumber&pageSize"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//
+//         NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+//
+//     }]resume];
+}
 
 
 //自定义一个代理进行跳转

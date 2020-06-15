@@ -31,7 +31,7 @@ static NSString *IDTwo = @"CommentCellID";
     [self creatTopView];
     [self creatTableView];
     
-    //清扫返回上个界面手势
+    //轻扫返回上个界面手势
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
     [self.view addGestureRecognizer:swipe];
     

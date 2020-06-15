@@ -150,8 +150,11 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="DynamicImageView" destination="0DP-3b-3VG" id="wY0-6I-h9R"/>
+                <outlet property="neirongImageView" destination="MjO-am-EwS" id="3y3-Ru-vsf"/>
+                <outlet property="neirongLable" destination="82X-ZI-9Yi" id="987-3b-cPI"/>
+                <outlet property="nickName" destination="idH-tn-kz5" id="dRC-PT-rYR"/>
             </connections>
-            <point key="canvasLocation" x="270" y="80"/>
+            <point key="canvasLocation" x="983" y="35"/>
         </tableViewCell>
     </objects>
     <resources>

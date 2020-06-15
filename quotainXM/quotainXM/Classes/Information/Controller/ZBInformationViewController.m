@@ -61,11 +61,11 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     
 
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    NSLog(@"viewWillAppear");
-}
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    NSLog(@"viewWillAppear");
+//}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
@@ -126,7 +126,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"12345");
+//    NSLog(@"12345");
 }
 
 
