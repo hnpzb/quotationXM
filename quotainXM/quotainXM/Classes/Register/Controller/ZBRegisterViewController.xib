@@ -120,6 +120,23 @@
                                 <constraint firstAttribute="height" constant="15" id="tJk-lB-0tr"/>
                             </constraints>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Clr-Fy-244">
+                            <rect key="frame" x="290" y="127.5" width="90" height="15"/>
+                            <color key="backgroundColor" red="1" green="0.70588235290000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="9rn-Xk-UEf"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="Bmo-uj-baN"/>
+                                <constraint firstAttribute="height" constant="15" id="jKm-21-LTh"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="uNj-Lh-v7R"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="获取验证码">
+                                <color key="titleColor" red="0.99607843139999996" green="0.99607843139999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="yanzhengCode:" destination="-1" eventType="touchUpInside" id="imo-IW-TvT"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -136,6 +153,7 @@
                         <constraint firstItem="Bb6-TH-rFa" firstAttribute="top" secondItem="7Ip-aG-vEt" secondAttribute="bottom" constant="10" id="HY8-1B-zES"/>
                         <constraint firstItem="OBG-P1-nMN" firstAttribute="leading" secondItem="yoT-6O-0Hd" secondAttribute="leading" constant="20" id="Hu6-Kq-r2D"/>
                         <constraint firstItem="AGs-fy-pGh" firstAttribute="leading" secondItem="yoT-6O-0Hd" secondAttribute="leading" constant="20" id="M8F-kB-2PI"/>
+                        <constraint firstItem="Clr-Fy-244" firstAttribute="centerY" secondItem="Qib-dp-GJc" secondAttribute="centerY" id="NBf-83-cY8"/>
                         <constraint firstItem="AGs-fy-pGh" firstAttribute="top" secondItem="3Zy-MN-DCK" secondAttribute="bottom" id="NTc-Ej-uHu"/>
                         <constraint firstItem="Qib-dp-GJc" firstAttribute="leading" secondItem="yoT-6O-0Hd" secondAttribute="leading" constant="20" id="QMb-Kp-ZaF"/>
                         <constraint firstItem="1od-CZ-zbu" firstAttribute="top" secondItem="yoT-6O-0Hd" secondAttribute="top" constant="10" id="TKl-ES-JZg"/>
@@ -152,6 +170,7 @@
                         <constraint firstAttribute="trailing" secondItem="Pkw-FQ-UR6" secondAttribute="trailing" constant="40" id="u16-VP-bYm"/>
                         <constraint firstAttribute="trailing" secondItem="Qib-dp-GJc" secondAttribute="trailing" constant="20" id="uDK-H5-V6L"/>
                         <constraint firstItem="Dg0-9g-4wm" firstAttribute="leading" secondItem="yoT-6O-0Hd" secondAttribute="leading" constant="20" id="xg6-EA-2u3"/>
+                        <constraint firstAttribute="trailing" secondItem="Clr-Fy-244" secondAttribute="trailing" constant="30" id="zLR-cf-1el"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obb-gj-g87">
