@@ -54,7 +54,7 @@
 //     [tabVC addChildViewController:findVC];
     
 //    ZBFollowViewController
-     ZBDiscoverMainVC *findVC = [[ ZBDiscoverMainVC alloc] init];
+     ZBDiscoverMainVC *findVC = [[ZBDiscoverMainVC alloc] init];
        findVC.tabBarItem.title = @"发现";
        findVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_find_icon_normal"];
         [tabVC addChildViewController:findVC];

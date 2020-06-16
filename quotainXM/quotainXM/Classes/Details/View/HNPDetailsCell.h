@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HNPDynamicModle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPDetailsCell : UITableViewCell
 
-+(instancetype)DetailsCellXib;
+//定义模型属性接收数据
+@property (nonatomic,strong)HNPDynamicModle *XQModle;
+
+//+(instancetype)DetailsCellXib;
 
 @end
 

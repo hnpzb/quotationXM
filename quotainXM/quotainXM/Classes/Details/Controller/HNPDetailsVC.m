@@ -10,6 +10,7 @@
 #import "HNPDetailsCell.h"
 #import "HNPCommentCell.h"
 #import "ZBDiscoverMainVC.h"
+#import "HNPDynamicModle.h"
 @interface HNPDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
@@ -34,6 +35,7 @@ static NSString *IDTwo = @"CommentCellID";
     //轻扫返回上个界面手势
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
     [self.view addGestureRecognizer:swipe];
+//    NSLog(@"%@",_dynamicModle.publishTime);
     
 }
 
@@ -122,6 +124,7 @@ static NSString *IDTwo = @"CommentCellID";
         HNPDetailsCell *DetailsCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
         //cell的选中样式
         DetailsCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        DetailsCell.XQModle = _dynamicModle;
         return DetailsCell;
     } else {
         HNPCommentCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];

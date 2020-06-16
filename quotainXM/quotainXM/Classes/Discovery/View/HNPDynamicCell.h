@@ -24,7 +24,7 @@
 //定义模型属性接收数据
 @property (nonatomic,strong)HNPDynamicModle *DTModel;
 
-//动态
+//快速加载动态xib
 +(instancetype)DynamicXib;
 
 

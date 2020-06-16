@@ -11,6 +11,11 @@
 		110D6034249370A10024F644 /* HNPDynamicUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D6033249370A10024F644 /* HNPDynamicUserModel.m */; };
 		114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */; };
 		114C5BAA2490E68600090FC4 /* HNPPersonVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114C5BA92490E68600090FC4 /* HNPPersonVC.xib */; };
+		115413B22497475B008BB7DB /* HNPDetailsModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 115413B12497475B008BB7DB /* HNPDetailsModle.m */; };
+		115413BF24977DF3008BB7DB /* HNPUserCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 115413BD24977DF3008BB7DB /* HNPUserCenterVC.m */; };
+		115413C024977DF3008BB7DB /* HNPUserCenterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 115413BE24977DF3008BB7DB /* HNPUserCenterVC.xib */; };
+		115413C424977E25008BB7DB /* HNPUserCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 115413C224977E25008BB7DB /* HNPUserCenterCell.m */; };
+		115413C524977E25008BB7DB /* HNPUserCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 115413C324977E25008BB7DB /* HNPUserCenterCell.xib */; };
 		4F8A213B2D09C1CE2FA863E1 /* libPods-quotainXM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */; };
 		B350BF9D249070D30026368F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BF9C249070D30026368F /* AppDelegate.m */; };
 		B350BFA3249070D30026368F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFA2249070D30026368F /* ViewController.m */; };
@@ -108,6 +113,14 @@
 		114C5BA62490C3FD00090FC4 /* HNPNewSletterHerderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterHerderView.h; sourceTree = "<group>"; };
 		114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterHerderView.m; sourceTree = "<group>"; };
 		114C5BA92490E68600090FC4 /* HNPPersonVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPPersonVC.xib; sourceTree = "<group>"; };
+		115413B02497475B008BB7DB /* HNPDetailsModle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPDetailsModle.h; sourceTree = "<group>"; };
+		115413B12497475B008BB7DB /* HNPDetailsModle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPDetailsModle.m; sourceTree = "<group>"; };
+		115413BC24977DF3008BB7DB /* HNPUserCenterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPUserCenterVC.h; sourceTree = "<group>"; };
+		115413BD24977DF3008BB7DB /* HNPUserCenterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPUserCenterVC.m; sourceTree = "<group>"; };
+		115413BE24977DF3008BB7DB /* HNPUserCenterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPUserCenterVC.xib; sourceTree = "<group>"; };
+		115413C124977E25008BB7DB /* HNPUserCenterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPUserCenterCell.h; sourceTree = "<group>"; };
+		115413C224977E25008BB7DB /* HNPUserCenterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPUserCenterCell.m; sourceTree = "<group>"; };
+		115413C324977E25008BB7DB /* HNPUserCenterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPUserCenterCell.xib; sourceTree = "<group>"; };
 		2043A1A5674EA90FB78ABAAB /* Pods-quotainXM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotainXM.release.xcconfig"; path = "Target Support Files/Pods-quotainXM/Pods-quotainXM.release.xcconfig"; sourceTree = "<group>"; };
 		40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quotainXM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B350BF98249070D30026368F /* quotainXM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotainXM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +338,52 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		115413AF2497473F008BB7DB /* Modle */ = {
+			isa = PBXGroup;
+			children = (
+				115413B02497475B008BB7DB /* HNPDetailsModle.h */,
+				115413B12497475B008BB7DB /* HNPDetailsModle.m */,
+			);
+			path = Modle;
+			sourceTree = "<group>";
+		};
+		115413B324977D2B008BB7DB /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				115413B424977D2B008BB7DB /* Controller */,
+				115413B524977D2B008BB7DB /* Model */,
+				115413B624977D2B008BB7DB /* View */,
+			);
+			path = UserCenter;
+			sourceTree = "<group>";
+		};
+		115413B424977D2B008BB7DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				115413BC24977DF3008BB7DB /* HNPUserCenterVC.h */,
+				115413BD24977DF3008BB7DB /* HNPUserCenterVC.m */,
+				115413BE24977DF3008BB7DB /* HNPUserCenterVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		115413B524977D2B008BB7DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		115413B624977D2B008BB7DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				115413C124977E25008BB7DB /* HNPUserCenterCell.h */,
+				115413C224977E25008BB7DB /* HNPUserCenterCell.m */,
+				115413C324977E25008BB7DB /* HNPUserCenterCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B350BF8F249070D30026368F = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +423,7 @@
 		B350BFB4249070F40026368F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				115413B324977D2B008BB7DB /* UserCenter */,
 				B350BFB5249070F40026368F /* Quotation */,
 				B350BFC1249070F40026368F /* Home */,
 				B350BFC5249070F40026368F /* Information */,
@@ -630,7 +690,7 @@
 			isa = PBXGroup;
 			children = (
 				B350C001249070F40026368F /* Controller */,
-				B350C00C249070F40026368F /* Modle */,
+				115413AF2497473F008BB7DB /* Modle */,
 				B350C005249070F40026368F /* View */,
 			);
 			path = Details;
@@ -649,21 +709,14 @@
 		B350C005249070F40026368F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B350C006249070F40026368F /* HNPDetailsCell.xib */,
-				B350C007249070F40026368F /* HNPDetailsCell.m */,
+				B350C00A249070F40026368F /* HNPCommentCell.h */,
 				B350C008249070F40026368F /* HNPCommentCell.m */,
 				B350C009249070F40026368F /* HNPCommentCell.xib */,
-				B350C00A249070F40026368F /* HNPCommentCell.h */,
 				B350C00B249070F40026368F /* HNPDetailsCell.h */,
+				B350C007249070F40026368F /* HNPDetailsCell.m */,
+				B350C006249070F40026368F /* HNPDetailsCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B350C00C249070F40026368F /* Modle */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Modle;
 			sourceTree = "<group>";
 		};
 		B350C00D249070F40026368F /* Register */ = {
@@ -1111,8 +1164,10 @@
 				B350C080249070F40026368F /* HNPDiscoveryViewC.xib in Resources */,
 				B350C0A1249070F40026368F /* ZBMainViewController.xib in Resources */,
 				B350C08E249070F40026368F /* ZBSignInViewController.xib in Resources */,
+				115413C524977E25008BB7DB /* HNPUserCenterCell.xib in Resources */,
 				B350C097249070F40026368F /* ZBIndustryTableViewCell.xib in Resources */,
 				B350C095249070F40026368F /* ZBMineViewController.xib in Resources */,
+				115413C024977DF3008BB7DB /* HNPUserCenterVC.xib in Resources */,
 				B350BFAB249070D50026368F /* LaunchScreen.storyboard in Resources */,
 				B350C0A8249070F40026368F /* ZBLoginMainNavVC.xib in Resources */,
 				B350C065249070F40026368F /* ZBQuotationViewController.xib in Resources */,
@@ -1206,6 +1261,7 @@
 				B350C07B249070F40026368F /* ZBFollowViewController.m in Sources */,
 				B350C066249070F40026368F /* ZBQuotationTableViewCell.m in Sources */,
 				B350C096249070F40026368F /* ZBIndustryTableViewCell.m in Sources */,
+				115413C424977E25008BB7DB /* HNPUserCenterCell.m in Sources */,
 				B350C081249070F40026368F /* HNPDynamicCell.m in Sources */,
 				B350C079249070F40026368F /* ZBCalendarViewController.m in Sources */,
 				B350C084249070F40026368F /* HNPPushCell.m in Sources */,
@@ -1216,12 +1272,14 @@
 				B350C0A2249070F40026368F /* ZBMainViewController.m in Sources */,
 				B350C09A249070F40026368F /* ZBIndustryMode.m in Sources */,
 				B350C06D249070F40026368F /* ZBInfoCollectionView.m in Sources */,
+				115413B22497475B008BB7DB /* HNPDetailsModle.m in Sources */,
 				B350C0A4249070F40026368F /* ZBNavigationController.m in Sources */,
 				B350C06F249070F40026368F /* ZBTopTableViewCell.m in Sources */,
 				B350C2D92490A17A0026368F /* ViewController+MASAdditions.m in Sources */,
 				B350C074249070F40026368F /* ZBInfoHeaderReusableView.m in Sources */,
 				B350C068249070F40026368F /* ZBQuotationModal.m in Sources */,
 				B350C2DD2490A17A0026368F /* NSArray+MASAdditions.m in Sources */,
+				115413BF24977DF3008BB7DB /* HNPUserCenterVC.m in Sources */,
 				B350C0A9249070F40026368F /* ZBLoginMainNavVC.m in Sources */,
 				110D6034249370A10024F644 /* HNPDynamicUserModel.m in Sources */,
 				B350C0A7249070F40026368F /* ZBloginViewController.m in Sources */,

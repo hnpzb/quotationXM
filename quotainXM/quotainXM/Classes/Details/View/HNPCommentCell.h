@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPCommentCell : UITableViewCell
 
-+(instancetype)CommentCellXib;
+//+(instancetype)CommentCellXib;
 
 @end
 

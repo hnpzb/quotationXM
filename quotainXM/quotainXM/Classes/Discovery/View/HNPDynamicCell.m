@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
 @property (weak, nonatomic) IBOutlet UILabel *neirongLable;
 @property (weak, nonatomic) IBOutlet UIImageView *neirongImageView;
+@property (weak, nonatomic) IBOutlet UILabel *zanCountLable;
+@property (weak, nonatomic) IBOutlet UILabel *commentCountLable;
 
 
 
@@ -26,10 +28,14 @@
 @implementation HNPDynamicCell
 
 
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
+    //头像的圆形裁减区域
+    self.DynamicImageView.layer.cornerRadius = 23.5;
+    self.DynamicImageView.layer.masksToBounds=YES;
+
     self.DynamicImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchImageView)];
     [self.DynamicImageView addGestureRecognizer:tapGes];
@@ -55,13 +61,15 @@
 }
 
 - (void)setDTModel:(HNPDynamicModle *)DTModel{
+    
     _DTModel = DTModel;
     
     [self.DynamicImageView sd_setImageWithURL:[NSURL URLWithString:DTModel.user.head] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
     self.neirongLable.text = DTModel.content;
     self.nickName.text = DTModel.user.nickName;
     [self.neirongImageView sd_setImageWithURL:[NSURL URLWithString:DTModel.picture] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
-    
+    self.zanCountLable.text = DTModel.zanCount;
+    self.commentCountLable.text = DTModel.commentCount;
     
 }
 

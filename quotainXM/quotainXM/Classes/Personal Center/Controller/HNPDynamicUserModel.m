@@ -15,6 +15,7 @@
     HNPDynamicUserModel *DynamicUserM = [[HNPDynamicUserModel alloc]init];
     DynamicUserM.head = dict[@"head"];
     DynamicUserM.nickName = dict[@"nickName"];
+    DynamicUserM.signature = dict[@"signature"];
     
     return DynamicUserM;
 }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,16 +45,21 @@
                             <constraint firstAttribute="width" constant="59" id="cYq-zS-G4G"/>
                             <constraint firstAttribute="height" constant="20" id="owi-Ry-9Ia"/>
                         </constraints>
-                        <state key="normal" title="Button" image="pic_bg"/>
+                        <state key="normal" title="Button" image="pic_bg">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 关注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bj8-qP-dLO">
                         <rect key="frame" x="319" y="28.5" width="33" height="13"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" red="0.75294117647058822" green="0.8784313725490196" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhf-pL-Yac">
                         <rect key="frame" x="10" y="73.5" width="354.5" height="105.5"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" none="YES"/>
+                        </accessibility>
                         <string key="text">  朗原油出口，但伊朗与美元正式作出了断（停止的时间）还是来得太突然，市场没有任何防备，而全球原油和外汇市场下个关注焦点也转移    同时，目前华尔街主流预期是油价上涨行情将持续，年末可能达到高点，摩根士丹利已经在4月24日上调了三季，年末可能达到高点，摩根士丹利已经在4月24日上调了三季度布油价格预估至77.5美同时，目预期是油价上涨行情将持续，年末可能达到高点，摩根士丹</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
@@ -227,7 +233,18 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="-89.130434782608702" y="187.5"/>
+            <connections>
+                <outlet property="DetailsBrowserCountLable" destination="1p4-Zn-AdO" id="GcZ-1B-YzQ"/>
+                <outlet property="DetailsCommentCountLable" destination="f7M-Pf-2fY" id="gka-X2-xDi"/>
+                <outlet property="DetailsFollowBtn" destination="rEI-gD-k32" id="LcC-AF-EYV"/>
+                <outlet property="DetailsHeadImageView" destination="Jr1-JO-Mqu" id="cjx-GI-kmm"/>
+                <outlet property="DetailsNeirongImageView" destination="95K-f9-QGh" id="sVt-ma-XJM"/>
+                <outlet property="DetailsNeirongLable" destination="vhf-pL-Yac" id="4YB-Fx-J4Y"/>
+                <outlet property="DetailsNickName" destination="NNy-Bb-ljA" id="mbn-xb-fwB"/>
+                <outlet property="DetailsPublishTimeLable" destination="nc7-7V-rYS" id="Jeo-ue-AdK"/>
+                <outlet property="DetailsZanCountLable" destination="tVf-9C-Gdc" id="QTm-i6-Kfb"/>
+            </connections>
+            <point key="canvasLocation" x="-1664" y="-34"/>
         </tableViewCell>
     </objects>
     <resources>
@@ -237,6 +254,6 @@
         <image name="comment_Commentator" width="11" height="10.5"/>
         <image name="icon_dianzan" width="13" height="15"/>
         <image name="like_Commentator" width="11" height="10.5"/>
-        <image name="pic_bg" width="335" height="163.5"/>
+        <image name="pic_bg" width="375" height="265"/>
     </resources>
 </document>

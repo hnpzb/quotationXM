@@ -21,10 +21,10 @@
     // Configure the view for the selected state
 }
 
-+(instancetype)CommentCellXib
-{
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
-}
+//+(instancetype)CommentCellXib
+//{
+//    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+//}
 
 
 @end

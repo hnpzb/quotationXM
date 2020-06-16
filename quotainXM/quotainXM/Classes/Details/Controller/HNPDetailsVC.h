@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HNPDynamicModle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPDetailsVC : UIViewController
+
+@property(nonatomic,strong)HNPDynamicModle *dynamicModle;
 
 @end
 

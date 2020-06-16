@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic ,strong)NSString *content;
 @property (nonatomic ,strong)NSString *picture;
+@property (nonatomic ,strong)NSString *publishTime;
+@property (nonatomic ,retain)NSString *zanCount;
+@property (nonatomic ,strong)NSString *commentCount;
+@property (nonatomic ,strong)NSString *browserCount;
 @property (nonatomic ,strong)HNPDynamicUserModel *user;
 
 +(instancetype)DynamicWithDict:(NSDictionary *)dict;

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic ,strong)NSString *head;
 @property (nonatomic ,strong)NSString *nickName;
+@property (nonatomic ,strong)NSString *signature;
 
 +(instancetype)DynamicUserWithDict:(NSDictionary *)dict;
 
