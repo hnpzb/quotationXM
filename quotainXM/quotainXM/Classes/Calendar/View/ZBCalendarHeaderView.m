@@ -34,12 +34,13 @@
         [self addSubview:label];
         NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"2019年8月" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0]}];
         label.attributedText = string;
-        
+        /*
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(72,19,4.9,3.2);
         view.backgroundColor = [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0];
         view.layer.cornerRadius = 1;
-        [self addSubview:view];
+        [self addSubview:view];*/
+        
         [self addDayLabel:self index:0 name:@"日"];
          [self addDayLabel:self index:1 name:@"一"];
          [self addDayLabel:self index:2 name:@"二"];
@@ -47,6 +48,7 @@
          [self addDayLabel:self index:4 name:@"四"];
          [self addDayLabel:self index:5 name:@"五"];
          [self addDayLabel:self index:6 name:@"六"];
+        
         
         [self addDayBtn:self index:0 name:@"26"];
         [self addDayBtn:self index:1 name:@"27"];
@@ -56,10 +58,12 @@
         [self addDayBtn:self index:5 name:@"31"];
         [self addDayBtn:self index:6 name:@"25"];
         
+        
+        /*
         UIView *view_line = [[UIView alloc] init];
         view_line.frame = CGRectMake(0,130,self.frame.size.width,5);
         view_line.backgroundColor = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0];
-        [self addSubview:view_line];
+        [self addSubview:view_line]; */
        
         
     }

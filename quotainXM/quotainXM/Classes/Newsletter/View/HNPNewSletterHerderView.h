@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HNPNewSletterModle.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPNewSletterHerderView : UIView
+
+@property(nonatomic,strong)HNPNewSletterModle *model;
 
 @end
 

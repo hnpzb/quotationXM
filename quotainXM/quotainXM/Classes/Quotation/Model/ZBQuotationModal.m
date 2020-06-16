@@ -12,10 +12,10 @@
 
 +(instancetype)quotationModalWithDict:(NSDictionary *)dict{
     ZBQuotationModal *modal = [[ZBQuotationModal alloc] init];
-    modal.contractName = dict[@"contract"];
-    modal.priceNew = dict[@"price"];
-    modal.dataChange = dict[@"dataChang"];
-    modal.volume = dict[@"volume"];
+    modal.name = dict[@"name"];
+    modal.price = dict[@"price"];
+    modal.upPercent = dict[@"upPercent"];
+    modal.dealCount = dict[@"dealCount"];
     return modal;
 }
 

@@ -12,10 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBQuotationModal : NSObject
 
-@property(nonatomic,copy)NSString *contractName;
-@property(nonatomic,copy)NSString *priceNew;
-@property(nonatomic,copy)NSString *dataChange;
-@property(nonatomic,copy)NSString *volume;
+@property(nonatomic,copy)NSString *name;
+@property(nonatomic,copy)NSString *price;
+@property(nonatomic,copy)NSString *upPercent;
+@property(nonatomic,copy)NSString *dealCount;
 
 +(instancetype)quotationModalWithDict:(NSDictionary *)dict;
 

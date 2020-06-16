@@ -10,8 +10,14 @@
 #import "ZBLoginMainNavVC.h"
 #import "ZBFoundPasswordController.h"
 #import "ZBResetPasswordController.h"
+#import "MBProgressHUD+XMG.h"
 
 @interface ZBRegisterViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *qingkongImageV;
+@property (strong, nonatomic) IBOutlet UIImageView *xianshiImageV;
+@property (strong, nonatomic) IBOutlet UITextField *count_F;
+@property (strong, nonatomic) IBOutlet UITextField *password_F;
+@property (strong, nonatomic) IBOutlet UITextField *verification_code_F;
 
 @end
 
@@ -20,7 +26,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //tianjia手势
+  
+    UITapGestureRecognizer *qk = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(qingkong)];
+    [_qingkongImageV addGestureRecognizer:qk];
+    
+    UITapGestureRecognizer *xs = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(xianshi)];
+    [_xianshiImageV addGestureRecognizer:xs];
+    
 }
+
+-(void)qingkong{
+    _count_F.text = @"";
+    NSLog(@"qk");
+}
+-(void)xianshi{
+    _password_F.secureTextEntry = !_password_F.isSecureTextEntry;
+    NSLog(@"xs");
+}
+
+
+
+
 - (IBAction)tuichu:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -30,10 +58,39 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)registerClick:(id)sender {
-    ZBResetPasswordController *vc = [[ZBResetPasswordController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    //提醒框
+       [MBProgressHUD showMessage:@"正在努力帮你注册..."];
+       
+       
+       //延时执行代码
+       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+           
+           NSString *count = self.count_F.text;
+           NSString *password = self.password_F.text;
+           NSString *code = self.verification_code_F.text;
+           [self registWithCount:count verification_code:code password:password];
+          
+       });
+       
+    
 }
-
+-(void)registWithCount:(NSString *)count verification_code:(NSString *)code password:(NSString *)password{
+    
+   if ([count isEqualToString:@"123"] && [password isEqualToString:@"123"] &&[code isEqualToString:@"123"]) {
+       //隐藏提醒框
+       [MBProgressHUD hideHUD];
+       ZBResetPasswordController *vc = [[ZBResetPasswordController alloc] init];
+       [self.navigationController pushViewController:vc animated:YES];
+      
+   }else{
+       //隐藏提醒框
+       [MBProgressHUD hideHUD];
+       [MBProgressHUD showError:@"用户名或密码或验证码错"];
+   }
+   
+    
+}
 /*
 #pragma mark - Navigation
 

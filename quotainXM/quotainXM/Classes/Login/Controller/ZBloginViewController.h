@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBloginViewController : UIViewController
--(void)clickLogin:(UIButton *)btn;
+
 @end
 
 NS_ASSUME_NONNULL_END

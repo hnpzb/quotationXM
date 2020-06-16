@@ -54,6 +54,10 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     [_tableView registerNib:[UINib nibWithNibName:@"ZBTopTableViewCell" bundle:nil] forCellReuseIdentifier:top_ID];
     [_tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
     
+   
+
+    
+    
     //获取网络数据
     /*AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.yysc.online/user/talk/getRecommandTalk?project&userId&pageNumber&pageSize"]];

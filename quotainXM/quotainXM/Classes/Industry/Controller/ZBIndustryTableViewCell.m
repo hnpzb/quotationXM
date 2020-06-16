@@ -29,6 +29,7 @@
 //    self.timerLabel.text = industryModel.timer;
     self.contentLabel.text = industryModel.content;
 //    self.tagLabel.text = industryModel.classtag;
+    _timerLabel.text = industryModel.timer;
     
     
 }

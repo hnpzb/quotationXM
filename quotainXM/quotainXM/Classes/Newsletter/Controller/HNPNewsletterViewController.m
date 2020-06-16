@@ -11,7 +11,7 @@
 #import "HNPNewSletterHerderView.h"
 #import <AFNetworking.h>
 #import "Masonry.h"
-
+#import <sys/utsname.h>
 @interface HNPNewsletterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
@@ -32,14 +32,14 @@ static NSString *ID = @"NewSletterID";
 
 - (void)viewDidAppear:(BOOL)animated{
     
-     [self setArrayData];
+     [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD:0]];
     
 }
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        [self setArrayData];
+        [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD:0]];
     }
     return self;
 }
@@ -60,7 +60,8 @@ static NSString *ID = @"NewSletterID";
     
     _tableView.estimatedRowHeight = 44;
     _tableView.rowHeight = UITableViewAutomaticDimension;
-  
+//    NSString *temp_s = [self time_timestampToString:1592155048000];
+//    NSLog(@"---%@",temp_s);
 
         /*AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         [manager GET:@"http://api.yysc.online/admin/getFinanceTalk?pageNum&pageSize&date" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -72,10 +73,68 @@ static NSString *ID = @"NewSletterID";
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"failure");
         }];*/
-   
     
+    /*    long timeStamp= 1461896616000;
+
+    NSString*tempTime =[[NSNumber numberWithLong:timeStamp] stringValue];
+
+   NSMutableString*getTime = [NSMutableString stringWithFormat:@"%@",tempTime];
+
+
+    //    NSMutableString *getTime = @"1461896616000";
+
+   struct utsname systemInfo;
+
+   uname(&systemInfo);
+
+   [getTime deleteCharactersInRange:NSMakeRange(10,3)];
+
+  
+
+   NSDateFormatter *matter = [[NSDateFormatter alloc]init];
+
+  matter.dateFormat =@"YYYY-MM-dd HH:mm";
+
+     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
+
+    NSString*timeStr = [matter stringFromDate:date];
+
+   NSLog(@"%@",timeStr);//2016-04-29 10:23
+     
+     */
     
         
+}
+
++(NSString *)timetampTostring:(long)timestamp{
+    
+    NSString *tempTime =[[NSNumber numberWithLong:timestamp] stringValue];
+    NSMutableString *getTime = [NSMutableString stringWithFormat:@"%@",tempTime];
+
+      //    NSMutableString *getTime = @"1461896616000";
+     struct utsname systemInfo;
+     uname(&systemInfo);
+
+     [getTime deleteCharactersInRange:NSMakeRange(10,3)];
+     NSDateFormatter *matter = [[NSDateFormatter alloc]init];
+//    matter.dateFormat =@"YYYY-MM-dd HH:mm";
+    matter.dateFormat = @"YYYY-MM-dd";
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
+
+      NSString *timeStr = [matter stringFromDate:date];
+//    NSArray *array1 =[timeStr componentsSeparatedByString:@"-"];
+
+    return timeStr;
+}
+
+-(NSString *)time_timestampToString:(NSInteger)timestamp{
+    
+    NSDate *conformTimesp = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm"];
+//    [dateFormat setDateFormat:@"HH:mm"];
+    NSString *string = [dateFormat stringFromDate:conformTimesp];
+    return string;
 }
 
 -(void)setArrayData{
@@ -90,16 +149,44 @@ static NSString *ID = @"NewSletterID";
                 [temp addObject:model];
             }
             self.dataArray = temp;
-//            NSLog(@"%ld",self.dataArray.count);
-//            HNPNewSletterModle *model = self.dataArray[0];
-//            NSLog(@"%@",model.content);
-//            NSLog(@"%@",self.dataArray);
-    //        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
 //            [[NSOperationQueue mainQueue] addBarrierBlock:^{
 //                [self.tableView reloadData];
 //            }];
         }]resume];
     [self.tableView reloadData];
+}
+
+-(void)setArrayDataWithTime:(NSString *)time{
+    NSString *path = [NSString stringWithFormat:@"http://api.yysc.online/admin/getFinanceTalk?pageNum&pageSize=100&date=%@",time];
+    NSURL *url = [NSURL URLWithString:path];
+            NSURLSession *session = [NSURLSession sharedSession];
+            [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                NSArray *array= dict[@"data"];
+                NSMutableArray *temp = [NSMutableArray array];
+                for (NSDictionary *dict in array) {
+                    HNPNewSletterModle *model = [HNPNewSletterModle NewSletterModleWithDict:dict];
+                    [temp addObject:model];
+                }
+                self.dataArray = temp;
+    //            [[NSOperationQueue mainQueue] addBarrierBlock:^{
+    //                [self.tableView reloadData];
+    //            }];
+            }]resume];
+        [self.tableView reloadData];
+}
+
++(NSString *)curYearMD:(NSInteger)i{
+    
+    NSDate *date = [NSDate date];//这个是NSDate类型的日期，所要获取的年月日都放在这里；
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    unsigned int unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth| NSCalendarUnitDay;//这句是说你要获取日期的元素有哪些。获取年就要写NSYearCalendarUnit，获取小时就要写NSHourCalendarUnit，中间用|隔开；
+    NSDateComponents *d = [cal components:unitFlags fromDate:date];//把要从date中获取的unitFlags标示的日期元素存放在NSDateComponents类型的d里面； //然后就可以从d中获取具体的年月日了；
+    NSInteger year = [d year];
+    NSInteger month = [d month];
+    NSInteger day = [d day];
+    NSString *time = [NSString stringWithFormat:@"%ld-%ld-%ld",year,month,day - i];
+    return time;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -129,8 +216,10 @@ static NSString *ID = @"NewSletterID";
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+//    [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD:section]];
     HNPNewSletterHerderView *view = [[HNPNewSletterHerderView alloc] init];
     view.backgroundColor = [UIColor whiteColor];
+    view.model = self.dataArray[0];
     return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

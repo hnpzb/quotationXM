@@ -15,13 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  新闻时间
  */
-//@property (nonatomic ,copy)NSString *content;
+@property (nonatomic ,copy)NSString *time;
 
 /**
  新闻内容
  */
 @property (nonatomic ,copy)NSString *content;
 
+@property(nonatomic,copy)NSString *yearMD;
+
+@property(nonatomic,copy)NSString *day;
 /**
  新闻发送者
  */

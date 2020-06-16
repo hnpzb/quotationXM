@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBIndustryMode : NSObject
 
-//@property(nonatomic,copy)NSString *timer;
+@property(nonatomic,copy)NSString *timer;
 @property(nonatomic,copy)NSString *content;
 //@property(nonatomic,copy)NSString *classtag;
 
