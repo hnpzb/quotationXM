@@ -37,6 +37,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+   
     
     //设置tableView
     CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height);

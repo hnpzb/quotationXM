@@ -8,6 +8,9 @@
 
 #import "ZBResetPasswordController.h"
 #import "ZBFoundPasswordController.h"
+#import "ZBInputCodeView.h"
+#import "MBProgressHUD+XMG.h"
+#import <AFNetworking.h>
 
 @interface ZBResetPasswordController ()
 @property (strong, nonatomic) IBOutlet UITextField *number_F;
@@ -23,25 +26,36 @@
     // Do any additional setup after loading the view from its nib.
     
 
-    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"15423568415" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 14],NSForegroundColorAttributeName: [UIColor colorWithRed:38/255.0 green:38/255.0 blue:38/255.0 alpha:1.0]}];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 14],NSForegroundColorAttributeName: [UIColor colorWithRed:38/255.0 green:38/255.0 blue:38/255.0 alpha:1.0]}];
     self.number_F.attributedText = string;
 
-    NSMutableAttributedString *string_tow = [[NSMutableAttributedString alloc] initWithString:@"请输入验证码" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 14],NSForegroundColorAttributeName: [UIColor colorWithRed:201/255.0 green:207/255.0 blue:214/255.0 alpha:1.0]}];
+    NSMutableAttributedString *string_tow = [[NSMutableAttributedString alloc] initWithString:@"" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 14],NSForegroundColorAttributeName: [UIColor colorWithRed:201/255.0 green:207/255.0 blue:214/255.0 alpha:1.0]}];
     self.code_f.attributedText = string_tow;
     
    
 
-    NSMutableAttributedString *string_three = [[NSMutableAttributedString alloc] initWithString:@"获取验证码" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:254/255.0 green:254/255.0 blue:255/255.0 alpha:1.0]}];
+    NSMutableAttributedString *string_three = [[NSMutableAttributedString alloc] initWithString:@"" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:254/255.0 green:254/255.0 blue:255/255.0 alpha:1.0]}];
     self.code_btn.titleLabel.attributedText = string_three;
 
 }
 - (IBAction)next:(id)sender {
     ZBFoundPasswordController *vc = [[ZBFoundPasswordController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+//    [self.navigationController pushViewController:vc animated:YES];
+    vc.phone = _number_F.text;
+    vc.code = _code_f.text;
+    [self presentViewController:vc animated:YES completion:nil];
     
 }
 - (IBAction)guanbi:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)yanzhengCode:(id)sender {
+    ZBInputCodeView *vc = [[ZBInputCodeView alloc] init];
+    vc.phone = _number_F.text;
+    vc.type = @"3";
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 /*

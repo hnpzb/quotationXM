@@ -7,6 +7,8 @@
 //
 
 #import "ZBFoundPasswordController.h"
+#import <AFNetworking.h>
+#import "MBProgressHUD+XMG.h"
 
 @interface ZBFoundPasswordController ()
 
@@ -18,13 +20,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
+    [self beginReSetPassword];
     
 }
 - (IBAction)ok:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    
+    
+   
 }
+-(void)beginReSetPassword{
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+    [par setObject:self.phone forKey:@"phone"];
+    [par setObject:@"3" forKey:@"type"];
+    [par setObject:@"futures" forKey:@"project"];
+    [par setObject:self.code forKey:@"code"];
+    
+    
 
+//    NSLog(@"%@",par);
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:@"http://api.yysc.online/system/sendCode" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //延时执行代码
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+         [self dismissViewControllerAnimated:YES completion:nil];
+        });
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [MBProgressHUD hideHUD];
+            [MBProgressHUD showError:@"重置失败"];
+        }];
+}
 /*
 #pragma mark - Navigation
 
