@@ -13,6 +13,7 @@
 @property(nonatomic,strong)NSDictionary *dict;
 @property(nonatomic,strong)UIButton *preSelectBtn;
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *dataArray;
 
 @end
 
@@ -21,6 +22,9 @@
 static NSString *ID = @"quotation";
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self DTJson];
+    
     _tableView = [[UITableView alloc] init];
     CGRect temp = self.view.bounds;
     temp.origin = CGPointMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 88);
@@ -28,6 +32,7 @@ static NSString *ID = @"quotation";
     [self.view addSubview:_tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.estimatedRowHeight = 44;
     self.dict =@{@"contract":@"沪铜1811",
           @"price":@"48770",
           @"dataChang":@"-0.12",
@@ -47,6 +52,47 @@ static NSString *ID = @"quotation";
     [self.view addSubview:view];
     
 }
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self DTJson];
+    }
+    return self;
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [self DTJson];
+}
+
+- (void)DTJson{
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.yysc.online/share/market"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+    {
+        //Json转字典
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        //临时可变数组
+        NSMutableArray *tempMutableArray = [NSMutableArray array];
+        //字典数组
+        NSArray *listArray = dict[@"data"];
+        //遍历字典数组
+        for (NSDictionary *dict in listArray) {
+//            NSDictionary *userDict = dict[@"user"];
+            ZBQuotationModal *tempModel = [[ZBQuotationModal alloc] init];
+            tempModel = [ZBQuotationModal quotationModalWithDict:dict];
+            [tempMutableArray addObject:tempModel];
+        }
+/**
+        NSDictionary *arr =dict[@"data"][@"list"][0][@"user"];
+        NSMutableArray *arrayM = [NSMutableArray array];
+        for (NSDictionary *dict in arr) {
+            [arrayM addObject:[HNPDynamicModle DynamicWithDict:dict]];
+        }*/
+        self.dataArray = tempMutableArray;
+//刷新UI
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.tableView reloadData];
+        }];
+         }]resume];
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] init];
@@ -63,12 +109,12 @@ static NSString *ID = @"quotation";
     return 40;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 40;
+    return _dataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ZBQuotationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    cell.qutation =  [ZBQuotationModal quotationModalWithDict:self.dict];
+    cell.qutation = _dataArray[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

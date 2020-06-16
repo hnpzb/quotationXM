@@ -12,6 +12,9 @@
 		114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */; };
 		114C5BAA2490E68600090FC4 /* HNPPersonVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114C5BA92490E68600090FC4 /* HNPPersonVC.xib */; };
 		4F8A213B2D09C1CE2FA863E1 /* libPods-quotainXM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */; };
+		B34A404E24976E5A0047BF94 /* ZBHeaderCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A404D24976E5A0047BF94 /* ZBHeaderCollectionView.m */; };
+		B34A4055249775070047BF94 /* ZBCalendarColViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A4053249775070047BF94 /* ZBCalendarColViewCell.m */; };
+		B34A4056249775070047BF94 /* ZBCalendarColViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34A4054249775070047BF94 /* ZBCalendarColViewCell.xib */; };
 		B350BF9D249070D30026368F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BF9C249070D30026368F /* AppDelegate.m */; };
 		B350BFA3249070D30026368F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFA2249070D30026368F /* ViewController.m */; };
 		B350BFA6249070D30026368F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350BFA4249070D30026368F /* Main.storyboard */; };
@@ -98,6 +101,9 @@
 		B350C2DF2490A17A0026368F /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C2D32490A17A0026368F /* MASConstraint.m */; };
 		B350C2E02490A17A0026368F /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C2D52490A17A0026368F /* MASViewConstraint.m */; };
 		B350C2E12490A17A0026368F /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = B350C2D62490A17A0026368F /* MASViewAttribute.m */; };
+		B352DDED2498703E001A3B66 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B352DDE82498703E001A3B66 /* MBProgressHUD.m */; };
+		B352DDEE2498703E001A3B66 /* MBProgressHUD+XMG.m in Sources */ = {isa = PBXBuildFile; fileRef = B352DDE92498703E001A3B66 /* MBProgressHUD+XMG.m */; };
+		B352DDEF2498703E001A3B66 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B352DDEC2498703E001A3B66 /* MBProgressHUD.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +116,11 @@
 		114C5BA92490E68600090FC4 /* HNPPersonVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPPersonVC.xib; sourceTree = "<group>"; };
 		2043A1A5674EA90FB78ABAAB /* Pods-quotainXM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotainXM.release.xcconfig"; path = "Target Support Files/Pods-quotainXM/Pods-quotainXM.release.xcconfig"; sourceTree = "<group>"; };
 		40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quotainXM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B34A404C24976E5A0047BF94 /* ZBHeaderCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBHeaderCollectionView.h; sourceTree = "<group>"; };
+		B34A404D24976E5A0047BF94 /* ZBHeaderCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBHeaderCollectionView.m; sourceTree = "<group>"; };
+		B34A4052249775070047BF94 /* ZBCalendarColViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCalendarColViewCell.h; sourceTree = "<group>"; };
+		B34A4053249775070047BF94 /* ZBCalendarColViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCalendarColViewCell.m; sourceTree = "<group>"; };
+		B34A4054249775070047BF94 /* ZBCalendarColViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBCalendarColViewCell.xib; sourceTree = "<group>"; };
 		B350BF98249070D30026368F /* quotainXM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotainXM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B350BF9B249070D30026368F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B350BF9C249070D30026368F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -253,6 +264,11 @@
 		B350C2D42490A17A0026368F /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		B350C2D52490A17A0026368F /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		B350C2D62490A17A0026368F /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		B352DDE82498703E001A3B66 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		B352DDE92498703E001A3B66 /* MBProgressHUD+XMG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+XMG.m"; sourceTree = "<group>"; };
+		B352DDEA2498703E001A3B66 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		B352DDEB2498703E001A3B66 /* MBProgressHUD+XMG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+XMG.h"; sourceTree = "<group>"; };
+		B352DDEC2498703E001A3B66 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		D30DA71F99E669AA946171CC /* Pods-quotainXM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotainXM.debug.xcconfig"; path = "Target Support Files/Pods-quotainXM/Pods-quotainXM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,6 +312,7 @@
 		1143F0022491D8E2006CD5F1 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				B352DDE72498703E001A3B66 /* MBProgressHUD */,
 				B350C2BD2490A1790026368F /* Masonry */,
 			);
 			path = Lib;
@@ -539,8 +556,13 @@
 		B350BFE6249070F40026368F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B350BFE7249070F40026368F /* ZBCalendarHeaderView.m */,
+				B34A4052249775070047BF94 /* ZBCalendarColViewCell.h */,
+				B34A4053249775070047BF94 /* ZBCalendarColViewCell.m */,
+				B34A4054249775070047BF94 /* ZBCalendarColViewCell.xib */,
 				B350BFE8249070F40026368F /* ZBCalendarHeaderView.h */,
+				B350BFE7249070F40026368F /* ZBCalendarHeaderView.m */,
+				B34A404C24976E5A0047BF94 /* ZBHeaderCollectionView.h */,
+				B34A404D24976E5A0047BF94 /* ZBHeaderCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -679,9 +701,9 @@
 		B350C00E249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B350C011249070F40026368F /* ZBRegisterViewController.h */,
 				B350C00F249070F40026368F /* ZBRegisterViewController.m */,
 				B350C010249070F40026368F /* ZBRegisterViewController.xib */,
-				B350C011249070F40026368F /* ZBRegisterViewController.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1035,6 +1057,18 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		B352DDE72498703E001A3B66 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				B352DDE82498703E001A3B66 /* MBProgressHUD.m */,
+				B352DDE92498703E001A3B66 /* MBProgressHUD+XMG.m */,
+				B352DDEA2498703E001A3B66 /* MBProgressHUD.h */,
+				B352DDEB2498703E001A3B66 /* MBProgressHUD+XMG.h */,
+				B352DDEC2498703E001A3B66 /* MBProgressHUD.bundle */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		BE3B13BA74E5EC5D37FD0DC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1118,6 +1152,7 @@
 				B350C065249070F40026368F /* ZBQuotationViewController.xib in Resources */,
 				B350C07F249070F40026368F /* ZBDiscoverMainVC.xib in Resources */,
 				B350C070249070F40026368F /* ZBTopTableViewCell.xib in Resources */,
+				B34A4056249775070047BF94 /* ZBCalendarColViewCell.xib in Resources */,
 				B350C075249070F40026368F /* ZBBottomTableViewCell.xib in Resources */,
 				B350C0AA249070F40026368F /* ZBloginViewController.xib in Resources */,
 				B350C08A249070F40026368F /* HNPCommentCell.xib in Resources */,
@@ -1131,6 +1166,7 @@
 				B350BFA6249070D30026368F /* Main.storyboard in Resources */,
 				B350C06B249070F40026368F /* ZBInfoFooderReusableView.xib in Resources */,
 				B350C087249070F40026368F /* HNPDetailsCell.xib in Resources */,
+				B352DDEF2498703E001A3B66 /* MBProgressHUD.bundle in Resources */,
 				B350C0A3249070F40026368F /* ZBNavigationController.xib in Resources */,
 				B350C082249070F40026368F /* HNPDynamicCell.xib in Resources */,
 				B350C085249070F40026368F /* HNPDetailsVC.xib in Resources */,
@@ -1179,6 +1215,7 @@
 				B350C06C249070F40026368F /* ZBInfoCollectionViewCell.m in Sources */,
 				B350C2E02490A17A0026368F /* MASViewConstraint.m in Sources */,
 				B350C08B249070F40026368F /* ZBRegisterViewController.m in Sources */,
+				B352DDED2498703E001A3B66 /* MBProgressHUD.m in Sources */,
 				B350C07A249070F40026368F /* ZBCalendarHeaderView.m in Sources */,
 				B350C09C249070F40026368F /* HNPNewsletterViewController.m in Sources */,
 				B350C071249070F40026368F /* ZBBottomTableViewCell.m in Sources */,
@@ -1197,6 +1234,7 @@
 				B350BFAE249070D50026368F /* main.m in Sources */,
 				B350C067249070F40026368F /* ZBQuotationViewController.m in Sources */,
 				B350C07E249070F40026368F /* ZBDiscoverMainVC.m in Sources */,
+				B34A404E24976E5A0047BF94 /* ZBHeaderCollectionView.m in Sources */,
 				B350C0A5249070F40026368F /* ZBFoundPasswordController.m in Sources */,
 				B350C2E12490A17A0026368F /* MASViewAttribute.m in Sources */,
 				B350C0A0249070F40026368F /* HNPNewSletterCell.m in Sources */,
@@ -1204,6 +1242,7 @@
 				B350C09D249070F40026368F /* HNPNewSletterModle.m in Sources */,
 				B350C093249070F40026368F /* ZBResetPasswordController.m in Sources */,
 				B350C07B249070F40026368F /* ZBFollowViewController.m in Sources */,
+				B34A4055249775070047BF94 /* ZBCalendarColViewCell.m in Sources */,
 				B350C066249070F40026368F /* ZBQuotationTableViewCell.m in Sources */,
 				B350C096249070F40026368F /* ZBIndustryTableViewCell.m in Sources */,
 				B350C081249070F40026368F /* HNPDynamicCell.m in Sources */,
@@ -1217,6 +1256,7 @@
 				B350C09A249070F40026368F /* ZBIndustryMode.m in Sources */,
 				B350C06D249070F40026368F /* ZBInfoCollectionView.m in Sources */,
 				B350C0A4249070F40026368F /* ZBNavigationController.m in Sources */,
+				B352DDEE2498703E001A3B66 /* MBProgressHUD+XMG.m in Sources */,
 				B350C06F249070F40026368F /* ZBTopTableViewCell.m in Sources */,
 				B350C2D92490A17A0026368F /* ViewController+MASAdditions.m in Sources */,
 				B350C074249070F40026368F /* ZBInfoHeaderReusableView.m in Sources */,

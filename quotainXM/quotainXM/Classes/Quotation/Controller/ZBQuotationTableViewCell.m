@@ -21,6 +21,7 @@
 
 @implementation ZBQuotationTableViewCell
 
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -54,10 +55,10 @@
 
 - (void)setQutation:(ZBQuotationModal *)qutation{
     _qutation = qutation;
-    self.contrctLabel.text = qutation.contractName;
-    self.price_Label.text = qutation.priceNew;
-    self.dataChangeLabel.text =qutation.dataChange;
-    self.volumeLabel.text = qutation.volume;
+    self.contrctLabel.text = qutation.name;
+    self.price_Label.text = qutation.price;
+    self.dataChangeLabel.text =qutation.upPercent;
+    self.volumeLabel.text = qutation.dealCount;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

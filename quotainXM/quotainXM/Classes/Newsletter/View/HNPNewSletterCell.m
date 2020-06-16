@@ -11,6 +11,7 @@
 @interface HNPNewSletterCell ()
 
 @property (strong, nonatomic) IBOutlet UILabel *textLebel;
+@property (strong, nonatomic) IBOutlet UILabel *timerLabel;
 
 
 @end
@@ -36,7 +37,7 @@
 {
     _NewSletter = NewSletter;
     _textLebel.text = NewSletter.content;
-
+    _timerLabel.text = NewSletter.time;
     //此处进行拉xib线进行数据传递self.timeLable.text = NewSletter.timeLable;
 
 }

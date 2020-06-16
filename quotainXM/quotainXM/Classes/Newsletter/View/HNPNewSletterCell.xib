@@ -78,6 +78,7 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="textLebel" destination="xGC-PU-fUL" id="7rR-Hp-Tht"/>
+                <outlet property="timerLabel" destination="LyV-M0-iga" id="A7A-j3-j8B"/>
             </connections>
             <point key="canvasLocation" x="358" y="145"/>
         </tableViewCell>
