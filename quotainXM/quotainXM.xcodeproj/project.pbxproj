@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		110D603124934F850024F644 /* HNPDynamicModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D603024934F850024F644 /* HNPDynamicModle.m */; };
 		110D6034249370A10024F644 /* HNPDynamicUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D6033249370A10024F644 /* HNPDynamicUserModel.m */; };
+		114BAE012498B4EF006D02C2 /* HNPFabuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 114BADFF2498B4EF006D02C2 /* HNPFabuVC.m */; };
+		114BAE022498B4EF006D02C2 /* HNPFabuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114BAE002498B4EF006D02C2 /* HNPFabuVC.xib */; };
 		114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */; };
 		114C5BAA2490E68600090FC4 /* HNPPersonVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114C5BA92490E68600090FC4 /* HNPPersonVC.xib */; };
 		115413B22497475B008BB7DB /* HNPDetailsModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 115413B12497475B008BB7DB /* HNPDetailsModle.m */; };
@@ -116,6 +118,9 @@
 		110D603024934F850024F644 /* HNPDynamicModle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HNPDynamicModle.m; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicModle.m"; sourceTree = SOURCE_ROOT; };
 		110D6032249370A10024F644 /* HNPDynamicUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HNPDynamicUserModel.h; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicUserModel.h"; sourceTree = SOURCE_ROOT; };
 		110D6033249370A10024F644 /* HNPDynamicUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HNPDynamicUserModel.m; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicUserModel.m"; sourceTree = SOURCE_ROOT; };
+		114BADFE2498B4EF006D02C2 /* HNPFabuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPFabuVC.h; sourceTree = "<group>"; };
+		114BADFF2498B4EF006D02C2 /* HNPFabuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPFabuVC.m; sourceTree = "<group>"; };
+		114BAE002498B4EF006D02C2 /* HNPFabuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPFabuVC.xib; sourceTree = "<group>"; };
 		114C5BA62490C3FD00090FC4 /* HNPNewSletterHerderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterHerderView.h; sourceTree = "<group>"; };
 		114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterHerderView.m; sourceTree = "<group>"; };
 		114C5BA92490E68600090FC4 /* HNPPersonVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPPersonVC.xib; sourceTree = "<group>"; };
@@ -331,6 +336,40 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
+		114BADFA2498B3BC006D02C2 /* Fabu */ = {
+			isa = PBXGroup;
+			children = (
+				114BADFB2498B3BC006D02C2 /* Controller */,
+				114BADFC2498B3BC006D02C2 /* Model */,
+				114BADFD2498B3BC006D02C2 /* View */,
+			);
+			path = Fabu;
+			sourceTree = "<group>";
+		};
+		114BADFB2498B3BC006D02C2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				114BADFE2498B4EF006D02C2 /* HNPFabuVC.h */,
+				114BADFF2498B4EF006D02C2 /* HNPFabuVC.m */,
+				114BAE002498B4EF006D02C2 /* HNPFabuVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		114BADFC2498B3BC006D02C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		114BADFD2498B3BC006D02C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		114C5BA324907BEF00090FC4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +479,7 @@
 		B350BFB4249070F40026368F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				114BADFA2498B3BC006D02C2 /* Fabu */,
 				115413B324977D2B008BB7DB /* UserCenter */,
 				B350BFB5249070F40026368F /* Quotation */,
 				B350BFC1249070F40026368F /* Home */,
@@ -640,9 +680,9 @@
 		B350BFEA249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B350BFED249070F40026368F /* ZBFollowViewController.h */,
 				B350BFEB249070F40026368F /* ZBFollowViewController.m */,
 				B350BFEC249070F40026368F /* ZBFollowViewController.xib */,
-				B350BFED249070F40026368F /* ZBFollowViewController.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -859,9 +899,9 @@
 		B350C025249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B350C026249070F40026368F /* ZBResetPasswordController.xib */,
-				B350C027249070F40026368F /* ZBResetPasswordController.m */,
 				B350C028249070F40026368F /* ZBResetPasswordController.h */,
+				B350C027249070F40026368F /* ZBResetPasswordController.m */,
+				B350C026249070F40026368F /* ZBResetPasswordController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1197,6 +1237,7 @@
 				B350C08C249070F40026368F /* ZBRegisterViewController.xib in Resources */,
 				B350C080249070F40026368F /* HNPDiscoveryViewC.xib in Resources */,
 				B350C0A1249070F40026368F /* ZBMainViewController.xib in Resources */,
+				114BAE022498B4EF006D02C2 /* HNPFabuVC.xib in Resources */,
 				B350C08E249070F40026368F /* ZBSignInViewController.xib in Resources */,
 				115413C524977E25008BB7DB /* HNPUserCenterCell.xib in Resources */,
 				B350C097249070F40026368F /* ZBIndustryTableViewCell.xib in Resources */,
@@ -1282,6 +1323,7 @@
 				114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */,
 				B350C094249070F40026368F /* ZBMineViewController.m in Sources */,
 				B350C2DC2490A17A0026368F /* MASLayoutConstraint.m in Sources */,
+				114BAE012498B4EF006D02C2 /* HNPFabuVC.m in Sources */,
 				B350C099249070F40026368F /* ZBIndustryViewController.m in Sources */,
 				B350C07D249070F40026368F /* HNPDiscoveryViewC.m in Sources */,
 				B350BF9D249070D30026368F /* AppDelegate.m in Sources */,

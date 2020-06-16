@@ -51,33 +51,18 @@ static NSString *IDTwo = @"DynamicCellID";
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //通过判断加载两个xib
-        HNPPushCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HNPPushCell"];
-//    HNPDynamicCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-     if (cell == nil && indexPath.section == 0) {
-            cell = [HNPPushCell PushCellXib];
-
-        }else{
-                cell = [HNPDynamicCell DynamicXib];
-
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    //cell选中样式
-
-    return cell;
-    if (indexPath.section == 0) {
-        HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
-        //cell的选中样式
-        pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return pushCell;
-        
-    } else {
-        HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
-        DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return DynamicCell;
-    }
+     if (indexPath.section == 0) {
+                HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
+                //cell的选中样式
+                pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
+                //NSLog(@"%zd-%p",indexPath.row,pushCell);
+                return pushCell;
+            } else {
+                HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
+                return DynamicCell;
+            }
+    
 }
-
 /*
 #pragma mark - Navigation
 

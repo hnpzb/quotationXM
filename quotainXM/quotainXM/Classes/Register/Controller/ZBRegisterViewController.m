@@ -13,7 +13,6 @@
 #import "MBProgressHUD+XMG.h"
 
 @interface ZBRegisterViewController ()
-@property (strong, nonatomic) IBOutlet UIImageView *qingkongImageV;
 @property (strong, nonatomic) IBOutlet UIImageView *xianshiImageV;
 @property (strong, nonatomic) IBOutlet UITextField *count_F;
 @property (strong, nonatomic) IBOutlet UITextField *password_F;
@@ -28,33 +27,29 @@
     // Do any additional setup after loading the view from its nib.
     
     //tianjia手势
-  
-    UITapGestureRecognizer *qk = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(qingkong)];
-    [_qingkongImageV addGestureRecognizer:qk];
     
     UITapGestureRecognizer *xs = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(xianshi)];
     [_xianshiImageV addGestureRecognizer:xs];
     
 }
 
--(void)qingkong{
-    _count_F.text = @"";
-    NSLog(@"qk");
-}
 -(void)xianshi{
     _password_F.secureTextEntry = !_password_F.isSecureTextEntry;
-    NSLog(@"xs");
+}
+- (IBAction)countLable:(UITextField *)sender {
+    [_count_F resignFirstResponder ];
+}
+- (IBAction)verificationLable:(UITextField *)sender {
+    [_verification_code_F resignFirstResponder];
+}
+- (IBAction)passwordLable:(UITextField *)sender {
+    [_password_F resignFirstResponder];
 }
 
 
 
 
-- (IBAction)tuichu:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
 - (IBAction)closeClick:(id)sender {
-//    ZBLoginMainNavVC *vc = [[ZBLoginMainNavVC alloc] init];
-//    [self.navigationController popToViewController:vc animated:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)registerClick:(id)sender {

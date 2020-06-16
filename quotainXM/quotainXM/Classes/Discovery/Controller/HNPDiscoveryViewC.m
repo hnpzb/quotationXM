@@ -14,6 +14,7 @@
 #import "HNPDynamicModle.h"
 #import "HNPPersonVC.h"
 #import "HNPUserCenterVC.h"
+#import "HNPFabuVC.h"
 
 @interface HNPDiscoveryViewC ()<UITableViewDelegate,UITableViewDataSource,HNPDynamicCellDelegate>
 
@@ -107,12 +108,21 @@ static NSString *IDTwo = @"DynamicCellID";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
+        HNPFabuVC *fabuVC = [[HNPFabuVC alloc]init];
+        
+        [self.navigationController pushViewController:fabuVC animated:YES];
+    }else{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
     HNPDetailsVC *detailsVc = [[HNPDetailsVC alloc]init];
     //将数据传给详情页面的模型属性
     detailsVc.dynamicModle = self.DTArray[indexPath.row];
-    [self.navigationController pushViewController:detailsVc animated:YES];
+        [self.navigationController pushViewController:detailsVc animated:YES];
+        
+    }
     
 }
 

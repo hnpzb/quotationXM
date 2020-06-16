@@ -15,7 +15,6 @@
 #import "MBProgressHUD+XMG.h"
 
 @interface ZBloginViewController ()
-@property (strong, nonatomic) IBOutlet UIImageView *qingkongImageV;
 @property (strong, nonatomic) IBOutlet UIImageView *xianshiImageV;
 @property (strong, nonatomic) IBOutlet UITextField *count_F;
 @property (strong, nonatomic) IBOutlet UITextField *password_F;
@@ -26,28 +25,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
     _count_F.userInteractionEnabled = YES;
     _xianshiImageV.userInteractionEnabled = YES;
-    //tianjia手势
-    UITapGestureRecognizer *qk = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(qingkong)];
-    [_qingkongImageV addGestureRecognizer:qk];
     
+    //添加手势
     UITapGestureRecognizer *xs = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(xianshi)];
     [_xianshiImageV addGestureRecognizer:xs];
-    
-    
 }
 
--(void)qingkong{
-    _count_F.text = @"";
-    NSLog(@"qk");
+- (IBAction)countLable:(UITextField *)sender {
+    [_count_F resignFirstResponder];
 }
+- (IBAction)passwordLable:(UITextField *)sender {
+    [_password_F resignFirstResponder];
+}
+
+
 -(void)xianshi{
     _password_F.secureTextEntry = !_password_F.isSecureTextEntry;
-    NSLog(@"xs");
 }
-
 
 - (IBAction)registerClick:(id)sender {
     ZBRegisterViewController *vc = [[ZBRegisterViewController alloc] init];
@@ -55,10 +52,8 @@
 }
 - (IBAction)logonClick:(id)sender {
     
-    
     //提醒框
     [MBProgressHUD showMessage:@"正在努力帮你登录..."];
-    
     
     //延时执行代码
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
