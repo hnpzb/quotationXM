@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -151,6 +152,19 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="actualLabel" destination="Ims-wf-VVJ" id="G8H-Fw-N48"/>
+                <outlet property="consensus" destination="TuD-kz-7XX" id="uft-jI-yM4"/>
+                <outlet property="countryLabel" destination="L2f-ny-86p" id="ufu-nQ-LHI"/>
+                <outlet property="nameLabel" destination="jHj-2U-GrW" id="shP-t8-5Ga"/>
+                <outlet property="previousLabel" destination="93O-wC-fOv" id="yCo-RJ-vbw"/>
+                <outlet property="timeLabel" destination="E3h-S8-hg0" id="x6d-RO-eGz"/>
+                <outlet property="xingxing_1" destination="Ri4-hW-hJb" id="0Ou-s9-FjY"/>
+                <outlet property="xingxing_2" destination="RUU-Uf-kEg" id="cyK-VI-m1y"/>
+                <outlet property="xingxing_3" destination="rDX-9h-cgF" id="L75-Hr-PHh"/>
+                <outlet property="xingxing_4" destination="3bk-pq-rx1" id="RnX-hk-ENm"/>
+                <outlet property="xingxing_5" destination="0cN-AT-fS7" id="cDV-Zn-K4p"/>
+            </connections>
             <point key="canvasLocation" x="-210.86956521739131" y="50.558035714285715"/>
         </tableViewCell>
     </objects>

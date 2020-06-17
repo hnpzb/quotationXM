@@ -644,12 +644,12 @@
 		B350BFDE249070F40026368F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B350BFE0249070F40026368F /* ZBCalendarViewController.h */,
-				B350BFE4249070F40026368F /* ZBCalendarViewController.m */,
-				B350BFE2249070F40026368F /* ZBCalendarViewController.xib */,
 				B350BFDF249070F40026368F /* ZBCalendarTableViewCell.h */,
 				B350BFE3249070F40026368F /* ZBCalendarTableViewCell.m */,
 				B350BFE1249070F40026368F /* ZBCalendarTableViewCell.xib */,
+				B350BFE0249070F40026368F /* ZBCalendarViewController.h */,
+				B350BFE4249070F40026368F /* ZBCalendarViewController.m */,
+				B350BFE2249070F40026368F /* ZBCalendarViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1337,11 +1337,8 @@
 				114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */,
 				B350C094249070F40026368F /* ZBMineViewController.m in Sources */,
 				B350C2DC2490A17A0026368F /* MASLayoutConstraint.m in Sources */,
-
 				114BAE012498B4EF006D02C2 /* HNPFabuVC.m in Sources */,
-
 				B352DDF22498948E001A3B66 /* ZBCalendarModel.m in Sources */,
-
 				B350C099249070F40026368F /* ZBIndustryViewController.m in Sources */,
 				B350C07D249070F40026368F /* HNPDiscoveryViewC.m in Sources */,
 				B350BF9D249070D30026368F /* AppDelegate.m in Sources */,

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBCalendarModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBCalendarTableViewCell : UITableViewCell
+
+@property(nonatomic,strong)ZBCalendarModel *model;
 
 @end
 
