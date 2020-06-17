@@ -10,4 +10,16 @@
 
 @implementation ZBCalendarModel
 
++(instancetype)ZBCalendarModelWithDict:(NSDictionary *)dict{
+    ZBCalendarModel *model = [[ZBCalendarModel alloc] init];
+    model.actual = dict[@"actual"];
+    model.consensus = dict[@"consensus"];
+    model.country = dict[@"country"];
+    model.name = dict[@"name"];
+    model.previous = dict[@"previous"];
+    model.star = dict[@"star"];
+    model.time = dict[@"time"];
+    return model;
+}
+
 @end

@@ -14,6 +14,7 @@
 
 @interface ZBResetPasswordController ()
 @property (strong, nonatomic) IBOutlet UITextField *number_F;
+
 @property (strong, nonatomic) IBOutlet UITextField *code_f;
 @property (strong, nonatomic) IBOutlet UIButton *code_btn;
 
@@ -43,7 +44,12 @@
 //    [self.navigationController pushViewController:vc animated:YES];
     vc.phone = _number_F.text;
     vc.code = _code_f.text;
-    [self presentViewController:vc animated:YES completion:nil];
+    if (_number_F.text.length != 0 && _code_f.text.length != 0) {
+         [self presentViewController:vc animated:YES completion:nil];
+    }else{
+        [MBProgressHUD showError:@"输入未完成"];
+    }
+   
     
 }
 - (IBAction)guanbi:(id)sender {
@@ -56,6 +62,14 @@
     vc.phone = _number_F.text;
     vc.type = @"3";
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+
+- (IBAction)codeClick:(UITextField *)sender {
+    [_number_F resignFirstResponder];
+}
+- (IBAction)contiueClick:(UITextField *)sender {
+    [_code_f resignFirstResponder];
 }
 
 /*

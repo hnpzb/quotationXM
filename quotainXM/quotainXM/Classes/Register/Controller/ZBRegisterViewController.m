@@ -59,7 +59,7 @@
    //提醒框
    [MBProgressHUD showMessage:@"正在努力帮你注册..."];
     
-    if (_count_F.text != nil && _password_F.text != nil && _verification_code_F != nil) {
+    if (_count_F.text.length != 0 && _password_F.text.length != 0 && _verification_code_F != 0) {
         
         [MBProgressHUD hideHUD];
         //延时执行代码
@@ -70,7 +70,8 @@
               });
     }else{
          [MBProgressHUD hideHUD];
-         [MBProgressHUD showMessage:@"输入未完成..."];
+         [MBProgressHUD showError:@"输入未完成..."];
+        
     }
        
       
@@ -89,10 +90,7 @@
            [self presentViewController:vc animated:YES completion:nil];
         
     }else{
-         [MBProgressHUD showMessage:@"请输入账号（手机号）..."];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUD];
-        });
+         [MBProgressHUD showError:@"请输入账号（手机号）..."];
     }
 }
 -(void)beginRegist{
@@ -109,16 +107,29 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:@"http://api.yysc.online/system/register" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         [MBProgressHUD hideHUD];
-        [MBProgressHUD showMessage:@"恭喜大哥注册成功"];
-        //延时执行代码
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        NSDictionary *data = responseObject;
+        NSString *success = [NSString stringWithFormat:@"%@",data[@"success"]];
+        if ([success isEqualToString:@"1"]) {
+            
+            [MBProgressHUD showMessage:@"注册成功"];
+            //延时执行代码
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUD];
+               [self.navigationController popViewControllerAnimated:YES];
+            });
+            
+        }else{
             [MBProgressHUD hideHUD];
-           [self.navigationController popViewControllerAnimated:YES];
-        });
+            [MBProgressHUD showError:@"注册失败"];
+        }
+        
+        
+        
+        
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [MBProgressHUD hideHUD];
-            [MBProgressHUD showError:@"用户名或密码错"];
+            [MBProgressHUD showError:@"注册失败"];
         }];
 }
 
