@@ -38,13 +38,6 @@ static NSString *IDTwo = @"DynamicCellID";
     [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
 }
 
-//加载数据
--(void)followData{
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:<#(nonnull NSString *)#> parameters:<#(nullable id)#> headers:<#(nullable NSDictionary<NSString *,NSString *> *)#> progress:<#^(NSProgress * _Nonnull downloadProgress)downloadProgress#> success:<#^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)success#> failure:<#^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)failure#>]
-    
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
