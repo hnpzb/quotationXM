@@ -9,6 +9,7 @@
 #import "ZBFollowViewController.h"
 #import "HNPPushCell.h"
 #import "HNPDynamicCell.h"
+#import <AFNetworking.h>
 
 @interface ZBFollowViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -23,7 +24,7 @@ static NSString *IDTwo = @"DynamicCellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
 
     [self.view addSubview:_tableview];
@@ -35,6 +36,14 @@ static NSString *IDTwo = @"DynamicCellID";
 
     [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
     [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
+}
+
+//加载数据
+-(void)followData{
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:<#(nonnull NSString *)#> parameters:<#(nullable id)#> headers:<#(nullable NSDictionary<NSString *,NSString *> *)#> progress:<#^(NSProgress * _Nonnull downloadProgress)downloadProgress#> success:<#^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)success#> failure:<#^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)failure#>]
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -53,9 +62,7 @@ static NSString *IDTwo = @"DynamicCellID";
 {
      if (indexPath.section == 0) {
                 HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
-                //cell的选中样式
                 pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
-                //NSLog(@"%zd-%p",indexPath.row,pushCell);
                 return pushCell;
             } else {
                 HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
@@ -63,14 +70,5 @@ static NSString *IDTwo = @"DynamicCellID";
             }
     
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

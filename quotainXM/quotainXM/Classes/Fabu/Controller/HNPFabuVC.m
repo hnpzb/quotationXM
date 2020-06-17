@@ -8,7 +8,9 @@
 
 #import "HNPFabuVC.h"
 
-@interface HNPFabuVC ()
+@interface HNPFabuVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *addImageView;
 
 @end
 
@@ -17,10 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+  
+    //轻扫返回
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
     [self.view addGestureRecognizer:swipe];
-    
+//    轻扫删除图片
+    _addImageView.userInteractionEnabled = YES;
+    UISwipeGestureRecognizer *deleteImageView = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeDeleteView)];
+    [self.addImageView addGestureRecognizer:deleteImageView];
 }
+
+//返回上一界面
 - (IBAction)backBtn:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
     [self.navigationController popViewControllerAnimated:YES];
@@ -31,14 +40,28 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)swipeDeleteView{
+    _addImageView.hidden = YES;
 }
-*/
+
+//打开相册
+- (IBAction)pickPhotoBtn:(id)sender {
+    UIImagePickerController *pickVC = [[UIImagePickerController alloc]init];
+    pickVC.delegate = self;
+    
+    [self presentViewController:pickVC animated:YES completion:nil];
+}
+
+//点击相册的图片给ImageView赋值
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info{
+    
+    UIImage *pickImage = info[UIImagePickerControllerOriginalImage];
+    _addImageView.hidden = NO;
+    _addImageView.image = pickImage;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end
