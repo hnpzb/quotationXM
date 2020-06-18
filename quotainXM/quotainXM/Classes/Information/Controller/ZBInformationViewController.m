@@ -15,12 +15,14 @@
 #import "ZBMineViewController.h"
 #import "ZBInfoCollectionView.h"
 #import <AFNetworking.h>
+#import "ZBHotNewsModel.h"
+
 
 @interface ZBInformationViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,assign)NSInteger heightconst;
 @property(nonatomic,strong)UITableView *tableView;
-
+@property(nonatomic,strong)NSMutableArray *array;
 
 @end
 
@@ -33,29 +35,47 @@ static NSString *header_ID = @"InfoHeaderReusableView";
 static NSString *fooder_ID = @"InfoFooderReusableView";
 
 
+- (NSMutableArray *)array{
+    if (_array == nil) {
+        _array = [NSMutableArray array];
+    }
+    return _array;
+}
 
+- (void)viewDidAppear:(BOOL)animated{
+    [self reLoadHotnews];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+//     [self reLoadHotnews];
    
+    //延时执行代码
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                              
+        //设置tableView
+            CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height);
+        self.tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStyleGrouped];
+            
+        //    tableView.frame = tabTemp;
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        [self.view addSubview:self.tableView];
+           
+            
+        ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:self.tableView.frame.size.width];
+        view.backgroundColor = [UIColor whiteColor];
+        self.tableView.tableHeaderView = view;
+        self.tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 500);
+            
+        [self.tableView registerNib:[UINib nibWithNibName:@"ZBTopTableViewCell" bundle:nil] forCellReuseIdentifier:top_ID];
+        [self.tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
+            
+        
+    });
     
-    //设置tableView
-    CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height);
-    _tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStylePlain];
     
-//    tableView.frame = tabTemp;
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    [self.view addSubview:_tableView];
-    
-     ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:_tableView.frame.size.width];
-    _tableView.tableHeaderView = view;
-    _tableView.tableHeaderView.frame = CGRectMake(0, 0, 0, 500);
-    
-    [_tableView registerNib:[UINib nibWithNibName:@"ZBTopTableViewCell" bundle:nil] forCellReuseIdentifier:top_ID];
-    [_tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
-    
-   
+//    NSLog(@"%d",_array.count);
 
     
     
@@ -133,7 +153,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-//    view.backgroundColor = [UIColor greenColor];
+    view.backgroundColor = [UIColor whiteColor];
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.image = [UIImage imageNamed:@"icon_hot"];
     imageView.frame = CGRectMake(20, 20, 13, 15);
@@ -149,38 +169,23 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    if (section == 1) {
+
         return 44;
-//    }else{
-//        return 0;
-//    }
+
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 20;
+    return _array.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.section == 0 ) {
-//        ZBTopTableViewCell *top_cell = [[ZBTopTableViewCell alloc] init];
-//        ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:tableView.frame.size.width];
-//        [top_cell addSubview:view];
-//
-//        return top_cell;
-//    }
-//    else{
+
         ZBBottomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bot_ID];
+        cell.model = _array[indexPath.row];
         return cell;
-//    }
-//      static NSString *test_ID = @"information";
-//      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:test_ID];
-//      if (cell == nil) {
-//          cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:test_ID];
-//      }
-//      cell.textLabel.text = [NSString stringWithFormat:@"%ld--%ld",indexPath.section,indexPath.row];
-//      return cell;
+
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    if (indexPath.section == 0) {
@@ -193,5 +198,23 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 //    NSLog(@"12345");
 }
 
+-(void)reLoadHotnews{
+//    NSLog(@"wzgsdj");
+    NSURL *url = [NSURL URLWithString:@"http://api.yysc.online/user/talk/getTalkListByProject?project=futures&pageNumber&pageSize"];
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        NSArray *dataArray = dict[@"data"][@"list"];
+        NSMutableArray *temp = [NSMutableArray array];
+        for (NSDictionary *dict in dataArray) {
+            ZBHotNewsModel *model = [ZBHotNewsModel ZBHotNewsModelWithDict:dict];
+            [temp addObject:model];
+        }
+        self.array = temp;
+//        NSLog(@"%ld",_array.count);
+//        NSLog(@"%@",self.array.firstObject);
+    }]resume];
+    [_tableView reloadData];
+}
 
 @end

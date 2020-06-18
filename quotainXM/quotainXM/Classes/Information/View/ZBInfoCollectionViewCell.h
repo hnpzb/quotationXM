@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBColCellModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBInfoCollectionViewCell : UICollectionViewCell
+
+@property(nonatomic,strong)ZBColCellModel *model;
 
 @end
 

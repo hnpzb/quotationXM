@@ -7,10 +7,13 @@
 //
 
 #import "ZBSignInViewController.h"
+#import "YXCalendarView.h"
 
 @interface ZBSignInViewController ()
 
 @property(nonatomic,strong)UIButton *preSelectBtn;
+@property (nonatomic, strong) YXCalendarView *calendar;
+@property (strong, nonatomic) IBOutlet UIView *redView;
 
 @end
 
@@ -24,14 +27,46 @@
 //    [self addHeaderView];
     UIView *vc = [[UIView alloc] init];
     vc.backgroundColor = [UIColor whiteColor];
-    vc.frame = CGRectMake(0, 44, [UIScreen mainScreen].bounds.size.width, 60);
+    vc.frame = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIScreen mainScreen].bounds.size.width, 44);
        UIButton *btn_back = [[UIButton alloc] init];
     [self.view addSubview:vc];
+    
+    UIView *view = [[UIView alloc] init];
+        view.backgroundColor = [UIColor whiteColor];
+//         _calendar = [[YXCalendarView alloc] initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [YXCalendarView getMonthTotalHeight:[NSDate date] type:CalendarType_Week] ) Date:[NSDate date] Type:CalendarType_Week];
+    _calendar = [[YXCalendarView alloc] initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [YXCalendarView getMonthTotalHeight:[NSDate date] type:CalendarType_Week] ) Date:[NSDate date] Type:CalendarType_Week Style:1];
+            
+        __weak typeof(_calendar) weakCalendar = _calendar;
+            _calendar.refreshH = ^(CGFloat viewH) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    weakCalendar.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, viewH);
+                }];
+                
+            };
+            _calendar.sendSelectDate = ^(NSDate *selDate) {
+                NSLog(@"%@",[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]);
+    //            [[NSOperationQueue mainQueue] addBarrierBlock:^{
+    //            [self setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
+    //            }];
+    //            [self setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
+
+            };
+        view.userInteractionEnabled = YES;
+        [view addSubview:_calendar];
+    [self.view addSubview:view];
+    self.view.userInteractionEnabled = YES;
+    
     
     btn_back.frame = CGRectMake(10.5,20,20,20);
        [btn_back setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
        [vc addSubview:btn_back];
        [btn_back addTarget:self action:@selector(breakDeatail:) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake([UIApplication sharedApplication].statusBarFrame.size.width/2 -40, 20, 80, 20)];
+    [vc addSubview:nameLabel];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"签到中心" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 17],NSForegroundColorAttributeName: [UIColor colorWithRed:22/255.0 green:23/255.0 blue:31/255.0 alpha:1.0]}];
+
+    nameLabel.attributedText = string;
+    
 }
 -(void)addHeaderView{
    

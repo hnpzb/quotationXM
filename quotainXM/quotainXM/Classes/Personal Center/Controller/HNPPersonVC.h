@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBPersonModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPPersonVC : UIViewController
+
+@property(nonatomic,strong)ZBPersonModel *model;
 
 @end
 

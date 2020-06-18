@@ -11,6 +11,7 @@
 @interface HNPFabuVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *addImageView;
+@property (strong, nonatomic) IBOutlet UITextView *text_FV;
 
 @end
 
@@ -60,6 +61,11 @@
     _addImageView.image = pickImage;
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)fabuClick:(id)sender {
+    NSLog(@"%@",_text_FV.text);
 }
 
 
