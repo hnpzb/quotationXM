@@ -23,6 +23,12 @@
 		11608BF8249B4B850070B540 /* HNPFollowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11608BF7249B4B850070B540 /* HNPFollowModel.m */; };
 		11608BFB249B4B9B0070B540 /* HNPFollowuserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11608BFA249B4B9B0070B540 /* HNPFollowuserModel.m */; };
 		4F8A213B2D09C1CE2FA863E1 /* libPods-quotainXM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */; };
+		B34719E92499F2AF0017CA48 /* ZBColCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719E82499F2AF0017CA48 /* ZBColCellModel.m */; };
+		B34719F5249A029E0017CA48 /* YXCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719ED249A029E0017CA48 /* YXCalendarView.m */; };
+		B34719F6249A029E0017CA48 /* YXMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719EE249A029E0017CA48 /* YXMonthView.m */; };
+		B34719F7249A029E0017CA48 /* YXDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719EF249A029E0017CA48 /* YXDayCell.m */; };
+		B34719F8249A029E0017CA48 /* YXDateHelpObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719F2249A029E0017CA48 /* YXDateHelpObject.m */; };
+		B34719F9249A029E0017CA48 /* YXDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34719F3249A029E0017CA48 /* YXDayCell.xib */; };
 		B34A404E24976E5A0047BF94 /* ZBHeaderCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A404D24976E5A0047BF94 /* ZBHeaderCollectionView.m */; };
 		B34A4055249775070047BF94 /* ZBCalendarColViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A4053249775070047BF94 /* ZBCalendarColViewCell.m */; };
 		B34A4056249775070047BF94 /* ZBCalendarColViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34A4054249775070047BF94 /* ZBCalendarColViewCell.xib */; };
@@ -118,6 +124,14 @@
 		B352DDF22498948E001A3B66 /* ZBCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B352DDF12498948E001A3B66 /* ZBCalendarModel.m */; };
 		B352DDF62498A329001A3B66 /* ZBInputCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B352DDF42498A329001A3B66 /* ZBInputCodeView.m */; };
 		B352DDF72498A329001A3B66 /* ZBInputCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B352DDF52498A329001A3B66 /* ZBInputCodeView.xib */; };
+		B3763AEF249AF7A6003CB77D /* ZBHotNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763AEE249AF7A6003CB77D /* ZBHotNewsModel.m */; };
+		B3763AF2249AF911003CB77D /* ZBHotNewsUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763AF1249AF911003CB77D /* ZBHotNewsUserModel.m */; };
+		B3763AF5249B2FAD003CB77D /* ZBPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763AF4249B2FAD003CB77D /* ZBPersonModel.m */; };
+		B3A10432249C66CF0025DE22 /* ZBSignInModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A10431249C66CF0025DE22 /* ZBSignInModel.m */; };
+		B3A10473249CA5740025DE22 /* ZBDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A10469249CA5740025DE22 /* ZBDayCell.xib */; };
+		B3A10474249CA5740025DE22 /* ZBMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1046B249CA5740025DE22 /* ZBMonthView.m */; };
+		B3A10475249CA5740025DE22 /* ZBCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1046D249CA5740025DE22 /* ZBCalendarView.m */; };
+		B3A10476249CA5740025DE22 /* ZBDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1046E249CA5740025DE22 /* ZBDayCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +163,17 @@
 		11608BFA249B4B9B0070B540 /* HNPFollowuserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HNPFollowuserModel.m; path = quotainXM/Classes/Login/Model/HNPFollowuserModel.m; sourceTree = SOURCE_ROOT; };
 		2043A1A5674EA90FB78ABAAB /* Pods-quotainXM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotainXM.release.xcconfig"; path = "Target Support Files/Pods-quotainXM/Pods-quotainXM.release.xcconfig"; sourceTree = "<group>"; };
 		40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quotainXM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B34719E72499F2AF0017CA48 /* ZBColCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBColCellModel.h; sourceTree = "<group>"; };
+		B34719E82499F2AF0017CA48 /* ZBColCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBColCellModel.m; sourceTree = "<group>"; };
+		B34719EB249A029E0017CA48 /* YXMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXMonthView.h; sourceTree = "<group>"; };
+		B34719EC249A029E0017CA48 /* YXDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXDayCell.h; sourceTree = "<group>"; };
+		B34719ED249A029E0017CA48 /* YXCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXCalendarView.m; sourceTree = "<group>"; };
+		B34719EE249A029E0017CA48 /* YXMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXMonthView.m; sourceTree = "<group>"; };
+		B34719EF249A029E0017CA48 /* YXDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXDayCell.m; sourceTree = "<group>"; };
+		B34719F1249A029E0017CA48 /* YXDateHelpObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXDateHelpObject.h; sourceTree = "<group>"; };
+		B34719F2249A029E0017CA48 /* YXDateHelpObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXDateHelpObject.m; sourceTree = "<group>"; };
+		B34719F3249A029E0017CA48 /* YXDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YXDayCell.xib; sourceTree = "<group>"; };
+		B34719F4249A029E0017CA48 /* YXCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXCalendarView.h; sourceTree = "<group>"; };
 		B34A404C24976E5A0047BF94 /* ZBHeaderCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBHeaderCollectionView.h; sourceTree = "<group>"; };
 		B34A404D24976E5A0047BF94 /* ZBHeaderCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBHeaderCollectionView.m; sourceTree = "<group>"; };
 		B34A4052249775070047BF94 /* ZBCalendarColViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCalendarColViewCell.h; sourceTree = "<group>"; };
@@ -307,6 +332,21 @@
 		B352DDF32498A329001A3B66 /* ZBInputCodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBInputCodeView.h; sourceTree = "<group>"; };
 		B352DDF42498A329001A3B66 /* ZBInputCodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBInputCodeView.m; sourceTree = "<group>"; };
 		B352DDF52498A329001A3B66 /* ZBInputCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBInputCodeView.xib; sourceTree = "<group>"; };
+		B3763AED249AF7A6003CB77D /* ZBHotNewsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBHotNewsModel.h; sourceTree = "<group>"; };
+		B3763AEE249AF7A6003CB77D /* ZBHotNewsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBHotNewsModel.m; sourceTree = "<group>"; };
+		B3763AF0249AF911003CB77D /* ZBHotNewsUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBHotNewsUserModel.h; sourceTree = "<group>"; };
+		B3763AF1249AF911003CB77D /* ZBHotNewsUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBHotNewsUserModel.m; sourceTree = "<group>"; };
+		B3763AF3249B2FAD003CB77D /* ZBPersonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBPersonModel.h; sourceTree = "<group>"; };
+		B3763AF4249B2FAD003CB77D /* ZBPersonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBPersonModel.m; sourceTree = "<group>"; };
+		B3A10430249C66CF0025DE22 /* ZBSignInModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSignInModel.h; sourceTree = "<group>"; };
+		B3A10431249C66CF0025DE22 /* ZBSignInModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSignInModel.m; sourceTree = "<group>"; };
+		B3A10469249CA5740025DE22 /* ZBDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBDayCell.xib; sourceTree = "<group>"; };
+		B3A1046A249CA5740025DE22 /* ZBCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCalendarView.h; sourceTree = "<group>"; };
+		B3A1046B249CA5740025DE22 /* ZBMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBMonthView.m; sourceTree = "<group>"; };
+		B3A1046C249CA5740025DE22 /* ZBDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBDayCell.h; sourceTree = "<group>"; };
+		B3A1046D249CA5740025DE22 /* ZBCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCalendarView.m; sourceTree = "<group>"; };
+		B3A1046E249CA5740025DE22 /* ZBDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBDayCell.m; sourceTree = "<group>"; };
+		B3A1046F249CA5740025DE22 /* ZBMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBMonthView.h; sourceTree = "<group>"; };
 		D30DA71F99E669AA946171CC /* Pods-quotainXM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotainXM.debug.xcconfig"; path = "Target Support Files/Pods-quotainXM/Pods-quotainXM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -460,6 +500,30 @@
 				115413C324977E25008BB7DB /* HNPUserCenterCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B34719EA249A029E0017CA48 /* YXCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				B34719F0249A029E0017CA48 /* YXCalendar */,
+				B34719F4249A029E0017CA48 /* YXCalendarView.h */,
+				B34719ED249A029E0017CA48 /* YXCalendarView.m */,
+				B34719EC249A029E0017CA48 /* YXDayCell.h */,
+				B34719EF249A029E0017CA48 /* YXDayCell.m */,
+				B34719F3249A029E0017CA48 /* YXDayCell.xib */,
+				B34719EB249A029E0017CA48 /* YXMonthView.h */,
+				B34719EE249A029E0017CA48 /* YXMonthView.m */,
+			);
+			path = YXCalendar;
+			sourceTree = "<group>";
+		};
+		B34719F0249A029E0017CA48 /* YXCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				B34719F1249A029E0017CA48 /* YXDateHelpObject.h */,
+				B34719F2249A029E0017CA48 /* YXDateHelpObject.m */,
+			);
+			path = YXCalendar;
 			sourceTree = "<group>";
 		};
 		B350BF8F249070D30026368F = {
@@ -617,6 +681,12 @@
 		B350BFCA249070F40026368F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B34719E72499F2AF0017CA48 /* ZBColCellModel.h */,
+				B34719E82499F2AF0017CA48 /* ZBColCellModel.m */,
+				B3763AED249AF7A6003CB77D /* ZBHotNewsModel.h */,
+				B3763AEE249AF7A6003CB77D /* ZBHotNewsModel.m */,
+				B3763AF0249AF911003CB77D /* ZBHotNewsUserModel.h */,
+				B3763AF1249AF911003CB77D /* ZBHotNewsUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -648,6 +718,7 @@
 		B350BFDD249070F40026368F /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				B34719EA249A029E0017CA48 /* YXCalendar */,
 				B350BFDE249070F40026368F /* Controller */,
 				B350BFE5249070F40026368F /* Model */,
 				B350BFE6249070F40026368F /* View */,
@@ -849,6 +920,7 @@
 		B350C014249070F40026368F /* signInCenter */ = {
 			isa = PBXGroup;
 			children = (
+				B3A10468249CA5740025DE22 /* ZBCalendr */,
 				B350C015249070F40026368F /* Controller */,
 				B350C019249070F40026368F /* Model */,
 				B350C01A249070F40026368F /* View */,
@@ -869,6 +941,8 @@
 		B350C019249070F40026368F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B3A10430249C66CF0025DE22 /* ZBSignInModel.h */,
+				B3A10431249C66CF0025DE22 /* ZBSignInModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -903,6 +977,8 @@
 		B350C01F249070F40026368F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B3763AF3249B2FAD003CB77D /* ZBPersonModel.h */,
+				B3763AF4249B2FAD003CB77D /* ZBPersonModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1195,6 +1271,20 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		B3A10468249CA5740025DE22 /* ZBCalendr */ = {
+			isa = PBXGroup;
+			children = (
+				B3A1046A249CA5740025DE22 /* ZBCalendarView.h */,
+				B3A1046D249CA5740025DE22 /* ZBCalendarView.m */,
+				B3A1046C249CA5740025DE22 /* ZBDayCell.h */,
+				B3A1046E249CA5740025DE22 /* ZBDayCell.m */,
+				B3A10469249CA5740025DE22 /* ZBDayCell.xib */,
+				B3A1046F249CA5740025DE22 /* ZBMonthView.h */,
+				B3A1046B249CA5740025DE22 /* ZBMonthView.m */,
+			);
+			path = ZBCalendr;
+			sourceTree = "<group>";
+		};
 		BE3B13BA74E5EC5D37FD0DC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1261,6 +1351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B34719F9249A029E0017CA48 /* YXDayCell.xib in Resources */,
 				B350C083249070F40026368F /* HNPPushCell.xib in Resources */,
 				B350C064249070F40026368F /* ZBQuotationTableViewCell.xib in Resources */,
 				B350C098249070F40026368F /* ZBIndustryViewController.xib in Resources */,
@@ -1288,6 +1379,7 @@
 				B350C06E249070F40026368F /* ZBInfoHeaderReusableView.xib in Resources */,
 				B350C092249070F40026368F /* ZBResetPasswordController.xib in Resources */,
 				B350C072249070F40026368F /* ZBInfoCollectionViewCell.xib in Resources */,
+				B3A10473249CA5740025DE22 /* ZBDayCell.xib in Resources */,
 				B350BFA8249070D50026368F /* Assets.xcassets in Resources */,
 				B350C09F249070F40026368F /* HNPNewSletterCell.xib in Resources */,
 				B350C076249070F40026368F /* ZBCalendarTableViewCell.xib in Resources */,
@@ -1348,6 +1440,7 @@
 				B350C2E02490A17A0026368F /* MASViewConstraint.m in Sources */,
 				B350C08B249070F40026368F /* ZBRegisterViewController.m in Sources */,
 				B352DDED2498703E001A3B66 /* MBProgressHUD.m in Sources */,
+				B3763AEF249AF7A6003CB77D /* ZBHotNewsModel.m in Sources */,
 				B350C07A249070F40026368F /* ZBCalendarHeaderView.m in Sources */,
 				B350C09C249070F40026368F /* HNPNewsletterViewController.m in Sources */,
 				B350C071249070F40026368F /* ZBBottomTableViewCell.m in Sources */,
@@ -1355,6 +1448,7 @@
 				B350C08D249070F40026368F /* ZBSignInViewController.m in Sources */,
 				B350C069249070F40026368F /* ZBInformationViewController.m in Sources */,
 				11608BF5249B12B40070B540 /* HNPLoginViewModel.m in Sources */,
+				B34719F6249A029E0017CA48 /* YXMonthView.m in Sources */,
 				B350C089249070F40026368F /* HNPCommentCell.m in Sources */,
 				B350C2DE2490A17A0026368F /* View+MASAdditions.m in Sources */,
 				114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */,
@@ -1378,22 +1472,30 @@
 				B350C08F249070F40026368F /* HNPPersonVC.m in Sources */,
 				B350C09D249070F40026368F /* HNPNewSletterModle.m in Sources */,
 				B350C093249070F40026368F /* ZBResetPasswordController.m in Sources */,
+				B3A10432249C66CF0025DE22 /* ZBSignInModel.m in Sources */,
 				B350C07B249070F40026368F /* ZBFollowViewController.m in Sources */,
+				B3A10476249CA5740025DE22 /* ZBDayCell.m in Sources */,
 				B34A4055249775070047BF94 /* ZBCalendarColViewCell.m in Sources */,
 				B350C066249070F40026368F /* ZBQuotationTableViewCell.m in Sources */,
+				B34719F8249A029E0017CA48 /* YXDateHelpObject.m in Sources */,
 				B350C096249070F40026368F /* ZBIndustryTableViewCell.m in Sources */,
+				B3763AF2249AF911003CB77D /* ZBHotNewsUserModel.m in Sources */,
 				115413C424977E25008BB7DB /* HNPUserCenterCell.m in Sources */,
 				B350C081249070F40026368F /* HNPDynamicCell.m in Sources */,
 				B350C079249070F40026368F /* ZBCalendarViewController.m in Sources */,
 				B350C084249070F40026368F /* HNPPushCell.m in Sources */,
 				B350C2DF2490A17A0026368F /* MASConstraint.m in Sources */,
+				B34719F5249A029E0017CA48 /* YXCalendarView.m in Sources */,
 				B350C086249070F40026368F /* HNPDetailsVC.m in Sources */,
 				B350C2DB2490A17A0026368F /* MASConstraintMaker.m in Sources */,
 				B350C078249070F40026368F /* ZBCalendarTableViewCell.m in Sources */,
+				B34719E92499F2AF0017CA48 /* ZBColCellModel.m in Sources */,
 				B350C0A2249070F40026368F /* ZBMainViewController.m in Sources */,
 				B350C09A249070F40026368F /* ZBIndustryMode.m in Sources */,
 				B350C06D249070F40026368F /* ZBInfoCollectionView.m in Sources */,
+				B3A10475249CA5740025DE22 /* ZBCalendarView.m in Sources */,
 				115413B22497475B008BB7DB /* HNPDetailsModle.m in Sources */,
+				B3A10474249CA5740025DE22 /* ZBMonthView.m in Sources */,
 				B350C0A4249070F40026368F /* ZBNavigationController.m in Sources */,
 				B352DDEE2498703E001A3B66 /* MBProgressHUD+XMG.m in Sources */,
 				B350C06F249070F40026368F /* ZBTopTableViewCell.m in Sources */,
@@ -1404,7 +1506,9 @@
 				115413BF24977DF3008BB7DB /* HNPUserCenterVC.m in Sources */,
 				B350C0A9249070F40026368F /* ZBLoginMainNavVC.m in Sources */,
 				110D6034249370A10024F644 /* HNPDynamicUserModel.m in Sources */,
+				B34719F7249A029E0017CA48 /* YXDayCell.m in Sources */,
 				B350C0A7249070F40026368F /* ZBloginViewController.m in Sources */,
+				B3763AF5249B2FAD003CB77D /* ZBPersonModel.m in Sources */,
 				B350C088249070F40026368F /* HNPDetailsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

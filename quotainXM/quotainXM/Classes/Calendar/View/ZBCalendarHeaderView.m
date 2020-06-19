@@ -7,21 +7,23 @@
 //
 
 #import "ZBCalendarHeaderView.h"
+#import "YXCalendarView.h"
 
 @interface ZBCalendarHeaderView ()
 @property(nonatomic,strong)UIButton *preSelectBtn;
+
 
 @end
 
 @implementation ZBCalendarHeaderView
 
+
+
+
+
+
+
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 - (instancetype)init
 {
     self = [super init];
@@ -34,12 +36,12 @@
         [self addSubview:label];
         NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"2019年8月" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0]}];
         label.attributedText = string;
-        /*
+        
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(72,19,4.9,3.2);
         view.backgroundColor = [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0];
         view.layer.cornerRadius = 1;
-        [self addSubview:view];*/
+        [self addSubview:view];
         
         [self addDayLabel:self index:0 name:@"日"];
          [self addDayLabel:self index:1 name:@"一"];
@@ -59,11 +61,11 @@
         [self addDayBtn:self index:6 name:@"25"];
         
         
-        /*
-        UIView *view_line = [[UIView alloc] init];
-        view_line.frame = CGRectMake(0,130,self.frame.size.width,5);
-        view_line.backgroundColor = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0];
-        [self addSubview:view_line]; */
+        
+//        UIView *view_line = [[UIView alloc] init];
+//        view_line.frame = CGRectMake(0,130,self.frame.size.width,5);
+//        view_line.backgroundColor = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0];
+//        [self addSubview:view_line];
        
         
     }
@@ -106,4 +108,9 @@
     self.preSelectBtn = btn;
 
 }
+
+
+*/
+
+
 @end

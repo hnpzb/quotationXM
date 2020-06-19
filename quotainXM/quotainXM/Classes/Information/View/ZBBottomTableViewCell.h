@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBHotNewsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBBottomTableViewCell : UITableViewCell
+
+@property(nonatomic,strong)ZBHotNewsModel *model;
 
 @end
 

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBSignInViewController : UIViewController
 
+@property(nonatomic,copy)NSString *userID;
+
 @end
 
 NS_ASSUME_NONNULL_END

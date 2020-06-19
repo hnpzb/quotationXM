@@ -16,6 +16,7 @@
 @property (nonatomic,strong)SelectPhotoManager *photoManger;
 //打开相机按钮属性
 @property (weak, nonatomic) IBOutlet UIButton *openCaremaBtn;
+@property (strong, nonatomic) IBOutlet UITextView *text_FV;
 
 @end
 
@@ -132,6 +133,11 @@
                mySelf.addImageView.image = image;
            };
 }
+
+- (IBAction)fabuClick:(id)sender {
+    NSLog(@"%@",_text_FV.text);
+}
+
 
 
 @end

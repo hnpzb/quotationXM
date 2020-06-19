@@ -19,6 +19,8 @@
 #import "MJExtension.h"
 #import "HNPLoginViewModel.h"
 
+#import "ZBPersonModel.h"
+#import "YXCalendarView.h"
 
 @interface ZBloginViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *xianshiImageV;
@@ -40,7 +42,7 @@
     //添加手势
     UITapGestureRecognizer *xs = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(xianshi)];
     [_xianshiImageV addGestureRecognizer:xs];
-
+    
 
 
 }
@@ -122,40 +124,69 @@
     [par setObject:@"1" forKey:@"type"];
     [par setObject:@"futures" forKey:@"project"];
     [par setObject:@"000000" forKey:@"code"];
-      
-                           
-//    NSString *path = [NSString stringWithFormat:@"http://api.yysc.online/system/login?phone=%@&password=%@&type=1&project=futures&code=000000",self.count_F.text,self.password_F.text];
-//    NSURL *url = [NSURL URLWithString:path];
-//    NSURLSession *session = [NSURLSession sharedSession];
-//    [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-//        NSString *success = [NSString stringWithFormat:@"%@",dict[@"success"]];
-//        NSLog(@"%@",dict);
-//
-//        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-//        if ([success isEqualToString:@"1"]) {
-//            [MBProgressHUD showMessage:@"登录成功..."];
-//
-//            //延时执行代码
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [MBProgressHUD hideHUD];
-                
-//                HNPLoginViewModel *LoginModel = [HNPLoginViewModel LoginWithDict:dict[@"data"]];
-                
-        HNPPersonVC *vc = [[HNPPersonVC alloc] init];
 
-         [self.navigationController  pushViewController:vc animated:YES];
-                
-//            });
-//        }else{
-//            [MBProgressHUD hideHUD];
-//            [MBProgressHUD showError:@"登录未成功"];
-//        }
-//    }]resume];
-//                           
-                                                  
+    /*
+    NSString *path = [NSString stringWithFormat:@"http://api.yysc.online/system/login?phone=%@&password=%@&type=1&project=futures&code=000000",self.count_F.text,self.password_F.text];
+       NSURL *url = [NSURL URLWithString:path];
+       NSURLSession *session = [NSURLSession sharedSession];
+       [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+           NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+           NSString *success = [NSString stringWithFormat:@"%@",dict[@"success"]];
+           NSLog(@"%@",dict);
+           
+           NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+           if ([success isEqualToString:@"1"]) {
+               [MBProgressHUD showMessage:@"登录成功..."];
+               
+                   //延时执行代码
+                   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                       [MBProgressHUD hideHUD];
+                   HNPPersonVC *vc = [[HNPPersonVC alloc] init];
+                   [self.navigationController  pushViewController:vc animated:YES];
+                   });
+           }else{
+               [MBProgressHUD hideHUD];
+               [MBProgressHUD showError:@"登录未成功"];
+           }
+           
+           
+       }]resume];*/
+     
+     
+    
+
+//    NSLog(@"%@",par);
+
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://api.yysc.online/system/login" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         NSDictionary *data = responseObject;
+               NSString *success = [NSString stringWithFormat:@"%@",data[@"success"]];
+        NSDictionary *dict = data[@"data"];
+//               NSLog(@"data===%@",data);
+//        NSLog(@"dict===%@",dict);
+               if ([success isEqualToString:@"1"]) {
+                   [MBProgressHUD showMessage:@"登录成功..."];
+                   ZBPersonModel *perModel = [ZBPersonModel ZBPersonModelWithDict:dict];
+//                   NSLog(@"peiModel===%@",perModel.fansCount);
+                       //延时执行代码
+                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                           [MBProgressHUD hideHUD];
+                       HNPPersonVC *vc = [[HNPPersonVC alloc] init];
+                           vc.model = perModel;
                            
- 
+                       [self.navigationController  pushViewController:vc animated:YES];
+                       });
+               }else{
+                   [MBProgressHUD hideHUD];
+                   [MBProgressHUD showError:@"登录未成功"];
+               }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD showError:@"登录失败"];
+    }];
+     
+    
 }
 
 

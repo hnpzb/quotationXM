@@ -11,9 +11,12 @@
 #import "ZBInfoHeaderReusableView.h"
 #import "ZBInfoFooderReusableView.h"
 #import "SDCycleScrollView.h"
+#import "ZBColCellModel.h"
 
 @interface ZBInfoCollectionView ()<UICollectionViewDelegate,UICollectionViewDataSource,SDCycleScrollViewDelegate>
 
+@property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,strong)UICollectionView *colView;
 
 @end
 @implementation ZBInfoCollectionView
@@ -23,10 +26,18 @@ static NSString *ID = @"InfoCollectionCell";
 static NSString *header_ID = @"InfoHeaderReusableView";
 static NSString *fooder_ID = @"InfoFooderReusableView";
 
+- (NSMutableArray *)dataArray{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 -(instancetype)initWithW:(CGFloat )colW{
 
     self = [super init];
     if (self) {
+        [self DTJson];
          //设置上部的collectionview
         NSInteger colH = 500;
             CGRect temp = CGRectMake(0, 0, colW, colH);
@@ -46,20 +57,21 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
             //设置辅助视图的宽高
             flowL.headerReferenceSize = CGSizeMake(colW, 160);
             flowL.footerReferenceSize = CGSizeMake(colW, 160);
+//        flowL.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 
-            UICollectionView *colView = [[UICollectionView alloc] initWithFrame:temp collectionViewLayout:flowL];
-        colView.userInteractionEnabled = YES;;
-            [self addSubview:colView];
+            _colView = [[UICollectionView alloc] initWithFrame:temp collectionViewLayout:flowL];
+        _colView.userInteractionEnabled = YES;
+            [self addSubview:_colView];
         //        colView.frame = temp;
         self.userInteractionEnabled = YES;
-            colView.backgroundColor = [UIColor clearColor];
-            colView.dataSource = self;
-            colView.delegate = self;
-            [colView registerNib:[UINib nibWithNibName:@"ZBInfoCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:ID];
+            _colView.backgroundColor = [UIColor clearColor];
+            _colView.dataSource = self;
+            _colView.delegate = self;
+            [_colView registerNib:[UINib nibWithNibName:@"ZBInfoCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:ID];
 
-            [colView registerNib:[UINib nibWithNibName:@"ZBInfoHeaderReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:header_ID];
+            [_colView registerNib:[UINib nibWithNibName:@"ZBInfoHeaderReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:header_ID];
 
-            [colView registerNib:[UINib nibWithNibName:@"ZBInfoFooderReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:fooder_ID];
+            [_colView registerNib:[UINib nibWithNibName:@"ZBInfoFooderReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:fooder_ID];
     }
     return self;
 }
@@ -73,6 +85,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ZBInfoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     cell.userInteractionEnabled = YES;
+    cell.model = _dataArray[indexPath.row];
     return cell;
 }
 
@@ -162,14 +175,45 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"asd");
+//    NSLog(@"asd");
 }
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
-    NSLog(@"---点击了第%ld张图片", (long)index);
+//    NSLog(@"---点击了第%ld张图片", (long)index);
     
 //    [self.navigationController pushViewController:[NSClassFromString(@"DemoVCWithXib") new] animated:YES];
 }
+
+- (void)DTJson{
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.yysc.online/share/market"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+    {
+        //Json转字典
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        //临时可变数组
+        NSMutableArray *tempMutableArray = [NSMutableArray array];
+        //字典数组
+        NSArray *listArray = dict[@"data"];
+        //遍历字典数组
+        for (NSDictionary *dict in listArray) {
+//            NSDictionary *userDict = dict[@"user"];
+            ZBColCellModel *tempModel = [[ZBColCellModel alloc] init];
+            tempModel = [ZBColCellModel ZBColCellModelWithDict:dict];
+            [tempMutableArray addObject:tempModel];
+        }
+/**
+        NSDictionary *arr =dict[@"data"][@"list"][0][@"user"];
+        NSMutableArray *arrayM = [NSMutableArray array];
+        for (NSDictionary *dict in arr) {
+            [arrayM addObject:[HNPDynamicModle DynamicWithDict:dict]];
+        }*/
+        self.dataArray = tempMutableArray;
+//刷新UI
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.colView reloadData];
+        }];
+         }]resume];
+}
+
 
 
 @end
