@@ -59,7 +59,7 @@ static CGFloat const weeksH = 30;       //周高度
             _currentDate = [[YXDateHelpObject manager] getLastdayOfTheWeek:date];
         }
         [self settingViews_two];
-//        [self addSwipes];
+        [self addSwipes];
     }
     
     return self;

@@ -15,11 +15,13 @@
 #import "MBProgressHUD+XMG.h"
 #import <AFNetworking.h>
 #import "ZBPersonModel.h"
+#import "YXCalendarView.h"
 
 @interface ZBloginViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *xianshiImageV;
 @property (strong, nonatomic) IBOutlet UITextField *count_F;
 @property (strong, nonatomic) IBOutlet UITextField *password_F;
+
 
 @end
 
@@ -34,6 +36,7 @@
     //添加手势
     UITapGestureRecognizer *xs = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(xianshi)];
     [_xianshiImageV addGestureRecognizer:xs];
+    
 
 
     

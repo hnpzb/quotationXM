@@ -16,6 +16,7 @@
 #import "ZBFollowViewController.h"
 #import "ZBDiscoverMainVC.h"
 #import "ZBNavigationController.h"
+#import "ZBSignInViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -36,41 +37,30 @@
     UITabBarController *tabVC = [[UITabBarController alloc] init];
     self.window.rootViewController = tabVC;
     
-//     ZBInformationViewController *informationVC = [[ZBInformationViewController alloc] init];
-//    informationVC.tabBarItem.title = @"首页";
-//    informationVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_home_icon_normal"];
-//    [tabVC addChildViewController:informationVC];
     
     ZBMainViewController *mainVC = [[ZBMainViewController alloc] init];
-//    mainVC.view.frame = [UIScreen mainScreen].bounds;
-//    mainVC.view.frame = CGRectMake(0, 0, 200, 200);
     mainVC.tabBarItem.title = @"首页";
     mainVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_home_icon_normal"];
     [tabVC addChildViewController:mainVC];
     
-//    HNPDiscoveryViewC *findVC = [[HNPDiscoveryViewC alloc] init];
-//    findVC.tabBarItem.title = @"发现";
-//    findVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_find_icon_normal"];
-//     [tabVC addChildViewController:findVC];
     
-//    ZBFollowViewController
      ZBDiscoverMainVC *findVC = [[ZBDiscoverMainVC alloc] init];
        findVC.tabBarItem.title = @"发现";
        findVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_find_icon_normal"];
         [tabVC addChildViewController:findVC];
-//    ZBfindViewController *findView = [[ZBfindViewController alloc] init];
-//    findView.tabBarItem.title = @"发现";
-//    findView.tabBarItem.image = [UIImage imageNamed:@"tabbar_find_icon_normal"];
-//    [tabVC addChildViewController:findView];
     
     ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
-//    ZBMineViewController *mineVC = [[ZBMineViewController alloc] init];
+//     ZBSignInViewController *signVC = [[ZBSignInViewController alloc] init];
+//    signVC.userID = [NSString stringWithFormat:@"4"];
     UINavigationController *mineNavVC = [[UINavigationController alloc] init];
     mineNavVC.navigationBar.hidden = YES;
     [mineNavVC addChildViewController:loginVC];
+//    [mineNavVC addChildViewController:signVC];
     mineNavVC.tabBarItem.title = @"我的";
     mineNavVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_mine_icon_normal"];
     [tabVC addChildViewController:mineNavVC];
+    
+    
     
     [self.window makeKeyAndVisible];
   return YES;
