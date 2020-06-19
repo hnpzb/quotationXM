@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class HNPDynamicCell,HNPDynamicModle;
+@class HNPDynamicCell,HNPDynamicModle,HNPFollowModel;
 @protocol HNPDynamicCellDelegate <NSObject>
 
 - (void)dynamicCellDidImageClick:(HNPDynamicCell *)DynamicCell;
@@ -21,8 +21,13 @@
 
 @property (nonatomic ,weak) id<HNPDynamicCellDelegate> delegate;
 
-//定义模型属性接收数据
+//定义模型属性接收数据(发现)
 @property (nonatomic,strong)HNPDynamicModle *DTModel;
+//定义模型属性接收数据(关注)
+@property (nonatomic,strong)HNPFollowModel *FollowModel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *followBtn;
+
 
 //快速加载动态xib
 +(instancetype)DynamicXib;

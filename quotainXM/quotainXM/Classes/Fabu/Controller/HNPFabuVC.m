@@ -32,11 +32,13 @@
 //返回上一界面
 - (IBAction)backBtn:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    self.tabBarController.tabBar.hidden = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)swipeView{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    self.tabBarController.tabBar.hidden = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

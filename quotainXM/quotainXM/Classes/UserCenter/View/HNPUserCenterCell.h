@@ -8,12 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "HNPDynamicModle.h"
+#import "HNPDynamicCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class HNPUserCenterCell;
+@protocol HNPUserCenterCellDelegate <NSObject>
+
+- (void)userCenterCellDidFollowBtnClick:(HNPUserCenterCell *)cell;
+
+@end
+
 @interface HNPUserCenterCell : UITableViewCell
 
+@property (nonatomic ,weak) id<HNPUserCenterCellDelegate> delegate;
+
 @property (nonatomic ,strong)HNPDynamicModle *UserCModle;
+
+@property (weak, nonatomic) IBOutlet UIButton *UserQXFollowBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *UserQXGZLable;
+
 
 @end
 

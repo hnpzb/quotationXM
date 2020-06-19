@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HNPDynamicModle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPCommentCell : UITableViewCell
 
+@property (nonatomic ,strong)HNPDynamicModle *PLModel;
 //+(instancetype)CommentCellXib;
 
 @end

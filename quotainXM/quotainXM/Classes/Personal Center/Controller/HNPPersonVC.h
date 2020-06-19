@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HNPDynamicModle.h"
+#import "HNPDynamicUserModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPPersonVC : UIViewController
+
+@property (nonatomic ,strong)HNPDynamicModle *PersonM;
 
 @end
 

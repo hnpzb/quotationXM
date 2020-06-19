@@ -21,6 +21,7 @@
     DynamicM.zanCount = [dict[@"zanCount"] stringValue];
     DynamicM.commentCount = [dict[@"commentCount"] stringValue];
     DynamicM.browserCount = [dict[@"browserCount"] stringValue];
+    DynamicM.forwardCount = [dict[@"forwardCount"] stringValue];
     if ([dict.allKeys containsObject:@"user"]) {
         if ([(NSDictionary *)dict[@"user"]allKeys].count > 0) {
             HNPDynamicUserModel *users = [HNPDynamicUserModel DynamicUserWithDict:dict[@"user"]];

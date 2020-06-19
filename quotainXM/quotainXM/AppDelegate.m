@@ -72,6 +72,8 @@
     mineNavVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_mine_icon_normal"];
     [tabVC addChildViewController:mineNavVC];
     
+    
+    
     [self.window makeKeyAndVisible];
   return YES;
 }

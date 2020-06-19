@@ -96,13 +96,17 @@ static NSString *IDTwo = @"DynamicCellID";
     if (indexPath.section == 0) {
             HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
             //cell的选中样式
-            pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            //pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
             //NSLog(@"%zd-%p",indexPath.row,pushCell);
             return pushCell;
         } else {
             HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
+            
+            //传递数据
             DynamicCell.DTModel = self.DTArray[indexPath.row];
+            //自定义的点击头像跳转的代理方法设置代理对象
             DynamicCell.delegate = self;
+            
             return DynamicCell;
         }
 }
@@ -112,14 +116,17 @@ static NSString *IDTwo = @"DynamicCellID";
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
         HNPFabuVC *fabuVC = [[HNPFabuVC alloc]init];
-        
+        self.tabBarController.tabBar.hidden = YES;
         [self.navigationController pushViewController:fabuVC animated:YES];
     }else{
+        
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
     HNPDetailsVC *detailsVc = [[HNPDetailsVC alloc]init];
     //将数据传给详情页面的模型属性
     detailsVc.dynamicModle = self.DTArray[indexPath.row];
+        //底部tabbar隐藏
+        self.tabBarController.tabBar.hidden=YES;
         [self.navigationController pushViewController:detailsVc animated:YES];
         
     }

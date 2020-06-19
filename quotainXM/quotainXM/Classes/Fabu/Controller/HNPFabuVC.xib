@@ -115,13 +115,13 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-324" y="-180"/>
+            <point key="canvasLocation" x="-115" y="-182"/>
         </view>
     </objects>
     <resources>
         <image name="add pictures" width="68.5" height="68.5"/>
         <image name="icon_back" width="10.5" height="18"/>
-        <image name="pic_bg" width="335" height="163.5"/>
+        <image name="pic_bg" width="375" height="265"/>
         <image name="upload image" width="68.5" height="68.5"/>
     </resources>
 </document>

@@ -151,12 +151,13 @@
             <connections>
                 <outlet property="DynamicImageView" destination="0DP-3b-3VG" id="wY0-6I-h9R"/>
                 <outlet property="commentCountLable" destination="nyz-I1-akw" id="P1g-CF-v5O"/>
+                <outlet property="followBtn" destination="vFi-oJ-qFu" id="7Q4-li-PBq"/>
                 <outlet property="neirongImageView" destination="MjO-am-EwS" id="3y3-Ru-vsf"/>
                 <outlet property="neirongLable" destination="82X-ZI-9Yi" id="987-3b-cPI"/>
                 <outlet property="nickName" destination="idH-tn-kz5" id="dRC-PT-rYR"/>
                 <outlet property="zanCountLable" destination="kcY-EN-U3T" id="xc3-fX-3eN"/>
             </connections>
-            <point key="canvasLocation" x="362" y="-81"/>
+            <point key="canvasLocation" x="2" y="-46"/>
         </tableViewCell>
     </objects>
     <resources>

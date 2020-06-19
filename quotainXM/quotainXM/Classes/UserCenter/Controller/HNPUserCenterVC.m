@@ -11,7 +11,7 @@
 #import "HNPDynamicCell.h"
 
 
-@interface HNPUserCenterVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface HNPUserCenterVC ()<UITableViewDelegate,UITableViewDataSource,HNPDynamicCellDelegate,HNPUserCenterCellDelegate>
 
 @property(nonatomic,strong)UITableView *tableview;
 @property (nonatomic,strong)NSArray *UserArray;
@@ -62,20 +62,30 @@ static NSString *IDTwo = @"DynamicCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath.section == 0) {
-            HNPUserCenterCell *centerCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
-
-            centerCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        HNPUserCenterCell *centerCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
+        centerCell.selectionStyle = UITableViewCellSelectionStyleNone;
         centerCell.UserCModle = _UserCenterModle;
+        centerCell.delegate = self;
             return centerCell;
         } else {
             HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
             DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            DynamicCell.DTModel = self.DTArray[indexPath.row];
-//            DynamicCell.delegate = self;
+            DynamicCell.followBtn.hidden = YES;
             return DynamicCell;
         }
 }
 
+- (void)userCenterCellDidFollowBtnClick:(HNPUserCenterCell *)cell{
+    
+    cell.UserQXFollowBtn.selected = !cell.UserQXFollowBtn.selected;
+            if (cell.UserQXFollowBtn.selected) {
+                cell.UserQXGZLable.text = @"点击关注";
+                cell.UserQXFollowBtn.backgroundColor = [UIColor greenColor];
+            }else{
+                cell.UserQXGZLable.text = @"取消关注";
+                cell.UserQXFollowBtn.backgroundColor = [UIColor whiteColor];
+            }
+}
 
 
 @end
