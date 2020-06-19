@@ -42,7 +42,7 @@ static NSString *IDTwo = @"DynamicCellID";
     //加载网络数据解析Json并且进行字典转模型
     [self DTJson];
        //在view中添加tableView
-    _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - ([UIApplication sharedApplication].statusBarFrame.size.height + 44)) style:UITableViewStylePlain];
     
     [self.view addSubview:_tableview];
     _tableview.dataSource = self;

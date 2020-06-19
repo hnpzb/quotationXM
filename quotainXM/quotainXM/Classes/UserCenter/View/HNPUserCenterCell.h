@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *UserQXGZLable;
 
+@property (weak, nonatomic) IBOutlet UIImageView *UserFollowBtn;
+
+
 
 @end
 

@@ -11,7 +11,7 @@
 #import "HNPDynamicCell.h"
 
 
-@interface HNPUserCenterVC ()<UITableViewDelegate,UITableViewDataSource,HNPDynamicCellDelegate,HNPUserCenterCellDelegate>
+@interface HNPUserCenterVC ()<UITableViewDelegate,UITableViewDataSource,HNPUserCenterCellDelegate>
 
 @property(nonatomic,strong)UITableView *tableview;
 @property (nonatomic,strong)NSArray *UserArray;
@@ -23,14 +23,20 @@
 static NSString *IDOne = @"UserCenterCellID";
 static NSString *IDTwo = @"DynamicCellID";
 
+- (void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //在view中添加tableView
-     _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+//    [UIApplication sharedApplication].statusBarFrame.size.height
+     _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height + 44) style:UITableViewStylePlain];
     [self.view addSubview:_tableview];
     _tableview.dataSource = self;
     _tableview.delegate = self;
+    
     
     [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPUserCenterCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
        [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
@@ -44,6 +50,7 @@ static NSString *IDTwo = @"DynamicCellID";
 
 -(void)swipeView{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    self.tabBarController.tabBar.hidden = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

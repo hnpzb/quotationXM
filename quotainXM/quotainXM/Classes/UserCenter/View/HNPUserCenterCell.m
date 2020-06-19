@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *UserDynamicCountLable;
 @property (weak, nonatomic) IBOutlet UILabel *UserFollowCountLable;
 @property (weak, nonatomic) IBOutlet UILabel *UserFansCountLable;
-@property (weak, nonatomic) IBOutlet UIImageView *UserFollowBtn;
 
 
 @end

@@ -232,6 +232,6 @@
         <image name="comment_Commentator" width="11" height="10.5"/>
         <image name="icon_dianzan" width="13" height="15"/>
         <image name="like_Commentator" width="11" height="10.5"/>
-        <image name="pic_bg" width="375" height="265"/>
+        <image name="pic_bg" width="335" height="163.5"/>
     </resources>
 </document>
