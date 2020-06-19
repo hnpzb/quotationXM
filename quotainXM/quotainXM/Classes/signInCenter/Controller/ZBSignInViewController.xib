@@ -14,6 +14,10 @@
                 <outlet property="barView" destination="N7r-yp-9q4" id="0BI-Yv-XJj"/>
                 <outlet property="greyImageV" destination="C7s-1O-XWr" id="Bwk-yP-vpp"/>
                 <outlet property="redView" destination="iJf-Z2-Ehc" id="Oqo-xm-6x7"/>
+                <outlet property="signImageV_1" destination="uP3-E3-bzk" id="Su6-Ve-hOJ"/>
+                <outlet property="signImageV_2" destination="SoI-A1-YTP" id="YHa-Wd-4jg"/>
+                <outlet property="signImageV_3" destination="HDy-EW-buZ" id="tN4-cu-2So"/>
+                <outlet property="signInBtn" destination="2vj-Ew-Nnd" id="BRX-23-mab"/>
                 <outlet property="successiveDayLabel" destination="mGk-rC-G6b" id="0dS-oW-OBN"/>
                 <outlet property="totalDayLabel" destination="Dei-gu-dJx" id="pFK-5Z-DVO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -167,21 +171,26 @@
                                     <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_qiandap -1" translatesAutoresizingMaskIntoConstraints="NO" id="IT4-4w-zPp">
-                                    <rect key="frame" x="10" y="282" width="364" height="48"/>
-                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累计签到" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZe-dV-iF8">
                                     <rect key="frame" x="266" y="20" width="58" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vj-Ew-Nnd">
+                                    <rect key="frame" x="10" y="282" width="364" height="48"/>
+                                    <state key="normal" title="Button" image="pic_qiandap -1"/>
+                                    <connections>
+                                        <action selector="clickSignIn:" destination="-1" eventType="touchUpInside" id="PWl-NT-YZj"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="IT4-4w-zPp" firstAttribute="leading" secondItem="UIR-7P-ebF" secondAttribute="leading" constant="10" id="4HB-3F-WaL"/>
+                                <constraint firstAttribute="bottom" secondItem="2vj-Ew-Nnd" secondAttribute="bottom" constant="20" id="1b4-Bi-zr9"/>
                                 <constraint firstItem="IZe-dV-iF8" firstAttribute="centerY" secondItem="Dei-gu-dJx" secondAttribute="centerY" id="7xH-Yl-OdW"/>
                                 <constraint firstItem="bfX-4R-Lsf" firstAttribute="top" secondItem="UIR-7P-ebF" secondAttribute="top" constant="20" id="AQx-X8-Xet"/>
+                                <constraint firstItem="2vj-Ew-Nnd" firstAttribute="leading" secondItem="UIR-7P-ebF" secondAttribute="leading" constant="10" id="DBX-Hm-EKf"/>
                                 <constraint firstItem="Tux-Bh-qIN" firstAttribute="leading" secondItem="Dei-gu-dJx" secondAttribute="trailing" constant="10" id="EAb-CE-Xwq"/>
                                 <constraint firstItem="Dei-gu-dJx" firstAttribute="leading" secondItem="IZe-dV-iF8" secondAttribute="trailing" constant="10" id="Lyf-Uj-k4z"/>
                                 <constraint firstItem="mGk-rC-G6b" firstAttribute="leading" secondItem="bfX-4R-Lsf" secondAttribute="trailing" constant="10" id="QcN-8Y-AzM"/>
@@ -191,11 +200,10 @@
                                 <constraint firstItem="C7s-1O-XWr" firstAttribute="top" secondItem="UIR-7P-ebF" secondAttribute="top" constant="80" id="bm5-Xi-W6a"/>
                                 <constraint firstItem="mGk-rC-G6b" firstAttribute="centerY" secondItem="bfX-4R-Lsf" secondAttribute="centerY" id="gLa-1s-hbG"/>
                                 <constraint firstItem="Tux-Bh-qIN" firstAttribute="top" secondItem="UIR-7P-ebF" secondAttribute="top" constant="20" id="gSb-9b-cdZ"/>
-                                <constraint firstAttribute="bottom" secondItem="IT4-4w-zPp" secondAttribute="bottom" constant="20" id="iT1-cC-kgL"/>
                                 <constraint firstItem="C7s-1O-XWr" firstAttribute="leading" secondItem="UIR-7P-ebF" secondAttribute="leading" constant="10" id="jdK-EB-Jmp"/>
                                 <constraint firstItem="bfX-4R-Lsf" firstAttribute="leading" secondItem="C7s-1O-XWr" secondAttribute="leading" id="k28-eE-Kbo"/>
                                 <constraint firstAttribute="height" constant="350" id="n4L-M2-zpE"/>
-                                <constraint firstAttribute="trailing" secondItem="IT4-4w-zPp" secondAttribute="trailing" constant="10" id="qtP-26-jdc"/>
+                                <constraint firstAttribute="trailing" secondItem="2vj-Ew-Nnd" secondAttribute="trailing" constant="10" id="tql-XX-a2j"/>
                                 <constraint firstItem="Tux-Bh-qIN" firstAttribute="trailing" secondItem="C7s-1O-XWr" secondAttribute="trailing" id="wa2-fE-uF3"/>
                                 <constraint firstAttribute="trailing" secondItem="C7s-1O-XWr" secondAttribute="trailing" constant="10" id="ygb-Gl-c5l"/>
                             </constraints>

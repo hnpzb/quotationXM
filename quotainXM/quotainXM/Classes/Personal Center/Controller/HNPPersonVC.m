@@ -62,7 +62,6 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beginSinIn)];
     [self.signInCenter addGestureRecognizer:tap];
-    NSLog(@"%@",_model.head);
     
    [_headImageView sd_setImageWithURL:[NSURL URLWithString:_model.head]];
     _nickNameLabel.text = _model.nickName;

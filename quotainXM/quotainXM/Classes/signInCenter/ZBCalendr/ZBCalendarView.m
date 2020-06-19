@@ -1,20 +1,19 @@
 //
-//  YXCalendarView.m
-//  Calendar
+//  ZBCalendarView.m
+//  日历自写尝试
 //
-//  Created by Vergil on 2017/7/6.
-//  Copyright © 2017年 Vergil. All rights reserved.
+//  Created by 朱彬 on 2020/6/19.
+//  Copyright © 2020 朱彬. All rights reserved.
 //
 
-#import "YXCalendarView.h"
+#import "ZBCalendarView.h"
 
 static CGFloat const yearMonthH = 30;   //年月高度
 static CGFloat const weeksH = 30;       //周高度
 #define ViewW self.frame.size.width     //当前视图宽度
 #define ViewH self.frame.size.height    //当前视图高度
 
-@interface YXCalendarView ()
-
+@interface ZBCalendarView ()
 
 @property (nonatomic, strong) UIScrollView *scrollV;    //scrollview
 @property (nonatomic, assign) CalendarType type;        //选择类型
@@ -22,29 +21,14 @@ static CGFloat const weeksH = 30;       //周高度
 @property (nonatomic, strong) NSDate *selectDate;       //选中日期
 @property (nonatomic, strong) NSDate *tmpCurrentDate;   //记录上下滑动日期
 
-@property (nonatomic, strong) YXMonthView *leftView;    //左侧日历
-@property (nonatomic, strong) YXMonthView *middleView;  //中间日历
-@property (nonatomic, strong) YXMonthView *rightView;   //右侧日历
+@property (nonatomic, strong) ZBMonthView *leftView;    //左侧日历
+@property (nonatomic, strong) ZBMonthView *middleView;  //中间日历
+@property (nonatomic, strong) ZBMonthView *rightView;   //右侧日历
 
 @end
 
-@implementation YXCalendarView
-//日历界面初始化
-- (instancetype)initWithFrame:(CGRect)frame Date:(NSDate *)date Type:(CalendarType)type {
-    
-    if (self = [super initWithFrame:frame]) {
-        _type = type;
-        _currentDate = date;
-        _selectDate = date;
-        if (type == CalendarType_Week) {
-            _tmpCurrentDate = date;
-            _currentDate = [[YXDateHelpObject manager] getLastdayOfTheWeek:date];
-        }
-        [self settingViews];
-        [self addSwipes];
-    }
-    return self;
-}
+@implementation ZBCalendarView
+
 
 //签到页面初始化
 - (instancetype)initWithFrame:(CGRect)frame Date:(NSDate *)date Type:(CalendarType)type Style:(NSInteger)i
@@ -95,7 +79,7 @@ static CGFloat const weeksH = 30;       //周高度
     } else {
         //月
         if (_refreshH) {
-            CGFloat viewH = [YXCalendarView getMonthTotalHeight:_currentDate type:CalendarType_Month];
+            CGFloat viewH = [ZBCalendarView getMonthTotalHeight:_currentDate type:CalendarType_Month];
             if (viewH == ViewH) {
                 return;
             }
@@ -172,11 +156,7 @@ static CGFloat const weeksH = 30;       //周高度
     
 }
 
-- (void)settingViews {
-    [self settingHeadLabel];
-    [self settingScrollView];
-    [self addObserver];
-}
+
 -(void)settingViews_two{
     [self settingHeadLabel_two];
     [self settingScrollView_two];
@@ -184,46 +164,7 @@ static CGFloat const weeksH = 30;       //周高度
     
 }
 
-- (void)settingHeadLabel {
-    
-    _yearMonthL = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, ViewW, yearMonthH)];
-    _yearMonthL.text = [[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy年MM月" Date:_currentDate];
-    /*
-    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"2019年8月" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0]}];
-    label.attributedText = string;*/
-    
-    _yearMonthL.font = [UIFont fontWithName:@"PingFang SC" size: 12];
-    _yearMonthL.textColor = [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0];
-    
-    
-    _yearMonthL.backgroundColor = [UIColor whiteColor];
-    _yearMonthL.textAlignment = NSTextAlignmentLeft;
-//    _yearMonthL.font = [UIFont systemFontOfSize:15];
-    [self addSubview:_yearMonthL];
-    
-    NSArray *weekdays = @[@"日",@"一",@"二",@"三",@"四",@"五",@"六"];
-    CGFloat weekdayW = ViewW/7;
-    for (int i = 0; i < 7; i++) {
-        UILabel *weekL = [[UILabel alloc] initWithFrame:CGRectMake(i*weekdayW, yearMonthH, weekdayW, weeksH)];
-        /*
-         NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:name attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 12],NSForegroundColorAttributeName: [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0]}];
-         */
-        weekL.font = [UIFont fontWithName:@"PingFang SC" size: 12];
-        weekL.textColor = [UIColor colorWithRed:167/255.0 green:167/255.0 blue:167/255.0 alpha:1.0];
-        
-        weekL.backgroundColor = [UIColor whiteColor];
-        weekL.textAlignment = NSTextAlignmentCenter;
-//        weekL.font = [UIFont systemFontOfSize:15];
-        weekL.text = weekdays[i];
-        [self addSubview:weekL];
-    }
-    
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, yearMonthH + weeksH + dayCellH +8, ViewW, 2)];
-    line.backgroundColor = [UIColor lightGrayColor];
-    line.alpha = 0.3;
-    [self addSubview:line];
-    
-}
+
 - (void)settingHeadLabel_two {
     /*
      UILabel *label = [[UILabel alloc] init];
@@ -254,45 +195,6 @@ static CGFloat const weeksH = 30;       //周高度
     
 }
 
-- (void)settingScrollView {
-    
-    _scrollV = [[UIScrollView alloc] initWithFrame:CGRectMake(0, yearMonthH + weeksH, ViewW, ViewH - yearMonthH - weeksH)];
-    _scrollV.contentSize = CGSizeMake(ViewW * 3, 0);
-    _scrollV.pagingEnabled = YES;
-    _scrollV.showsHorizontalScrollIndicator = NO;
-    _scrollV.showsVerticalScrollIndicator = NO;
-    [self addSubview:_scrollV];
-    
-    __weak typeof(self) weakSelf = self;
-    CGFloat height = 6 * dayCellH;
-    _leftView = [[YXMonthView alloc] initWithFrame:CGRectMake(0, 0, ViewW, height) Date:
-                 _type == CalendarType_Month ? [[YXDateHelpObject manager] getPreviousMonth:_currentDate] :[[YXDateHelpObject manager]getEarlyOrLaterDate:_currentDate LeadTime:-7 Type:2]];
-    _leftView.type = _type;
-    _leftView.selectDate = _selectDate;
-   
-    
-    _middleView = [[YXMonthView alloc] initWithFrame:CGRectMake(ViewW, 0, ViewW, height) Date:_currentDate];
-    _middleView.type = _type;
-    _middleView.selectDate = _selectDate;
-    _middleView.sendSelectDate = ^(NSDate *selDate) {
-        weakSelf.selectDate = selDate;
-        if (weakSelf.sendSelectDate) {
-            weakSelf.sendSelectDate(selDate);
-        }
-        [weakSelf setData];
-    };
-//
-    _rightView = [[YXMonthView alloc] initWithFrame:CGRectMake(ViewW * 2, 0, ViewW, height) Date:
-                  _type == CalendarType_Month ? [[YXDateHelpObject manager] getNextMonth:_currentDate] : [[YXDateHelpObject manager]getEarlyOrLaterDate:_currentDate LeadTime:7 Type:2]];
-    _rightView.type = _type;
-    _rightView.selectDate = _selectDate;
-    
-    [_scrollV addSubview:_leftView];
-    [_scrollV addSubview:_middleView];
-    [_scrollV addSubview:_rightView];
-    
-    [self scrollToCenter];
-}
 - (void)settingScrollView_two {
     
     _scrollV = [[UIScrollView alloc] initWithFrame:CGRectMake(0,weeksH, ViewW, ViewH - yearMonthH - weeksH)];
@@ -305,12 +207,12 @@ static CGFloat const weeksH = 30;       //周高度
     
     __weak typeof(self) weakSelf = self;
     CGFloat height = dayCellH;
-    _leftView = [[YXMonthView alloc] initWithFrame:CGRectMake(0, 0, ViewW, height) Date:
+    _leftView = [[ZBMonthView alloc] initWithFrame:CGRectMake(0, 0, ViewW, height) Date:
                  _type == CalendarType_Month ? [[YXDateHelpObject manager] getPreviousMonth:_currentDate] :[[YXDateHelpObject manager]getEarlyOrLaterDate:_currentDate LeadTime:-7 Type:2]];
     _leftView.type = _type;
     _leftView.selectDate = _selectDate;
     
-    _middleView = [[YXMonthView alloc] initWithFrame:CGRectMake(ViewW, 0, ViewW, height) Date:_currentDate];
+    _middleView = [[ZBMonthView alloc] initWithFrame:CGRectMake(ViewW, 0, ViewW, height) Date:_currentDate];
     _middleView.type = _type;
     _middleView.selectDate = _selectDate;
     _middleView.sendSelectDate = ^(NSDate *selDate) {
@@ -321,7 +223,7 @@ static CGFloat const weeksH = 30;       //周高度
         [weakSelf setData];
     };
     
-    _rightView = [[YXMonthView alloc] initWithFrame:CGRectMake(ViewW * 2, 0, ViewW, height) Date:
+    _rightView = [[ZBMonthView alloc] initWithFrame:CGRectMake(ViewW * 2, 0, ViewW, height) Date:
                   _type == CalendarType_Month ? [[YXDateHelpObject manager] getNextMonth:_currentDate] : [[YXDateHelpObject manager]getEarlyOrLaterDate:_currentDate LeadTime:7 Type:2]];
     _rightView.type = _type;
     _rightView.selectDate = _selectDate;

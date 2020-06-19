@@ -7,15 +7,18 @@
 //
 
 #import "ZBSignInViewController.h"
-#import "YXCalendarView.h"
+//#import "YXCalendarView.h"
+#import "ZBCalendarView.h"
 #import <AFNetworking.h>
 #import "ZBSignInModel.h"
 #import <sys/utsname.h>
+#import <AFNetworking.h>
+#import "MBProgressHUD+XMG.h"
 
 @interface ZBSignInViewController ()
 
 @property(nonatomic,strong)UIButton *preSelectBtn;
-@property (nonatomic, strong) YXCalendarView *calendar;
+@property (nonatomic, strong) ZBCalendarView *calendar;
 @property (strong, nonatomic) IBOutlet UIView *redView;
 @property (strong, nonatomic) IBOutlet UIView *TopView;
 @property (strong, nonatomic) IBOutlet UIView *barView;
@@ -23,6 +26,13 @@
 @property (strong, nonatomic) IBOutlet UIImageView *greyImageV;
 @property (strong, nonatomic) IBOutlet UILabel *successiveDayLabel;
 @property (strong, nonatomic) IBOutlet UILabel *totalDayLabel;
+
+@property (strong, nonatomic) IBOutlet UIImageView *signImageV_1;
+
+@property (strong, nonatomic) IBOutlet UIImageView *signImageV_2;
+@property (strong, nonatomic) IBOutlet UIImageView *signImageV_3;
+@property (strong, nonatomic) IBOutlet UIButton *signInBtn;
+
 
 @property(nonatomic,strong)NSString *selectTime;
 
@@ -34,22 +44,38 @@
 
 - (void)setSelectTime:(NSString *)selectTime{
     _selectTime = selectTime;
-    
+    self.totalDayLabel.text = [NSString stringWithFormat:@"%ld",self.dataArray.count];
     for (int i =0; i<self.dataArray.count; i++) {
         ZBSignInModel *temp = self.dataArray[i];
         if ([[self timetampTostring:temp.time.integerValue] isEqualToString:selectTime]) {
             self.successiveDayLabel.text = [NSString stringWithFormat:@"%@",temp.continueTimes];
-//            switch (temp.continueTimes.intValue) {
-//                case 0:
-//                    break;
-//                    case 1:
-//
-//                default:
-//                    break;
-//            }
+            switch (temp.continueTimes.intValue) {
+                case 0:
+                    break;
+                case 1:
+                    self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                    break;
+                case 2:
+                    self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                    self.signImageV_2.image = [UIImage imageNamed:@"第2天"];
+                    break;
+                case 3:
+                    self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                    self.signImageV_2.image = [UIImage imageNamed:@"第2天"];
+                    self.signImageV_3.image = [UIImage imageNamed:@"第三天"];
+                    break;
+                default:
+                    self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                    self.signImageV_2.image = [UIImage imageNamed:@"第2天"];
+                    self.signImageV_3.image = [UIImage imageNamed:@"第三天"];
+                    break;
+            }
                 break;
         }
         self.successiveDayLabel.text = @"0";
+        self.signImageV_1.image = [UIImage imageNamed:@"未签到"];
+        self.signImageV_2.image = [UIImage imageNamed:@"未签到"];
+        self.signImageV_3.image = [UIImage imageNamed:@"未签到"];
             }
     
 }
@@ -76,12 +102,32 @@
     [self RefreshSignIn];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSLog(@"====%@",self.dataArray);
         self.totalDayLabel.text = [NSString stringWithFormat:@"%ld",self.dataArray.count];
         for (int i =0; i<self.dataArray.count; i++) {
             ZBSignInModel *temp = self.dataArray[i];
             if ([[self timetampTostring:temp.time.integerValue] isEqualToString:[ZBSignInViewController curYearMD:0]]) {
                 self.successiveDayLabel.text = [NSString stringWithFormat:@"%@",temp.continueTimes];
+                switch (temp.continueTimes.intValue) {
+                    case 0:
+                        break;
+                    case 1:
+                        self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                        break;
+                    case 2:
+                        self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                        self.signImageV_2.image = [UIImage imageNamed:@"第2天"];
+                        break;
+                    case 3:
+                        self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                        self.signImageV_2.image = [UIImage imageNamed:@"第2天"];
+                        self.signImageV_3.image = [UIImage imageNamed:@"第三天"];
+                        break;
+                    default:
+                        self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                        self.signImageV_2.image = [UIImage imageNamed:@"第2天"];
+                        self.signImageV_3.image = [UIImage imageNamed:@"第三天"];
+                        break;
+                }
                 break;
             }
             self.successiveDayLabel.text = @"0";
@@ -95,11 +141,15 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)clickSignIn:(id)sender {
+    [self ZBbeginSignIn];
+}
+
+
 -(void)addTopCalendar{
-    _TopView.backgroundColor = [UIColor redColor];
    
         _TopView.backgroundColor = [UIColor redColor];
-    _calendar = [[YXCalendarView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [YXCalendarView getMonthTotalHeight:[NSDate date] type:CalendarType_Week] ) Date:[NSDate date] Type:CalendarType_Week Style:1];
+    _calendar = [[ZBCalendarView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [ZBCalendarView getMonthTotalHeight:[NSDate date] type:CalendarType_Week] ) Date:[NSDate date] Type:CalendarType_Week Style:1];
             
         __weak typeof(_calendar) weakCalendar = _calendar;
             _calendar.refreshH = ^(CGFloat viewH) {
@@ -156,8 +206,7 @@
                }else{
                   
                }
-    } failure:nil]
-;
+    } failure:nil];
      
     
 }
@@ -196,5 +245,39 @@
     NSString *time = [NSString stringWithFormat:@"%ld-%ld-%ld",year,month,day - i];
     return time;
 }
+
+-(void)ZBbeginSignIn{
+    
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+    [par setObject:self.userID forKey:@"userId"];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:@"http://api.yysc.online/user/sign/signNow" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+        NSDictionary *data = responseObject;
+        NSString *success = [NSString stringWithFormat:@"%@",data[@"success"]];
+        if ([success isEqualToString:@"1"]) {
+            [MBProgressHUD showMessage:@"签到成功..."];
+            
+            //延时执行代码
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 [MBProgressHUD hideHUD];
+                self.signInBtn.enabled = NO;
+                [self RefreshSignIn];
+                self.selectTime = [ZBSignInViewController curYearMD:0];
+                    
+                });
+        }else{
+            [MBProgressHUD hideHUD];
+            [MBProgressHUD showError:@"签到失败"];
+        }
+        
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"failure");
+        }];
+        
+    
+}
+
 
 @end

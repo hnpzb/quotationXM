@@ -124,6 +124,10 @@
 		B3763AF2249AF911003CB77D /* ZBHotNewsUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763AF1249AF911003CB77D /* ZBHotNewsUserModel.m */; };
 		B3763AF5249B2FAD003CB77D /* ZBPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3763AF4249B2FAD003CB77D /* ZBPersonModel.m */; };
 		B3A10432249C66CF0025DE22 /* ZBSignInModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A10431249C66CF0025DE22 /* ZBSignInModel.m */; };
+		B3A10473249CA5740025DE22 /* ZBDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3A10469249CA5740025DE22 /* ZBDayCell.xib */; };
+		B3A10474249CA5740025DE22 /* ZBMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1046B249CA5740025DE22 /* ZBMonthView.m */; };
+		B3A10475249CA5740025DE22 /* ZBCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1046D249CA5740025DE22 /* ZBCalendarView.m */; };
+		B3A10476249CA5740025DE22 /* ZBDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A1046E249CA5740025DE22 /* ZBDayCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,6 +328,13 @@
 		B3763AF4249B2FAD003CB77D /* ZBPersonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBPersonModel.m; sourceTree = "<group>"; };
 		B3A10430249C66CF0025DE22 /* ZBSignInModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBSignInModel.h; sourceTree = "<group>"; };
 		B3A10431249C66CF0025DE22 /* ZBSignInModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBSignInModel.m; sourceTree = "<group>"; };
+		B3A10469249CA5740025DE22 /* ZBDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZBDayCell.xib; sourceTree = "<group>"; };
+		B3A1046A249CA5740025DE22 /* ZBCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCalendarView.h; sourceTree = "<group>"; };
+		B3A1046B249CA5740025DE22 /* ZBMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBMonthView.m; sourceTree = "<group>"; };
+		B3A1046C249CA5740025DE22 /* ZBDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBDayCell.h; sourceTree = "<group>"; };
+		B3A1046D249CA5740025DE22 /* ZBCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCalendarView.m; sourceTree = "<group>"; };
+		B3A1046E249CA5740025DE22 /* ZBDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBDayCell.m; sourceTree = "<group>"; };
+		B3A1046F249CA5740025DE22 /* ZBMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBMonthView.h; sourceTree = "<group>"; };
 		D30DA71F99E669AA946171CC /* Pods-quotainXM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotainXM.debug.xcconfig"; path = "Target Support Files/Pods-quotainXM/Pods-quotainXM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -891,6 +902,7 @@
 		B350C014249070F40026368F /* signInCenter */ = {
 			isa = PBXGroup;
 			children = (
+				B3A10468249CA5740025DE22 /* ZBCalendr */,
 				B350C015249070F40026368F /* Controller */,
 				B350C019249070F40026368F /* Model */,
 				B350C01A249070F40026368F /* View */,
@@ -1239,6 +1251,20 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		B3A10468249CA5740025DE22 /* ZBCalendr */ = {
+			isa = PBXGroup;
+			children = (
+				B3A1046A249CA5740025DE22 /* ZBCalendarView.h */,
+				B3A1046D249CA5740025DE22 /* ZBCalendarView.m */,
+				B3A1046C249CA5740025DE22 /* ZBDayCell.h */,
+				B3A1046E249CA5740025DE22 /* ZBDayCell.m */,
+				B3A10469249CA5740025DE22 /* ZBDayCell.xib */,
+				B3A1046F249CA5740025DE22 /* ZBMonthView.h */,
+				B3A1046B249CA5740025DE22 /* ZBMonthView.m */,
+			);
+			path = ZBCalendr;
+			sourceTree = "<group>";
+		};
 		BE3B13BA74E5EC5D37FD0DC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1333,6 +1359,7 @@
 				B350C06E249070F40026368F /* ZBInfoHeaderReusableView.xib in Resources */,
 				B350C092249070F40026368F /* ZBResetPasswordController.xib in Resources */,
 				B350C072249070F40026368F /* ZBInfoCollectionViewCell.xib in Resources */,
+				B3A10473249CA5740025DE22 /* ZBDayCell.xib in Resources */,
 				B350BFA8249070D50026368F /* Assets.xcassets in Resources */,
 				B350C09F249070F40026368F /* HNPNewSletterCell.xib in Resources */,
 				B350C076249070F40026368F /* ZBCalendarTableViewCell.xib in Resources */,
@@ -1423,6 +1450,7 @@
 				B350C093249070F40026368F /* ZBResetPasswordController.m in Sources */,
 				B3A10432249C66CF0025DE22 /* ZBSignInModel.m in Sources */,
 				B350C07B249070F40026368F /* ZBFollowViewController.m in Sources */,
+				B3A10476249CA5740025DE22 /* ZBDayCell.m in Sources */,
 				B34A4055249775070047BF94 /* ZBCalendarColViewCell.m in Sources */,
 				B350C066249070F40026368F /* ZBQuotationTableViewCell.m in Sources */,
 				B34719F8249A029E0017CA48 /* YXDateHelpObject.m in Sources */,
@@ -1441,7 +1469,9 @@
 				B350C0A2249070F40026368F /* ZBMainViewController.m in Sources */,
 				B350C09A249070F40026368F /* ZBIndustryMode.m in Sources */,
 				B350C06D249070F40026368F /* ZBInfoCollectionView.m in Sources */,
+				B3A10475249CA5740025DE22 /* ZBCalendarView.m in Sources */,
 				115413B22497475B008BB7DB /* HNPDetailsModle.m in Sources */,
+				B3A10474249CA5740025DE22 /* ZBMonthView.m in Sources */,
 				B350C0A4249070F40026368F /* ZBNavigationController.m in Sources */,
 				B352DDEE2498703E001A3B66 /* MBProgressHUD+XMG.m in Sources */,
 				B350C06F249070F40026368F /* ZBTopTableViewCell.m in Sources */,
