@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPFabuVC : UIViewController
 
+@property(nonatomic,copy)NSString *userID;
+
 @end
 
 NS_ASSUME_NONNULL_END

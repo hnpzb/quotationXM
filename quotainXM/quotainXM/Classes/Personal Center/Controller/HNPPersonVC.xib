@@ -127,6 +127,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="Hyo-cM-c6T"/>
                             </constraints>
+                            <connections>
+                                <action selector="setClick:" destination="-1" eventType="touchUpInside" id="hac-Rh-vnZ"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

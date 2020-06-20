@@ -15,12 +15,15 @@
 #import "HNPPersonVC.h"
 #import "HNPUserCenterVC.h"
 #import "HNPFabuVC.h"
+#import "ZBloginViewController.h"
 
 @interface HNPDiscoveryViewC ()<UITableViewDelegate,UITableViewDataSource,HNPDynamicCellDelegate>
 
 @property(nonatomic,strong)UIView *baiVC;
 @property(nonatomic,strong)UIButton *preSelectBtn;
 @property (strong, nonatomic) IBOutlet UIView *mainV;
+
+@property(nonatomic,strong)ZBPersonModel *mineUserInfoModel;
 
 @property(nonatomic,strong)UITableView *tableview;
 //动态的可变数组
@@ -117,11 +120,21 @@ static NSString *IDTwo = @"DynamicCellID";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        [self determineWhetherToLogin];
+        if (self.login == YES) {
+            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
+            HNPFabuVC *fabuVC = [[HNPFabuVC alloc]init];
+            fabuVC.userID = self.mineUserInfoModel.userId;
+            self.tabBarController.tabBar.hidden = YES;
+            [self.navigationController pushViewController:fabuVC animated:YES];
+        }else{
+            ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
-        HNPFabuVC *fabuVC = [[HNPFabuVC alloc]init];
-        self.tabBarController.tabBar.hidden = YES;
-        [self.navigationController pushViewController:fabuVC animated:YES];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
+            
+        
     }else{
         
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -145,5 +158,19 @@ static NSString *IDTwo = @"DynamicCellID";
     [self.navigationController pushViewController:userCenterVC animated:YES];
 }
 
+#pragma mark - 判断是否登录
+/**判断是否登录*/
+- (void)determineWhetherToLogin
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//    NSString *path =[[NSBundle mainBundle] pathForResource:@"user.plist" ofType:nil];
+
+    self.mineUserInfoModel = [ZBPersonModel mj_objectWithFile:path];
+    if (self.mineUserInfoModel == nil) {
+        self.login = NO;
+    } else {
+        self.login = YES;
+    }
+}
 
 @end

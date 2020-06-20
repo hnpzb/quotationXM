@@ -63,6 +63,11 @@
     
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 -(void)addTopView:(UIView *)view{
     
 //    UITapGestureRecognizer *top = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuClick:)];

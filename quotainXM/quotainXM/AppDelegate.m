@@ -17,7 +17,11 @@
 #import "ZBDiscoverMainVC.h"
 #import "ZBNavigationController.h"
 #import "ZBSignInViewController.h"
+#import "HNPPersonVC.h"
+
 @interface AppDelegate ()
+
+@property(nonatomic,strong)ZBPersonModel *mineUserInfoModel;
 
 @end
 
@@ -25,7 +29,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     UITabBarController *tabVC = [[UITabBarController alloc] init];
@@ -43,10 +47,19 @@
        findVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_find_icon_normal"];
         [tabVC addChildViewController:findVC];
     
+    [self determineWhetherToLogin];
+    
     ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
+    HNPPersonVC *perVC = [[HNPPersonVC alloc] init];
     UINavigationController *mineNavVC = [[UINavigationController alloc] init];
+    if (self.login == NO) {
+        [mineNavVC addChildViewController:loginVC];
+    }else{
+        perVC.model = self.mineUserInfoModel;
+        [mineNavVC addChildViewController:perVC];
+    }
     mineNavVC.navigationBar.hidden = YES;
-    [mineNavVC addChildViewController:loginVC];
+    
     mineNavVC.tabBarItem.title = @"我的";
     mineNavVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_mine_icon_normal"];
     [tabVC addChildViewController:mineNavVC];
@@ -57,5 +70,18 @@
   return YES;
 }
 
+#pragma mark - 判断是否登录
+/**判断是否登录*/
+- (void)determineWhetherToLogin
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//    NSString *path =[[NSBundle mainBundle] pathForResource:@"user.plist" ofType:nil];
+    self.mineUserInfoModel = [ZBPersonModel mj_objectWithFile:path];
+    if (self.mineUserInfoModel == nil) {
+        self.login = NO;
+    } else {
+        self.login = YES;
+    }
+}
 
 @end

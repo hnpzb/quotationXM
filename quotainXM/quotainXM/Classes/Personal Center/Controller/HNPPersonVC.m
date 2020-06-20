@@ -45,9 +45,12 @@
     _fansCountLabel.text = model.fansCount;
     
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+     self.tabBarController.tabBar.hidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     
     self.headImageView.layer.cornerRadius = 32.5;
@@ -101,5 +104,35 @@
     [self.navigationController pushViewController:detailsVc animated:YES];
 }
 
+-(void)zhuxiao{
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"注销" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击了取消");
+        
+        //清空用户数据
+        NSError *error;
+        NSFileManager *fileMger = [NSFileManager defaultManager];
+        NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+        if ([fileMger removeItemAtPath:path error:&error]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
+        
+        
+  
+    }];
+    
+
+    [actionSheet addAction:cancelAction];
+    
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+- (IBAction)setClick:(id)sender {
+    [self zhuxiao];
+}
 
 @end

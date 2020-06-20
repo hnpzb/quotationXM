@@ -43,9 +43,8 @@
 @implementation ZBSignInViewController
 
 - (void)viewDidAppear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = YES;
+     self.tabBarController.tabBar.hidden = YES;
 }
-
 
 - (void)setSelectTime:(NSString *)selectTime{
     _selectTime = selectTime;
@@ -143,6 +142,7 @@
 -(void)breakDeatail:(UIButton *)btn{
     
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

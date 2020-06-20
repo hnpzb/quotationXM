@@ -113,8 +113,15 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.image = [UIImage imageNamed:@"pic_qiandap "];
     imageView.frame = CGRectMake(20, 80, [UIApplication sharedApplication].statusBarFrame.size.width - 40, 48);
+    imageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(informationSignIn)];
+    [imageView addGestureRecognizer:tap];
     [view addSubview:imageView];
 }
+-(void)informationSignIn{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"informationSignIn" object:nil];
+}
+
 -(void)addImageView:(NSInteger)i view:(UIView *)view{
         CGFloat margin = 5;
     CGFloat imageViewW = ([UIApplication sharedApplication].statusBarFrame.size.width-20) /3 ;

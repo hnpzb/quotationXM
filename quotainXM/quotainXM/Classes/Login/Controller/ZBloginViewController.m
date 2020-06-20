@@ -36,6 +36,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+
+     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+        NSLog(@"%@",path);
+    
     _count_F.userInteractionEnabled = YES;
     _xianshiImageV.userInteractionEnabled = YES;
     
@@ -114,7 +118,9 @@
 }*/
 
 - (IBAction)guanbiLogin:(id)sender {
-    NSLog(@"guanbi");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)beginLogin{
@@ -174,6 +180,11 @@
                            [MBProgressHUD hideHUD];
                        HNPPersonVC *vc = [[HNPPersonVC alloc] init];
                            vc.model = perModel;
+                           
+                           //存入用户数据
+                           NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+                           NSDictionary *tempDic = [perModel mj_keyValues];
+                           [tempDic writeToFile:path atomically:YES];
                            
                        [self.navigationController  pushViewController:vc animated:YES];
                        });

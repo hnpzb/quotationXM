@@ -14,7 +14,7 @@
 #import "ZBCalendarViewController.h"
 #import "HNPNewsletterViewController.h"
 #import "ZBNavigationController.h"
-
+#import "CZ_NEWMarketVC.h"
 @interface ZBMainViewController ()
 
 @property(nonatomic,strong)UIButton *preSelectBtn;
@@ -34,9 +34,20 @@
     [super viewDidLoad];
     
     [self addChildVC];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(baiChange:) name:@"enterNext" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showbai:) name:@"backPre" object:nil];
+}
+- (void)viewDidAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
 }
 
+-(void)baiChange:(NSNotification *)notice{
+    self.baiVC.hidden = YES;
+}
+
+-(void)showbai:(NSNotification *)notice{
+    self.baiVC.hidden = NO;
+}
 
 - (void)dealloc
 {
@@ -47,7 +58,7 @@
     
     NSArray *childClassName = @[@"ZBInformationViewController",
                                 @"HNPNewsletterViewController",
-                                @"ZBQuotationViewController",
+                                @"CZ_NEWMarketVC",
                                  @"ZBIndustryViewController",
                                 @"ZBCalendarViewController"];
     for (NSString *className in childClassName) {

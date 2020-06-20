@@ -16,6 +16,8 @@
 #import "ZBInfoCollectionView.h"
 #import <AFNetworking.h>
 #import "ZBHotNewsModel.h"
+#import "ZBSignInViewController.h"
+#import "ZBloginViewController.h"
 
 
 @interface ZBInformationViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -23,6 +25,8 @@
 @property(nonatomic,assign)NSInteger heightconst;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *array;
+
+@property(nonatomic,strong)ZBPersonModel *mineUserInfoModel;
 
 @end
 
@@ -44,12 +48,14 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 
 - (void)viewDidAppear:(BOOL)animated{
     [self reLoadHotnews];
+    self.tabBarController.tabBar.hidden = NO;
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
 
         //设置tableView
-            CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height);
+            CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height - 44 - [[UIApplication sharedApplication] statusBarFrame].size.height - 49);
         self.tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStylePlain];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
@@ -63,9 +69,30 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
             
         [self.tableView registerNib:[UINib nibWithNibName:@"ZBTopTableViewCell" bundle:nil] forCellReuseIdentifier:top_ID];
         [self.tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
-            
+        
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(informationSignIn) name:@"informationSignIn" object:nil];
         
 
+}
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+-(void)informationSignIn{
+    [self determineWhetherToLogin];
+    if (self.login == YES) {
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"enterNext" object:self];
+        ZBSignInViewController *signInVC = [[ZBSignInViewController alloc] init];
+        signInVC.userID = self.mineUserInfoModel.userId;
+        self.tabBarController.tabBar.hidden = YES;
+        [self.navigationController pushViewController:signInVC animated:YES];
+    }else{
+        ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"enterNext" object:self];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+    NSLog(@"123");
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -131,6 +158,21 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
            [self.tableView reloadData];
         });
     }]resume];
+}
+
+#pragma mark - 判断是否登录
+/**判断是否登录*/
+- (void)determineWhetherToLogin
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//    NSString *path =[[NSBundle mainBundle] pathForResource:@"user.plist" ofType:nil];
+
+    self.mineUserInfoModel = [ZBPersonModel mj_objectWithFile:path];
+    if (self.mineUserInfoModel == nil) {
+        self.login = NO;
+    } else {
+        self.login = YES;
+    }
 }
 
 @end

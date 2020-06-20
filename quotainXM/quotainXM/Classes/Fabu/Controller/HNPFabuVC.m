@@ -12,7 +12,7 @@
 @interface HNPFabuVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,selectPhotoDelegate>
 
 //点开相册添加的图片
-@property (weak, nonatomic) IBOutlet UIImageView *addImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *addImageView;
 @property (nonatomic,strong)SelectPhotoManager *photoManger;
 //打开相机按钮属性
 @property (weak, nonatomic) IBOutlet UIButton *openCaremaBtn;
@@ -34,6 +34,7 @@
     _addImageView.userInteractionEnabled = YES;
     UISwipeGestureRecognizer *deleteImageView = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeDeleteView)];
     [self.addImageView addGestureRecognizer:deleteImageView];
+//    [HNPFabuVC getNowTimestamp];
 }
 
 //返回上一界面
@@ -138,6 +139,87 @@
     NSLog(@"%@",_text_FV.text);
 }
 
+-(void)ZBbeginFabu{
+    
+    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
+    
+    NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
+    [par setObject:self.userID forKey:@"userId"];
+    [par setObject:@"false" forKey:@"displayBig"];
+    [par setObject:@"true" forKey:@"enable"];
+    [par setObject:[NSString stringWithFormat:@"%ld",curTimeTap] forKey:@"publishTime"];
+    [par setObject:_text_FV.text forKey:@"content"];
+    [par setObject:@"" forKey:@"video"];
+    [par setObject:@"" forKey:@"picture"];
+    
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    [manager POST:<#(nonnull NSString *)#> parameters:<#(nullable id)#> headers:<#(nullable NSDictionary<NSString *,NSString *> *)#> constructingBodyWithBlock:<#^(id<AFMultipartFormData>  _Nonnull formData)block#> progress:<#^(NSProgress * _Nonnull uploadProgress)uploadProgress#> success:<#^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)success#> failure:<#^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)failure#>]
+    [manager POST:@"http://api.yysc.online/admin/talk/addTalk" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+        NSDictionary *data = responseObject;
+        NSString *success = [NSString stringWithFormat:@"%@",data[@"code"]];
+        if ([success isEqualToString:@"1"]) {
+            [MBProgressHUD showMessage:@"发布成功..."];
+            
+            //延时执行代码
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 [MBProgressHUD hideHUD];
+            
+                });
+        }else{
+            [MBProgressHUD hideHUD];
+            [MBProgressHUD showError:@"发布失败"];
+        }
+        
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"failure");
+        }];
+        
+    
+}
 
+#pragma mark - 获取当前时间的 时间戳
+
++(NSInteger)getNowTimestamp{
+
+ 
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"]; // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+
+    //设置时区,这个对于时间的处理有时很重要
+
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+
+    [formatter setTimeZone:timeZone];
+
+    NSDate *datenow = [NSDate date];//现在时间
+
+    
+
+    NSLog(@"设备当前的时间:%@",[formatter stringFromDate:datenow]);
+
+    //时间转时间戳的方法:
+
+   
+
+    NSInteger timeSp = [[NSNumber numberWithDouble:[datenow timeIntervalSince1970]] integerValue];
+
+    
+
+    NSLog(@"设备当前的时间戳:%ld",(long)timeSp); //时间戳的值
+
+    
+
+    return timeSp;
+
+}
 
 @end
