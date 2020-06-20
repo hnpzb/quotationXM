@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HNPFabuVC">
             <connections>
                 <outlet property="addImageView" destination="FmH-Yl-zUB" id="BgA-SR-75T"/>
-                <outlet property="text_FV" destination="ZT8-kI-Ul7" id="r8n-vr-DlT"/>
+                <outlet property="openCaremaBtn" destination="ZZG-mF-HYk" id="B5M-xJ-gUe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -88,9 +88,6 @@
                     <state key="normal" title="发布" backgroundImage="pic_bg">
                         <color key="titleColor" red="1" green="0.83137254900000002" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="fabuClick:" destination="-1" eventType="touchUpInside" id="jFH-wt-Nsu"/>
-                    </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmH-Yl-zUB">
                     <rect key="frame" x="172" y="273" width="68.5" height="68.5"/>
@@ -119,13 +116,13 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-325.36231884057975" y="-180.13392857142856"/>
+            <point key="canvasLocation" x="53" y="-244"/>
         </view>
     </objects>
     <resources>
         <image name="add pictures" width="68.5" height="68.5"/>
         <image name="icon_back" width="10.5" height="18"/>
-        <image name="pic_bg" width="375" height="265"/>
+        <image name="pic_bg" width="335" height="163.5"/>
         <image name="upload image" width="68.5" height="68.5"/>
     </resources>
 </document>

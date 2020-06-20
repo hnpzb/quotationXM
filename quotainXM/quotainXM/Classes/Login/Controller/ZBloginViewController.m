@@ -14,6 +14,11 @@
 #import "ZBSignInViewController.h"
 #import "MBProgressHUD+XMG.h"
 #import <AFNetworking.h>
+#import "HNPDynamicModle.h"
+#import "HNPDynamicUserModel.h"
+#import "MJExtension.h"
+#import "HNPLoginViewModel.h"
+
 #import "ZBPersonModel.h"
 #import "YXCalendarView.h"
 
@@ -22,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *count_F;
 @property (strong, nonatomic) IBOutlet UITextField *password_F;
 
+@property (nonatomic ,strong)NSMutableArray *loginArray;
 
 @end
 
@@ -38,23 +44,6 @@
     [_xianshiImageV addGestureRecognizer:xs];
     
 
-
-    
-    /*
-             NSData *ImageData =[[NSData alloc]initWithBase64EncodedString:imageS options:NSDataBase64DecodingIgnoreUnknownCharacters];
-       //
-       //
-       //
-       //      //        [[NSData alloc]initWithBase64EncodedString:ImageStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
-       //
-             UIImage *testImage = [UIImage imageWithData:ImageData];
-       //
-             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                 UIImageView *imageV = [[UIImageView alloc] initWithImage:testImage];
-                 [self.view addSubview:imageV];
-                }];*/
-       
-    
 
 }
 
@@ -135,6 +124,7 @@
     [par setObject:@"1" forKey:@"type"];
     [par setObject:@"futures" forKey:@"project"];
     [par setObject:@"000000" forKey:@"code"];
+
     /*
     NSString *path = [NSString stringWithFormat:@"http://api.yysc.online/system/login?phone=%@&password=%@&type=1&project=futures&code=000000",self.count_F.text,self.password_F.text];
        NSURL *url = [NSURL URLWithString:path];

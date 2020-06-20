@@ -39,18 +39,17 @@ static NSString *IDTwo = @"CommentCellID";
     
 }
 
-
--(void)swipeView
-{
+//轻扫返回
+-(void)swipeView{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    self.tabBarController.tabBar.hidden = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 /**
  创建一个顶部View来进行控制器的切换
  */
-- (void)creatTopView
-{
+- (void)creatTopView{
     //顶部点击图标切换控制器的view
        UIView *vc = [[UIView alloc] init];
        vc.backgroundColor = [UIColor whiteColor];
@@ -76,10 +75,9 @@ static NSString *IDTwo = @"CommentCellID";
 /**
  在view中添加tableView
  */
-- (void)creatTableView
-{
+- (void)creatTableView{
     //在view中添加tableView
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height ) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - ([UIApplication sharedApplication].statusBarFrame.size.height + 44) ) style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -103,17 +101,15 @@ static NSString *IDTwo = @"CommentCellID";
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return 1;
     }else{
-        return 5;
+        return 10;
     }
 }
 
@@ -127,9 +123,10 @@ static NSString *IDTwo = @"CommentCellID";
         DetailsCell.XQModle = _dynamicModle;
         return DetailsCell;
     } else {
-        HNPCommentCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
-        DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return DynamicCell;
+        HNPCommentCell *CommentCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
+        CommentCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        CommentCell.PLModel = _dynamicModle;
+        return CommentCell;
     }
 }
 

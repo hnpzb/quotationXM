@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,retain)NSString *zanCount;
 @property (nonatomic ,strong)NSString *commentCount;
 @property (nonatomic ,strong)NSString *browserCount;
+@property (nonatomic ,strong)NSString *forwardCount;
 @property (nonatomic ,strong)HNPDynamicUserModel *user;
 
 +(instancetype)DynamicWithDict:(NSDictionary *)dict;

@@ -11,6 +11,7 @@
 #import "HNPDynamicModle.h"
 #import "HNPDynamicUserModel.h"
 #import <SDWebImage/SDWebImage.h>
+#import "HNPFollowModel.h"
 
 @interface HNPDynamicCell ()
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *neirongImageView;
 @property (weak, nonatomic) IBOutlet UILabel *zanCountLable;
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLable;
+
 
 
 
@@ -39,6 +41,8 @@
     self.DynamicImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchImageView)];
     [self.DynamicImageView addGestureRecognizer:tapGes];
+
+    
 
 }
 
@@ -63,6 +67,11 @@
 - (void)setDTModel:(HNPDynamicModle *)DTModel{
     
     _DTModel = DTModel;
+    if ([DTModel.forwardCount isEqualToString:@"1"]) {
+        self.followBtn.hidden = YES;
+    }else{
+        self.followBtn.hidden = NO;
+    }
     
     [self.DynamicImageView sd_setImageWithURL:[NSURL URLWithString:DTModel.user.head] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
     self.neirongLable.text = DTModel.content;
@@ -70,6 +79,24 @@
     [self.neirongImageView sd_setImageWithURL:[NSURL URLWithString:DTModel.picture] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
     self.zanCountLable.text = DTModel.zanCount;
     self.commentCountLable.text = DTModel.commentCount;
+    
+    
+}
+
+//重写关注的SET方法
+- (void)setFollowModel:(HNPFollowModel *)FollowModel{
+    
+    _FollowModel = FollowModel;
+    
+    self.followBtn.hidden = YES;
+    [self.DynamicImageView sd_setImageWithURL:[NSURL URLWithString:FollowModel.user.head] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
+    self.neirongLable.text = FollowModel.content;
+    self.commentCountLable.text = FollowModel.commentCount;
+    [self.neirongImageView sd_setImageWithURL:[NSURL URLWithString:FollowModel.picture] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
+    self.nickName.text = FollowModel.user.nickName;
+    self.zanCountLable.text = FollowModel.zanCount;
+    
+//    NSLog(@"%@");
     
 }
 

@@ -27,8 +27,21 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchFollowBtn)];
+    [self.UserQXFollowBtn addGestureRecognizer:tapGes];
+    
     self.UserHeadImageView.layer.cornerRadius = 37.5;
-    self.UserHeadImageView.layer.masksToBounds=YES;
+    self.UserHeadImageView.layer.masksToBounds = YES;
+    
+    self.UserQXFollowBtn.layer.cornerRadius = 13.5;
+    self.UserQXFollowBtn.layer.masksToBounds = YES;
+}
+
+- (void)touchFollowBtn{
+    if ([self.delegate respondsToSelector:@selector(userCenterCellDidFollowBtnClick:)]) {
+        [self.delegate userCenterCellDidFollowBtnClick:self];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -39,6 +52,17 @@
 
 - (void)setUserCModle:(HNPDynamicModle *)UserCModle{
     _UserCModle = UserCModle;
+    
+    if ([UserCModle.forwardCount isEqualToString:@"1"]) {
+        self.UserFollowBtn.hidden = YES;
+        self.UserQXGZLable.text = @"取消关注";
+        self.UserQXFollowBtn.backgroundColor = [UIColor whiteColor];
+    }else{
+        self.UserFollowBtn.hidden = NO;
+        self.UserQXGZLable.text = @"点击关注";
+        self.UserQXGZLable.textColor = [UIColor blackColor];
+        self.UserQXFollowBtn.backgroundColor = [UIColor greenColor];
+    }
     
     [self.UserHeadImageView sd_setImageWithURL:[NSURL URLWithString:UserCModle.user.head] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
     self.UserNickNameLable.text = UserCModle.user.nickName;

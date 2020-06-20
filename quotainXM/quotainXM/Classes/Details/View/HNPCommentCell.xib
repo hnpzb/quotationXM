@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -9,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCellID" rowHeight="391" id="KGk-i7-Jjw" customClass="HNPCommentCell">
-            <rect key="frame" x="0.0" y="0.0" width="557" height="391"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCellID" rowHeight="273" id="KGk-i7-Jjw" customClass="HNPCommentCell">
+            <rect key="frame" x="0.0" y="0.0" width="508" height="273"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="557" height="391"/>
+                <rect key="frame" x="0.0" y="0.0" width="508" height="273"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-GI-QcT">
@@ -53,7 +54,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="More settings" translatesAutoresizingMaskIntoConstraints="NO" id="Lje-K5-Htd">
-                        <rect key="frame" x="534" y="41.5" width="12" height="2.5"/>
+                        <rect key="frame" x="485" y="41.5" width="12" height="2.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2.5" id="T9w-rh-LF4"/>
                             <constraint firstAttribute="width" constant="12" id="qff-Iu-9uj"/>
@@ -70,7 +71,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbd-VM-bGZ">
-                        <rect key="frame" x="526" y="85.5" width="20" height="7"/>
+                        <rect key="frame" x="477" y="85.5" width="20" height="7"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="02v-RR-ZB1"/>
                             <constraint firstAttribute="height" constant="7" id="wDc-3S-diw"/>
@@ -80,48 +81,48 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like_Commentator" translatesAutoresizingMaskIntoConstraints="NO" id="y0X-jb-UDP">
-                        <rect key="frame" x="511" y="84" width="11" height="10.5"/>
+                        <rect key="frame" x="462" y="84" width="11" height="10.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10.5" id="Bia-Hj-uv9"/>
                             <constraint firstAttribute="width" constant="11" id="QFz-bA-YNl"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment_Commentator" translatesAutoresizingMaskIntoConstraints="NO" id="dXA-mk-Lck">
-                        <rect key="frame" x="480.5" y="84" width="11" height="10.5"/>
+                        <rect key="frame" x="431.5" y="84" width="11" height="10.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="11" id="NKq-9p-Cdj"/>
                             <constraint firstAttribute="height" constant="10.5" id="vJV-Kw-Sjc"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手打奥所大所大按时大大是的发送到发送到撒大萨达无群撒大萨达瓦萨达是的的范德萨发市场 奥术大师大所大所大所大奥所大所大所多多撒大所、" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0o9-6U-Sog">
-                        <rect key="frame" x="57" y="86" width="400" height="61"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手打奥所大所大按时大大是的发送到发送到撒大萨达无群撒大萨达瓦萨达是的的范德萨发市场 奥术大师大所大所大所大奥所大所大所多多撒大所、" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0o9-6U-Sog">
+                        <rect key="frame" x="57" y="86" width="351" height="81.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="mRx-h1-s7H">
-                        <rect key="frame" x="57" y="156.5" width="489" height="199.5"/>
+                        <rect key="frame" x="57" y="177" width="440" height="61"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户1客户1客户1客户1客户1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez1-Cq-Et8">
-                        <rect key="frame" x="67" y="166.5" width="150.5" height="14.5"/>
+                        <rect key="frame" x="67" y="187" width="150.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回复" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwA-dy-aWN">
-                        <rect key="frame" x="227.5" y="166.5" width="25" height="15"/>
+                        <rect key="frame" x="227.5" y="187" width="25" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeI-FM-fK6">
-                        <rect key="frame" x="262.5" y="166.5" width="32" height="15"/>
+                        <rect key="frame" x="262.5" y="187" width="32" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回复内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="On7-jv-frf">
-                        <rect key="frame" x="304.5" y="166.5" width="49.5" height="15"/>
+                        <rect key="frame" x="304.5" y="187" width="49.5" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -164,7 +165,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="-63.04347826086957" y="-142.96875"/>
+            <connections>
+                <outlet property="PLCommentCountLable" destination="yNc-7k-ALF" id="M9g-ZL-hZx"/>
+                <outlet property="PLHead" destination="Uqg-oF-jbY" id="b24-Rg-mWv"/>
+                <outlet property="PLNeirong" destination="0o9-6U-Sog" id="FGV-xG-azc"/>
+                <outlet property="PLNickName" destination="q55-ya-tlM" id="1VC-N2-Br5"/>
+                <outlet property="PLPublisTime" destination="hzm-7s-bOi" id="kz5-je-svg"/>
+                <outlet property="PLZanCount" destination="Sbd-VM-bGZ" id="npA-bc-QnD"/>
+            </connections>
+            <point key="canvasLocation" x="-858" y="-300"/>
         </tableViewCell>
     </objects>
     <resources>
