@@ -50,7 +50,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 
         //设置tableView
             CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height);
-        self.tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStyleGrouped];
+        self.tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStylePlain];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         [self.view addSubview:self.tableView];

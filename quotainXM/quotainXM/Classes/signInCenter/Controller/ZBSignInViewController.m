@@ -42,6 +42,11 @@
 
 @implementation ZBSignInViewController
 
+- (void)viewDidAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
+
+
 - (void)setSelectTime:(NSString *)selectTime{
     _selectTime = selectTime;
     self.totalDayLabel.text = [NSString stringWithFormat:@"%ld",self.dataArray.count];
@@ -262,7 +267,8 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                  [MBProgressHUD hideHUD];
                 self.signInBtn.enabled = NO;
-                    
+                [self RefreshSignIn];
+                self.selectTime = [ZBSignInViewController curYearMD];
                 });
         }else{
             [MBProgressHUD hideHUD];

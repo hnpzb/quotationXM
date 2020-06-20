@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  
     
 
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 14],NSForegroundColorAttributeName: [UIColor colorWithRed:38/255.0 green:38/255.0 blue:38/255.0 alpha:1.0]}];
@@ -41,7 +41,6 @@
 }
 - (IBAction)next:(id)sender {
     ZBFoundPasswordController *vc = [[ZBFoundPasswordController alloc] init];
-//    [self.navigationController pushViewController:vc animated:YES];
     vc.phone = _number_F.text;
     vc.code = _code_f.text;
     if (_number_F.text.length != 0 && _code_f.text.length != 0) {
@@ -71,15 +70,5 @@
 - (IBAction)contiueClick:(UITextField *)sender {
     [_code_f resignFirstResponder];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

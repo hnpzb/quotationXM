@@ -21,7 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     _imageV.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setRefreshImage)];
     [self.imageV addGestureRecognizer:tap];
@@ -34,7 +33,6 @@
 - (IBAction)clickFreshBtn:(id)sender {
     _refreshBtn.hidden = YES;
     [self setRefreshImage];
-//    self.imageV.image = [UIImage imageNamed:@"icon_guanzhu-1"];
 }
 -(void)setRefreshImage{
     

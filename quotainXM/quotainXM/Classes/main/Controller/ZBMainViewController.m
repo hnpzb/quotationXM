@@ -60,13 +60,9 @@
 
     UIViewController *vc = self.childViewControllers[0];
     CGRect temp = self.mainV.bounds;
-//    temp.size = CGSizeMake([UIScreen mainScreen].bounds.size.width, 400);
     vc.view.frame =temp;
-//    NSLog(@"%@",[UIScreen mainScreen].bounds);
     [self addTopView:vc.view];
-    
     [self.mainV addSubview:vc.view];
-//    NSLog(@"%lf",self.view.safeAreaInsets.top);
     
     
 }

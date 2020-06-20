@@ -74,7 +74,7 @@ static  NSString  *ID = @"calendar";
                [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
                
            } else {
-               // Fallback on earlier versions
+                [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
            }
            
        };

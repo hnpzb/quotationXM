@@ -60,7 +60,6 @@ static NSString *ID = @"industry";
         NSURLSession *session = [NSURLSession sharedSession];
         [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    //        NSArray *arr = dict[@"data"];
             NSMutableArray *temp = [NSMutableArray array];
             NSArray *array= dict[@"data"];
             for (NSDictionary *dict in array) {
@@ -68,11 +67,6 @@ static NSString *ID = @"industry";
                 [temp addObject:model];
             }
             self.dataArray = temp;
-//            HNPNewSletterModle *model = self.dataArray[0];
-//            NSLog(@"%@",model.content);
-//            NSLog(@"%@",self.dataArray);
-    //        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-//            }];
         }]resume];
     [self.tabView reloadData];
 }
@@ -99,24 +93,5 @@ static NSString *ID = @"industry";
     cell.industryModel = _dataArray[indexPath.row];
     return cell;
 }
-//ZBIndustryTableViewCell *cell;
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    // 创建一个临时的cell(目的:为了传递indexPath这一行对应的模型数据去布局所有的子控件,得到所有子控件的frame,进而计算cell的高度)
-//     if (cell == nil) {
-//         cell = [tableView dequeueReusableCellWithIdentifier:ID];
-//     }
-//
-//
-//    return cell.cellHeight;
-//}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -141,11 +141,6 @@
     [preVC.view removeFromSuperview];
 
     UIViewController *curVC = self.childViewControllers[btn.tag - 1000];
-    if (btn.tag -1000 == 1) {
-        curVC.tabBarController.tabBar.hidden = YES;
-    }else{
-        curVC.tabBarController.tabBar.hidden = NO;
-    }
     
     curVC.view.frame = self.view.bounds;
     [curVC.view addSubview:self.baiVC];

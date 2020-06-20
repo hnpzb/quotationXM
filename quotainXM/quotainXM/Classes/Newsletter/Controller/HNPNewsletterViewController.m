@@ -47,8 +47,9 @@ static NSString *ID = @"NewSletterID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _tableView = [[UITableView alloc] init];
     CGRect temp = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
+    _tableView = [[UITableView alloc] initWithFrame:temp style:UITableViewStylePlain];
+    
        _tableView.frame = temp;
     [self.view addSubview:_tableView];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -60,48 +61,6 @@ static NSString *ID = @"NewSletterID";
     
     _tableView.estimatedRowHeight = 44;
     _tableView.rowHeight = UITableViewAutomaticDimension;
-//    NSString *temp_s = [self time_timestampToString:1592155048000];
-//    NSLog(@"---%@",temp_s);
-
-        /*AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        [manager GET:@"http://api.yysc.online/admin/getFinanceTalk?pageNum&pageSize&date" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//            NSDictionary *data = responseObject;
-    //        NSMutableArray *array = [NSMutableArray array];/Users/zhubin/Desktop/
-    //        [data writeToFile:@"/Users/zhubin/Desktop/test.plist" atomically:YES];
-            NSLog(@"%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"failure");
-        }];*/
-    
-    /*    long timeStamp= 1461896616000;
-
-    NSString*tempTime =[[NSNumber numberWithLong:timeStamp] stringValue];
-
-   NSMutableString*getTime = [NSMutableString stringWithFormat:@"%@",tempTime];
-
-
-    //    NSMutableString *getTime = @"1461896616000";
-
-   struct utsname systemInfo;
-
-   uname(&systemInfo);
-
-   [getTime deleteCharactersInRange:NSMakeRange(10,3)];
-
-  
-
-   NSDateFormatter *matter = [[NSDateFormatter alloc]init];
-
-  matter.dateFormat =@"YYYY-MM-dd HH:mm";
-
-     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
-
-    NSString*timeStr = [matter stringFromDate:date];
-
-   NSLog(@"%@",timeStr);//2016-04-29 10:23
-     
-     */
     
         
 }
@@ -149,9 +108,6 @@ static NSString *ID = @"NewSletterID";
                 [temp addObject:model];
             }
             self.dataArray = temp;
-//            [[NSOperationQueue mainQueue] addBarrierBlock:^{
-//                [self.tableView reloadData];
-//            }];
         }]resume];
     [self.tableView reloadData];
 }
@@ -192,10 +148,7 @@ static NSString *ID = @"NewSletterID";
     return 1;
 }
 
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//      NSLog(@"%ld",_dataArray.count);
-//}
-//
+
 //cell的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArray.count;
@@ -224,17 +177,5 @@ static NSString *ID = @"NewSletterID";
 {
     return 44;
 }
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSLog(@"%ld",_dataArray.count);
-//}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

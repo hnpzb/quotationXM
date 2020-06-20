@@ -33,6 +33,10 @@
 static NSString *IDOne = @"PushCellID";
 static NSString *IDTwo = @"DynamicCellID";
 
+- (void)viewDidAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 
 - (void)viewDidLoad {
     
