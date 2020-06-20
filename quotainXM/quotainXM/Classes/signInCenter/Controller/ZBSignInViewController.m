@@ -93,7 +93,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self addTopCalendar];
     _yellowImageV.image = [UIImage imageNamed:@"pic_qiandaokuang"];
     _yellowImageV.backgroundColor = [UIColor clearColor];
@@ -105,7 +105,7 @@
         self.totalDayLabel.text = [NSString stringWithFormat:@"%ld",self.dataArray.count];
         for (int i =0; i<self.dataArray.count; i++) {
             ZBSignInModel *temp = self.dataArray[i];
-            if ([[self timetampTostring:temp.time.integerValue] isEqualToString:[ZBSignInViewController curYearMD:0]]) {
+            if ([[self timetampTostring:temp.time.integerValue] isEqualToString:[ZBSignInViewController curYearMD]]){
                 self.successiveDayLabel.text = [NSString stringWithFormat:@"%@",temp.continueTimes];
                 switch (temp.continueTimes.intValue) {
                     case 0:
@@ -233,17 +233,16 @@
     return timeStr;
 }
 
-+(NSString *)curYearMD:(NSInteger)i{
++(NSString *)curYearMD{
     
-    NSDate *date = [NSDate date];//这个是NSDate类型的日期，所要获取的年月日都放在这里；
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    unsigned int unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth| NSCalendarUnitDay;//这句是说你要获取日期的元素有哪些。获取年就要写NSYearCalendarUnit，获取小时就要写NSHourCalendarUnit，中间用|隔开；
-    NSDateComponents *d = [cal components:unitFlags fromDate:date];//把要从date中获取的unitFlags标示的日期元素存放在NSDateComponents类型的d里面； //然后就可以从d中获取具体的年月日了；
-    NSInteger year = [d year];
-    NSInteger month = [d month];
-    NSInteger day = [d day];
-    NSString *time = [NSString stringWithFormat:@"%ld-%ld-%ld",year,month,day - i];
-    return time;
+    
+    //获取当前时间日期
+          NSDate *date=[NSDate date];
+          NSDateFormatter *format1=[[NSDateFormatter alloc] init];
+          [format1 setDateFormat:@"yyyy-MM-dd"];
+          NSString *dateStr;
+          dateStr=[format1 stringFromDate:date];
+          return dateStr;
 }
 
 -(void)ZBbeginSignIn{
@@ -263,8 +262,6 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                  [MBProgressHUD hideHUD];
                 self.signInBtn.enabled = NO;
-                [self RefreshSignIn];
-                self.selectTime = [ZBSignInViewController curYearMD:0];
                     
                 });
         }else{

@@ -53,7 +53,6 @@
     self.headImageView.layer.cornerRadius = 32.5;
     self.headImageView.layer.masksToBounds=YES;
     self.signInCenter.userInteractionEnabled = YES;
-     [self creatTopView];
     //轻扫返回上个界面手势
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
     [self.view addGestureRecognizer:swipe];

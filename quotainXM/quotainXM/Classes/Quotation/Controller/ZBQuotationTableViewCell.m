@@ -24,31 +24,34 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-//    self.contrctLabel.text = self.qutation.contractName;
-//        self.price_Label.text = self.qutation.priceNew;
-//        self.dataChangeLabel.text =self.qutation.dataChange;
-//        self.volumeLabel.text = self.qutation.volume;
-    
+
+    [self setLabelProperties];
    
-    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"泸铜1811" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:22/255.0 green:23/255.0 blue:31/255.0 alpha:1.0]}];
-    self.contrctLabel.attributedText = string;
-    
-    
-
-    NSMutableAttributedString *string_one = [[NSMutableAttributedString alloc] initWithString:@"48770" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:253/255.0 green:78/255.0 blue:73/255.0 alpha:1.0]}];
-    self.price_Label.attributedText = string_one;
-    
-
-    NSMutableAttributedString *string_two = [[NSMutableAttributedString alloc] initWithString:@"-0.12" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:180/255.0 blue:150/255.0 alpha:1.0]}];
-    self.dataChangeLabel.attributedText = string_two;
    
-
-    NSMutableAttributedString *string_three = [[NSMutableAttributedString alloc] initWithString:@"891012" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:22/255.0 green:23/255.0 blue:31/255.0 alpha:1.0]}];
-    self.volumeLabel.attributedText = string_three;
     
     
 }
+
+-(void)setLabelProperties{
+    
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"泸铜1811" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:22/255.0 green:23/255.0 blue:31/255.0 alpha:1.0]}];
+       self.contrctLabel.attributedText = string;
+       
+       
+
+    NSMutableAttributedString *string_one = [[NSMutableAttributedString alloc] initWithString:@"48770" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:253/255.0 green:78/255.0 blue:73/255.0 alpha:1.0]}];
+       self.price_Label.attributedText = string_one;
+       
+
+    NSMutableAttributedString *string_two = [[NSMutableAttributedString alloc] initWithString:@"-0.12" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:50/255.0 green:180/255.0 blue:150/255.0 alpha:1.0]}];
+       self.dataChangeLabel.attributedText = string_two;
+      
+
+    NSMutableAttributedString *string_three = [[NSMutableAttributedString alloc] initWithString:@"891012" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 15],NSForegroundColorAttributeName: [UIColor colorWithRed:22/255.0 green:23/255.0 blue:31/255.0 alpha:1.0]}];
+       self.volumeLabel.attributedText = string_three;
+    
+}
+
 +(instancetype)quotation{
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
 }

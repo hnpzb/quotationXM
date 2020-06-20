@@ -25,6 +25,7 @@ static NSString *ID = @"quotation";
     
     [self DTJson];
     
+    //初始化tableView
     _tableView = [[UITableView alloc] init];
     CGRect temp = self.view.bounds;
     temp.origin = CGPointMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 88);
@@ -40,6 +41,7 @@ static NSString *ID = @"quotation";
     };
     [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBQuotationTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
     
+    //添加头部栏
     UIView *view = [[UIView alloc] init];
     view.frame = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44,[UIApplication sharedApplication].statusBarFrame.size.width,44);
     view.backgroundColor = [UIColor colorWithRed:247/255.0 green:248/255.0 blue:251/255.0 alpha:1.0];
@@ -75,19 +77,13 @@ static NSString *ID = @"quotation";
         NSArray *listArray = dict[@"data"];
         //遍历字典数组
         for (NSDictionary *dict in listArray) {
-//            NSDictionary *userDict = dict[@"user"];
             ZBQuotationModal *tempModel = [[ZBQuotationModal alloc] init];
             tempModel = [ZBQuotationModal quotationModalWithDict:dict];
             [tempMutableArray addObject:tempModel];
         }
-/**
-        NSDictionary *arr =dict[@"data"][@"list"][0][@"user"];
-        NSMutableArray *arrayM = [NSMutableArray array];
-        for (NSDictionary *dict in arr) {
-            [arrayM addObject:[HNPDynamicModle DynamicWithDict:dict]];
-        }*/
+
         self.dataArray = tempMutableArray;
-//刷新UI
+        //刷新UI
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self.tableView reloadData];
         }];

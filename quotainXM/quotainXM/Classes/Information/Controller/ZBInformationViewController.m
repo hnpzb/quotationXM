@@ -48,21 +48,14 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//     [self reLoadHotnews];
-   
-    //延时执行代码
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                              
         //设置tableView
             CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height);
         self.tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStyleGrouped];
-            
-        //    tableView.frame = tabTemp;
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         [self.view addSubview:self.tableView];
            
-            
+        //设置上半部分的view
         ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:self.tableView.frame.size.width];
         view.backgroundColor = [UIColor whiteColor];
         self.tableView.tableHeaderView = view;
@@ -72,82 +65,6 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
         [self.tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
             
         
-    });
-    
-    
-//    NSLog(@"%d",_array.count);
-
-    
-    
-    //获取网络数据
-    /*AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.yysc.online/user/talk/getRecommandTalk?project&userId&pageNumber&pageSize"]];
-    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:nil completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-
-    }]*/
-   
-    
-    //通过AFN框架获取网络数据，不需转码（get）
-    /*AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:@"http://api.yysc.online/user/talk/getTalkListByProject?pageNumber&pageSize&project=futures" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-
-        NSDictionary *dada = responseObject[@"data"][@"list"];
-            NSMutableArray *arrayN = [NSMutableArray array];
-            for (NSArray *dict in dada) {
-            [arrayN addObject:[TGIMGmode yy_modelWithDictionary:dict]];
-        }
-        self.AArray= arrayN;
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.Tableview reloadData];
-        }];
-
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"@");
-    }];*/
-    
-   
-  /*  AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:@"http://api.yysc.online/user/talk/getRecommandTalk?project&userId&pageNumber&pageSize" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary *data = responseObject;
-//        NSMutableArray *array = [NSMutableArray array];/Users/zhubin/Desktop/
-//        [data writeToFile:@"/Users/zhubin/Desktop/test.plist" atomically:YES];
-        NSLog(@"%@",responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"failure");
-    }];
-    */
-
- 
-    
-    //通过系统提供的方法获取网络数据，需转码（get）
-    
-       /*NSURL *url = [NSURL URLWithString:@"http:api.yysc.online/user/talk/getRecommandTalk?project&userId&pageNumber&pageSize"];
-           NSURLSession *session = [NSURLSession sharedSession];
-           [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error){
-               NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-               NSLog(@"%@",data);
-               NSArray *arr = dict[@"data"][@"list"];
-               NSMutableArray *arrayM = [NSMutableArray array];
-               for (NSDictionary *smallDic in arr) {
-                   [arrayM addObject:[SheQuModel SheQuWithDict:smallDic]];
-               }
-               self.guanzhus = arrayM;
-               [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                   [self.tableView reloadData];
-               }];
-           }]resume];*/
-    
-    /*
-    NSURL *url = [NSURL URLWithString:@"http://api.yysc.online/apidocs//banner/getBannerList?project="];
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        NSArray *arr = dict[@"data"];
-        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-    }]resume];*/
-
-    
 
 }
 
@@ -188,18 +105,17 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.section == 0) {
-//        return 500;
-//    }
+    
     return 150;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSLog(@"12345");
+    //
 }
 
 -(void)reLoadHotnews{
-//    NSLog(@"wzgsdj");
+    
     NSURL *url = [NSURL URLWithString:@"http://api.yysc.online/user/talk/getTalkListByProject?project=futures&pageNumber&pageSize"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -211,10 +127,10 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
             [temp addObject:model];
         }
         self.array = temp;
-//        NSLog(@"%ld",_array.count);
-//        NSLog(@"%@",self.array.firstObject);
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [self.tableView reloadData];
+        });
     }]resume];
-    [_tableView reloadData];
 }
 
 @end

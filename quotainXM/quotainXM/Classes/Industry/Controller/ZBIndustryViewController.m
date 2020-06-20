@@ -54,7 +54,7 @@ static NSString *ID = @"industry";
 }
 
 -(void)setArrayData{
-    NSString *path = [NSString stringWithFormat:@"http://api.yysc.online/admin/getFinanceAffairs?pageNum&pageSize=100&date=%@",[ZBIndustryViewController curYearMD:0]];
+    NSString *path = [NSString stringWithFormat:@"http://api.yysc.online/admin/getFinanceAffairs?pageNum&pageSize=100&date=%@",[ZBIndustryViewController curYearMD]];
                       
      NSURL *url = [NSURL URLWithString:path];
         NSURLSession *session = [NSURLSession sharedSession];
@@ -77,17 +77,16 @@ static NSString *ID = @"industry";
     [self.tabView reloadData];
 }
 
-+(NSString *)curYearMD:(NSInteger)i{
++(NSString *)curYearMD{
     
-    NSDate *date = [NSDate date];//这个是NSDate类型的日期，所要获取的年月日都放在这里；
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    unsigned int unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth| NSCalendarUnitDay;//这句是说你要获取日期的元素有哪些。获取年就要写NSYearCalendarUnit，获取小时就要写NSHourCalendarUnit，中间用|隔开；
-    NSDateComponents *d = [cal components:unitFlags fromDate:date];//把要从date中获取的unitFlags标示的日期元素存放在NSDateComponents类型的d里面； //然后就可以从d中获取具体的年月日了；
-    NSInteger year = [d year];
-    NSInteger month = [d month];
-    NSInteger day = [d day];
-    NSString *time = [NSString stringWithFormat:@"%ld-%ld-%ld",year,month,day - i];
-    return time;
+    
+    //获取当前时间日期
+          NSDate *date=[NSDate date];
+          NSDateFormatter *format1=[[NSDateFormatter alloc] init];
+          [format1 setDateFormat:@"yyyy-MM-dd"];
+          NSString *dateStr;
+          dateStr=[format1 stringFromDate:date];
+          return dateStr;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
