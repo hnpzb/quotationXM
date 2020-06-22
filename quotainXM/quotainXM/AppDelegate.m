@@ -49,17 +49,11 @@
     
     [self determineWhetherToLogin];
     
-    ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
-    HNPPersonVC *perVC = [[HNPPersonVC alloc] init];
+
+    ZBMineViewController *mineVC = [[ZBMineViewController alloc] init];
     UINavigationController *mineNavVC = [[UINavigationController alloc] init];
-    if (self.login == NO) {
-        [mineNavVC addChildViewController:loginVC];
-    }else{
-        perVC.model = self.mineUserInfoModel;
-        [mineNavVC addChildViewController:perVC];
-    }
+    [mineNavVC addChildViewController:mineVC];
     mineNavVC.navigationBar.hidden = YES;
-    
     mineNavVC.tabBarItem.title = @"我的";
     mineNavVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_mine_icon_normal"];
     [tabVC addChildViewController:mineNavVC];
@@ -69,6 +63,7 @@
     [self.window makeKeyAndVisible];
   return YES;
 }
+
 
 #pragma mark - 判断是否登录
 /**判断是否登录*/

@@ -36,9 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
-     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
-        NSLog(@"%@",path);
+//     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//        NSLog(@"%@",path);
     
     _count_F.userInteractionEnabled = YES;
     _xianshiImageV.userInteractionEnabled = YES;
@@ -49,6 +48,15 @@
     
 
 
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.loginType = NO;
+    }
+    return self;
 }
 
 - (IBAction)countLable:(UITextField *)sender {
@@ -178,15 +186,26 @@
                        //延时执行代码
                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                            [MBProgressHUD hideHUD];
-                       HNPPersonVC *vc = [[HNPPersonVC alloc] init];
-                           vc.model = perModel;
+                           if (self.loginType == NO) {
+                                   //存入用户数据
+                                   NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+                                   NSDictionary *tempDic = [perModel mj_keyValues];
+                                   [tempDic writeToFile:path atomically:YES];
+                                   
+                               [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
+                           }else{
+                                //存入用户数据
+                                NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+                                NSDictionary *tempDic = [perModel mj_keyValues];
+                                [tempDic writeToFile:path atomically:YES];
+                               [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+                               [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
+                                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
+                               [self.navigationController popViewControllerAnimated:YES];
+                               
+                           }
                            
-                           //存入用户数据
-                           NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
-                           NSDictionary *tempDic = [perModel mj_keyValues];
-                           [tempDic writeToFile:path atomically:YES];
-                           
-                       [self.navigationController  pushViewController:vc animated:YES];
+                       
                        });
                }else{
                    [MBProgressHUD hideHUD];

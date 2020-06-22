@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *talkCountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *followCountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *fansCountLabel;
+@property(nonatomic,strong)ZBPersonModel *mineUserInfoModel;
 @property(nonatomic,copy)NSString *userID;
 
 
@@ -37,20 +38,32 @@
 
 - (void)setModel:(ZBPersonModel *)model{
     _model = model;
+    /*
     [_headImageView sd_setImageWithURL:[NSURL URLWithString:model.head]];
-    _nickNameLabel.text = model.nickName;
-    _signatureLabel.text = model.signature;
-    _talkCountLabel.text = model.talkCount;
-    _followCountLabel.text = model.followCount;
-    _fansCountLabel.text = model.fansCount;
+    _nickNameLabel.text = _mineUserInfoModel.nickName;
+    _signatureLabel.text = _mineUserInfoModel.signature;
+    _talkCountLabel.text = _mineUserInfoModel.talkCount;
+    _followCountLabel.text = _mineUserInfoModel.followCount;
+    _fansCountLabel.text = _mineUserInfoModel.fansCount;*/
     
 }
-- (void)viewDidAppear:(BOOL)animated{
-     self.tabBarController.tabBar.hidden = NO;
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+       [self determineWhetherToLogin];
+       [_headImageView sd_setImageWithURL:[NSURL URLWithString:self.mineUserInfoModel.head]];
+       _nickNameLabel.text = self.mineUserInfoModel.nickName;
+       _signatureLabel.text = self.mineUserInfoModel.signature;
+       _talkCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.talkCount];
+       _followCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.followCount];
+       _fansCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.fansCount];
+       
+       _userID = [NSString stringWithFormat:@"%@",self.model.userId];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self determineWhetherToLogin];
     
     
     self.headImageView.layer.cornerRadius = 32.5;
@@ -66,15 +79,14 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beginSinIn)];
     [self.signInCenter addGestureRecognizer:tap];
     
-   [_headImageView sd_setImageWithURL:[NSURL URLWithString:_model.head]];
-    _nickNameLabel.text = _model.nickName;
-    _signatureLabel.text = _model.signature;
-//    NSLog(@"%@,%@,%@",_model.talkCount,_model.followCount,_model.fansCount);
-    _talkCountLabel.text = [NSString stringWithFormat:@"%@",_model.talkCount];
-    _followCountLabel.text = [NSString stringWithFormat:@"%@",_model.followCount];
-    _fansCountLabel.text = [NSString stringWithFormat:@"%@",_model.fansCount];
+    [_headImageView sd_setImageWithURL:[NSURL URLWithString:self.mineUserInfoModel.head]];
+    _nickNameLabel.text = self.mineUserInfoModel.nickName;
+    _signatureLabel.text = self.mineUserInfoModel.signature;
+    _talkCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.talkCount];
+    _followCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.followCount];
+    _fansCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.fansCount];
     
-    _userID = [NSString stringWithFormat:@"%@",_model.userId];
+    _userID = [NSString stringWithFormat:@"%@",self.model.userId];
 
 }
 
@@ -108,31 +120,49 @@
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"注销" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"点击了取消");
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"注销" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"点击了取消");
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"Loginzhuxiao" object:nil];
         
         //清空用户数据
         NSError *error;
         NSFileManager *fileMger = [NSFileManager defaultManager];
         NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
         if ([fileMger removeItemAtPath:path error:&error]) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"zhuxiao" object:self];
         }else{
-            [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"zhuxiao" object:self];
         }
-        
         
         
   
     }];
+    UIAlertAction *quexiaoAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //
+    }];
     
 
     [actionSheet addAction:cancelAction];
-    
+    [actionSheet addAction:quexiaoAction];
     [self presentViewController:actionSheet animated:YES completion:nil];
 }
 - (IBAction)setClick:(id)sender {
     [self zhuxiao];
 }
+
+#pragma mark - 判断是否登录
+/**判断是否登录*/
+- (void)determineWhetherToLogin
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//    NSString *path =[[NSBundle mainBundle] pathForResource:@"user.plist" ofType:nil];
+    self.mineUserInfoModel = [ZBPersonModel mj_objectWithFile:path];
+    if (self.mineUserInfoModel == nil) {
+        self.login = NO;
+    } else {
+        self.login = YES;
+    }
+}
+
 
 @end

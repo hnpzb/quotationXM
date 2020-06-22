@@ -12,8 +12,12 @@
 #import "ZBResetPasswordController.h"
 #import "ZBFoundPasswordController.h"
 #import "HNPDiscoveryViewC.h"
+#import "ZBNavigationController.h"
+#import "HNPPersonVC.h"
 
 @interface ZBMineViewController ()
+
+@property(nonatomic,strong)ZBPersonModel *mineUserInfoModel;
 
 @end
 
@@ -22,28 +26,77 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+//    [self addChildVC];
     [self addChildVC];
+    [self loadViewOneOrTwo];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zhuxiao) name:@"zhuxiao" object:nil];
+    //LoginSuccess
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zhuxiao) name:@"LoginSuccess" object:nil];
     
 }
--(void)addChildVC{
-    ZBloginViewController *vc = [[ZBloginViewController alloc] init];
-//    [self.view addSubview:vc.view];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-}
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"1");
-//    ZBloginViewController *vc = [[ZBloginViewController alloc] init];
-//     [self.navigationController pushViewController:vc animated:YES];
-}
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)LoginSuccess{
+    [self loadViewOneOrTwo];
 }
-*/
+-(void)zhuxiao{
+    [self loadViewOneOrTwo];
+}
+
+-(void)addChildVC{
+    
+    NSArray *childClassName = @[@"ZBloginViewController",
+                                @"HNPPersonVC"];
+    for (NSString *className in childClassName) {
+        UIViewController *vc = [[NSClassFromString(className) alloc] init];
+        [self addChildViewController:vc];
+    }
+    
+    UIViewController  *vc = self.childViewControllers[0];
+    vc.view.frame = self.view.bounds;
+
+
+    [self.view addSubview:vc.view];
+    
+    
+}
+
+-(void)loadViewOneOrTwo{
+    [self determineWhetherToLogin];
+    if (self.login == YES) {
+           UIViewController *preVC = self.childViewControllers[0];
+           [preVC.view removeFromSuperview];
+
+           UIViewController *curVC = self.childViewControllers[1];
+           
+           curVC.view.frame = self.view.bounds;
+           [self.view addSubview:curVC.view];
+       }else{
+           UIViewController *preVC = self.childViewControllers[1];
+           [preVC.view removeFromSuperview];
+
+           UIViewController *curVC = self.childViewControllers[0];
+           
+           curVC.view.frame = self.view.bounds;
+           [self.view addSubview:curVC.view];
+       }
+}
+
+
+#pragma mark - 判断是否登录
+/**判断是否登录*/
+- (void)determineWhetherToLogin
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//    NSString *path =[[NSBundle mainBundle] pathForResource:@"user.plist" ofType:nil];
+
+    self.mineUserInfoModel = [ZBPersonModel mj_objectWithFile:path];
+    if (self.mineUserInfoModel == nil) {
+        self.login = NO;
+    } else {
+        self.login = YES;
+    }
+}
+
+
 
 @end

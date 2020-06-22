@@ -58,7 +58,6 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
             flowL.headerReferenceSize = CGSizeMake(colW, 160);
             flowL.footerReferenceSize = CGSizeMake(colW, 160);
 //        flowL.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-
             _colView = [[UICollectionView alloc] initWithFrame:temp collectionViewLayout:flowL];
         _colView.userInteractionEnabled = YES;
             [self addSubview:_colView];
@@ -117,6 +116,12 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(informationSignIn)];
     [imageView addGestureRecognizer:tap];
     [view addSubview:imageView];
+    
+    UIView *view_line = [[UIView alloc] init];
+    view_line.frame = CGRectMake(0,148,[UIApplication sharedApplication].statusBarFrame.size.width,5);
+    view_line.backgroundColor = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0];
+    [view addSubview:view_line];
+    
 }
 -(void)informationSignIn{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"informationSignIn" object:nil];

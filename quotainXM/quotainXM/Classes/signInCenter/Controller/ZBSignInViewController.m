@@ -34,6 +34,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *signInBtn;
 
 
+@property(nonatomic,strong)ZBPersonModel *mineUserInfoModel;
+
 @property(nonatomic,strong)NSString *selectTime;
 
 @property(nonatomic,strong)NSMutableArray *dataArray;
@@ -97,7 +99,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self determineWhetherToLogin];
+    self.userID = self.mineUserInfoModel.userId;
     [self addTopCalendar];
     _yellowImageV.image = [UIImage imageNamed:@"pic_qiandaokuang"];
     _yellowImageV.backgroundColor = [UIColor clearColor];
@@ -141,7 +144,6 @@
 
 -(void)breakDeatail:(UIButton *)btn{
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -282,5 +284,20 @@
     
 }
 
+
+#pragma mark - 判断是否登录
+/**判断是否登录*/
+- (void)determineWhetherToLogin
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//    NSString *path =[[NSBundle mainBundle] pathForResource:@"user.plist" ofType:nil];
+
+    self.mineUserInfoModel = [ZBPersonModel mj_objectWithFile:path];
+    if (self.mineUserInfoModel == nil) {
+        self.login = NO;
+    } else {
+        self.login = YES;
+    }
+}
 
 @end

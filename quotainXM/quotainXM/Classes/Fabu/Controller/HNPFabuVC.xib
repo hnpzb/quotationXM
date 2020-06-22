@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="addImageView" destination="FmH-Yl-zUB" id="BgA-SR-75T"/>
                 <outlet property="openCaremaBtn" destination="ZZG-mF-HYk" id="B5M-xJ-gUe"/>
+                <outlet property="text_FV" destination="ZT8-kI-Ul7" id="FwQ-WC-Ndd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -88,8 +89,11 @@
                     <state key="normal" title="发布" backgroundImage="pic_bg">
                         <color key="titleColor" red="1" green="0.83137254900000002" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="fabuClick:" destination="-1" eventType="touchUpInside" id="vMD-mv-tbz"/>
+                    </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmH-Yl-zUB">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_bg_3" translatesAutoresizingMaskIntoConstraints="NO" id="FmH-Yl-zUB">
                     <rect key="frame" x="172" y="317" width="68.5" height="68.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="68.5" id="64a-t5-xIk"/>
@@ -102,7 +106,7 @@
                 <constraint firstItem="9wO-52-Zf2" firstAttribute="top" secondItem="ZZG-mF-HYk" secondAttribute="bottom" constant="10" id="455-qq-DNd"/>
                 <constraint firstItem="pr1-Ka-ce9" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="5qI-Gj-lW8"/>
                 <constraint firstItem="9wO-52-Zf2" firstAttribute="leading" secondItem="ZZG-mF-HYk" secondAttribute="leading" id="6ap-eK-WjB"/>
-                <constraint firstItem="pr1-Ka-ce9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="8yM-r3-hTs"/>
+                <constraint firstItem="pr1-Ka-ce9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="8yM-r3-hTs"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="pr1-Ka-ce9" secondAttribute="trailing" id="VaI-dE-jF5"/>
                 <constraint firstItem="FmH-Yl-zUB" firstAttribute="bottom" secondItem="pzS-T0-1jU" secondAttribute="bottom" id="WDQ-Mq-Zwi"/>
                 <constraint firstItem="pzS-T0-1jU" firstAttribute="top" secondItem="ZZG-mF-HYk" secondAttribute="top" id="WQp-1q-hPY"/>
@@ -122,7 +126,8 @@
     <resources>
         <image name="add pictures" width="68.5" height="68.5"/>
         <image name="icon_back" width="10.5" height="18"/>
-        <image name="pic_bg" width="375" height="265"/>
+        <image name="pic_bg" width="335" height="163.5"/>
+        <image name="pic_bg_3" width="88" height="54"/>
         <image name="upload image" width="68.5" height="68.5"/>
     </resources>
 </document>

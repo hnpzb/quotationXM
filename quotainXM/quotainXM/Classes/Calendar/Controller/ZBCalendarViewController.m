@@ -68,7 +68,7 @@ static  NSString  *ID = @"calendar";
        };
        __weak typeof(self) weakself = self;
        _calendar.sendSelectDate = ^(NSDate *selDate) {
-           NSLog(@"%@",[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]);
+//           NSLog(@"%@",[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]);
            if (@available(iOS 13.0, *)) {
                
                [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];

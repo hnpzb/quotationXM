@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic ,strong)HNPDynamicModle *PersonM;
 @property(nonatomic,strong)ZBPersonModel *model;
+@property(nonatomic,assign)Boolean login;
 
 @end
 

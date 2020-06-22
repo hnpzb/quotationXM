@@ -14,12 +14,16 @@
 #import "HNPFollowModel.h"
 #import <MJExtension/MJExtension.h>
 #import "HNPFollowModel.h"
+#import "ZBloginViewController.h"
+
 
 @interface ZBFollowViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableview;
 @property(nonatomic,strong)HNPFollowModel *FollowM;
 @property(nonatomic,strong)NSArray *FollowArray;
+
+@property(nonatomic,strong)ZBPersonModel *mineUserInfoModel;
 
 @end
 
@@ -102,11 +106,21 @@ static NSString *IDTwo = @"DynamicCellID";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
-        HNPFabuVC *fabuVC = [[HNPFabuVC alloc]init];
-        self.tabBarController.tabBar.hidden = YES;
-        [self.navigationController pushViewController:fabuVC animated:YES];
+        
+        [self determineWhetherToLogin];
+               if (self.login == YES) {
+                   [tableView deselectRowAtIndexPath:indexPath animated:NO];
+                   [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
+                   HNPFabuVC *fabuVC = [[HNPFabuVC alloc]init];
+                   self.tabBarController.tabBar.hidden = YES;
+                   [self.navigationController pushViewController:fabuVC animated:YES];
+               }else{
+                   ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
+               [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
+                   loginVC.loginType = YES;
+                   [self.navigationController pushViewController:loginVC animated:YES];
+               }
+                  
         
     }else{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -120,6 +134,21 @@ static NSString *IDTwo = @"DynamicCellID";
         
     }
     
+}
+
+#pragma mark - 判断是否登录
+/**判断是否登录*/
+- (void)determineWhetherToLogin
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//    NSString *path =[[NSBundle mainBundle] pathForResource:@"user.plist" ofType:nil];
+
+    self.mineUserInfoModel = [ZBPersonModel mj_objectWithFile:path];
+    if (self.mineUserInfoModel == nil) {
+        self.login = NO;
+    } else {
+        self.login = YES;
+    }
 }
 
 @end

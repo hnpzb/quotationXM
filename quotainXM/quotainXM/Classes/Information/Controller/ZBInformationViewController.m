@@ -46,14 +46,16 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     return _array;
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+
+- (void)viewWillAppear:(BOOL)animated{
     [self reLoadHotnews];
     self.tabBarController.tabBar.hidden = NO;
-    
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self determineWhetherToLogin];
         //设置tableView
             CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height - 44 - [[UIApplication sharedApplication] statusBarFrame].size.height - 49);
         self.tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStylePlain];
@@ -89,10 +91,10 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
         [self.navigationController pushViewController:signInVC animated:YES];
     }else{
         ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
+        loginVC.loginType = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"enterNext" object:self];
         [self.navigationController pushViewController:loginVC animated:YES];
     }
-    NSLog(@"123");
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
