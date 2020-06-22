@@ -64,19 +64,12 @@
         [MBProgressHUD hideHUD];
         //延时执行代码
               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                  
                   [self beginRegist];
-                 
               });
     }else{
          [MBProgressHUD hideHUD];
          [MBProgressHUD showError:@"输入未完成..."];
-        
     }
-       
-      
-       
-    
 }
 
 - (IBAction)yanzhengCode:(id)sender {
@@ -94,6 +87,7 @@
     }
 }
 -(void)beginRegist{
+    //获取参数
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
     [par setObject:self.count_F.text forKey:@"phone"];
     [par setObject:self.password_F.text forKey:@"password"];
@@ -103,8 +97,7 @@
     [par setObject:@"futures" forKey:@"project"];
     
 
-    NSLog(@"%@",par);
-    
+    //发送网络请求
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:@"http://api.yysc.online/system/register" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

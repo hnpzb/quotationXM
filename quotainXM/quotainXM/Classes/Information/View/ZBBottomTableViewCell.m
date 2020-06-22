@@ -46,7 +46,7 @@
     _image_View.frame = CGRectMake(15,15,132,99);
     [self addSubview:_image_View];
     
-   _label = [[UILabel alloc] init];
+    _label = [[UILabel alloc] init];
     _label.frame = CGRectMake(159,15,190,54.5);
     _label.numberOfLines = 0;
     [self addSubview:_label];

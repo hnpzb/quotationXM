@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPDiscoveryViewC : UIViewController
 
+@property(nonatomic,assign)Boolean login;
 
 @end
 

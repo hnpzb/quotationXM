@@ -34,7 +34,7 @@ static  NSString  *ID = @"calendar";
 {
     self = [super init];
     if (self) {
-        [self setArrayDataWithTime:[ZBCalendarViewController curYearMD:0]];
+        [self setArrayDataWithTime:[ZBCalendarViewController curYearMD]];
     }
     return self;
 }
@@ -43,10 +43,10 @@ static  NSString  *ID = @"calendar";
     
     [super viewDidLoad];
     
-    [self setArrayDataWithTime:[ZBCalendarViewController curYearMD:0]];
+    [self setArrayDataWithTime:[ZBCalendarViewController curYearMD]];
     // Do any additional setup after loading the view from its nib.
     _tableView = [[UITableView alloc] init];
-    CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height +44, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
+    CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height +44, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height-[UIApplication sharedApplication].statusBarFrame.size.height - 44 - 49);
     //    temp.origin = CGPointMake(0,[UIApplication sharedApplication].statusBarFrame.size.height +44);
     _tableView.frame = temp;
     [self.view addSubview:_tableView];
@@ -68,13 +68,13 @@ static  NSString  *ID = @"calendar";
        };
        __weak typeof(self) weakself = self;
        _calendar.sendSelectDate = ^(NSDate *selDate) {
-           NSLog(@"%@",[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]);
+//           NSLog(@"%@",[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]);
            if (@available(iOS 13.0, *)) {
                
                [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
                
            } else {
-               // Fallback on earlier versions
+                [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
            }
            
        };
@@ -94,7 +94,7 @@ static  NSString  *ID = @"calendar";
 
 
 - (void)viewDidAppear:(BOOL)animated{
-    [self setArrayDataWithTime:[ZBCalendarViewController curYearMD:0]];
+    [self setArrayDataWithTime:[ZBCalendarViewController curYearMD]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -137,17 +137,16 @@ static  NSString  *ID = @"calendar";
     
 }
 
-+(NSString *)curYearMD:(NSInteger)i{
++(NSString *)curYearMD{
     
-    NSDate *date = [NSDate date];//这个是NSDate类型的日期，所要获取的年月日都放在这里；
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    unsigned int unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth| NSCalendarUnitDay;//这句是说你要获取日期的元素有哪些。获取年就要写NSYearCalendarUnit，获取小时就要写NSHourCalendarUnit，中间用|隔开；
-    NSDateComponents *d = [cal components:unitFlags fromDate:date];//把要从date中获取的unitFlags标示的日期元素存放在NSDateComponents类型的d里面； //然后就可以从d中获取具体的年月日了；
-    NSInteger year = [d year];
-    NSInteger month = [d month];
-    NSInteger day = [d day];
-    NSString *time = [NSString stringWithFormat:@"%ld-%ld-%ld",year,month,day - i];
-    return time;
+    
+    //获取当前时间日期
+          NSDate *date=[NSDate date];
+          NSDateFormatter *format1=[[NSDateFormatter alloc] init];
+          [format1 setDateFormat:@"yyyy-MM-dd"];
+          NSString *dateStr;
+          dateStr=[format1 stringFromDate:date];
+          return dateStr;
 }
 
 /*

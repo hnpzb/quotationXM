@@ -36,6 +36,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+//     NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//        NSLog(@"%@",path);
+    
     _count_F.userInteractionEnabled = YES;
     _xianshiImageV.userInteractionEnabled = YES;
     
@@ -45,6 +48,15 @@
     
 
 
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.loginType = NO;
+    }
+    return self;
 }
 
 - (IBAction)countLable:(UITextField *)sender {
@@ -114,7 +126,9 @@
 }*/
 
 - (IBAction)guanbiLogin:(id)sender {
-    NSLog(@"guanbi");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)beginLogin{
@@ -172,10 +186,26 @@
                        //延时执行代码
                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                            [MBProgressHUD hideHUD];
-                       HNPPersonVC *vc = [[HNPPersonVC alloc] init];
-                           vc.model = perModel;
+                           if (self.loginType == NO) {
+                                   //存入用户数据
+                                   NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+                                   NSDictionary *tempDic = [perModel mj_keyValues];
+                                   [tempDic writeToFile:path atomically:YES];
+                                   
+                               [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
+                           }else{
+                                //存入用户数据
+                                NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+                                NSDictionary *tempDic = [perModel mj_keyValues];
+                                [tempDic writeToFile:path atomically:YES];
+                               [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+                               [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
+                                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
+                               [self.navigationController popViewControllerAnimated:YES];
+                               
+                           }
                            
-                       [self.navigationController  pushViewController:vc animated:YES];
+                       
                        });
                }else{
                    [MBProgressHUD hideHUD];
@@ -190,14 +220,6 @@
 }
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

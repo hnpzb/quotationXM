@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="addImageView" destination="FmH-Yl-zUB" id="BgA-SR-75T"/>
                 <outlet property="openCaremaBtn" destination="ZZG-mF-HYk" id="B5M-xJ-gUe"/>
+                <outlet property="text_FV" destination="ZT8-kI-Ul7" id="FwQ-WC-Ndd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-Ka-ce9">
-                    <rect key="frame" x="0.0" y="0.0" width="437" height="60"/>
+                    <rect key="frame" x="0.0" y="44" width="437" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xf-A9-QS0">
                             <rect key="frame" x="15" y="24" width="20" height="22"/>
@@ -51,7 +52,7 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZT8-kI-Ul7">
-                    <rect key="frame" x="15" y="70.5" width="407" height="193"/>
+                    <rect key="frame" x="15" y="114.5" width="407" height="193"/>
                     <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="193" id="jMt-gP-dNf"/>
@@ -61,7 +62,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZG-mF-HYk">
-                    <rect key="frame" x="15" y="273" width="68.5" height="68.5"/>
+                    <rect key="frame" x="15" y="317" width="68.5" height="68.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="68.5" id="bF4-Uc-P14"/>
                         <constraint firstAttribute="height" constant="68.5" id="qqU-wD-OOs"/>
@@ -69,7 +70,7 @@
                     <state key="normal" image="add pictures"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzS-T0-1jU">
-                    <rect key="frame" x="93.5" y="273" width="68.5" height="68.5"/>
+                    <rect key="frame" x="93.5" y="317" width="68.5" height="68.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="68.5" id="X7s-Sf-0RS"/>
                         <constraint firstAttribute="height" constant="68.5" id="cA0-uB-EGm"/>
@@ -80,7 +81,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wO-52-Zf2">
-                    <rect key="frame" x="15" y="351.5" width="60" height="40"/>
+                    <rect key="frame" x="15" y="395.5" width="60" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="goD-Uf-NoX"/>
                         <constraint firstAttribute="height" constant="40" id="mSp-fR-FeH"/>
@@ -88,9 +89,12 @@
                     <state key="normal" title="发布" backgroundImage="pic_bg">
                         <color key="titleColor" red="1" green="0.83137254900000002" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="fabuClick:" destination="-1" eventType="touchUpInside" id="vMD-mv-tbz"/>
+                    </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmH-Yl-zUB">
-                    <rect key="frame" x="172" y="273" width="68.5" height="68.5"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_bg_3" translatesAutoresizingMaskIntoConstraints="NO" id="FmH-Yl-zUB">
+                    <rect key="frame" x="172" y="317" width="68.5" height="68.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="68.5" id="64a-t5-xIk"/>
                         <constraint firstAttribute="width" constant="68.5" id="uxl-db-Ift"/>
@@ -102,7 +106,7 @@
                 <constraint firstItem="9wO-52-Zf2" firstAttribute="top" secondItem="ZZG-mF-HYk" secondAttribute="bottom" constant="10" id="455-qq-DNd"/>
                 <constraint firstItem="pr1-Ka-ce9" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="5qI-Gj-lW8"/>
                 <constraint firstItem="9wO-52-Zf2" firstAttribute="leading" secondItem="ZZG-mF-HYk" secondAttribute="leading" id="6ap-eK-WjB"/>
-                <constraint firstItem="pr1-Ka-ce9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8yM-r3-hTs"/>
+                <constraint firstItem="pr1-Ka-ce9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="8yM-r3-hTs"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="pr1-Ka-ce9" secondAttribute="trailing" id="VaI-dE-jF5"/>
                 <constraint firstItem="FmH-Yl-zUB" firstAttribute="bottom" secondItem="pzS-T0-1jU" secondAttribute="bottom" id="WDQ-Mq-Zwi"/>
                 <constraint firstItem="pzS-T0-1jU" firstAttribute="top" secondItem="ZZG-mF-HYk" secondAttribute="top" id="WQp-1q-hPY"/>
@@ -123,6 +127,7 @@
         <image name="add pictures" width="68.5" height="68.5"/>
         <image name="icon_back" width="10.5" height="18"/>
         <image name="pic_bg" width="335" height="163.5"/>
+        <image name="pic_bg_3" width="88" height="54"/>
         <image name="upload image" width="68.5" height="68.5"/>
     </resources>
 </document>

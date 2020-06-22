@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZBMineViewController : UIViewController
 
+@property(nonatomic,assign)Boolean login;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

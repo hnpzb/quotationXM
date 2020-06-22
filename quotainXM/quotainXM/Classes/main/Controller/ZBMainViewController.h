@@ -13,12 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-//@protocol ZBMainViewControllerDelegate <NSObject>
-//
-//@optional
-//-(void)baiView:(UIView *)baiVC curBtnIndex:(NSInteger)curIndx preBtnIndex:(NSInteger)preBtnIndex;
-//
-//@end
+
 
 @interface ZBMainViewController : UIViewController
 

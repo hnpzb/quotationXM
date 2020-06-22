@@ -63,6 +63,11 @@
     
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 -(void)addTopView:(UIView *)view{
     
 //    UITapGestureRecognizer *top = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(menuClick:)];
@@ -141,11 +146,6 @@
     [preVC.view removeFromSuperview];
 
     UIViewController *curVC = self.childViewControllers[btn.tag - 1000];
-    if (btn.tag -1000 == 1) {
-        curVC.tabBarController.tabBar.hidden = YES;
-    }else{
-        curVC.tabBarController.tabBar.hidden = NO;
-    }
     
     curVC.view.frame = self.view.bounds;
     [curVC.view addSubview:self.baiVC];

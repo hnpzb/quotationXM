@@ -33,7 +33,7 @@
         [self addSubview:imageView];
         //头部数字
         _lableData = [[UILabel alloc] init];
-        _lableData.frame = CGRectMake(20.5,19,15,10);
+        _lableData.frame = CGRectMake(20.5,19,20,10);
         _lableData.numberOfLines = 0;
         [self addSubview:_lableData];
         

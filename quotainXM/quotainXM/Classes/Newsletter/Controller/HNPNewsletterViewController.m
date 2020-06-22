@@ -32,14 +32,14 @@ static NSString *ID = @"NewSletterID";
 
 - (void)viewDidAppear:(BOOL)animated{
     
-     [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD:0]];
+     [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD]];
     
 }
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD:0]];
+        [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD]];
     }
     return self;
 }
@@ -47,9 +47,13 @@ static NSString *ID = @"NewSletterID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
     _tableView = [[UITableView alloc] init];
-    CGRect temp = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height - ([UIApplication sharedApplication].statusBarFrame.size.height + 44));
-       _tableView.frame = temp;
+
+    CGRect temp = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height - 44 - [[UIApplication sharedApplication] statusBarFrame].size.height - 49);
+    _tableView = [[UITableView alloc] initWithFrame:temp style:UITableViewStylePlain];
+    
+
     [self.view addSubview:_tableView];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
@@ -60,10 +64,6 @@ static NSString *ID = @"NewSletterID";
     
     _tableView.estimatedRowHeight = 44;
     _tableView.rowHeight = UITableViewAutomaticDimension;
-//    NSString *temp_s = [self time_timestampToString:1592155048000];
-//    NSLog(@"---%@",temp_s);
-
-   
     
         
 }
@@ -110,9 +110,6 @@ static NSString *ID = @"NewSletterID";
                 [temp addObject:model];
             }
             self.dataArray = temp;
-//            [[NSOperationQueue mainQueue] addBarrierBlock:^{
-//                [self.tableView reloadData];
-//            }];
         }]resume];
     [self.tableView reloadData];
 }
@@ -137,29 +134,24 @@ static NSString *ID = @"NewSletterID";
         [self.tableView reloadData];
 }
 
-+(NSString *)curYearMD:(NSInteger)i{
++(NSString *)curYearMD{
     
-    NSDate *date = [NSDate date];//这个是NSDate类型的日期，所要获取的年月日都放在这里；
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    //这句是说你要获取日期的元素有哪些。获取年就要写NSYearCalendarUnit，获取小时就要写NSHourCalendarUnit，中间用|隔开；
-    unsigned int unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth| NSCalendarUnitDay;
-    //把要从date中获取的unitFlags标示的日期元素存放在NSDateComponents类型的d里面； //然后就可以从d中获取具体的年月日了；
-    NSDateComponents *d = [cal components:unitFlags fromDate:date];
-    NSInteger year = [d year];
-    NSInteger month = [d month];
-    NSInteger day = [d day];
-    NSString *time = [NSString stringWithFormat:@"%ld-%ld-%ld",year,month,day - i];
-    return time;
+    
+
+    //获取当前时间日期
+          NSDate *date=[NSDate date];
+          NSDateFormatter *format1=[[NSDateFormatter alloc] init];
+          [format1 setDateFormat:@"yyyy-MM-dd"];
+          NSString *dateStr;
+          dateStr=[format1 stringFromDate:date];
+          return dateStr;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//      NSLog(@"%ld",_dataArray.count);
-//}
-//
+
 //cell的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArray.count;
@@ -180,7 +172,6 @@ static NSString *ID = @"NewSletterID";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-//    [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD:section]];
     HNPNewSletterHerderView *view = [[HNPNewSletterHerderView alloc] init];
     view.backgroundColor = [UIColor whiteColor];
     view.model = self.dataArray[0];
@@ -190,6 +181,5 @@ static NSString *ID = @"NewSletterID";
 {
     return 44;
 }
-
 
 @end
