@@ -34,9 +34,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="9qL-mf-Odm"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="signInClick:" destination="-1" eventType="touchUpInside" id="KV9-sH-2YR"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_wodedongtai" translatesAutoresizingMaskIntoConstraints="NO" id="uLy-93-NFQ">
                                 <rect key="frame" x="15.000000000000002" y="285" width="17.666666666666671" height="17.666666666666686"/>
@@ -278,16 +275,16 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="-33" y="-4"/>
+            <point key="canvasLocation" x="-480" y="10"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="bth_bianjiziliao" width="63" height="21"/>
-        <image name="icon_jinru" width="7" height="12"/>
+        <image name="icon_jinru" width="7.3333334922790527" height="13"/>
         <image name="icon_qiandao" width="18" height="16.333333969116211"/>
         <image name="icon_shezhi" width="17" height="16"/>
         <image name="icon_wodedongtai" width="17" height="17.333333969116211"/>
-        <image name="pic_bg" width="375" height="265"/>
+        <image name="pic_bg" width="335" height="163.33332824707031"/>
         <image name="pic_head" width="65" height="65"/>
     </resources>
 </document>

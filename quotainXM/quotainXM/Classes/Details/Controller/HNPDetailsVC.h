@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HNPDynamicModle.h"
+#import "talkListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

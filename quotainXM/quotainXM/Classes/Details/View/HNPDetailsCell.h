@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 //定义模型属性接收数据
 @property (nonatomic,strong)HNPDynamicModle *XQModle;
 
-//+(instancetype)DetailsCellXib;
++(instancetype)DetailsCellXib;
 
 @end
 

@@ -37,7 +37,7 @@
 
 - (void)setModel:(ZBPersonModel *)model{
     _model = model;
-    [_headImageView sd_setImageWithURL:[NSURL URLWithString:model.head]];
+    [_headImageView sd_setImageWithURL:[NSURL URLWithString:model.head] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
     _nickNameLabel.text = model.nickName;
     _signatureLabel.text = model.signature;
     _talkCountLabel.text = model.talkCount;
@@ -61,7 +61,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beginSinIn)];
     [self.signInCenter addGestureRecognizer:tap];
     
-   [_headImageView sd_setImageWithURL:[NSURL URLWithString:_model.head]];
+   [_headImageView sd_setImageWithURL:[NSURL URLWithString:_model.head] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
     _nickNameLabel.text = _model.nickName;
     _signatureLabel.text = _model.signature;
 //    NSLog(@"%@,%@,%@",_model.talkCount,_model.followCount,_model.fansCount);

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "talkListModel.h"
+#import "userModel.h"
 
-@class HNPDynamicCell,HNPDynamicModle,HNPFollowModel;
+@class HNPDynamicCell,HNPDynamicModle,HNPFollowModel,HNPUserCenterModel;
 @protocol HNPDynamicCellDelegate <NSObject>
 
 - (void)dynamicCellDidImageClick:(HNPDynamicCell *)DynamicCell;
@@ -25,8 +27,12 @@
 @property (nonatomic,strong)HNPDynamicModle *DTModel;
 //定义模型属性接收数据(关注)
 @property (nonatomic,strong)HNPFollowModel *FollowModel;
+//定义用户中心模型属性
+@property (nonatomic ,strong)ListModel *UserDynamicModle;
 
 @property (weak, nonatomic) IBOutlet UIImageView *followBtn;
+
+@property (nonatomic ,strong)HNPDynamicModle *allDynamicModel;
 
 
 //快速加载动态xib

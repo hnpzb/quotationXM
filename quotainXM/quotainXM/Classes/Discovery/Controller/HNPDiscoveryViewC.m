@@ -15,11 +15,15 @@
 #import "HNPPersonVC.h"
 #import "HNPUserCenterVC.h"
 #import "HNPFabuVC.h"
+#import <AFNetworking.h>
+#import <MJExtension/MJExtension.h>
 
 @interface HNPDiscoveryViewC ()<UITableViewDelegate,UITableViewDataSource,HNPDynamicCellDelegate>
 
 @property(nonatomic,strong)UIView *baiVC;
+//上一个选中的按钮
 @property(nonatomic,strong)UIButton *preSelectBtn;
+
 @property (strong, nonatomic) IBOutlet UIView *mainV;
 
 @property(nonatomic,strong)UITableView *tableview;
@@ -56,7 +60,7 @@ static NSString *IDTwo = @"DynamicCellID";
     
 }
 - (void)DTJson{
-    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.yysc.online/user/talk/getTalkListByProject?project=futures&pageNumber&pageSize"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.yysc.online/user/talk/getTalkListByProject?pageNumber&pageSize&project=futures"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
     {
         //Json转字典
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
@@ -66,7 +70,6 @@ static NSString *IDTwo = @"DynamicCellID";
         NSArray *listArray = dict[@"data"][@"list"];
         //遍历字典数组
         for (NSDictionary *dict in listArray) {
-//            NSDictionary *userDict = dict[@"user"];
             HNPDynamicModle *tempModel = [[HNPDynamicModle alloc] init];
             tempModel = [HNPDynamicModle DynamicWithDict:dict];
             [tempMutableArray addObject:tempModel];
@@ -101,12 +104,10 @@ static NSString *IDTwo = @"DynamicCellID";
             return pushCell;
         } else {
             HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
-            
             //传递数据
             DynamicCell.DTModel = self.DTArray[indexPath.row];
             //自定义的点击头像跳转的代理方法设置代理对象
             DynamicCell.delegate = self;
-            
             return DynamicCell;
         }
 }
@@ -128,9 +129,7 @@ static NSString *IDTwo = @"DynamicCellID";
         //底部tabbar隐藏
         self.tabBarController.tabBar.hidden=YES;
         [self.navigationController pushViewController:detailsVc animated:YES];
-        
     }
-    
 }
 
 //自定义一个代理进行跳转
@@ -138,7 +137,9 @@ static NSString *IDTwo = @"DynamicCellID";
     [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
     HNPUserCenterVC *userCenterVC = [[HNPUserCenterVC alloc] init];
     userCenterVC.UserCenterModle = DynamicCell.DTModel;
+    userCenterVC.UserDynamicM = DynamicCell.DTModel;
     [self.navigationController pushViewController:userCenterVC animated:YES];
+    
 }
 
 

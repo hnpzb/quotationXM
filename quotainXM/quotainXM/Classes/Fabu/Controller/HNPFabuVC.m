@@ -13,9 +13,11 @@
 
 //点开相册添加的图片
 @property (weak, nonatomic) IBOutlet UIImageView *addImageView;
+
 @property (nonatomic,strong)SelectPhotoManager *photoManger;
 //打开相机按钮属性
 @property (weak, nonatomic) IBOutlet UIButton *openCaremaBtn;
+//点击发布按钮获取的文本
 @property (strong, nonatomic) IBOutlet UITextView *text_FV;
 
 @end
@@ -61,6 +63,14 @@
 
     [self presentViewController:pickVC animated:YES completion:nil];
 }
+
+//获取选择的图片
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+        [picker dismissViewControllerAnimated:YES completion:nil];
+        UIImage *pickImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+        _addImageView.image = pickImage;
+}
+
 
 //打开相机
 //- (IBAction)openCamera:(id)sender {
@@ -122,7 +132,7 @@
 }
 
 - (void)photoClick:(UITapGestureRecognizer *)recognizer{
-
+    
    if (!_photoManger) {
        _photoManger = [[SelectPhotoManager alloc]init];
        _photoManger.delegate = self;

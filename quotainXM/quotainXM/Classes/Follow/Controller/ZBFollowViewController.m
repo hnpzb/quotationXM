@@ -73,31 +73,26 @@ static NSString *IDTwo = @"DynamicCellID";
 
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return 1;
     }else{
         return self.FollowArray.count;
     }
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
      if (indexPath.section == 0) {
                 HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
                 return pushCell;
             } else {
                 HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
-                
                 DynamicCell.FollowModel = self.FollowArray[indexPath.row];
-//                NSLog(@"%zd-%p",indexPath.row,DynamicCell);
+                //NSLog(@"%zd-%p",indexPath.row,DynamicCell);
                 return DynamicCell;
             }
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -105,18 +100,11 @@ static NSString *IDTwo = @"DynamicCellID";
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
         HNPFabuVC *fabuVC = [[HNPFabuVC alloc]init];
-        self.tabBarController.tabBar.hidden = YES;
+//        self.tabBarController.tabBar.hidden = YES;
         [self.navigationController pushViewController:fabuVC animated:YES];
         
     }else{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
-//    HNPDetailsVC *detailsVc = [[HNPDetailsVC alloc]init];
-    //将数据传给详情页面的模型属性
-//    detailsVc.dynamicModle = self.DTArray[indexPath.row];
-//        self.tabBarController.tabBar.hidden=YES;
-//        [self.navigationController pushViewController:detailsVc animated:YES];
         
     }
     

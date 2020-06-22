@@ -9,12 +9,20 @@
 #import "HNPUserCenterVC.h"
 #import "HNPUserCenterCell.h"
 #import "HNPDynamicCell.h"
+#import <AFNetworking.h>
+#import "HNPUserCenterModel.h"
+#import <MJExtension/MJExtension.h>
+#import "talkListModel.h"
+#import "HNPDynamicModle.h"
 
 
 @interface HNPUserCenterVC ()<UITableViewDelegate,UITableViewDataSource,HNPUserCenterCellDelegate>
 
 @property(nonatomic,strong)UITableView *tableview;
-@property (nonatomic,strong)NSArray *UserArray;
+
+@property(strong, nonatomic)talkListModel *userArray;
+
+
 
 @end
 
@@ -31,18 +39,20 @@ static NSString *IDTwo = @"DynamicCellID";
     [super viewDidLoad];
     
     //在view中添加tableView
-//    [UIApplication sharedApplication].statusBarFrame.size.height
      _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height + 44) style:UITableViewStylePlain];
     [self.view addSubview:_tableview];
     _tableview.dataSource = self;
     _tableview.delegate = self;
     
+    //加载用户中心动态数据
+    [self UserCenterJson];
     
     [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPUserCenterCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
        [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
        _tableview.estimatedRowHeight = 100;
        _tableview.rowHeight = UITableViewAutomaticDimension;
     
+    //轻扫返回手势
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
     [self.view addGestureRecognizer:swipe];
     
@@ -62,24 +72,65 @@ static NSString *IDTwo = @"DynamicCellID";
     if (section == 0) {
         return 1;
     }else{
-        return 5;
+        return self.userArray.list.count;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
     if (indexPath.section == 0) {
         HNPUserCenterCell *centerCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
         centerCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        centerCell.UserCModle = _UserCenterModle;
+        centerCell.UserCModle = self.UserCenterModle;
         centerCell.delegate = self;
             return centerCell;
         } else {
             HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
             DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
             DynamicCell.followBtn.hidden = YES;
+            //拿到用户的头像
+            DynamicCell.allDynamicModel = self.UserDynamicM;
+            //拿到每一组的数据
+            DynamicCell.UserDynamicModle = self.userArray.list[indexPath.row];
             return DynamicCell;
         }
+}
+
+
+-(void)UserCenterJson{
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.yysc.online"] sessionConfiguration:configuration];
+        
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        AFJSONResponseSerializer *response   = [AFJSONResponseSerializer serializer];
+        response.removesKeysWithNullValues = YES;
+        response.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"application/json",@"text/html",@"text/css",@"text/javascript", nil];
+    //    manager.responseSerializer = response;
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
+        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [manager.requestSerializer setValue:@"ios" forHTTPHeaderField:@"Referer"];
+    
+        // 设置超时时间
+        [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        manager.requestSerializer.timeoutInterval = 20.f;
+        [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
+    //根据userId加载用户中心的动态数据
+    NSMutableDictionary *dict_m = [NSMutableDictionary new];
+    [dict_m setObject:@"publishTime" forKey:@"_orderByDesc"];
+    [dict_m setObject:self.UserCenterModle.userId forKey:@"userId"];
+    
+    [manager POST:@"/user/talk/getTalkList/0" parameters:dict_m headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable result) {
+
+        self.userArray = [talkListModel mj_objectWithKeyValues:result[@"data"]];
+        [self.tableview reloadData];
+
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+
+        }];
 }
 
 - (void)userCenterCellDidFollowBtnClick:(HNPUserCenterCell *)cell{
@@ -94,8 +145,6 @@ static NSString *IDTwo = @"DynamicCellID";
             }
 }
 
-
 @end
 
-//打印输出cell的行号与地址
-//            NSLog(@"%zd-%p",indexPath.row,centerCell);
+

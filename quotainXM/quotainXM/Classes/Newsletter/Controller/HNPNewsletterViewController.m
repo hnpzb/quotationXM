@@ -48,7 +48,7 @@ static NSString *ID = @"NewSletterID";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _tableView = [[UITableView alloc] init];
-    CGRect temp = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height);
+    CGRect temp = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height - ([UIApplication sharedApplication].statusBarFrame.size.height + 44));
        _tableView.frame = temp;
     [self.view addSubview:_tableView];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -63,49 +63,12 @@ static NSString *ID = @"NewSletterID";
 //    NSString *temp_s = [self time_timestampToString:1592155048000];
 //    NSLog(@"---%@",temp_s);
 
-        /*AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        [manager GET:@"http://api.yysc.online/admin/getFinanceTalk?pageNum&pageSize&date" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//            NSDictionary *data = responseObject;
-    //        NSMutableArray *array = [NSMutableArray array];/Users/zhubin/Desktop/
-    //        [data writeToFile:@"/Users/zhubin/Desktop/test.plist" atomically:YES];
-            NSLog(@"%@",[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"failure");
-        }];*/
-    
-    /*    long timeStamp= 1461896616000;
-
-    NSString*tempTime =[[NSNumber numberWithLong:timeStamp] stringValue];
-
-   NSMutableString*getTime = [NSMutableString stringWithFormat:@"%@",tempTime];
-
-
-    //    NSMutableString *getTime = @"1461896616000";
-
-   struct utsname systemInfo;
-
-   uname(&systemInfo);
-
-   [getTime deleteCharactersInRange:NSMakeRange(10,3)];
-
-  
-
-   NSDateFormatter *matter = [[NSDateFormatter alloc]init];
-
-  matter.dateFormat =@"YYYY-MM-dd HH:mm";
-
-     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
-
-    NSString*timeStr = [matter stringFromDate:date];
-
-   NSLog(@"%@",timeStr);//2016-04-29 10:23
-     
-     */
+   
     
         
 }
 
+//时间戳
 +(NSString *)timetampTostring:(long)timestamp{
     
     NSString *tempTime =[[NSNumber numberWithLong:timestamp] stringValue];
@@ -122,8 +85,6 @@ static NSString *ID = @"NewSletterID";
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
 
       NSString *timeStr = [matter stringFromDate:date];
-//    NSArray *array1 =[timeStr componentsSeparatedByString:@"-"];
-
     return timeStr;
 }
 
@@ -180,8 +141,10 @@ static NSString *ID = @"NewSletterID";
     
     NSDate *date = [NSDate date];//这个是NSDate类型的日期，所要获取的年月日都放在这里；
     NSCalendar *cal = [NSCalendar currentCalendar];
-    unsigned int unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth| NSCalendarUnitDay;//这句是说你要获取日期的元素有哪些。获取年就要写NSYearCalendarUnit，获取小时就要写NSHourCalendarUnit，中间用|隔开；
-    NSDateComponents *d = [cal components:unitFlags fromDate:date];//把要从date中获取的unitFlags标示的日期元素存放在NSDateComponents类型的d里面； //然后就可以从d中获取具体的年月日了；
+    //这句是说你要获取日期的元素有哪些。获取年就要写NSYearCalendarUnit，获取小时就要写NSHourCalendarUnit，中间用|隔开；
+    unsigned int unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth| NSCalendarUnitDay;
+    //把要从date中获取的unitFlags标示的日期元素存放在NSDateComponents类型的d里面； //然后就可以从d中获取具体的年月日了；
+    NSDateComponents *d = [cal components:unitFlags fromDate:date];
     NSInteger year = [d year];
     NSInteger month = [d month];
     NSInteger day = [d day];
@@ -214,6 +177,7 @@ static NSString *ID = @"NewSletterID";
     cell.NewSletter = self.dataArray[indexPath.row];
     return cell;
 }
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
 //    [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD:section]];
@@ -226,17 +190,6 @@ static NSString *ID = @"NewSletterID";
 {
     return 44;
 }
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSLog(@"%ld",_dataArray.count);
-//}
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

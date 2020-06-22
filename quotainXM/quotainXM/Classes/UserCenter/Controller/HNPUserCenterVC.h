@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "HNPDynamicModle.h"
+#import "HNPUserCenterModel.h"
+#import "talkListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPUserCenterVC : UIViewController
 
 @property (nonatomic ,strong)HNPDynamicModle *UserCenterModle;
+
+@property (nonatomic ,strong)HNPDynamicModle *UserDynamicM;
+
 
 @end
 
