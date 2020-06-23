@@ -8,6 +8,7 @@
 
 #import "HNPFabuVC.h"
 #import "SelectPhotoManager.h"
+#import "quotainXM-Bridging-Header.h"
 
 @interface HNPFabuVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,selectPhotoDelegate>
 
@@ -54,6 +55,7 @@
 //轻扫删除图片
 -(void)swipeDeleteView{
     _addImageView.hidden = YES;
+//    [_addImageView removeFromSuperview];
 }
 
 //打开相册
@@ -143,19 +145,18 @@
 }
 
 - (IBAction)fabuClick:(id)sender {
-    [self ZBbeginFabu];
-//    [self uoLoadPicture];
+//    [self ZBbeginFabu];
+    [self uoLoadPicture];
+    
 }
 
 -(void)ZBbeginFabu{
     
-    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
+//    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
     
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
     [par setObject:self.userID forKey:@"userId"];
     [par setObject:@"false" forKey:@"displayBig"];
-//    [par setObject:@"true" forKey:@"enable"];
-//    [par setObject:[NSString stringWithFormat:@"%ld",curTimeTap] forKey:@"publishTime"];
     [par setObject:_text_FV.text forKey:@"content"];
     [par setObject:@"" forKey:@"video"];
     [par setObject:@"" forKey:@"picture"];
@@ -237,14 +238,23 @@
     NSDictionary *dict = @{
         @"file" : self.addImageView.image
     };
+    
+    
+    
+    
+    /*
     NSData *imageData = UIImageJPEGRepresentation(self.addImageView.image, .1);
 //    UIImagePNGRepresentation(self.addImageView.image);
 //    self.addImageView.image
     AFHTTPSessionManager *manager =  [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     AFHTTPResponseSerializer *responseSer = [AFHTTPResponseSerializer serializer];
-      responseSer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+      responseSer.acceptableContentTypes = [NSSet setWithObjects:@"text/json", @"text/javascript",@"text/plain", nil];
       manager.responseSerializer = responseSer;
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [manager.requestSerializer setValue:@"charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+
     [manager POST:@"http://image.yysc.online/upload" parameters:dict headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
 //        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
@@ -263,6 +273,7 @@
            //请求失败
            DLog(@"请求失败：%@",error);
        }];
+     */
     
     
 }

@@ -32,6 +32,7 @@
 		B34A404E24976E5A0047BF94 /* ZBHeaderCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A404D24976E5A0047BF94 /* ZBHeaderCollectionView.m */; };
 		B34A4055249775070047BF94 /* ZBCalendarColViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A4053249775070047BF94 /* ZBCalendarColViewCell.m */; };
 		B34A4056249775070047BF94 /* ZBCalendarColViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34A4054249775070047BF94 /* ZBCalendarColViewCell.xib */; };
+		B34D05AD24A0B2A8003E3D77 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34D05AC24A0B2A8003E3D77 /* NetworkTool.swift */; };
 		B350BF9D249070D30026368F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BF9C249070D30026368F /* AppDelegate.m */; };
 		B350BFA3249070D30026368F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350BFA2249070D30026368F /* ViewController.m */; };
 		B350BFA6249070D30026368F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B350BFA4249070D30026368F /* Main.storyboard */; };
@@ -215,6 +216,7 @@
 		B34A4053249775070047BF94 /* ZBCalendarColViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCalendarColViewCell.m; sourceTree = "<group>"; };
 		B34A4054249775070047BF94 /* ZBCalendarColViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBCalendarColViewCell.xib; sourceTree = "<group>"; };
 		B34D05A424A045E3003E3D77 /* quotainXM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "quotainXM-Bridging-Header.h"; sourceTree = "<group>"; };
+		B34D05AC24A0B2A8003E3D77 /* NetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
 		B350BF98249070D30026368F /* quotainXM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quotainXM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B350BF9B249070D30026368F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B350BF9C249070D30026368F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 		1143F0002491D8E2006CD5F1 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				B34D05AC24A0B2A8003E3D77 /* NetworkTool.swift */,
 				1143F0012491D8E2006CD5F1 /* Category(fenlei) */,
 				1143F0022491D8E2006CD5F1 /* Lib */,
 				B34D05A424A045E3003E3D77 /* quotainXM-Bridging-Header.h */,
@@ -1774,6 +1777,7 @@
 				B34719F8249A029E0017CA48 /* YXDateHelpObject.m in Sources */,
 				B350C096249070F40026368F /* ZBIndustryTableViewCell.m in Sources */,
 				B3763AF2249AF911003CB77D /* ZBHotNewsUserModel.m in Sources */,
+				B34D05AD24A0B2A8003E3D77 /* NetworkTool.swift in Sources */,
 				115413C424977E25008BB7DB /* HNPUserCenterCell.m in Sources */,
 				B350C081249070F40026368F /* HNPDynamicCell.m in Sources */,
 				B350C079249070F40026368F /* ZBCalendarViewController.m in Sources */,
@@ -1965,6 +1969,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = scrb.quotainXM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "quotainXM/Other/quotainXM-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "quotianXM-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1988,6 +1993,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = scrb.quotainXM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "quotainXM/Other/quotainXM-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "quotianXM-Swift.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -58,7 +58,7 @@
        _followCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.followCount];
        _fansCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.fansCount];
        
-       _userID = [NSString stringWithFormat:@"%@",self.model.userId];
+    _userID = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.userId];
 }
 
 - (void)viewDidLoad {

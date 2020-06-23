@@ -10,4 +10,5 @@ target 'quotainXM' do
   pod 'SVProgressHUD'
 #  pod  'MBProgressHUD'
   pod 'MJRefresh'
+ pod 'Alamofire','=4.9.1'
 end
