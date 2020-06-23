@@ -165,9 +165,6 @@ static  NSString  *ID = @"calendar";
           return dateStr;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-}
 
 /*
  #pragma mark - Navigation
