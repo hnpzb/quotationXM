@@ -11,9 +11,15 @@
 #import "HNPCommentCell.h"
 #import "ZBDiscoverMainVC.h"
 #import "HNPDynamicModle.h"
+#import "AFNetworking.h"
+#import "talkListModel.h"
+#import "MJExtension/MJExtension.h"
+
 @interface HNPDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
+
+@property(nonatomic,strong)talkListModel *talk;
 
 @end
 
@@ -26,12 +32,12 @@ static NSString *IDTwo = @"CommentCellID";
 {
     
     [super viewDidLoad];
-    //在view中添加tableView
     
-
+    //在view中添加tableView
     [self creatTopView];
     [self creatTableView];
-    
+    [self PLJson];
+
     //轻扫返回上个界面手势
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
     [self.view addGestureRecognizer:swipe];
@@ -94,8 +100,7 @@ static NSString *IDTwo = @"CommentCellID";
 /**
  点击返回按钮进行跳转
  */
--(void)breakDeatail:(UIButton *)btn
-{
+-(void)breakDeatail:(UIButton *)btn{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -109,13 +114,12 @@ static NSString *IDTwo = @"CommentCellID";
     if (section == 0) {
         return 1;
     }else{
-        return 10;
+        return self.talk.list.count;
     }
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         HNPDetailsCell *DetailsCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
         //cell的选中样式
@@ -125,9 +129,39 @@ static NSString *IDTwo = @"CommentCellID";
     } else {
         HNPCommentCell *CommentCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
         CommentCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        CommentCell.PLModel = _dynamicModle;
+        CommentCell.PLModel = self.talk.list[indexPath.row];
         return CommentCell;
     }
+}
+
+-(void)PLJson{
+     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.yysc.online"] sessionConfiguration:configuration];
+    
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    AFJSONResponseSerializer *response   = [AFJSONResponseSerializer serializer];
+    response.removesKeysWithNullValues = YES;
+    response.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"application/json",@"text/html",@"text/css",@"text/javascript", nil];
+//    manager.responseSerializer = response;
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"ios" forHTTPHeaderField:@"Referer"];
+    // 设置超时时间
+    
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 20.f;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+ 
+    //根据用户的talkId加载详情界面的评论
+    [manager POST:@"/user/talk/getCommentList" parameters:@{@"_orderByDesc":@"publishTime",@"talkId": _dynamicModle.talkId} headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable result) {
+        self.talk = [talkListModel mj_objectWithKeyValues:result[@"data"]];
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+    
 }
 
 

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPPersonView : UIView
 
-+ (instancetype)personView;
+//+ (instancetype)personView;
 
 @end
 

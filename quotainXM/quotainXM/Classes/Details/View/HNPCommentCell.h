@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "HNPDynamicModle.h"
+#import "talkListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class ListModel;
 @interface HNPCommentCell : UITableViewCell
 
-@property (nonatomic ,strong)HNPDynamicModle *PLModel;
-//+(instancetype)CommentCellXib;
+@property (nonatomic ,strong)ListModel *PLModel;
+
++(instancetype)CommentCellXib;
 
 @end
 

@@ -11,6 +11,7 @@
 #import "HNPDynamicUserModel.h"
 #import "HNPDetailsVC.h"
 #import <SDWebImage/SDWebImage.h>
+#import "HNPCommentCell.h"
 
 @interface HNPDetailsCell ()
 
@@ -27,8 +28,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *DetailsZanImageView;
 @property (weak, nonatomic) IBOutlet UILabel *DetailsZanPeopleLable;
 
-
-
 @end
 
 @implementation HNPDetailsCell
@@ -44,16 +43,20 @@
     self.DetailsHeadImageView.layer.cornerRadius = 15;
     self.DetailsHeadImageView.layer.masksToBounds=YES;
     
+    self.DetailsNeirongImageView.layer.cornerRadius = 7.5;
+    self.DetailsNeirongImageView.layer.masksToBounds = YES;
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
 
-//+(instancetype)DetailsCellXib
-//{
-//    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
-//}
++(instancetype)DetailsCellXib
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+}
 
 - (void)setXQModle:(HNPDynamicModle *)XQModle{
 
@@ -64,29 +67,16 @@
     }else{
         self.DetailsFollowBtn.enabled = YES;
     }
-    
-    [self.DetailsHeadImageView sd_setImageWithURL:[NSURL URLWithString:XQModle.user.head] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
-    
-    self.DetailsNickName.text = XQModle.user.nickName;
-    
-    self.DetailsNeirongLable.text = XQModle.content;
-    
-    [self.DetailsNeirongImageView sd_setImageWithURL:[NSURL URLWithString:XQModle.picture] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
-    
-    self.DetailsPublishTimeLable.text = XQModle.publishTime;
-    
-//    self.DetailsZanCountLable.text = XQModle.zanCount;
-    self.DetailsZanCountLable.text = [NSString stringWithFormat:@"%@ 赞",XQModle.zanCount];
-    
-//    self.DetailsCommentCountLable.text = XQModle.commentCount;
-    self.DetailsCommentCountLable.text = [NSString stringWithFormat:@"%@ 评论",XQModle.commentCount];
-    
-//    self.DetailsBrowserCountLable.text = XQModle.browserCount;
-    self.DetailsBrowserCountLable.text = [NSString stringWithFormat:@"%@ 评论",XQModle.browserCount];
 
-    [self.DetailsZanImageView sd_setImageWithURL:[NSURL URLWithString:XQModle.picture] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
-    
-//    self.DetailsZanPeopleLable.text = XQModle.zanCount;
+    [self.DetailsHeadImageView sd_setImageWithURL:[NSURL URLWithString:XQModle.user.head] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
+    self.DetailsNickName.text = XQModle.user.nickName;
+    self.DetailsNeirongLable.text = XQModle.content;
+    [self.DetailsNeirongImageView sd_setImageWithURL:[NSURL URLWithString:XQModle.picture] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
+    self.DetailsPublishTimeLable.text = XQModle.publishTime;
+    self.DetailsZanCountLable.text = [NSString stringWithFormat:@"%@ 赞",XQModle.zanCount];
+    self.DetailsCommentCountLable.text = [NSString stringWithFormat:@"%@ 评论",XQModle.commentCount];
+    self.DetailsBrowserCountLable.text = [NSString stringWithFormat:@"%@ 转发",XQModle.browserCount];
+    [self.DetailsZanImageView sd_setImageWithURL:[NSURL URLWithString:XQModle.picture] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
     self.DetailsZanPeopleLable.text = [NSString stringWithFormat:@"...等%@个人觉得很赞",XQModle.zanCount];
     
 }

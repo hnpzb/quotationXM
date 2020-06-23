@@ -28,6 +28,7 @@
     [super awakeFromNib];
     // Initialization code
     
+    //添加关注按钮的点击手势
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchFollowBtn)];
     [self.UserQXFollowBtn addGestureRecognizer:tapGes];
     
@@ -44,15 +45,11 @@
     }
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 - (void)setUserCModle:(HNPDynamicModle *)UserCModle{
     _UserCModle = UserCModle;
     
+    //根据forwardCount判断是否关注
     if ([UserCModle.forwardCount isEqualToString:@"1"]) {
         self.UserFollowBtn.hidden = YES;
         self.UserQXGZLable.text = @"取消关注";
@@ -64,7 +61,7 @@
         self.UserQXFollowBtn.backgroundColor = [UIColor greenColor];
     }
     
-    [self.UserHeadImageView sd_setImageWithURL:[NSURL URLWithString:UserCModle.user.head] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
+    [self.UserHeadImageView sd_setImageWithURL:[NSURL URLWithString:UserCModle.user.head] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
     self.UserNickNameLable.text = UserCModle.user.nickName;
     self.UserSignatureLable.text = UserCModle.user.signature;
     self.UserDynamicCountLable.text = UserCModle.browserCount;
@@ -72,6 +69,8 @@
     self.UserFansCountLable.text = UserCModle.commentCount;
     
 }
+
+
 
 
 

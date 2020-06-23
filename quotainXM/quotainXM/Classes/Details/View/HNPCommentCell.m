@@ -9,15 +9,15 @@
 #import "HNPCommentCell.h"
 #import <SDWebImage/SDWebImage.h>
 #import "HNPDynamicUserModel.h"
+#import "userModel.h"
+#import <sys/utsname.h>
 
 @interface HNPCommentCell ()
 
-@property (weak, nonatomic) IBOutlet UILabel *PLCommentCountLable;
 @property (weak, nonatomic) IBOutlet UIImageView *PLHead;
 @property (weak, nonatomic) IBOutlet UILabel *PLNickName;
 @property (weak, nonatomic) IBOutlet UILabel *PLPublisTime;
 @property (weak, nonatomic) IBOutlet UILabel *PLNeirong;
-@property (weak, nonatomic) IBOutlet UILabel *PLZanCount;
 
 
 @end
@@ -29,29 +29,52 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++(instancetype)CommentCellXib
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 
-//+(instancetype)CommentCellXib
-//{
-//    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
-//}
+- (void)setPLModel:(ListModel *)PLModel{
+    
+    if (PLModel) {
+        _PLModel = PLModel;
+        [self.PLHead sd_setImageWithURL:[NSURL URLWithString:PLModel.user.head] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
+        self.PLNickName.text = PLModel.user.nickName;
+        self.PLNeirong.text = PLModel.content;
+        self.PLPublisTime.text = [HNPCommentCell timetampTostring:PLModel.publishTime.integerValue];
+        
+    }
+    
+}
 
-- (void)setPLModel:(HNPDynamicModle *)PLModel{
+//时间戳
++(NSString *)timetampTostring:(long)timestamp{
     
-    self.PLCommentCountLable.text = [NSString stringWithFormat:@"%@ 评论",PLModel.commentCount];
+    NSString *tempTime =[[NSNumber numberWithLong:timestamp] stringValue];
+    NSMutableString *getTime = [NSMutableString stringWithFormat:@"%@",tempTime];
+
+      //    NSMutableString *getTime = @"1461896616000";
+     struct utsname systemInfo;
+     uname(&systemInfo);
+
+     [getTime deleteCharactersInRange:NSMakeRange(10,3)];
+     NSDateFormatter *matter = [[NSDateFormatter alloc]init];
+//    matter.dateFormat =@"YYYY-MM-dd HH:mm";
+    matter.dateFormat = @"YYYY-MM-dd";
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
+
+      NSString *timeStr = [matter stringFromDate:date];
+    return timeStr;
+}
+
+-(NSString *)time_timestampToString:(NSInteger)timestamp{
     
-    [self.PLHead sd_setImageWithURL:[NSURL URLWithString:PLModel.user.head] placeholderImage:[UIImage imageNamed:@"58261315FFCB0F03B1F6C11F9F2957ED"]];
-    
-    self.PLNickName.text = PLModel.user.nickName;
-    self.PLPublisTime.text = PLModel.publishTime;
-    self.PLNeirong.text = PLModel.user.signature;
-    self.PLZanCount.text = PLModel.zanCount;
-    
-    
+    NSDate *conformTimesp = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+//    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm"];
+    [dateFormat setDateFormat:@"HH:mm"];
+    NSString *string = [dateFormat stringFromDate:conformTimesp];
+    return string;
 }
 
 

@@ -11,10 +11,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DynamicCellID" rowHeight="491.5" id="KGk-i7-Jjw" customClass="HNPDynamicCell">
-            <rect key="frame" x="0.0" y="0.0" width="685" height="395"/>
+            <rect key="frame" x="0.0" y="0.0" width="548" height="395"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="685" height="395"/>
+                <rect key="frame" x="0.0" y="0.0" width="548" height="395"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_head" translatesAutoresizingMaskIntoConstraints="NO" id="0DP-3b-3VG">
@@ -26,13 +26,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="时光流水" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idH-tn-kz5">
-                        <rect key="frame" x="72.5" y="30.5" width="436" height="18"/>
+                        <rect key="frame" x="72.5" y="30.5" width="299" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多少分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zj-Zu-HL9">
-                        <rect key="frame" x="608.5" y="32" width="61.5" height="15"/>
+                        <rect key="frame" x="471.5" y="32" width="61.5" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -72,19 +72,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_gengduo" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-eS-a2s">
-                        <rect key="frame" x="649" y="369" width="21" height="5"/>
+                        <rect key="frame" x="512" y="369" width="21" height="5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="5" id="h6O-EY-N7q"/>
                             <constraint firstAttribute="width" constant="21" id="kvK-Gl-Ugn"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="澳大利亚珀斯的广告语是：世界上最孤独的城 市。而当我在这里的几天，感觉它也不孤独， 车如流水马如龙。             " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82X-ZI-9Yi">
-                        <rect key="frame" x="72.5" y="70.5" width="589.5" height="185"/>
+                        <rect key="frame" x="72.5" y="70.5" width="452.5" height="185"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AEE5B85C72996C50D68A1D5A0FCF52DF" translatesAutoresizingMaskIntoConstraints="NO" id="MjO-am-EwS">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AEE5B85C72996C50D68A1D5A0FCF52DF" translatesAutoresizingMaskIntoConstraints="NO" id="MjO-am-EwS">
                         <rect key="frame" x="72.5" y="265.5" width="89" height="89"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="89" id="cf0-As-8f0"/>
@@ -151,13 +151,14 @@
             <connections>
                 <outlet property="DynamicImageView" destination="0DP-3b-3VG" id="wY0-6I-h9R"/>
                 <outlet property="commentCountLable" destination="nyz-I1-akw" id="P1g-CF-v5O"/>
+                <outlet property="fabuTimeLable" destination="4zj-Zu-HL9" id="hne-pA-B23"/>
                 <outlet property="followBtn" destination="vFi-oJ-qFu" id="7Q4-li-PBq"/>
                 <outlet property="neirongImageView" destination="MjO-am-EwS" id="3y3-Ru-vsf"/>
                 <outlet property="neirongLable" destination="82X-ZI-9Yi" id="987-3b-cPI"/>
                 <outlet property="nickName" destination="idH-tn-kz5" id="dRC-PT-rYR"/>
                 <outlet property="zanCountLable" destination="kcY-EN-U3T" id="xc3-fX-3eN"/>
             </connections>
-            <point key="canvasLocation" x="207" y="-71"/>
+            <point key="canvasLocation" x="-1072" y="-142"/>
         </tableViewCell>
     </objects>
     <resources>

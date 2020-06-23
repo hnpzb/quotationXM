@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,strong)NSString *commentCount;
 @property (nonatomic ,strong)NSString *browserCount;
 @property (nonatomic ,strong)NSString *forwardCount;
+@property (nonatomic ,strong)NSString *talkId;
+@property (nonatomic ,strong)NSString *userId;
 @property (nonatomic ,strong)HNPDynamicUserModel *user;
 
 +(instancetype)DynamicWithDict:(NSDictionary *)dict;

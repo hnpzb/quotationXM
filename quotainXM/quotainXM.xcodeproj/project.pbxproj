@@ -13,8 +13,11 @@
 		114BAE022498B4EF006D02C2 /* HNPFabuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114BAE002498B4EF006D02C2 /* HNPFabuVC.xib */; };
 		114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */; };
 		114C5BAA2490E68600090FC4 /* HNPPersonVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114C5BA92490E68600090FC4 /* HNPPersonVC.xib */; };
+		11515C9D249DDC9C005B747A /* talkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11515C9B249DDC9B005B747A /* talkListModel.m */; };
+		11515CA0249DE541005B747A /* userModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11515C9E249DE541005B747A /* userModel.m */; };
+		11515CA3249E10B3005B747A /* HNPUserCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11515CA2249E10B3005B747A /* HNPUserCenterModel.m */; };
+		11515CA6249E10D4005B747A /* HNPUserCenteruserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11515CA5249E10D4005B747A /* HNPUserCenteruserModel.m */; };
 		11518E60249CAB5300690D88 /* SelectPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11518E5E249CAB5300690D88 /* SelectPhotoManager.m */; };
-		115413B22497475B008BB7DB /* HNPDetailsModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 115413B12497475B008BB7DB /* HNPDetailsModle.m */; };
 		115413BF24977DF3008BB7DB /* HNPUserCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 115413BD24977DF3008BB7DB /* HNPUserCenterVC.m */; };
 		115413C024977DF3008BB7DB /* HNPUserCenterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 115413BE24977DF3008BB7DB /* HNPUserCenterVC.xib */; };
 		115413C424977E25008BB7DB /* HNPUserCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 115413C224977E25008BB7DB /* HNPUserCenterCell.m */; };
@@ -181,10 +184,16 @@
 		114C5BA62490C3FD00090FC4 /* HNPNewSletterHerderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPNewSletterHerderView.h; sourceTree = "<group>"; };
 		114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPNewSletterHerderView.m; sourceTree = "<group>"; };
 		114C5BA92490E68600090FC4 /* HNPPersonVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPPersonVC.xib; sourceTree = "<group>"; };
+		11515C9B249DDC9B005B747A /* talkListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = talkListModel.m; sourceTree = "<group>"; };
+		11515C9C249DDC9C005B747A /* talkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = talkListModel.h; sourceTree = "<group>"; };
+		11515C9E249DE541005B747A /* userModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userModel.m; sourceTree = "<group>"; };
+		11515C9F249DE541005B747A /* userModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userModel.h; sourceTree = "<group>"; };
+		11515CA1249E10B3005B747A /* HNPUserCenterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPUserCenterModel.h; sourceTree = "<group>"; };
+		11515CA2249E10B3005B747A /* HNPUserCenterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPUserCenterModel.m; sourceTree = "<group>"; };
+		11515CA4249E10D4005B747A /* HNPUserCenteruserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPUserCenteruserModel.h; sourceTree = "<group>"; };
+		11515CA5249E10D4005B747A /* HNPUserCenteruserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPUserCenteruserModel.m; sourceTree = "<group>"; };
 		11518E5E249CAB5300690D88 /* SelectPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoManager.m; sourceTree = "<group>"; };
 		11518E5F249CAB5300690D88 /* SelectPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPhotoManager.h; sourceTree = "<group>"; };
-		115413B02497475B008BB7DB /* HNPDetailsModle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPDetailsModle.h; sourceTree = "<group>"; };
-		115413B12497475B008BB7DB /* HNPDetailsModle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPDetailsModle.m; sourceTree = "<group>"; };
 		115413BC24977DF3008BB7DB /* HNPUserCenterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPUserCenterVC.h; sourceTree = "<group>"; };
 		115413BD24977DF3008BB7DB /* HNPUserCenterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPUserCenterVC.m; sourceTree = "<group>"; };
 		115413BE24977DF3008BB7DB /* HNPUserCenterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPUserCenterVC.xib; sourceTree = "<group>"; };
@@ -272,7 +281,7 @@
 		B350BFF5249070F40026368F /* HNPDiscoveryViewC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPDiscoveryViewC.h; sourceTree = "<group>"; };
 		B350BFF6249070F40026368F /* ZBDiscoverMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBDiscoverMainVC.h; sourceTree = "<group>"; };
 		B350BFF7249070F40026368F /* HNPDiscoveryViewC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPDiscoveryViewC.xib; sourceTree = "<group>"; };
-		B350BFFA249070F40026368F /* HNPDynamicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNPDynamicCell.m; sourceTree = "<group>"; };
+		B350BFFA249070F40026368F /* HNPDynamicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HNPDynamicCell.m; path = quotainXM/Classes/Discovery/View/HNPDynamicCell.m; sourceTree = SOURCE_ROOT; };
 		B350BFFB249070F40026368F /* HNPDynamicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HNPDynamicCell.xib; sourceTree = "<group>"; };
 		B350BFFC249070F40026368F /* HNPPushCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPPushCell.h; sourceTree = "<group>"; };
 		B350BFFD249070F40026368F /* HNPDynamicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNPDynamicCell.h; sourceTree = "<group>"; };
@@ -577,8 +586,10 @@
 		115413AF2497473F008BB7DB /* Modle */ = {
 			isa = PBXGroup;
 			children = (
-				115413B02497475B008BB7DB /* HNPDetailsModle.h */,
-				115413B12497475B008BB7DB /* HNPDetailsModle.m */,
+				11515C9C249DDC9C005B747A /* talkListModel.h */,
+				11515C9B249DDC9B005B747A /* talkListModel.m */,
+				11515C9F249DE541005B747A /* userModel.h */,
+				11515C9E249DE541005B747A /* userModel.m */,
 			);
 			path = Modle;
 			sourceTree = "<group>";
@@ -606,6 +617,10 @@
 		115413B524977D2B008BB7DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				11515CA1249E10B3005B747A /* HNPUserCenterModel.h */,
+				11515CA2249E10B3005B747A /* HNPUserCenterModel.m */,
+				11515CA4249E10D4005B747A /* HNPUserCenteruserModel.h */,
+				11515CA5249E10D4005B747A /* HNPUserCenteruserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1721,6 +1736,7 @@
 				110D603124934F850024F644 /* HNPDynamicModle.m in Sources */,
 				B3BBD31F249DB67600A6C790 /* BusinessProcess.m in Sources */,
 				B350C08D249070F40026368F /* ZBSignInViewController.m in Sources */,
+				11515CA0249DE541005B747A /* userModel.m in Sources */,
 				B350C069249070F40026368F /* ZBInformationViewController.m in Sources */,
 				11608BF5249B12B40070B540 /* HNPLoginViewModel.m in Sources */,
 				B3BBD32E249DBB6F00A6C790 /* EGHViewsTool.m in Sources */,
@@ -1735,6 +1751,7 @@
 				114BAE012498B4EF006D02C2 /* HNPFabuVC.m in Sources */,
 				B3BBD307249DB67600A6C790 /* YKLineChartViewBase.m in Sources */,
 				B352DDF22498948E001A3B66 /* ZBCalendarModel.m in Sources */,
+				11515C9D249DDC9C005B747A /* talkListModel.m in Sources */,
 				B350C099249070F40026368F /* ZBIndustryViewController.m in Sources */,
 				B3BBD325249DB67600A6C790 /* LCPNetWorkGET.m in Sources */,
 				B3BBD322249DB67600A6C790 /* LCPNetWorkManager.m in Sources */,
@@ -1793,13 +1810,13 @@
 				B350C078249070F40026368F /* ZBCalendarTableViewCell.m in Sources */,
 				B3BBD30C249DB67600A6C790 /* QHLoctionModel.m in Sources */,
 				B34719E92499F2AF0017CA48 /* ZBColCellModel.m in Sources */,
+				11515CA3249E10B3005B747A /* HNPUserCenterModel.m in Sources */,
 				B350C0A2249070F40026368F /* ZBMainViewController.m in Sources */,
 				B350C09A249070F40026368F /* ZBIndustryMode.m in Sources */,
 				B350C06D249070F40026368F /* ZBInfoCollectionView.m in Sources */,
 				B3BBD315249DB67600A6C790 /* BaseViewController.m in Sources */,
 				B3BBD31B249DB67600A6C790 /* Reachability.m in Sources */,
 				B3A10475249CA5740025DE22 /* ZBCalendarView.m in Sources */,
-				115413B22497475B008BB7DB /* HNPDetailsModle.m in Sources */,
 				B3A10474249CA5740025DE22 /* ZBMonthView.m in Sources */,
 				B350C0A4249070F40026368F /* ZBNavigationController.m in Sources */,
 				B3BBD308249DB67600A6C790 /* YKLineDataSet.m in Sources */,
@@ -1811,6 +1828,7 @@
 				B350C068249070F40026368F /* ZBQuotationModal.m in Sources */,
 				B350C2DD2490A17A0026368F /* NSArray+MASAdditions.m in Sources */,
 				115413BF24977DF3008BB7DB /* HNPUserCenterVC.m in Sources */,
+				11515CA6249E10D4005B747A /* HNPUserCenteruserModel.m in Sources */,
 				B350C0A9249070F40026368F /* ZBLoginMainNavVC.m in Sources */,
 				110D6034249370A10024F644 /* HNPDynamicUserModel.m in Sources */,
 				B34719F7249A029E0017CA48 /* YXDayCell.m in Sources */,

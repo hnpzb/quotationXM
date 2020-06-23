@@ -17,11 +17,14 @@
     HNPDynamicModle *DynamicM = [[HNPDynamicModle alloc]init];
     DynamicM.content = dict[@"content"];
     DynamicM.picture = dict[@"picture"];
+    DynamicM.talkId = [dict[@"id"] stringValue];
     DynamicM.publishTime = [HNPDynamicModle timetampTostring:[dict[@"publishTime"] longValue]];
     DynamicM.zanCount = [dict[@"zanCount"] stringValue];
     DynamicM.commentCount = [dict[@"commentCount"] stringValue];
     DynamicM.browserCount = [dict[@"browserCount"] stringValue];
     DynamicM.forwardCount = [dict[@"forwardCount"] stringValue];
+    DynamicM.userId = [dict[@"userId"] stringValue];
+    
     if ([dict.allKeys containsObject:@"user"]) {
         if ([(NSDictionary *)dict[@"user"]allKeys].count > 0) {
             HNPDynamicUserModel *users = [HNPDynamicUserModel DynamicUserWithDict:dict[@"user"]];

@@ -47,10 +47,13 @@ static NSString *ID = @"NewSletterID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    _tableView = [[UITableView alloc] init];
+
     CGRect temp = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height - 44 - [[UIApplication sharedApplication] statusBarFrame].size.height - 49);
     _tableView = [[UITableView alloc] initWithFrame:temp style:UITableViewStylePlain];
     
-       _tableView.frame = temp;
+
     [self.view addSubview:_tableView];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
@@ -65,6 +68,7 @@ static NSString *ID = @"NewSletterID";
         
 }
 
+//时间戳
 +(NSString *)timetampTostring:(long)timestamp{
     
     NSString *tempTime =[[NSNumber numberWithLong:timestamp] stringValue];
@@ -81,8 +85,6 @@ static NSString *ID = @"NewSletterID";
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
 
       NSString *timeStr = [matter stringFromDate:date];
-//    NSArray *array1 =[timeStr componentsSeparatedByString:@"-"];
-
     return timeStr;
 }
 
@@ -135,6 +137,7 @@ static NSString *ID = @"NewSletterID";
 +(NSString *)curYearMD{
     
     
+
     //获取当前时间日期
           NSDate *date=[NSDate date];
           NSDateFormatter *format1=[[NSDateFormatter alloc] init];
@@ -166,6 +169,7 @@ static NSString *ID = @"NewSletterID";
     cell.NewSletter = self.dataArray[indexPath.row];
     return cell;
 }
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     HNPNewSletterHerderView *view = [[HNPNewSletterHerderView alloc] init];

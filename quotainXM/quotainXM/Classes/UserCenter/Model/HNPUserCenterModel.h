@@ -1,25 +1,24 @@
 //
-//  HNPFollowModel.h
+//  HNPUserCenterModel.h
 //  quotainXM
 //
-//  Created by henanping on 2020/6/18.
+//  Created by henanping on 2020/6/20.
 //  Copyright © 2020 朱彬. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "HNPFollowuserModel.h"
+#import "HNPUserCenteruserModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HNPFollowModel : NSObject
+@interface HNPUserCenterModel : NSObject
 
 @property (nonatomic ,strong)NSString *content;
 @property (nonatomic ,strong)NSString *picture;
 @property (nonatomic ,strong)NSString *zanCount;
 @property (nonatomic ,strong)NSString *commentCount;
-@property (nonatomic ,strong)NSString *publishTime;
 
-@property (nonatomic ,strong)HNPFollowuserModel *user;
+@property (nonatomic ,strong)HNPUserCenteruserModel *user;
 
 @end
 

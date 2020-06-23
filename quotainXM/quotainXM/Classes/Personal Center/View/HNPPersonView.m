@@ -10,14 +10,14 @@
 
 @implementation HNPPersonView
 
-+ (instancetype)personView
-{
-//    return [[NSBundle mainBundle] loadNibNamed:@"PersonViewID" owner:nil options:nil] [0];
-    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] [0];
-}
-- (IBAction)signInClick:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"qiandao" object:self];
-}
+//+ (instancetype)personView
+//{
+////    return [[NSBundle mainBundle] loadNibNamed:@"PersonViewID" owner:nil options:nil] [0];
+//    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] [0];
+//}
+//- (IBAction)signInClick:(id)sender {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"qiandao" object:self];
+//}
 
 
 @end
