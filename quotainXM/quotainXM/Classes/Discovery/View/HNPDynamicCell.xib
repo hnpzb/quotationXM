@@ -57,11 +57,11 @@
                         <color key="textColor" red="0.69148629903793335" green="0.69157075881958008" blue="0.69145750999450684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="icon_gengduo" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-eS-a2s">
-                        <rect key="frame" x="512" y="369" width="21" height="5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_gengduo" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-eS-a2s">
+                        <rect key="frame" x="512" y="364" width="21" height="5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="5" id="h6O-EY-N7q"/>
-                            <constraint firstAttribute="width" constant="21" id="kvK-Gl-Ugn"/>
+                            <constraint firstAttribute="height" constant="5" id="Aku-hS-1A3"/>
+                            <constraint firstAttribute="width" constant="21" id="Czt-YD-1YW"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="澳大利亚珀斯的广告语是：世界上最孤独的城 市。而当我在这里的几天，感觉它也不孤独， 车如流水马如龙。             " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82X-ZI-9Yi">
@@ -119,6 +119,7 @@
                 <constraints>
                     <constraint firstItem="0DP-3b-3VG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="3Tz-gx-JP9"/>
                     <constraint firstItem="4zj-Zu-HL9" firstAttribute="leading" secondItem="idH-tn-kz5" secondAttribute="trailing" constant="100" id="5hz-Qm-SAy"/>
+                    <constraint firstItem="ObA-eS-a2s" firstAttribute="top" secondItem="Xx8-bt-ZS7" secondAttribute="top" id="9po-4x-PMF"/>
                     <constraint firstItem="sYx-sB-xJK" firstAttribute="bottom" secondItem="MjO-am-EwS" secondAttribute="bottom" id="A8i-hM-atV"/>
                     <constraint firstItem="x2d-ln-3zm" firstAttribute="leading" secondItem="sYx-sB-xJK" secondAttribute="trailing" constant="10" id="AWV-gD-VwN"/>
                     <constraint firstAttribute="trailing" secondItem="82X-ZI-9Yi" secondAttribute="trailing" constant="23" id="DVr-Hc-DIy"/>
@@ -128,11 +129,12 @@
                     <constraint firstItem="4zj-Zu-HL9" firstAttribute="centerY" secondItem="0DP-3b-3VG" secondAttribute="centerY" id="Ly9-aq-mYV"/>
                     <constraint firstItem="x2d-ln-3zm" firstAttribute="bottom" secondItem="sYx-sB-xJK" secondAttribute="bottom" id="PGa-Gw-foh"/>
                     <constraint firstItem="vFi-oJ-qFu" firstAttribute="top" secondItem="0DP-3b-3VG" secondAttribute="bottom" constant="-11" id="PVH-co-Y6h"/>
-                    <constraint firstItem="qVL-aw-WuK" firstAttribute="top" secondItem="MjO-am-EwS" secondAttribute="bottom" constant="18" id="PqO-bt-SOn"/>
+                    <constraint firstItem="qVL-aw-WuK" firstAttribute="top" secondItem="MjO-am-EwS" secondAttribute="bottom" priority="750" constant="18" id="PqO-bt-SOn"/>
                     <constraint firstItem="nyz-I1-akw" firstAttribute="centerY" secondItem="Xx8-bt-ZS7" secondAttribute="centerY" id="S1h-l1-tzd"/>
                     <constraint firstItem="MjO-am-EwS" firstAttribute="top" secondItem="82X-ZI-9Yi" secondAttribute="bottom" constant="10" id="TpS-Ip-Wht"/>
                     <constraint firstItem="kcY-EN-U3T" firstAttribute="leading" secondItem="qVL-aw-WuK" secondAttribute="trailing" constant="5" id="Ve0-B7-pOH"/>
                     <constraint firstItem="kcY-EN-U3T" firstAttribute="centerY" secondItem="qVL-aw-WuK" secondAttribute="centerY" id="bhY-Bi-ZBR"/>
+                    <constraint firstItem="ObA-eS-a2s" firstAttribute="trailing" secondItem="4zj-Zu-HL9" secondAttribute="trailing" id="cRQ-bd-3Qi"/>
                     <constraint firstItem="vFi-oJ-qFu" firstAttribute="top" secondItem="0DP-3b-3VG" secondAttribute="bottom" constant="-11" id="eHO-Dw-Lnk"/>
                     <constraint firstItem="82X-ZI-9Yi" firstAttribute="top" secondItem="idH-tn-kz5" secondAttribute="bottom" constant="22" id="ec5-Dd-3ux"/>
                     <constraint firstItem="sYx-sB-xJK" firstAttribute="top" secondItem="MjO-am-EwS" secondAttribute="top" id="fO3-sy-gfM"/>
@@ -143,7 +145,6 @@
                     <constraint firstItem="nyz-I1-akw" firstAttribute="leading" secondItem="Xx8-bt-ZS7" secondAttribute="trailing" constant="5" id="m5h-pH-Ons"/>
                     <constraint firstItem="Xx8-bt-ZS7" firstAttribute="leading" secondItem="kcY-EN-U3T" secondAttribute="trailing" constant="25" id="nF1-Lu-fA5"/>
                     <constraint firstItem="qVL-aw-WuK" firstAttribute="leading" secondItem="MjO-am-EwS" secondAttribute="leading" id="ppw-as-J7a"/>
-                    <constraint firstAttribute="trailing" secondItem="ObA-eS-a2s" secondAttribute="trailing" constant="15" id="vvZ-Mr-Mb6"/>
                     <constraint firstItem="82X-ZI-9Yi" firstAttribute="leading" secondItem="idH-tn-kz5" secondAttribute="leading" id="wuT-Mq-2YD"/>
                     <constraint firstItem="x2d-ln-3zm" firstAttribute="top" secondItem="sYx-sB-xJK" secondAttribute="top" id="xwI-ml-nTe"/>
                     <constraint firstItem="MjO-am-EwS" firstAttribute="leading" secondItem="82X-ZI-9Yi" secondAttribute="leading" id="yth-ME-iWn"/>
@@ -160,9 +161,11 @@
                 <outlet property="neirongImageView" destination="MjO-am-EwS" id="3y3-Ru-vsf"/>
                 <outlet property="neirongLable" destination="82X-ZI-9Yi" id="987-3b-cPI"/>
                 <outlet property="nickName" destination="idH-tn-kz5" id="dRC-PT-rYR"/>
+                <outlet property="pictureBottom" destination="PqO-bt-SOn" id="euo-5r-KJP"/>
+                <outlet property="pictureHeight" destination="cf0-As-8f0" id="4mB-6T-BPh"/>
                 <outlet property="zanCountLable" destination="kcY-EN-U3T" id="xc3-fX-3eN"/>
             </connections>
-            <point key="canvasLocation" x="210" y="-252"/>
+            <point key="canvasLocation" x="39" y="-296"/>
         </tableViewCell>
     </objects>
     <resources>
