@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _xianshi.userInteractionEnabled = YES;
     UITapGestureRecognizer *xs = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(xianshi_one)];
     [_xianshi addGestureRecognizer:xs];
     
@@ -32,6 +32,7 @@
 }
 -(void)xianshi_one{
     _password_F.secureTextEntry = !_password_F.isSecureTextEntry;
+    NSLog(@"sss");
 }
 
 
