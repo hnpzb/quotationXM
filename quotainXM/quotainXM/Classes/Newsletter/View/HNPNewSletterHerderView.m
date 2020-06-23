@@ -33,8 +33,10 @@
         [self addSubview:imageView];
         //头部数字
         _lableData = [[UILabel alloc] init];
-        _lableData.frame = CGRectMake(20.5,19,20,10);
+        _lableData.frame = CGRectMake(19,19,20,10);
         _lableData.numberOfLines = 0;
+        _lableData.textAlignment = NSTextAlignmentCenter;
+            _lableData.font = [UIFont systemFontOfSize:10];
         [self addSubview:_lableData];
         
         NSMutableAttributedString *lableNumber = [[NSMutableAttributedString alloc] initWithString:@"27" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"PingFang SC" size: 13],NSForegroundColorAttributeName: [UIColor colorWithRed:38/255.0 green:38/255.0 blue:38/255.0 alpha:1.0]}];

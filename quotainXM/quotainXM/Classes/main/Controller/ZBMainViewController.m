@@ -90,7 +90,7 @@
     self.vc_H = vc_H;
     self.vc_W_new = vc_w_new;
     
-
+    self.baiVC.backgroundColor = [UIColor whiteColor];
     self.baiVC = [[UIView alloc] initWithFrame:CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height, vc_w_new, 44)];
 
     

@@ -140,6 +140,15 @@
             self.successiveDayLabel.text = @"0";
         }
     });
+    //轻扫返回上个界面手势
+       UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
+       [self.view addGestureRecognizer:swipe];
+    
+}
+
+-(void)swipeView{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:self];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)breakDeatail:(UIButton *)btn{
@@ -240,17 +249,7 @@
     return timeStr;
 }
 
-+(NSString *)curYearMD{
-    
-    
-    //获取当前时间日期
-          NSDate *date=[NSDate date];
-          NSDateFormatter *format1=[[NSDateFormatter alloc] init];
-          [format1 setDateFormat:@"yyyy-MM-dd"];
-          NSString *dateStr;
-          dateStr=[format1 stringFromDate:date];
-          return dateStr;
-}
+
 
 -(void)ZBbeginSignIn{
     
@@ -266,11 +265,45 @@
             [MBProgressHUD showMessage:@"签到成功..."];
             
             //延时执行代码
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                  [MBProgressHUD hideHUD];
                 self.signInBtn.enabled = NO;
                 [self RefreshSignIn];
-                self.selectTime = [ZBSignInViewController curYearMD];
+                
+                self.totalDayLabel.text = [NSString stringWithFormat:@"%ld",self.dataArray.count];
+                for (int i =0; i<self.dataArray.count; i++) {
+                    ZBSignInModel *temp = self.dataArray[i];
+                    if ([[self timetampTostring:temp.time.integerValue] isEqualToString:[ZBSignInViewController curYearMD]]) {
+                        self.successiveDayLabel.text = [NSString stringWithFormat:@"%@",temp.continueTimes];
+                        switch (temp.continueTimes.intValue) {
+                            case 0:
+                                break;
+                            case 1:
+                                self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                                break;
+                            case 2:
+                                self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                                self.signImageV_2.image = [UIImage imageNamed:@"第2天"];
+                                break;
+                            case 3:
+                                self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                                self.signImageV_2.image = [UIImage imageNamed:@"第2天"];
+                                self.signImageV_3.image = [UIImage imageNamed:@"第三天"];
+                                break;
+                            default:
+                                self.signImageV_1.image = [UIImage imageNamed:@"第2天"];
+                                self.signImageV_2.image = [UIImage imageNamed:@"第2天"];
+                                self.signImageV_3.image = [UIImage imageNamed:@"第三天"];
+                                break;
+                        }
+                            break;
+                    }
+                    self.successiveDayLabel.text = @"0";
+                    self.signImageV_1.image = [UIImage imageNamed:@"未签到"];
+                    self.signImageV_2.image = [UIImage imageNamed:@"未签到"];
+                    self.signImageV_3.image = [UIImage imageNamed:@"未签到"];
+                        }
+                
                 });
         }else{
             [MBProgressHUD hideHUD];
@@ -283,7 +316,17 @@
         
     
 }
-
++(NSString *)curYearMD{
+    
+    
+    //获取当前时间日期
+          NSDate *date=[NSDate date];
+          NSDateFormatter *format1=[[NSDateFormatter alloc] init];
+          [format1 setDateFormat:@"yyyy-MM-dd"];
+          NSString *dateStr;
+          dateStr=[format1 stringFromDate:date];
+          return dateStr;
+}
 
 #pragma mark - 判断是否登录
 /**判断是否登录*/

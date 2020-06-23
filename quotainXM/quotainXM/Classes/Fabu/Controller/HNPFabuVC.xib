@@ -62,7 +62,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZG-mF-HYk">
-                    <rect key="frame" x="15" y="317" width="68.5" height="68.5"/>
+                    <rect key="frame" x="30" y="232.5" width="68.5" height="68.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="68.5" id="bF4-Uc-P14"/>
                         <constraint firstAttribute="height" constant="68.5" id="qqU-wD-OOs"/>
@@ -70,7 +70,7 @@
                     <state key="normal" image="add pictures"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzS-T0-1jU">
-                    <rect key="frame" x="93.5" y="317" width="68.5" height="68.5"/>
+                    <rect key="frame" x="108.5" y="232.5" width="68.5" height="68.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="68.5" id="X7s-Sf-0RS"/>
                         <constraint firstAttribute="height" constant="68.5" id="cA0-uB-EGm"/>
@@ -80,8 +80,15 @@
                         <action selector="pickPhotoBtn:" destination="-1" eventType="touchUpInside" id="rBD-TE-AQ5"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greyNil" translatesAutoresizingMaskIntoConstraints="NO" id="FmH-Yl-zUB">
+                    <rect key="frame" x="187" y="232.5" width="68.5" height="68.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="68.5" id="64a-t5-xIk"/>
+                        <constraint firstAttribute="width" constant="68.5" id="uxl-db-Ift"/>
+                    </constraints>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wO-52-Zf2">
-                    <rect key="frame" x="15" y="395.5" width="60" height="40"/>
+                    <rect key="frame" x="188.5" y="331" width="60" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="goD-Uf-NoX"/>
                         <constraint firstAttribute="height" constant="40" id="mSp-fR-FeH"/>
@@ -93,40 +100,34 @@
                         <action selector="fabuClick:" destination="-1" eventType="touchUpInside" id="vMD-mv-tbz"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmH-Yl-zUB">
-                    <rect key="frame" x="172" y="317" width="68.5" height="68.5"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="68.5" id="64a-t5-xIk"/>
-                        <constraint firstAttribute="width" constant="68.5" id="uxl-db-Ift"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="9wO-52-Zf2" firstAttribute="top" secondItem="ZZG-mF-HYk" secondAttribute="bottom" constant="10" id="455-qq-DNd"/>
+                <constraint firstItem="9wO-52-Zf2" firstAttribute="top" secondItem="ZZG-mF-HYk" secondAttribute="bottom" constant="30" id="455-qq-DNd"/>
                 <constraint firstItem="pr1-Ka-ce9" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="5qI-Gj-lW8"/>
-                <constraint firstItem="9wO-52-Zf2" firstAttribute="leading" secondItem="ZZG-mF-HYk" secondAttribute="leading" id="6ap-eK-WjB"/>
                 <constraint firstItem="pr1-Ka-ce9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="8yM-r3-hTs"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="pr1-Ka-ce9" secondAttribute="trailing" id="VaI-dE-jF5"/>
                 <constraint firstItem="FmH-Yl-zUB" firstAttribute="bottom" secondItem="pzS-T0-1jU" secondAttribute="bottom" id="WDQ-Mq-Zwi"/>
                 <constraint firstItem="pzS-T0-1jU" firstAttribute="top" secondItem="ZZG-mF-HYk" secondAttribute="top" id="WQp-1q-hPY"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ZT8-kI-Ul7" secondAttribute="trailing" constant="15" id="Xk5-wJ-DoO"/>
                 <constraint firstItem="ZT8-kI-Ul7" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="YP4-oI-E6K"/>
+                <constraint firstItem="9wO-52-Zf2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZFp-6d-bD9"/>
                 <constraint firstItem="pzS-T0-1jU" firstAttribute="leading" secondItem="ZZG-mF-HYk" secondAttribute="trailing" constant="10" id="aCR-FJ-2fH"/>
-                <constraint firstItem="ZZG-mF-HYk" firstAttribute="top" secondItem="ZT8-kI-Ul7" secondAttribute="bottom" constant="9.5" id="gOp-uY-4HJ"/>
+                <constraint firstItem="ZZG-mF-HYk" firstAttribute="top" secondItem="ZT8-kI-Ul7" secondAttribute="bottom" constant="-75" id="gOp-uY-4HJ"/>
                 <constraint firstItem="ZT8-kI-Ul7" firstAttribute="top" secondItem="pr1-Ka-ce9" secondAttribute="bottom" constant="10.5" id="hTi-6f-egU"/>
                 <constraint firstItem="FmH-Yl-zUB" firstAttribute="leading" secondItem="pzS-T0-1jU" secondAttribute="trailing" constant="10" id="jDW-BY-L2g"/>
-                <constraint firstItem="ZZG-mF-HYk" firstAttribute="leading" secondItem="ZT8-kI-Ul7" secondAttribute="leading" id="sBS-od-FeT"/>
+                <constraint firstItem="ZZG-mF-HYk" firstAttribute="leading" secondItem="ZT8-kI-Ul7" secondAttribute="leading" constant="15" id="sBS-od-FeT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="53" y="-244"/>
+            <point key="canvasLocation" x="52.898550724637687" y="-244.41964285714283"/>
         </view>
     </objects>
     <resources>
         <image name="add pictures" width="68.5" height="68.5"/>
+        <image name="greyNil" width="173" height="88"/>
         <image name="icon_back" width="10.5" height="18"/>
-        <image name="pic_bg" width="335" height="163.5"/>
+        <image name="pic_bg" width="375" height="265"/>
         <image name="upload image" width="68.5" height="68.5"/>
     </resources>
 </document>

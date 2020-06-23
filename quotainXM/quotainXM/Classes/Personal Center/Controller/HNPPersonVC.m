@@ -52,7 +52,7 @@
        _followCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.followCount];
        _fansCountLabel.text = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.fansCount];
        
-       _userID = [NSString stringWithFormat:@"%@",self.model.userId];
+    _userID = [NSString stringWithFormat:@"%@",self.mineUserInfoModel.userId];
 }
 
 - (void)viewDidLoad {
@@ -107,8 +107,10 @@
 
 - (IBAction)dynamicClick:(UIButton *)sender
 {
-    HNPFabuVC *fabuVc = [[HNPFabuVC alloc]init];
-    [self.navigationController pushViewController:fabuVc animated:YES];
+
+    HNPFabuVC *fabuVC = [[HNPFabuVC alloc] init];
+    [self.navigationController pushViewController:fabuVC animated:YES];
+
 }
 
 -(void)zhuxiao{

@@ -34,17 +34,23 @@
     
     UITabBarController *tabVC = [[UITabBarController alloc] init];
     self.window.rootViewController = tabVC;
+    [[UITabBarItem appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
+
     
     
     ZBMainViewController *mainVC = [[ZBMainViewController alloc] init];
     mainVC.tabBarItem.title = @"首页";
     mainVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_home_icon_normal"];
+    mainVC.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_home_icon_selected"];
     [tabVC addChildViewController:mainVC];
+
+
     
     
      ZBDiscoverMainVC *findVC = [[ZBDiscoverMainVC alloc] init];
        findVC.tabBarItem.title = @"发现";
        findVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_find_icon_normal"];
+    findVC.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_find_icon_selected"];
         [tabVC addChildViewController:findVC];
     
     [self determineWhetherToLogin];
@@ -56,6 +62,7 @@
     mineNavVC.navigationBar.hidden = YES;
     mineNavVC.tabBarItem.title = @"我的";
     mineNavVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_mine_icon_normal"];
+    mineNavVC.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_mine_icon_selected"];
     [tabVC addChildViewController:mineNavVC];
     
     

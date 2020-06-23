@@ -8,6 +8,7 @@
 
 #import "HNPFabuVC.h"
 #import "SelectPhotoManager.h"
+#import "quotianXM-Swift.h"
 
 @interface HNPFabuVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,selectPhotoDelegate>
 
@@ -39,6 +40,7 @@
     UISwipeGestureRecognizer *deleteImageView = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeDeleteView)];
     [self.addImageView addGestureRecognizer:deleteImageView];
 //    [HNPFabuVC getNowTimestamp];
+    
 }
 
 //返回上一界面
@@ -56,7 +58,7 @@
 
 //轻扫删除图片
 -(void)swipeDeleteView{
-    self.addImageView.image = [UIImage imageNamed:@""];
+    self.addImageView.image = [UIImage imageNamed:@"greyNil"];
 }
 
 //打开相册
@@ -72,8 +74,6 @@
     UIImage *pickImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     _addImageView.image = pickImage;
 }
-
-
 
 
 //打开相机
@@ -145,27 +145,29 @@
            __weak typeof (self)mySelf = self;
            _photoManger.successHandle = ^(SelectPhotoManager *manager, UIImage *image) {
                mySelf.addImageView.image = image;
+              
            };
 }
 
 - (IBAction)fabuClick:(id)sender {
-    [self ZBbeginFabu];
-//    [self uoLoadPicture];
+//    [self ZBbeginFabu];
+   
+    [self uoLoadPicture];
+    
+    
+    
 }
 
 -(void)ZBbeginFabu{
     
 //    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
     
-    
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
     [par setObject:self.userID forKey:@"userId"];
     [par setObject:@"false" forKey:@"displayBig"];
-//    [par setObject:@"true" forKey:@"enable"];
-//    [par setObject:[NSString stringWithFormat:@"%ld",curTimeTap] forKey:@"publishTime"];
     [par setObject:_text_FV.text forKey:@"content"];
     [par setObject:@"" forKey:@"video"];
-    [par setObject:@"" forKey:@"picture"];
+    [par setObject:self.saveUrl forKey:@"picture"];
     
     
     
@@ -186,7 +188,7 @@
                 });
         }else{
             [MBProgressHUD hideHUD];
-            [MBProgressHUD showError:@"发布失败"];
+            [MBProgressHUD showError:@"发布失败，重新输入"];
         }
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -244,14 +246,33 @@
     NSDictionary *dict = @{
         @"file" : self.addImageView.image
     };
+    [NetworkTool.shared postReturnString:@"http://image.yysc.online/upload" fileName:@"iconImage" image:self.addImageView.image viewcontroller:nil params:dict success:^(id _Nonnull response) {
+        [MBProgressHUD showMessage:@"上传图片成功"];
+        self.saveUrl = response;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+            [self ZBbeginFabu];
+        });
+//        NSLog(@"%@",self.saveUrl);
+    } failture:^(NSError * _Nonnull error) {
+        [MBProgressHUD showError:@"上传图片失败"];
+    }];
+    
+    
+    
+    /*
     NSData *imageData = UIImageJPEGRepresentation(self.addImageView.image, .1);
 //    UIImagePNGRepresentation(self.addImageView.image);
 //    self.addImageView.image
     AFHTTPSessionManager *manager =  [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     AFHTTPResponseSerializer *responseSer = [AFHTTPResponseSerializer serializer];
-      responseSer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+      responseSer.acceptableContentTypes = [NSSet setWithObjects:@"text/json", @"text/javascript",@"text/plain", nil];
       manager.responseSerializer = responseSer;
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [manager.requestSerializer setValue:@"charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+
     [manager POST:@"http://image.yysc.online/upload" parameters:dict headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
 //        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
@@ -270,6 +291,7 @@
            //请求失败
            DLog(@"请求失败：%@",error);
        }];
+     */
     
     
 }

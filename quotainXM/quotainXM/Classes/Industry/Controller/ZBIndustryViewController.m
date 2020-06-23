@@ -25,7 +25,16 @@ static NSString *ID = @"industry";
     [self.view addSubview:_tabView];
 //    tabView.frame = self.view.bounds;
     CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height - 44 - [[UIApplication sharedApplication] statusBarFrame].size.height - 49);
-    _tabView.frame = temp;
+    if (@available(iOS 13.0, *)) {
+
+        _tabView.frame = temp;
+
+    } else {
+        _tabView.frame = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - 275);
+         self.tabView.contentInset  = UIEdgeInsetsMake(-30,0, 0, 0);
+    }
+    
+//    _tabView.frame = temp;
     _tabView.dataSource =self ;
     _tabView.delegate = self ;
     _tabView.estimatedRowHeight = 44;
@@ -94,6 +103,10 @@ static NSString *ID = @"industry";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 @end
