@@ -109,6 +109,9 @@ static  NSString  *ID = @"calendar";
     return 112;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 -(void)setArrayDataWithTime:(NSString *)time{
     NSString *path = [NSString stringWithFormat:@"http://api.yysc.online/admin/getFinanceCalender?pageNum&pageSize&date=%@",time];

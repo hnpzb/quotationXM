@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *PLNickName;
 @property (weak, nonatomic) IBOutlet UILabel *PLPublisTime;
 @property (weak, nonatomic) IBOutlet UILabel *PLNeirong;
+@property (weak, nonatomic) IBOutlet UIButton *PLDianzanBtn;
 
 
 @end
@@ -75,6 +76,16 @@
     [dateFormat setDateFormat:@"HH:mm"];
     NSString *string = [dateFormat stringFromDate:conformTimesp];
     return string;
+}
+
+//点赞按钮
+- (IBAction)commentDianzanBtn:(UIButton *)sender {
+    self.PLDianzanBtn.selected = !self.PLDianzanBtn.selected;
+    if (self.PLDianzanBtn.selected) {
+        [self.PLDianzanBtn setBackgroundImage:[UIImage imageNamed:@"icon_dianzan"] forState:UIControlStateNormal];
+    }else{
+        [self.PLDianzanBtn setBackgroundImage:[UIImage imageNamed:@"icon_dianzan-1"] forState:UIControlStateNormal];
+    }
 }
 
 

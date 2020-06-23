@@ -46,65 +46,67 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手打奥所大所大按时大大是的" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0o9-6U-Sog">
-                        <rect key="frame" x="57" y="53" width="471" height="208"/>
+                        <rect key="frame" x="57" y="53" width="424.5" height="238"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58q-Ba-wGV">
-                        <rect key="frame" x="408" y="271" width="50" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="60J-KS-iEi"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="oWz-Ii-k3L"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <state key="normal" title="回复" image="comment_Commentator">
-                            <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceN-4b-qpD">
-                        <rect key="frame" x="478" y="271" width="50" height="20"/>
+                        <rect key="frame" x="522" y="53" width="11" height="10.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="AFr-05-ySO"/>
-                            <constraint firstAttribute="height" constant="20" id="y9X-Pn-G6C"/>
+                            <constraint firstAttribute="width" constant="11" id="9jY-IA-hpE"/>
+                            <constraint firstAttribute="height" constant="10.5" id="kAn-3y-tWC"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <state key="normal" title="点赞" image="like_Commentator">
+                        <state key="normal" backgroundImage="icon_dianzan-1">
                             <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="commentDianzanBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="v2o-AB-D9x"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58q-Ba-wGV">
+                        <rect key="frame" x="491.5" y="53" width="11" height="10.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="11" id="hbQ-Wv-9HJ"/>
+                            <constraint firstAttribute="height" constant="10.5" id="ynl-Ec-Act"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <state key="normal" image="comment_Commentator">
+                            <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ceN-4b-qpD" firstAttribute="leading" secondItem="58q-Ba-wGV" secondAttribute="trailing" constant="20" id="1KU-EJ-TjJ"/>
+                    <constraint firstItem="ceN-4b-qpD" firstAttribute="top" secondItem="0o9-6U-Sog" secondAttribute="top" id="0Dx-Ff-aGZ"/>
+                    <constraint firstAttribute="trailing" secondItem="ceN-4b-qpD" secondAttribute="trailing" constant="15" id="2Wx-Ce-ifM"/>
                     <constraint firstItem="0o9-6U-Sog" firstAttribute="top" secondItem="hzm-7s-bOi" secondAttribute="bottom" constant="10" id="LSO-p7-bdv"/>
                     <constraint firstItem="q55-ya-tlM" firstAttribute="top" secondItem="Uqg-oF-jbY" secondAttribute="top" id="Lq0-MO-2M9"/>
-                    <constraint firstAttribute="bottom" secondItem="58q-Ba-wGV" secondAttribute="bottom" constant="10" id="NqQ-cb-xkw"/>
-                    <constraint firstItem="ceN-4b-qpD" firstAttribute="bottom" secondItem="58q-Ba-wGV" secondAttribute="bottom" id="TMk-Vg-yzi"/>
                     <constraint firstItem="hzm-7s-bOi" firstAttribute="top" secondItem="q55-ya-tlM" secondAttribute="bottom" constant="9.5" id="Uur-rz-6uY"/>
                     <constraint firstItem="Uqg-oF-jbY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ZR4-Jb-w37"/>
                     <constraint firstItem="q55-ya-tlM" firstAttribute="leading" secondItem="Uqg-oF-jbY" secondAttribute="trailing" constant="10.5" id="egU-u2-5tj"/>
                     <constraint firstItem="hzm-7s-bOi" firstAttribute="leading" secondItem="q55-ya-tlM" secondAttribute="leading" id="glW-he-6gZ"/>
-                    <constraint firstAttribute="trailing" secondItem="ceN-4b-qpD" secondAttribute="trailing" constant="20" id="keW-j1-MiF"/>
-                    <constraint firstItem="ceN-4b-qpD" firstAttribute="leading" secondItem="58q-Ba-wGV" secondAttribute="trailing" constant="20" id="muq-5a-w04"/>
+                    <constraint firstAttribute="bottom" secondItem="0o9-6U-Sog" secondAttribute="bottom" constant="10" id="hoo-cA-CFh"/>
                     <constraint firstItem="0o9-6U-Sog" firstAttribute="leading" secondItem="hzm-7s-bOi" secondAttribute="leading" id="oxg-yz-Haz"/>
-                    <constraint firstItem="58q-Ba-wGV" firstAttribute="top" secondItem="0o9-6U-Sog" secondAttribute="bottom" constant="10" id="plh-2W-PrN"/>
                     <constraint firstItem="Uqg-oF-jbY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19.5" id="pn5-xh-rt1"/>
-                    <constraint firstAttribute="trailing" secondItem="0o9-6U-Sog" secondAttribute="trailing" constant="20" id="tSW-Ye-zhd"/>
-                    <constraint firstItem="ceN-4b-qpD" firstAttribute="top" secondItem="58q-Ba-wGV" secondAttribute="top" id="x6L-Bg-kG1"/>
+                    <constraint firstItem="58q-Ba-wGV" firstAttribute="leading" secondItem="0o9-6U-Sog" secondAttribute="trailing" constant="10" id="rd5-Vg-OJh"/>
+                    <constraint firstItem="ceN-4b-qpD" firstAttribute="leading" secondItem="58q-Ba-wGV" secondAttribute="trailing" constant="19.5" id="rdX-uQ-53g"/>
+                    <constraint firstItem="58q-Ba-wGV" firstAttribute="top" secondItem="ceN-4b-qpD" secondAttribute="top" id="tR2-dP-ib0"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="PLDianzanBtn" destination="ceN-4b-qpD" id="tP0-9m-Gwm"/>
                 <outlet property="PLHead" destination="Uqg-oF-jbY" id="b24-Rg-mWv"/>
                 <outlet property="PLNeirong" destination="0o9-6U-Sog" id="FGV-xG-azc"/>
                 <outlet property="PLNickName" destination="q55-ya-tlM" id="1VC-N2-Br5"/>
                 <outlet property="PLPublisTime" destination="hzm-7s-bOi" id="kz5-je-svg"/>
             </connections>
-            <point key="canvasLocation" x="-310" y="-510"/>
+            <point key="canvasLocation" x="-1581" y="-632"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="comment_Commentator" width="11" height="10.5"/>
-        <image name="like_Commentator" width="11" height="10.5"/>
+        <image name="icon_dianzan-1" width="14" height="13.5"/>
     </resources>
 </document>

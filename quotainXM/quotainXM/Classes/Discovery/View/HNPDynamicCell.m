@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLable;
 @property (weak, nonatomic) IBOutlet UILabel *fabuTimeLable;
 
+@property (weak, nonatomic) IBOutlet UIButton *dianzanBtn;
+
 
 
 
@@ -45,9 +47,9 @@
     self.neirongImageView.layer.masksToBounds = YES;
 
     self.DynamicImageView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchImageView)];
-    [self.DynamicImageView addGestureRecognizer:tapGes];
-    
+    UITapGestureRecognizer *touchHead = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchImageView)];
+    [self.DynamicImageView addGestureRecognizer:touchHead];
+
 
     
 
@@ -143,6 +145,17 @@
     return timeStr;
 }
 
+//点赞数量加1减1
+- (IBAction)dianzanBtn:(UIButton *)sender {
+    self.dianzanBtn.selected = !self.dianzanBtn.selected;
+            if (self.dianzanBtn.selected) {
+                [self.dianzanBtn setBackgroundImage:[UIImage imageNamed:@"icon_dianzan"] forState:UIControlStateNormal];
+                self.zanCountLable.text = [NSString stringWithFormat:@"%ld",self.zanCountLable.text.integerValue + 1];
+            }else{
+                [self.dianzanBtn setBackgroundImage:[UIImage imageNamed:@"icon_dianzan-1"] forState:UIControlStateNormal];
+                self.zanCountLable.text = [NSString stringWithFormat:@"%ld",self.zanCountLable.text.integerValue - 1];
+            }
+}
 
 
 @end

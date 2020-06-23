@@ -56,7 +56,7 @@
 
 //轻扫删除图片
 -(void)swipeDeleteView{
-    _addImageView.hidden = YES;
+    self.addImageView.image = [UIImage imageNamed:@""];
 }
 
 //打开相册
@@ -73,12 +73,7 @@
     _addImageView.image = pickImage;
 }
 
-//获取选择的图片
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-        [picker dismissViewControllerAnimated:YES completion:nil];
-        UIImage *pickImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-        _addImageView.image = pickImage;
-}
+
 
 
 //打开相机
@@ -160,7 +155,8 @@
 
 -(void)ZBbeginFabu{
     
-    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
+//    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
+    
     
     NSMutableDictionary *par = [[NSMutableDictionary alloc]init];
     [par setObject:self.userID forKey:@"userId"];

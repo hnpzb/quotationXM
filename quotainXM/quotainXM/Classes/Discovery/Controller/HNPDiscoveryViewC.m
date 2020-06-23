@@ -157,7 +157,6 @@ static NSString *IDTwo = @"DynamicCellID";
     userCenterVC.UserCenterModle = DynamicCell.DTModel;
     userCenterVC.UserDynamicM = DynamicCell.DTModel;
     [self.navigationController pushViewController:userCenterVC animated:YES];
-    
 }
 
 #pragma mark - 判断是否登录

@@ -93,7 +93,7 @@
                         <action selector="fabuClick:" destination="-1" eventType="touchUpInside" id="vMD-mv-tbz"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_bg_3" translatesAutoresizingMaskIntoConstraints="NO" id="FmH-Yl-zUB">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmH-Yl-zUB">
                     <rect key="frame" x="172" y="317" width="68.5" height="68.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="68.5" id="64a-t5-xIk"/>
@@ -127,7 +127,6 @@
         <image name="add pictures" width="68.5" height="68.5"/>
         <image name="icon_back" width="10.5" height="18"/>
         <image name="pic_bg" width="335" height="163.5"/>
-        <image name="pic_bg_3" width="88" height="54"/>
         <image name="upload image" width="68.5" height="68.5"/>
     </resources>
 </document>

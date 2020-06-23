@@ -92,5 +92,8 @@ static NSString *ID = @"industry";
     cell.industryModel = _dataArray[indexPath.row];
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 @end

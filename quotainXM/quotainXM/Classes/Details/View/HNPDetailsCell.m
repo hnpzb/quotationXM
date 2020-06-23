@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *DetailsFollowBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *DetailsZanImageView;
 @property (weak, nonatomic) IBOutlet UILabel *DetailsZanPeopleLable;
+@property (weak, nonatomic) IBOutlet UIButton *guanzhuBtn;
 
 @end
 
@@ -63,9 +64,11 @@
     _XQModle = XQModle;
     
     if ([XQModle.forwardCount isEqualToString:@"1"]) {
-        self.DetailsFollowBtn.enabled = NO;
+        [self.guanzhuBtn setBackgroundImage:[UIImage imageNamed:@"pic_bg_2"] forState:UIControlStateNormal];
+        [self.guanzhuBtn setTitle:@"-关注" forState:UIControlStateNormal];
     }else{
-        self.DetailsFollowBtn.enabled = YES;
+        [self.guanzhuBtn setBackgroundImage:[UIImage imageNamed:@"pic_bg"] forState:UIControlStateNormal];
+        [self.guanzhuBtn setTitle:@"+关注" forState:UIControlStateNormal];
     }
 
     [self.DetailsHeadImageView sd_setImageWithURL:[NSURL URLWithString:XQModle.user.head] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
@@ -76,9 +79,31 @@
     self.DetailsZanCountLable.text = [NSString stringWithFormat:@"%@ 赞",XQModle.zanCount];
     self.DetailsCommentCountLable.text = [NSString stringWithFormat:@"%@ 评论",XQModle.commentCount];
     self.DetailsBrowserCountLable.text = [NSString stringWithFormat:@"%@ 转发",XQModle.browserCount];
-    [self.DetailsZanImageView sd_setImageWithURL:[NSURL URLWithString:XQModle.picture] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
-    self.DetailsZanPeopleLable.text = [NSString stringWithFormat:@"...等%@个人觉得很赞",XQModle.zanCount];
     
+    if ([XQModle.zanCount isEqualToString:@"0"]) {
+        self.DetailsZanImageView.hidden = YES;
+            }else{
+                [self.DetailsZanImageView sd_setImageWithURL:[NSURL URLWithString:XQModle.picture] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
+
+    }
+    if ([XQModle.zanCount isEqualToString:@"0"]) {
+        self.DetailsZanPeopleLable.text = [NSString stringWithFormat:@"当前暂无点赞"];
+            }else{
+                self.DetailsZanPeopleLable.text = [NSString stringWithFormat:@"...等%@个人觉得很赞",XQModle.zanCount];
+
+    }
+    
+    
+}
+- (IBAction)followBtn:(UIButton *)sender {
+    self.guanzhuBtn.selected = !self.guanzhuBtn.selected;
+    if (self.guanzhuBtn.selected) {
+        [self.guanzhuBtn setBackgroundImage:[UIImage imageNamed:@"pic_bg"] forState:UIControlStateNormal];
+        [self.guanzhuBtn setTitle:@"+关注" forState:UIControlStateNormal];
+    }else{
+        [self.guanzhuBtn setBackgroundImage:[UIImage imageNamed:@"pic_bg_2"] forState:UIControlStateNormal];
+        [self.guanzhuBtn setTitle:@"-关注" forState:UIControlStateNormal];
+    }
 }
 
 @end

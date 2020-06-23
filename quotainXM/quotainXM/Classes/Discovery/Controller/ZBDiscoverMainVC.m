@@ -127,8 +127,6 @@
 }
 
 -(void)menuClick:(UIButton *)btn{
-    //调用代理方法
-    
 
     UIView *view_cur = btn.subviews.firstObject;
     view_cur.hidden = !(view_cur.hidden);

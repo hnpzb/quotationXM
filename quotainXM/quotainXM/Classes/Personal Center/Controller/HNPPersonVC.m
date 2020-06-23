@@ -11,6 +11,7 @@
 #import "ZBSignInViewController.h"
 #import "HNPDetailsVC.h"
 #import <SDWebImage/SDWebImage.h>
+#import "HNPFabuVC.h"
 
 @interface HNPPersonVC ()<UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
@@ -106,8 +107,8 @@
 
 - (IBAction)dynamicClick:(UIButton *)sender
 {
-    HNPDetailsVC *detailsVc = [[HNPDetailsVC alloc]init];
-    [self.navigationController pushViewController:detailsVc animated:YES];
+    HNPFabuVC *fabuVc = [[HNPFabuVC alloc]init];
+    [self.navigationController pushViewController:fabuVc animated:YES];
 }
 
 -(void)zhuxiao{

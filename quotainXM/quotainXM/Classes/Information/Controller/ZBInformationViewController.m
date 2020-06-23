@@ -140,7 +140,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 -(void)reLoadHotnews{
