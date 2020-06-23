@@ -47,6 +47,9 @@
     self.DetailsNeirongImageView.layer.cornerRadius = 7.5;
     self.DetailsNeirongImageView.layer.masksToBounds = YES;
     
+    self.DetailsZanImageView.layer.cornerRadius = 12.5;
+    self.DetailsZanImageView.layer.masksToBounds = YES;
+    
     
 }
 

@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *fabuTimeLable;
 
 @property (weak, nonatomic) IBOutlet UIButton *dianzanBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pictureHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pictureBottom;
 
 
 
@@ -107,9 +109,19 @@
 -(void)setUserDynamicModle:(ListModel *)UserDynamicModle{
     
     _UserDynamicModle = UserDynamicModle;
+    
+    if (UserDynamicModle.talkId.picture != NULL) {
+        self.neirongImageView.hidden = NO;
+        [self.neirongImageView sd_setImageWithURL:[NSURL URLWithString:UserDynamicModle.talkId.picture] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
+        self.pictureHeight.constant = 89;
+        self.pictureBottom.constant = 18;
+    }else{
+        self.neirongImageView.hidden = YES;
+        self.pictureHeight.constant = 0;
+        self.pictureBottom.constant = 0;
+    }
     self.neirongLable.text = UserDynamicModle.content;
     self.commentCountLable.text = UserDynamicModle.user.followCount.stringValue;
-    [self.neirongImageView sd_setImageWithURL:[NSURL URLWithString:UserDynamicModle.user.head] placeholderImage:[UIImage imageNamed:@"EA7568E2877C9A3C061BD24261B3D4BB"]];
     self.zanCountLable.text = UserDynamicModle.user.fansCount.stringValue;
     self.fabuTimeLable.text = [HNPDynamicCell timetampTostring:UserDynamicModle.publishTime.integerValue];
     self.neirongLable.numberOfLines = 0;
