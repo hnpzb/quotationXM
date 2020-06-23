@@ -99,7 +99,7 @@
       UIButton *sosuo = [[UIButton alloc] init];
 
     [self.baiVC addSubview:sosuo];
-    sosuo.frame = CGRectMake(vc_w_new * 0.2 * 4.0 + 40, 10 ,15, 15);
+    sosuo.frame = CGRectMake(vc_w_new * 0.2 * 4.0, 10 ,15, 15);
     [sosuo setBackgroundImage:[UIImage imageNamed:@"icon_souso "] forState:UIControlStateNormal];
     
     [view addSubview:self.baiVC];

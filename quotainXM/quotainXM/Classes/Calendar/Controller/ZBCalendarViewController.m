@@ -49,6 +49,17 @@ static  NSString  *ID = @"calendar";
     CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height +44, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height-[UIApplication sharedApplication].statusBarFrame.size.height - 44 - 49);
     //    temp.origin = CGPointMake(0,[UIApplication sharedApplication].statusBarFrame.size.height +44);
     _tableView.frame = temp;
+    
+    if (@available(iOS 13.0, *)) {
+
+        _tableView.frame = temp;
+
+    } else {
+        _tableView.frame = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - 275);
+    }
+    
+    
+    
     [self.view addSubview:_tableView];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -74,7 +85,9 @@ static  NSString  *ID = @"calendar";
                [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
                
            } else {
-                [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
+//               NSDate *lastDay = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:selDate];
+//               [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:lastDay]];
+               [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
            }
            
        };
@@ -147,6 +160,10 @@ static  NSString  *ID = @"calendar";
           NSString *dateStr;
           dateStr=[format1 stringFromDate:date];
           return dateStr;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 /*

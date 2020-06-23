@@ -8,7 +8,7 @@
 
 #import "HNPFabuVC.h"
 #import "SelectPhotoManager.h"
-#import "quotainXM-Bridging-Header.h"
+#import "quotianXM-Swift.h"
 
 @interface HNPFabuVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,selectPhotoDelegate>
 
@@ -40,6 +40,7 @@
     UISwipeGestureRecognizer *deleteImageView = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeDeleteView)];
     [self.addImageView addGestureRecognizer:deleteImageView];
 //    [HNPFabuVC getNowTimestamp];
+    
 }
 
 //返回上一界面
@@ -57,8 +58,9 @@
 
 //轻扫删除图片
 -(void)swipeDeleteView{
-    _addImageView.hidden = YES;
+//    _addImageView.hidden = YES;
 //    [_addImageView removeFromSuperview];
+    self.addImageView.image = [UIImage imageNamed:@"greyNil"];
 }
 
 //打开相册
@@ -73,13 +75,6 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *pickImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     _addImageView.image = pickImage;
-}
-
-//获取选择的图片
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-        [picker dismissViewControllerAnimated:YES completion:nil];
-        UIImage *pickImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-        _addImageView.image = pickImage;
 }
 
 
@@ -152,12 +147,16 @@
            __weak typeof (self)mySelf = self;
            _photoManger.successHandle = ^(SelectPhotoManager *manager, UIImage *image) {
                mySelf.addImageView.image = image;
+              
            };
 }
 
 - (IBAction)fabuClick:(id)sender {
 //    [self ZBbeginFabu];
+   
     [self uoLoadPicture];
+    
+    
     
 }
 
@@ -170,7 +169,7 @@
     [par setObject:@"false" forKey:@"displayBig"];
     [par setObject:_text_FV.text forKey:@"content"];
     [par setObject:@"" forKey:@"video"];
-    [par setObject:@"" forKey:@"picture"];
+    [par setObject:self.saveUrl forKey:@"picture"];
     
     
     
@@ -191,7 +190,7 @@
                 });
         }else{
             [MBProgressHUD hideHUD];
-            [MBProgressHUD showError:@"发布失败"];
+            [MBProgressHUD showError:@"发布失败，重新输入"];
         }
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -249,7 +248,17 @@
     NSDictionary *dict = @{
         @"file" : self.addImageView.image
     };
-    
+    [NetworkTool.shared postReturnString:@"http://image.yysc.online/upload" fileName:@"iconImage" image:self.addImageView.image viewcontroller:nil params:dict success:^(id _Nonnull response) {
+        [MBProgressHUD showMessage:@"上传图片成功"];
+        self.saveUrl = response;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+            [self ZBbeginFabu];
+        });
+//        NSLog(@"%@",self.saveUrl);
+    } failture:^(NSError * _Nonnull error) {
+        [MBProgressHUD showError:@"上传图片失败"];
+    }];
     
     
     

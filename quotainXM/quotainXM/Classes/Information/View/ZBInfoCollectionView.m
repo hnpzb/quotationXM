@@ -17,6 +17,7 @@
 
 @property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,strong)UICollectionView *colView;
+@property(nonatomic,strong)SDCycleScrollView *cycleScrollView;
 
 @end
 @implementation ZBInfoCollectionView
@@ -174,16 +175,23 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
                             @"banner_hangqing",
                             ];
 
-     CGFloat w = view.bounds.size.width;
-    CGFloat h = view.bounds.size.height;
+     CGFloat w = view.bounds.size.width - 20;
+    CGFloat h = view.bounds.size.height - 40;
     
+    if (@available(iOS 13.0, *)) {
+        
+        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(10,20, w, h) shouldInfiniteLoop:YES imageNamesGroup:imageNames];
+        
+    } else {
+    _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(10,0, w, h) shouldInfiniteLoop:YES imageNamesGroup:imageNames];
+    }
     
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, w, h) shouldInfiniteLoop:YES imageNamesGroup:imageNames];
-    cycleScrollView.backgroundColor = [UIColor whiteColor];
-    cycleScrollView.delegate = self;
-    cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
-    [demoContainerView addSubview:cycleScrollView];
-    cycleScrollView.autoScrollTimeInterval = 2.0;
+//    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(10,20, w, h) shouldInfiniteLoop:YES imageNamesGroup:imageNames];
+    _cycleScrollView.backgroundColor = [UIColor whiteColor];
+    _cycleScrollView.delegate = self;
+    _cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
+    [demoContainerView addSubview:_cycleScrollView];
+    _cycleScrollView.autoScrollTimeInterval = 2.0;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

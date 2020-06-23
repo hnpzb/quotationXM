@@ -46,12 +46,21 @@ static NSString *ID = @"NewSletterID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-
+ 
+    
     _tableView = [[UITableView alloc] init];
 
     CGRect temp = CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height - 44 - [[UIApplication sharedApplication] statusBarFrame].size.height - 49);
-    _tableView = [[UITableView alloc] initWithFrame:temp style:UITableViewStylePlain];
+//    _tableView = [[UITableView alloc] initWithFrame:temp style:UITableViewStylePlain];
+    
+    if (@available(iOS 13.0, *)) {
+        
+        self.tableView = [[UITableView alloc] initWithFrame:temp style:UITableViewStylePlain];
+        
+    } else {
+         self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height  - [[UIApplication sharedApplication] statusBarFrame].size.height - 235) style:UITableViewStyleGrouped];
+       self.tableView.contentInset  = UIEdgeInsetsMake(-20,0, 0, 0);
+    }
     
 
     [self.view addSubview:_tableView];
@@ -115,7 +124,7 @@ static NSString *ID = @"NewSletterID";
 }
 
 -(void)setArrayDataWithTime:(NSString *)time{
-    NSString *path = [NSString stringWithFormat:@"http://api.yysc.online/admin/getFinanceTalk?pageNum&pageSize=100&date=%@",time];
+    NSString *path = [NSString stringWithFormat:@"http://api.yysc.online/admin/getFinanceTalk?pageNum&pageSize=30&date=%@",time];
     NSURL *url = [NSURL URLWithString:path];
             NSURLSession *session = [NSURLSession sharedSession];
             [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -127,9 +136,6 @@ static NSString *ID = @"NewSletterID";
                     [temp addObject:model];
                 }
                 self.dataArray = temp;
-    //            [[NSOperationQueue mainQueue] addBarrierBlock:^{
-    //                [self.tableView reloadData];
-    //            }];
             }]resume];
         [self.tableView reloadData];
 }
@@ -181,5 +187,7 @@ static NSString *ID = @"NewSletterID";
 {
     return 44;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 @end

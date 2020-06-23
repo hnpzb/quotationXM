@@ -57,12 +57,22 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 
     [self determineWhetherToLogin];
         //设置tableView
-            CGRect tabTemp = CGRectMake(0,44 + [[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height - 44 - [[UIApplication sharedApplication] statusBarFrame].size.height - 49);
-        self.tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStylePlain];
-        self.tableView.dataSource = self;
+            CGRect tabTemp = CGRectMake(0, 44+[[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height - 44 - [[UIApplication sharedApplication] statusBarFrame].size.height - 49);
+        
+        if (@available(iOS 13.0, *)) {
+                      
+                      self.tableView = [[UITableView alloc] initWithFrame:tabTemp style:UITableViewStylePlain];
+                      
+                  } else {
+                       self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+[[UIApplication sharedApplication] statusBarFrame].size.height,[[UIApplication sharedApplication] statusBarFrame].size.width,self.view.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - 235) style:UITableViewStyleGrouped];
+                     self.tableView.contentInset  = UIEdgeInsetsMake(-75,0, 0, 0);
+                  }
+    
+    self.tableView.dataSource = self;
         self.tableView.delegate = self;
         [self.view addSubview:self.tableView];
-           
+    
+    
         //设置上半部分的view
         ZBInfoCollectionView *view = [[ZBInfoCollectionView alloc] initWithW:self.tableView.frame.size.width];
         view.backgroundColor = [UIColor whiteColor];
@@ -71,7 +81,8 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
             
         [self.tableView registerNib:[UINib nibWithNibName:@"ZBTopTableViewCell" bundle:nil] forCellReuseIdentifier:top_ID];
         [self.tableView registerNib:[UINib nibWithNibName:@"ZBBottomTableViewCell" bundle:nil] forCellReuseIdentifier:bot_ID];
-        
+    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(informationSignIn) name:@"informationSignIn" object:nil];
         
 
@@ -135,12 +146,12 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 150;
+    return 120;
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //
+     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 -(void)reLoadHotnews{
