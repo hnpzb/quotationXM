@@ -241,6 +241,9 @@
      NSDateFormatter *matter = [[NSDateFormatter alloc]init];
 //    matter.dateFormat =@"YYYY-MM-dd HH:mm";
     matter.dateFormat =@"YYYY-MM-dd";
+    //解决时区问题
+    matter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[getTime intValue]];
 
       NSString *timeStr = [matter stringFromDate:date];

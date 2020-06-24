@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *DetailsZanImageView;
 @property (weak, nonatomic) IBOutlet UILabel *DetailsZanPeopleLable;
 @property (weak, nonatomic) IBOutlet UIButton *guanzhuBtn;
+//@property (strong, nonatomic) IBOutlet UIImageView *commentImageView;
 
 @end
 
@@ -38,6 +39,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addComment)];
+//    [_commentImageView addGestureRecognizer:tap];
     self.DetailsFollowBtn.layer.cornerRadius = 10;
     self.DetailsFollowBtn.layer.masksToBounds= YES;
     
@@ -52,6 +55,18 @@
     
     
 }
+
+//- (IBAction)commentClick:(id)sender {
+//     NSLog(@"111");
+//}
+- (IBAction)commentClick:(UIButton *)sender {
+//    NSLog(@"111");
+}
+
+
+//-(void)addComment{
+//    NSLog(@"111");
+//}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

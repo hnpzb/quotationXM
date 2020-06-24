@@ -122,8 +122,9 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     }else{
         ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
         loginVC.loginType = YES;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"enterNext" object:self];
-        [self.navigationController pushViewController:loginVC animated:YES];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"enterNext" object:self];
+//        [self.navigationController pushViewController:loginVC animated:YES];
+        [self presentViewController:loginVC animated:YES completion:nil];
     }
 }
 

@@ -151,10 +151,14 @@
 
 - (IBAction)fabuClick:(id)sender {
 //    [self ZBbeginFabu];
-   
-    [self uoLoadPicture];
     
     
+    if (self.saveUrl == nil) {
+        [self uoLoadPicture];
+    }else{
+        [self ZBbeginFabu];
+    }
+
     
 }
 #pragma mark -发送post请求，实现发布功能
@@ -192,11 +196,12 @@
         }
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"failure");
+            [MBProgressHUD showError:@"发布失败，重新输入"];
         }];
         
     
 }
+
 
 #pragma mark - 获取当前时间的 时间戳
 

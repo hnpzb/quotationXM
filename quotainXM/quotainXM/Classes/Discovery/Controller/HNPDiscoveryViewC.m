@@ -150,11 +150,13 @@ static NSString *IDTwo = @"DynamicCellID";
             fabuVC.userID = self.mineUserInfoModel.userId;
             self.tabBarController.tabBar.hidden = YES;
             [self.navigationController pushViewController:fabuVC animated:YES];
+           
         }else{
             ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
             loginVC.loginType = YES;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
-            [self.navigationController pushViewController:loginVC animated:YES];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
+//            [self.navigationController pushViewController:loginVC animated:YES];
+             [self presentViewController:loginVC animated:YES completion:nil];
         }
             
         

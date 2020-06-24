@@ -83,7 +83,7 @@
     
     UIButton *btn_if = [[UIButton alloc] init];
     [self.baiVC addSubview:btn_if];
-    btn_if.frame = CGRectMake(0, 0, vc_w_new * 0.2, 44);
+    btn_if.frame = CGRectMake(vc_w_new * 0.25, 0, vc_w_new * 0.2, 44);
     btn_if.tag = 1000 + 0;
     [self setWithBtn:btn_if name:@"发现"];
     btn_if.selected = YES;
@@ -94,19 +94,19 @@
     
     UIButton *btn_ns = [[UIButton alloc] init];
     [self.baiVC addSubview:btn_ns];
-    btn_ns.frame = CGRectMake(vc_w_new * 0.2 *1.0, 0, vc_w_new * 0.2, 44);
+    btn_ns.frame = CGRectMake(vc_w_new * 0.5, 0, vc_w_new * 0.2, 44);
     btn_ns.tag = 1000 + 1;
      [self setWithBtn:btn_ns name:@"关注"];
     [btn_ns addTarget:self action:@selector(menuClick:) forControlEvents:UIControlEventTouchUpInside];
     
-      UIButton *sosuo = [[UIButton alloc] init];
-
-    [self.baiVC addSubview:sosuo];
-    sosuo.frame = CGRectMake(vc_w_new * 0.2 * 4.0, 10 ,15, 15);
-    [sosuo setBackgroundImage:[UIImage imageNamed:@"icon_souso "] forState:UIControlStateNormal];
-    
+//      UIButton *sosuo = [[UIButton alloc] init];
+//
+//    [self.baiVC addSubview:sosuo];
+//    sosuo.frame = CGRectMake(vc_w_new * 0.2 * 4.0, 10 ,15, 15);
+//    [sosuo setBackgroundImage:[UIImage imageNamed:@"icon_souso "] forState:UIControlStateNormal];
+//
     [view addSubview:self.baiVC];
-    
+//
     
     
     

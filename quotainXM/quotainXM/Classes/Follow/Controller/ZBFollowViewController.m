@@ -131,9 +131,10 @@ static NSString *IDTwo = @"DynamicCellID";
                    [self.navigationController pushViewController:fabuVC animated:YES];
                }else{
                    ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
-               [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
+//               [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
                    loginVC.loginType = YES;
-                   [self.navigationController pushViewController:loginVC animated:YES];
+//                   [self.navigationController pushViewController:loginVC animated:YES];
+                    [self presentViewController:loginVC animated:YES completion:nil];
                }
                   
     }else{

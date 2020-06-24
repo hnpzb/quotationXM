@@ -50,6 +50,13 @@
 
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    if (self.loginType == YES) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -198,10 +205,11 @@
                                 NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
                                 NSDictionary *tempDic = [perModel mj_keyValues];
                                 [tempDic writeToFile:path atomically:YES];
-                               [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
-                               [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
+//                               [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+//                               [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
                                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:self];
-                               [self.navigationController popViewControllerAnimated:YES];
+//                               [self.navigationController popViewControllerAnimated:YES];
+                               [self dismissViewControllerAnimated:YES completion:nil];
                                
                            }
                            
