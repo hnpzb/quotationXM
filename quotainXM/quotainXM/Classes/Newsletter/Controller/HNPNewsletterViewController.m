@@ -84,10 +84,16 @@ static NSString *ID = @"NewSletterID";
 -(void)refresh
 {
     [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_header endRefreshing];
+           });
 }
 -(void)loadMore
 {
    [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self.tableView.mj_footer endRefreshing];
+       });
 }
 
 //时间戳
