@@ -17,6 +17,7 @@
 @property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,strong)UITableView *tableView;
 @property (nonatomic, strong) YXCalendarView *calendar;
+@property(nonatomic,strong)NSDate *seclectDate_one;
 
 @end
 
@@ -83,11 +84,13 @@ static  NSString  *ID = @"calendar";
            if (@available(iOS 13.0, *)) {
                
                [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
+               weakself.seclectDate_one = selDate;
                
            } else {
 //               NSDate *lastDay = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:selDate];
 //               [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:lastDay]];
                [weakself setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:selDate]];
+               weakself.seclectDate_one = selDate;
            }
            
        };
@@ -110,14 +113,14 @@ static  NSString  *ID = @"calendar";
 }
 -(void)refresh
 {
-   [self setArrayDataWithTime:[ZBCalendarViewController curYearMD]];
+    [self setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:_seclectDate_one]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     [self.tableView.mj_header endRefreshing];
        });
 }
 -(void)loadMore
 {
- [self setArrayDataWithTime:[ZBCalendarViewController curYearMD]];
+    [self setArrayDataWithTime:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:_seclectDate_one]];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     [self.tableView.mj_footer endRefreshing];
        });
