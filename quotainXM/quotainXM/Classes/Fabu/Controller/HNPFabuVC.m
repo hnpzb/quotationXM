@@ -157,7 +157,7 @@
     
     
 }
-
+#pragma mark -发送post请求，实现发布功能
 -(void)ZBbeginFabu{
     
 //    NSInteger curTimeTap = [HNPFabuVC getNowTimestamp];
@@ -240,6 +240,7 @@
 
 }
 
+#pragma mark -上传图片
 
 -(void)uoLoadPicture{
     
@@ -258,73 +259,6 @@
         [MBProgressHUD showError:@"上传图片失败"];
     }];
     
-    
-    
-    /*
-    NSData *imageData = UIImageJPEGRepresentation(self.addImageView.image, .1);
-//    UIImagePNGRepresentation(self.addImageView.image);
-//    self.addImageView.image
-    AFHTTPSessionManager *manager =  [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    AFHTTPResponseSerializer *responseSer = [AFHTTPResponseSerializer serializer];
-      responseSer.acceptableContentTypes = [NSSet setWithObjects:@"text/json", @"text/javascript",@"text/plain", nil];
-      manager.responseSerializer = responseSer;
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [manager.requestSerializer setValue:@"charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-
-    [manager POST:@"http://image.yysc.online/upload" parameters:dict headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
-//        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-//        formater.dateFormat = @"yyyy-MM-dd HH:mmm:ss";
-//        NSString *fileName = [NSString stringWithFormat:@"%.png",[formater stringFromDate:[NSDate date]]];
-        [formData appendPartWithFileData:imageData name:@"file" fileName:@"iconImage" mimeType:@"image/png"];
-           
-       } progress:^(NSProgress * _Nonnull uploadProgress) {
-           //打印上传进度
-           CGFloat progress = 100.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount;
-           DLog(@"%.2lf%%", progress);
-       } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-           //请求成功
-           DLog(@"请求成功：%@",responseObject);
-       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-           //请求失败
-           DLog(@"请求失败：%@",error);
-       }];
-     */
-    
-    
 }
-
-/*
- //头像点击事件
- -(void)tapClick:(UITapGestureRecognizer *)recognizer{
-     
-     if (!_photoManager) {
-         _photoManager =[[ZYSelectPhotoManager alloc]init];
-     }
-     [_photoManager startSelectPhotoWithImageName:@"选择头像"];
-     __weak typeof(self)mySelf=self;
-     //选取照片成功
-     _photoManager.successHandle=^(ZYSelectPhotoManager *manager,UIImage *image){
-             NSDictionary *dict = @{
-                 @"file" : self.headerImage.image
-             };
-             [NetworkTool.shared postReturnString:@"http://image.yysc.online/upload" fileName:@"headerImage" image:self.headerImage.image viewcontroller:nil params:dict  success:^(id _Nonnull response) {
-                 self.saveURL = response;
-                         //上传图片成功后才publishMessage
-         //                [self publishMessage];
-             } failture:^(NSError * _Nonnull error) {
-         //        [Toast makeText:weakSelf.view Message:@"上传图片失败" afterHideTime:DELAYTiME];
-                  [MBProgressHUD showError:@"上传图片失败"];
-             }];
-         
-         mySelf.headerImage.image = image;
-         //保存到本地
-         NSData *data = UIImagePNGRepresentation(image);
-         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
-     };
- }
- */
 
 @end

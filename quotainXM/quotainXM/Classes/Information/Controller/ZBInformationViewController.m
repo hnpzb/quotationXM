@@ -84,9 +84,22 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(informationSignIn) name:@"informationSignIn" object:nil];
-        
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
 
 }
+
+-(void)refresh
+{
+     [self reLoadHotnews];
+}
+-(void)loadMore
+{
+    [self reLoadHotnews];
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

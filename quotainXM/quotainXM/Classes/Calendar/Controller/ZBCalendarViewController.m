@@ -103,8 +103,19 @@ static  NSString  *ID = @"calendar";
     //    tableView.tableHeaderView = view;
     //    tableView.contentInset = UIEdgeInsetsMake(42, 0, 0, 0);
     
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+    
 }
-
+-(void)refresh
+{
+   [self setArrayDataWithTime:[ZBCalendarViewController curYearMD]];
+}
+-(void)loadMore
+{
+ [self setArrayDataWithTime:[ZBCalendarViewController curYearMD]];
+}
 
 - (void)viewDidAppear:(BOOL)animated{
     [self setArrayDataWithTime:[ZBCalendarViewController curYearMD]];

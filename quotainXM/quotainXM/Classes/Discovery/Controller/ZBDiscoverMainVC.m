@@ -33,7 +33,10 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showbai:) name:@"back" object:nil];
     
+   
+    
 }
+
 -(void)baiChange:(NSNotification *)notice{
     self.baiVC.hidden = YES;
 }
