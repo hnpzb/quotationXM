@@ -12,7 +12,6 @@
 
 @interface ZBFoundPasswordController ()
 @property (strong, nonatomic) IBOutlet UITextField *text_F;
-@property (strong, nonatomic) IBOutlet UIImageView *xianshi;
 @property (strong, nonatomic) IBOutlet UITextField *password_F;
 
 @end
@@ -21,17 +20,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UITapGestureRecognizer *xs = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(xianshi_one)];
-    [_xianshi addGestureRecognizer:xs];
+
     
     
 }
 - (IBAction)tuichuClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
--(void)xianshi_one{
+//-(void)xianshi_one{
+//    _password_F.secureTextEntry = !_password_F.isSecureTextEntry;
+//    NSLog(@"sss");
+//}
+- (IBAction)xainshimima:(id)sender {
     _password_F.secureTextEntry = !_password_F.isSecureTextEntry;
+    NSLog(@"sss");
 }
 
 

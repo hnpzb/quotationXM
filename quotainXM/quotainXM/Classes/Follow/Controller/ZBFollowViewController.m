@@ -52,7 +52,21 @@ static NSString *IDTwo = @"DynamicCellID";
     [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPPushCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
     [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPDynamicCell class]) bundle:nil] forCellReuseIdentifier:IDTwo];
     
+    self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    
+    self.tableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+    
 }
+
+-(void)refresh
+{
+    [self FollowJSON];
+}
+-(void)loadMore
+{
+  [self FollowJSON];
+}
+
 
 
 /**

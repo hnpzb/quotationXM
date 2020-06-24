@@ -74,7 +74,20 @@ static NSString *ID = @"NewSletterID";
     _tableView.estimatedRowHeight = 44;
     _tableView.rowHeight = UITableViewAutomaticDimension;
     
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
         
+}
+
+-(void)refresh
+{
+    [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD]];
+}
+-(void)loadMore
+{
+   [self setArrayDataWithTime:[HNPNewsletterViewController curYearMD]];
 }
 
 //时间戳

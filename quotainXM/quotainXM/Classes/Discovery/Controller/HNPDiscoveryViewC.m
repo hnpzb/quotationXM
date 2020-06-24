@@ -65,7 +65,22 @@ static NSString *IDTwo = @"DynamicCellID";
     _tableview.estimatedRowHeight = 100;
     _tableview.rowHeight = UITableViewAutomaticDimension;
     
+    
+    self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+       
+       self.tableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+    
 }
+-(void)refresh
+{
+    [self DTJson];
+}
+-(void)loadMore
+{
+  [self DTJson];
+}
+
+
 - (void)DTJson{
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.yysc.online/user/talk/getTalkListByProject?pageNumber&pageSize&project=futures"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
     {

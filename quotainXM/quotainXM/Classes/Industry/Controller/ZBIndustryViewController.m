@@ -41,7 +41,20 @@ static NSString *ID = @"industry";
     _tabView.rowHeight = UITableViewAutomaticDimension;
     
     [_tabView registerNib:[UINib nibWithNibName:NSStringFromClass([ZBIndustryTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    
+    self.tabView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+       
+       self.tabView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
 }
+-(void)refresh
+{
+     [self setArrayData];
+}
+-(void)loadMore
+{
+    [self setArrayData];
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     [self setArrayData];
 }
