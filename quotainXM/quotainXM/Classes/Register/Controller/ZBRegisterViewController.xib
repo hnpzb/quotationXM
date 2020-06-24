@@ -122,7 +122,7 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Clr-Fy-244">
-                            <rect key="frame" x="290" y="127.5" width="90" height="15"/>
+                            <rect key="frame" x="172" y="127.5" width="90" height="15"/>
                             <color key="backgroundColor" red="1" green="0.70588235290000001" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="90" id="9rn-Xk-UEf"/>
@@ -259,7 +259,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-100.00000000000001" y="66.964285714285708"/>
+            <point key="canvasLocation" x="-493" y="-7"/>
         </view>
     </objects>
     <resources>

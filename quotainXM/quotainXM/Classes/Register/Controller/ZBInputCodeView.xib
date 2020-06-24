@@ -121,7 +121,7 @@
                 <constraint firstAttribute="bottom" secondItem="4yr-Nh-yYQ" secondAttribute="bottom" id="y8k-6x-8Xi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="131.8840579710145" y="152.67857142857142"/>
+            <point key="canvasLocation" x="-275" y="106"/>
         </view>
     </objects>
 </document>
