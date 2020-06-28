@@ -222,7 +222,7 @@
                 <outlet property="DetailsZanPeopleLable" destination="ldB-yG-XBB" id="eDP-RK-Ytr"/>
                 <outlet property="guanzhuBtn" destination="rEI-gD-k32" id="55m-bV-zXT"/>
             </connections>
-            <point key="canvasLocation" x="-5023" y="-511"/>
+            <point key="canvasLocation" x="-5313" y="-515"/>
         </tableViewCell>
     </objects>
     <resources>

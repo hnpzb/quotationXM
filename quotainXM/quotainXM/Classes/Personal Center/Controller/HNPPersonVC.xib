@@ -44,12 +44,6 @@
                                 <action selector="dynamicClick:" destination="-1" eventType="touchUpInside" id="wLu-dw-mpi"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzj-6P-M54">
-                            <rect key="frame" x="0.0" y="60" width="375" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="60" id="VE5-60-pnn"/>
-                            </constraints>
-                        </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_wodedongtai" translatesAutoresizingMaskIntoConstraints="NO" id="hHQ-t8-QMT">
                             <rect key="frame" x="15" y="21.5" width="17" height="17.5"/>
                             <constraints>
@@ -131,6 +125,12 @@
                                 <action selector="setClick:" destination="-1" eventType="touchUpInside" id="hac-Rh-vnZ"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzj-6P-M54">
+                            <rect key="frame" x="8" y="60" width="375" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="VE5-60-pnn"/>
+                            </constraints>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
@@ -173,7 +173,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孩子啊 为什么你会悲伤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V8-Uf-efZ">
-                    <rect key="frame" x="15" y="102" width="216" height="12"/>
+                    <rect key="frame" x="15" y="101.5" width="216" height="11.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="216" id="Y5B-ex-fHh"/>
                         <constraint firstAttribute="height" constant="11.5" id="d6V-e3-Hqh"/>
@@ -317,12 +317,12 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="56" y="44"/>
+            <point key="canvasLocation" x="62" y="43"/>
         </view>
     </objects>
     <resources>
         <image name="bth_bianjiziliao" width="63" height="21"/>
-        <image name="icon_jinru" width="7" height="12"/>
+        <image name="icon_jinru" width="7.5" height="13"/>
         <image name="icon_qiandao" width="18" height="16.5"/>
         <image name="icon_shezhi" width="17" height="16"/>
         <image name="icon_wodedongtai" width="17" height="17.5"/>

@@ -127,7 +127,7 @@ static NSString *IDTwo = @"DynamicCellID";
     if (indexPath.section == 0) {
             HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
             //cell的选中样式
-            //pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
             //NSLog(@"%zd-%p",indexPath.row,pushCell);
             return pushCell;
         } else {
@@ -164,7 +164,7 @@ static NSString *IDTwo = @"DynamicCellID";
     [[NSNotificationCenter defaultCenter] postNotificationName:@"jump" object:self];
     HNPDetailsVC *detailsVc = [[HNPDetailsVC alloc]init];
     //将数据传给详情页面的模型属性
-    detailsVc.dynamicModle = self.DTArray[indexPath.row];
+        detailsVc.dynamicModle = self.DTArray[indexPath.row];
         //底部tabbar隐藏
         self.tabBarController.tabBar.hidden=YES;
         [self.navigationController pushViewController:detailsVc animated:YES];

@@ -14,6 +14,12 @@
 #import <MJExtension/MJExtension.h>
 #import "talkListModel.h"
 #import "HNPDynamicModle.h"
+#import "HNPDetailsVC.h"
+#import "HNPDynamicCell.h"
+#import "HNPUserCenterDetailsVC.h"
+#import "HNPUserCenterModel.h"
+#import "HNPUserCenteruserModel.h"
+#import "HNPDynamicUserModel.h"
 
 
 @interface HNPUserCenterVC ()<UITableViewDelegate,UITableViewDataSource,HNPUserCenterCellDelegate>
@@ -85,7 +91,6 @@ static NSString *IDTwo = @"DynamicCellID";
             return centerCell;
         } else {
             HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];
-            DynamicCell.selectionStyle = UITableViewCellSelectionStyleNone;
             DynamicCell.followBtn.hidden = YES;
             //拿到用户的头像
             DynamicCell.allDynamicModel = self.UserDynamicM;
@@ -95,6 +100,17 @@ static NSString *IDTwo = @"DynamicCellID";
         }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+if (indexPath.section == 0) {
+    }else{
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        HNPUserCenterDetailsVC *UserDetailsvc = [HNPUserCenterDetailsVC new];
+        UserDetailsvc.Head = self.UserCenterModle.user.head;
+        UserDetailsvc.nickname = self.UserCenterModle.user.nickName;
+        UserDetailsvc.UserCenterDynamicDetailsModel = self.userArray.list[indexPath.row];
+        [self.navigationController pushViewController:UserDetailsvc animated:YES];
+    }
+}
 
 -(void)UserCenterJson{
     

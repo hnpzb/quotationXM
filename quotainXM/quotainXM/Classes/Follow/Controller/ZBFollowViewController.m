@@ -110,6 +110,7 @@ static NSString *IDTwo = @"DynamicCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
      if (indexPath.section == 0) {
                 HNPPushCell *pushCell = [tableView dequeueReusableCellWithIdentifier:IDOne];
+                pushCell.selectionStyle = UITableViewCellSelectionStyleNone;
                 return pushCell;
             } else {
                 HNPDynamicCell *DynamicCell = [tableView dequeueReusableCellWithIdentifier:IDTwo];

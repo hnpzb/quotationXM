@@ -124,7 +124,7 @@
     self.commentCountLable.text = UserDynamicModle.user.followCount.stringValue;
     self.zanCountLable.text = UserDynamicModle.user.fansCount.stringValue;
     self.fabuTimeLable.text = [HNPDynamicCell timetampTostring:UserDynamicModle.publishTime.integerValue];
-    self.neirongLable.numberOfLines = 0;
+//    self.neirongLable.numberOfLines = 0;
     
 }
 

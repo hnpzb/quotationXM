@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		110D603124934F850024F644 /* HNPDynamicModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D603024934F850024F644 /* HNPDynamicModle.m */; };
 		110D6034249370A10024F644 /* HNPDynamicUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 110D6033249370A10024F644 /* HNPDynamicUserModel.m */; };
+		114A548324A355ED001AA98F /* HNPUserCenterDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 114A548124A355ED001AA98F /* HNPUserCenterDetailsCell.m */; };
+		114A548424A355ED001AA98F /* HNPUserCenterDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114A548224A355ED001AA98F /* HNPUserCenterDetailsCell.xib */; };
+		114A548824A35743001AA98F /* HNPUserCenterDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 114A548624A35743001AA98F /* HNPUserCenterDetailsVC.m */; };
+		114A548924A35743001AA98F /* HNPUserCenterDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114A548724A35743001AA98F /* HNPUserCenterDetailsVC.xib */; };
 		114BAE012498B4EF006D02C2 /* HNPFabuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 114BADFF2498B4EF006D02C2 /* HNPFabuVC.m */; };
 		114BAE022498B4EF006D02C2 /* HNPFabuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114BAE002498B4EF006D02C2 /* HNPFabuVC.xib */; };
 		114C5BA82490C3FD00090FC4 /* HNPNewSletterHerderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 114C5BA72490C3FD00090FC4 /* HNPNewSletterHerderView.m */; };
@@ -178,6 +182,12 @@
 		110D603024934F850024F644 /* HNPDynamicModle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HNPDynamicModle.m; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicModle.m"; sourceTree = SOURCE_ROOT; };
 		110D6032249370A10024F644 /* HNPDynamicUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HNPDynamicUserModel.h; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicUserModel.h"; sourceTree = SOURCE_ROOT; };
 		110D6033249370A10024F644 /* HNPDynamicUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HNPDynamicUserModel.m; path = "quotainXM/Classes/Personal Center/Controller/HNPDynamicUserModel.m"; sourceTree = SOURCE_ROOT; };
+		114A548024A355ED001AA98F /* HNPUserCenterDetailsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPUserCenterDetailsCell.h; sourceTree = "<group>"; };
+		114A548124A355ED001AA98F /* HNPUserCenterDetailsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPUserCenterDetailsCell.m; sourceTree = "<group>"; };
+		114A548224A355ED001AA98F /* HNPUserCenterDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPUserCenterDetailsCell.xib; sourceTree = "<group>"; };
+		114A548524A35743001AA98F /* HNPUserCenterDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPUserCenterDetailsVC.h; sourceTree = "<group>"; };
+		114A548624A35743001AA98F /* HNPUserCenterDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPUserCenterDetailsVC.m; sourceTree = "<group>"; };
+		114A548724A35743001AA98F /* HNPUserCenterDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPUserCenterDetailsVC.xib; sourceTree = "<group>"; };
 		114BADFE2498B4EF006D02C2 /* HNPFabuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNPFabuVC.h; sourceTree = "<group>"; };
 		114BADFF2498B4EF006D02C2 /* HNPFabuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNPFabuVC.m; sourceTree = "<group>"; };
 		114BAE002498B4EF006D02C2 /* HNPFabuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HNPFabuVC.xib; sourceTree = "<group>"; };
@@ -610,6 +620,9 @@
 				115413BC24977DF3008BB7DB /* HNPUserCenterVC.h */,
 				115413BD24977DF3008BB7DB /* HNPUserCenterVC.m */,
 				115413BE24977DF3008BB7DB /* HNPUserCenterVC.xib */,
+				114A548524A35743001AA98F /* HNPUserCenterDetailsVC.h */,
+				114A548624A35743001AA98F /* HNPUserCenterDetailsVC.m */,
+				114A548724A35743001AA98F /* HNPUserCenterDetailsVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -631,6 +644,9 @@
 				115413C124977E25008BB7DB /* HNPUserCenterCell.h */,
 				115413C224977E25008BB7DB /* HNPUserCenterCell.m */,
 				115413C324977E25008BB7DB /* HNPUserCenterCell.xib */,
+				114A548024A355ED001AA98F /* HNPUserCenterDetailsCell.h */,
+				114A548124A355ED001AA98F /* HNPUserCenterDetailsCell.m */,
+				114A548224A355ED001AA98F /* HNPUserCenterDetailsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1626,6 +1642,7 @@
 				B350C098249070F40026368F /* ZBIndustryViewController.xib in Resources */,
 				B350C091249070F40026368F /* HNPPersonView.xib in Resources */,
 				B350C09B249070F40026368F /* HNPNewsletterViewController.xib in Resources */,
+				114A548424A355ED001AA98F /* HNPUserCenterDetailsCell.xib in Resources */,
 				B350C06A249070F40026368F /* ZBInformationViewController.xib in Resources */,
 				B350C08C249070F40026368F /* ZBRegisterViewController.xib in Resources */,
 				B350C080249070F40026368F /* HNPDiscoveryViewC.xib in Resources */,
@@ -1647,6 +1664,7 @@
 				B350C08A249070F40026368F /* HNPCommentCell.xib in Resources */,
 				B3BBD337249DDA0A00A6C790 /* MBProgressHUD.bundle in Resources */,
 				B350C06E249070F40026368F /* ZBInfoHeaderReusableView.xib in Resources */,
+				114A548924A35743001AA98F /* HNPUserCenterDetailsVC.xib in Resources */,
 				B350C092249070F40026368F /* ZBResetPasswordController.xib in Resources */,
 				B350C072249070F40026368F /* ZBInfoCollectionViewCell.xib in Resources */,
 				B3A10473249CA5740025DE22 /* ZBDayCell.xib in Resources */,
@@ -1733,6 +1751,7 @@
 				B3BBD313249DB67600A6C790 /* QHDHHeadCollectionViewCell.m in Sources */,
 				B350C071249070F40026368F /* ZBBottomTableViewCell.m in Sources */,
 				B3BBD30A249DB67600A6C790 /* ZCBaseView.m in Sources */,
+				114A548324A355ED001AA98F /* HNPUserCenterDetailsCell.m in Sources */,
 				110D603124934F850024F644 /* HNPDynamicModle.m in Sources */,
 				B3BBD31F249DB67600A6C790 /* BusinessProcess.m in Sources */,
 				B350C08D249070F40026368F /* ZBSignInViewController.m in Sources */,
@@ -1766,6 +1785,7 @@
 				B3BBD329249DB67600A6C790 /* MVPKlineView.m in Sources */,
 				B350C07E249070F40026368F /* ZBDiscoverMainVC.m in Sources */,
 				B34A404E24976E5A0047BF94 /* ZBHeaderCollectionView.m in Sources */,
+				114A548824A35743001AA98F /* HNPUserCenterDetailsVC.m in Sources */,
 				B350C0A5249070F40026368F /* ZBFoundPasswordController.m in Sources */,
 				11608BF8249B4B850070B540 /* HNPFollowModel.m in Sources */,
 				B3BBD309249DB67600A6C790 /* NetWork.m in Sources */,
