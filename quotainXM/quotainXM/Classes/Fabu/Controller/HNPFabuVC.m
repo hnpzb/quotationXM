@@ -180,7 +180,7 @@
     [manager POST:@"http://api.yysc.online/user/talk/publishTalk" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
         NSDictionary *data = responseObject;
-        NSLog(@"%@",data);
+//        NSLog(@"%@",data);
         NSString *success = [NSString stringWithFormat:@"%@",data[@"code"]];
         if ([success isEqualToString:@"1"]) {
             [MBProgressHUD showMessage:@"发布成功..."];
@@ -253,7 +253,7 @@
         @"file" : self.addImageView.image
     };
     [NetworkTool.shared postReturnString:@"http://image.yysc.online/upload" fileName:@"iconImage" image:self.addImageView.image viewcontroller:nil params:dict success:^(id _Nonnull response) {
-        [MBProgressHUD showMessage:@"上传图片成功"];
+        [MBProgressHUD showMessage:@"上传图片中"];
         self.saveUrl = response;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUD];

@@ -14,12 +14,16 @@
 #import "AFNetworking.h"
 #import "talkListModel.h"
 #import "MJExtension/MJExtension.h"
+#import "ZBCommentVC.h"
+#import "ZBloginViewController.h"
 
 @interface HNPDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
 
 @property(nonatomic,strong)talkListModel *talk;
+
+@property(nonatomic,strong)ZBPersonModel *mineUserInfoModel;
 
 @end
 
@@ -33,6 +37,7 @@ static NSString *IDTwo = @"CommentCellID";
     
     [super viewDidLoad];
     
+    [self determineWhetherToLogin];
     //在view中添加tableView
     [self creatTopView];
     [self creatTableView];
@@ -42,12 +47,34 @@ static NSString *IDTwo = @"CommentCellID";
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
     [self.view addGestureRecognizer:swipe];
 //    NSLog(@"%@",_dynamicModle.publishTime);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginComment) name:@"beginComment" object:nil];
+    
+}
+
+-(void)beginComment{
+    [self determineWhetherToLogin];
+    
+    if (self.login == YES) {
+        
+            ZBCommentVC *vc = [[ZBCommentVC alloc] init];
+            vc.talkID = self.dynamicModle.talkId;
+            vc.userID = self.mineUserInfoModel.userId;
+            [self presentViewController:vc animated:YES completion:nil];
+        
+            }else{
+                
+            ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
+            loginVC.loginType = YES;
+            [self presentViewController:loginVC animated:YES completion:nil];
+                
+            }
     
 }
 
 //轻扫返回
 -(void)swipeView{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
     self.tabBarController.tabBar.hidden = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -102,6 +129,8 @@ static NSString *IDTwo = @"CommentCellID";
  */
 -(void)breakDeatail:(UIButton *)btn{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"back" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"backPre" object:nil];
+    self.tabBarController.tabBar.hidden = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -164,7 +193,20 @@ static NSString *IDTwo = @"CommentCellID";
     
 }
 
+#pragma mark - 判断是否登录
+/**判断是否登录*/
+- (void)determineWhetherToLogin
+{
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/user.plist"];
+//    NSString *path =[[NSBundle mainBundle] pathForResource:@"user.plist" ofType:nil];
 
+    self.mineUserInfoModel = [ZBPersonModel mj_objectWithFile:path];
+    if (self.mineUserInfoModel == nil) {
+        self.login = NO;
+    } else {
+        self.login = YES;
+    }
+}
 
 
 @end

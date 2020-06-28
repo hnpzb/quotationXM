@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *browserCount;
 @property(nonatomic,copy)NSString *zanCount;
 @property(nonatomic,copy)NSString *commentCount;
+//@property (nonatomic ,strong)NSString *talkId;
 @property(nonatomic,strong)ZBHotNewsUserModel *user;
 
 +(instancetype)ZBHotNewsModelWithDict:(NSDictionary *)dict;

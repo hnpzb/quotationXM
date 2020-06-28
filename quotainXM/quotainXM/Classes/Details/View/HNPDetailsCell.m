@@ -12,6 +12,7 @@
 #import "HNPDetailsVC.h"
 #import <SDWebImage/SDWebImage.h>
 #import "HNPCommentCell.h"
+#import "ZBCommentVC.h"
 
 @interface HNPDetailsCell ()
 
@@ -60,7 +61,9 @@
 //     NSLog(@"111");
 //}
 - (IBAction)commentClick:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"beginComment" object:nil];
 //    NSLog(@"111");
+    
 }
 
 

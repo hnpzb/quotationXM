@@ -26,6 +26,8 @@
 		11608BF8249B4B850070B540 /* HNPFollowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11608BF7249B4B850070B540 /* HNPFollowModel.m */; };
 		11608BFB249B4B9B0070B540 /* HNPFollowuserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11608BFA249B4B9B0070B540 /* HNPFollowuserModel.m */; };
 		4F8A213B2D09C1CE2FA863E1 /* libPods-quotainXM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */; };
+		B343183724A82524006BEFBF /* ZBCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B343183524A82524006BEFBF /* ZBCommentVC.m */; };
+		B343183824A82524006BEFBF /* ZBCommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B343183624A82524006BEFBF /* ZBCommentVC.xib */; };
 		B34719E92499F2AF0017CA48 /* ZBColCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719E82499F2AF0017CA48 /* ZBColCellModel.m */; };
 		B34719F5249A029E0017CA48 /* YXCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719ED249A029E0017CA48 /* YXCalendarView.m */; };
 		B34719F6249A029E0017CA48 /* YXMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719EE249A029E0017CA48 /* YXMonthView.m */; };
@@ -208,6 +210,9 @@
 		11608BFA249B4B9B0070B540 /* HNPFollowuserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HNPFollowuserModel.m; path = quotainXM/Classes/Login/Model/HNPFollowuserModel.m; sourceTree = SOURCE_ROOT; };
 		2043A1A5674EA90FB78ABAAB /* Pods-quotainXM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quotainXM.release.xcconfig"; path = "Target Support Files/Pods-quotainXM/Pods-quotainXM.release.xcconfig"; sourceTree = "<group>"; };
 		40BAEBF6DABC36BDF7396D01 /* libPods-quotainXM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-quotainXM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B343183424A82524006BEFBF /* ZBCommentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCommentVC.h; sourceTree = "<group>"; };
+		B343183524A82524006BEFBF /* ZBCommentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBCommentVC.m; sourceTree = "<group>"; };
+		B343183624A82524006BEFBF /* ZBCommentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBCommentVC.xib; sourceTree = "<group>"; };
 		B34719E72499F2AF0017CA48 /* ZBColCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBColCellModel.h; sourceTree = "<group>"; };
 		B34719E82499F2AF0017CA48 /* ZBColCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBColCellModel.m; sourceTree = "<group>"; };
 		B34719EB249A029E0017CA48 /* YXMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXMonthView.h; sourceTree = "<group>"; };
@@ -635,6 +640,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B343183024A824D8006BEFBF /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				B343183324A824FB006BEFBF /* Controller */,
+				B343183124A824FB006BEFBF /* Model */,
+				B343183224A824FB006BEFBF /* View */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		B343183124A824FB006BEFBF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B343183224A824FB006BEFBF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B343183324A824FB006BEFBF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B343183424A82524006BEFBF /* ZBCommentVC.h */,
+				B343183524A82524006BEFBF /* ZBCommentVC.m */,
+				B343183624A82524006BEFBF /* ZBCommentVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		B34719EA249A029E0017CA48 /* YXCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,6 +738,7 @@
 		B350BFB4249070F40026368F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B343183024A824D8006BEFBF /* Comment */,
 				114BADFA2498B3BC006D02C2 /* Fabu */,
 				115413B324977D2B008BB7DB /* UserCenter */,
 				B350BFB5249070F40026368F /* Quotation */,
@@ -1426,6 +1466,7 @@
 				B3BBD2B5249DB67600A6C790 /* NetWork.m */,
 				B3BBD304249DB67600A6C790 /* QHDataCollectionViewCell.h */,
 				B3BBD2DA249DB67600A6C790 /* QHDataCollectionViewCell.m */,
+				B3BBD306249DB67600A6C790 /* YKLineChartView.h */,
 				B3BBD2FF249DB67600A6C790 /* QHDetailViewController.h */,
 				B3BBD2CF249DB67600A6C790 /* QHDetailViewController.m */,
 				B3BBD2FB249DB67600A6C790 /* QHDHHeadCollectionViewCell.h */,
@@ -1437,7 +1478,6 @@
 				B3BBD2B6249DB67600A6C790 /* TopView.h */,
 				B3BBD2EF249DB67600A6C790 /* TopView.m */,
 				B3BBD300249DB67600A6C790 /* YKLineChart.h */,
-				B3BBD306249DB67600A6C790 /* YKLineChartView.h */,
 				B3BBD2D0249DB67600A6C790 /* YKLineChartView.m */,
 				B3BBD2F8249DB67600A6C790 /* YKLineChartViewBase.h */,
 				B3BBD2B3249DB67600A6C790 /* YKLineChartViewBase.m */,
@@ -1646,6 +1686,7 @@
 				B350C0AA249070F40026368F /* ZBloginViewController.xib in Resources */,
 				B350C08A249070F40026368F /* HNPCommentCell.xib in Resources */,
 				B3BBD337249DDA0A00A6C790 /* MBProgressHUD.bundle in Resources */,
+				B343183824A82524006BEFBF /* ZBCommentVC.xib in Resources */,
 				B350C06E249070F40026368F /* ZBInfoHeaderReusableView.xib in Resources */,
 				B350C092249070F40026368F /* ZBResetPasswordController.xib in Resources */,
 				B350C072249070F40026368F /* ZBInfoCollectionViewCell.xib in Resources */,
@@ -1804,6 +1845,7 @@
 				B350C2DF2490A17A0026368F /* MASConstraint.m in Sources */,
 				B34719F5249A029E0017CA48 /* YXCalendarView.m in Sources */,
 				B3BBD310249DB67600A6C790 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				B343183724A82524006BEFBF /* ZBCommentVC.m in Sources */,
 				B350C086249070F40026368F /* HNPDetailsVC.m in Sources */,
 				B350C2DB2490A17A0026368F /* MASConstraintMaker.m in Sources */,
 				B3BBD314249DB67600A6C790 /* YKViewBase.m in Sources */,
