@@ -62,6 +62,8 @@ static NSString *IDTwo = @"DynamicCellID";
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
     [self.view addGestureRecognizer:swipe];
     
+    self.tableview.contentInset  = UIEdgeInsetsMake(-25,0, 0, 0);
+    
 }
 
 -(void)swipeView{

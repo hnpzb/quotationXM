@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "HNPDynamicModle.h"
 #import "talkListModel.h"
+#import "ZBHotNewsModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HNPDetailsVC : UIViewController
 
 @property(nonatomic,strong)HNPDynamicModle *dynamicModle;
+@property(nonatomic,assign)Boolean login;
+//@property(nonatomic,strong)ZBHotNewsModel *HotNewsModle;
+
 
 @end
 

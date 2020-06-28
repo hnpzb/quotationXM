@@ -18,6 +18,9 @@
 #import "ZBHotNewsModel.h"
 #import "ZBSignInViewController.h"
 #import "ZBloginViewController.h"
+#import "HNPDetailsVC.h"
+#import "HNPDynamicModle.h"
+#import "HNPDynamicUserModel.h"
 
 
 @interface ZBInformationViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -25,6 +28,7 @@
 @property(nonatomic,assign)NSInteger heightconst;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *array;
+@property(nonatomic,strong)NSMutableArray *tempArray;
 
 @property(nonatomic,strong)ZBPersonModel *mineUserInfoModel;
 
@@ -38,6 +42,12 @@ static NSString *ID = @"InfoCollectionCell";
 static NSString *header_ID = @"InfoHeaderReusableView";
 static NSString *fooder_ID = @"InfoFooderReusableView";
 
+- (NSMutableArray *)tempArray{
+    if (_tempArray == nil) {
+        _tempArray = [NSMutableArray array];
+    }
+    return _tempArray;
+}
 
 - (NSMutableArray *)array{
     if (_array == nil) {
@@ -122,8 +132,9 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     }else{
         ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
         loginVC.loginType = YES;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"enterNext" object:self];
-        [self.navigationController pushViewController:loginVC animated:YES];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"enterNext" object:self];
+//        [self.navigationController pushViewController:loginVC animated:YES];
+        [self presentViewController:loginVC animated:YES completion:nil];
     }
 }
 
@@ -171,7 +182,13 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    HNPDetailsVC *vc = [[HNPDetailsVC alloc] init];
+    HNPDynamicModle *dymodel = self.tempArray[indexPath.row];
+    vc.dynamicModle = dymodel;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"enterNext" object:self];
+    self.tabBarController.tabBar.hidden = YES;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)reLoadHotnews{
@@ -182,11 +199,16 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         NSArray *dataArray = dict[@"data"][@"list"];
         NSMutableArray *temp = [NSMutableArray array];
+        NSMutableArray *temp_two = [NSMutableArray array];
         for (NSDictionary *dict in dataArray) {
             ZBHotNewsModel *model = [ZBHotNewsModel ZBHotNewsModelWithDict:dict];
+            HNPDynamicModle *dyModel = [HNPDynamicModle DynamicWithDict:dict];
             [temp addObject:model];
+            [temp_two addObject:dyModel];
+            
         }
         self.array = temp;
+        self.tempArray = temp_two;
         dispatch_async(dispatch_get_main_queue(), ^{
            [self.tableView reloadData];
         });

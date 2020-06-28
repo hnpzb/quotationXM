@@ -151,10 +151,14 @@
 
 - (IBAction)fabuClick:(id)sender {
 //    [self ZBbeginFabu];
-   
-    [self uoLoadPicture];
     
     
+    if (self.saveUrl == nil) {
+        [self uoLoadPicture];
+    }else{
+        [self ZBbeginFabu];
+    }
+
     
 }
 #pragma mark -发送post请求，实现发布功能
@@ -176,7 +180,7 @@
     [manager POST:@"http://api.yysc.online/user/talk/publishTalk" parameters:par headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
         NSDictionary *data = responseObject;
-        NSLog(@"%@",data);
+//        NSLog(@"%@",data);
         NSString *success = [NSString stringWithFormat:@"%@",data[@"code"]];
         if ([success isEqualToString:@"1"]) {
             [MBProgressHUD showMessage:@"发布成功..."];
@@ -192,11 +196,12 @@
         }
         
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"failure");
+            [MBProgressHUD showError:@"发布失败，重新输入"];
         }];
         
     
 }
+
 
 #pragma mark - 获取当前时间的 时间戳
 
@@ -248,7 +253,7 @@
         @"file" : self.addImageView.image
     };
     [NetworkTool.shared postReturnString:@"http://image.yysc.online/upload" fileName:@"iconImage" image:self.addImageView.image viewcontroller:nil params:dict success:^(id _Nonnull response) {
-        [MBProgressHUD showMessage:@"上传图片成功"];
+        [MBProgressHUD showMessage:@"上传图片中"];
         self.saveUrl = response;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUD];

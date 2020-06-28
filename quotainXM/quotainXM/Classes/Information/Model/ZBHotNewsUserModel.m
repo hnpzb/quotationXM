@@ -14,6 +14,7 @@
     ZBHotNewsUserModel *model = [[ZBHotNewsUserModel alloc] init];
     model.head = dict[@"head"];
     model.nickName = dict[@"nickName"];
+//    model.signature =dict[@"signature"];
     return model;
 }
 

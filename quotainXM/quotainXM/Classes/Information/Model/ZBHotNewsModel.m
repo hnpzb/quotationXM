@@ -19,6 +19,7 @@
     model.content = dict[@"content"];
     model.picture = dict[@"picture"];
     model.zanCount = dict[@"zanCount"];
+//    model.talkId = dict[@"id"];
     model.user = [ZBHotNewsUserModel ZBHotNewsUserModelWithDict:dict[@"user"]];
     return model;
     
