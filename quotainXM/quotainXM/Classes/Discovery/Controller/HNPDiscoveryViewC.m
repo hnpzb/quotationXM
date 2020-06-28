@@ -90,23 +90,26 @@ static NSString *IDTwo = @"DynamicCellID";
 - (void)DTJson{
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.yysc.online/user/talk/getTalkListByProject?pageNumber&pageSize&project=futures"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
     {
-        //Json转字典
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        //临时可变数组
-        NSMutableArray *tempMutableArray = [NSMutableArray array];
-        //字典数组
-        NSArray *listArray = dict[@"data"][@"list"];
-        //遍历字典数组
-        for (NSDictionary *dict in listArray) {
-            HNPDynamicModle *tempModel = [[HNPDynamicModle alloc] init];
-            tempModel = [HNPDynamicModle DynamicWithDict:dict];
-            [tempMutableArray addObject:tempModel];
+        if (data.length != 0) {
+            //Json转字典
+                    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                    //临时可变数组
+                    NSMutableArray *tempMutableArray = [NSMutableArray array];
+                    //字典数组
+                    NSArray *listArray = dict[@"data"][@"list"];
+                    //遍历字典数组
+                    for (NSDictionary *dict in listArray) {
+                        HNPDynamicModle *tempModel = [[HNPDynamicModle alloc] init];
+                        tempModel = [HNPDynamicModle DynamicWithDict:dict];
+                        [tempMutableArray addObject:tempModel];
+                    }
+                    self.DTArray = tempMutableArray;
+            //刷新UI
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                        [self.tableview reloadData];
+                    }];
         }
-        self.DTArray = tempMutableArray;
-//刷新UI
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.tableview reloadData];
-        }];
+        
          }]resume];
 }
 

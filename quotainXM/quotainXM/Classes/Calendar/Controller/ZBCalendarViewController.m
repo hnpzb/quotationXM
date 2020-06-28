@@ -152,17 +152,22 @@ static  NSString  *ID = @"calendar";
     NSURL *url = [NSURL URLWithString:path];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        NSArray *array= dict[@"data"];
-        NSMutableArray *temp = [NSMutableArray array];
-        for (NSDictionary *dict in array) {
-            ZBCalendarModel *model = [ZBCalendarModel ZBCalendarModelWithDict:dict];
-            [temp addObject:model];
+        if (data.length != 0) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSArray *array= dict[@"data"];
+            NSMutableArray *temp = [NSMutableArray array];
+            for (NSDictionary *dict in array) {
+                ZBCalendarModel *model = [ZBCalendarModel ZBCalendarModelWithDict:dict];
+                [temp addObject:model];
+            }
+            self.dataArray = temp;
+            dispatch_async(dispatch_get_main_queue(), ^{
+               [self.tableView reloadData];
+            });
+        }else{
+            
         }
-        self.dataArray = temp;
-        dispatch_async(dispatch_get_main_queue(), ^{
-           [self.tableView reloadData];
-        });
+        
        
         //            [[NSOperationQueue mainQueue] addBarrierBlock:^{
         //                [self.tableView reloadData];

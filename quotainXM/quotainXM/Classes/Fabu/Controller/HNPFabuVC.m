@@ -75,7 +75,6 @@
     _addImageView.image = pickImage;
 }
 
-
 //打开相机
 //- (IBAction)openCamera:(id)sender {
     /*

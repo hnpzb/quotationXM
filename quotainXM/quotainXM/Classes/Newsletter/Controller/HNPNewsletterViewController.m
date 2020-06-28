@@ -147,14 +147,19 @@ static NSString *ID = @"NewSletterID";
     NSURL *url = [NSURL URLWithString:path];
             NSURLSession *session = [NSURLSession sharedSession];
             [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                NSArray *array= dict[@"data"];
-                NSMutableArray *temp = [NSMutableArray array];
-                for (NSDictionary *dict in array) {
-                    HNPNewSletterModle *model = [HNPNewSletterModle NewSletterModleWithDict:dict];
-                    [temp addObject:model];
+                if (data.length != 0) {
+                    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                    NSArray *array= dict[@"data"];
+                    NSMutableArray *temp = [NSMutableArray array];
+                    for (NSDictionary *dict in array) {
+                        HNPNewSletterModle *model = [HNPNewSletterModle NewSletterModleWithDict:dict];
+                        [temp addObject:model];
+                    }
+                    self.dataArray = temp;
+                }else{
+                    //
                 }
-                self.dataArray = temp;
+                
             }]resume];
         [self.tableView reloadData];
 }
@@ -199,7 +204,12 @@ static NSString *ID = @"NewSletterID";
 {
     HNPNewSletterHerderView *view = [[HNPNewSletterHerderView alloc] init];
     view.backgroundColor = [UIColor whiteColor];
-    view.model = self.dataArray[0];
+    if (self.dataArray.count != 0) {
+        view.model = self.dataArray[0];
+    }else{
+        
+    }
+    
     return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

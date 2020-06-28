@@ -197,22 +197,27 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     NSURL *url = [NSURL URLWithString:@"http://api.yysc.online/user/talk/getTalkListByProject?project=futures&pageNumber&pageSize"];
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        NSArray *dataArray = dict[@"data"][@"list"];
-        NSMutableArray *temp = [NSMutableArray array];
-        NSMutableArray *temp_two = [NSMutableArray array];
-        for (NSDictionary *dict in dataArray) {
-            ZBHotNewsModel *model = [ZBHotNewsModel ZBHotNewsModelWithDict:dict];
-            HNPDynamicModle *dyModel = [HNPDynamicModle DynamicWithDict:dict];
-            [temp addObject:model];
-            [temp_two addObject:dyModel];
+        if (data.length != 0) {
+             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                   NSArray *dataArray = dict[@"data"][@"list"];
+                   NSMutableArray *temp = [NSMutableArray array];
+                   NSMutableArray *temp_two = [NSMutableArray array];
+                   for (NSDictionary *dict in dataArray) {
+                       ZBHotNewsModel *model = [ZBHotNewsModel ZBHotNewsModelWithDict:dict];
+                       HNPDynamicModle *dyModel = [HNPDynamicModle DynamicWithDict:dict];
+                       [temp addObject:model];
+                       [temp_two addObject:dyModel];
+                       
+                   }
+                   self.array = temp;
+                   self.tempArray = temp_two;
+                   dispatch_async(dispatch_get_main_queue(), ^{
+                      [self.tableView reloadData];
+                   });
+        }else{
             
         }
-        self.array = temp;
-        self.tempArray = temp_two;
-        dispatch_async(dispatch_get_main_queue(), ^{
-           [self.tableView reloadData];
-        });
+       
     }]resume];
 }
 

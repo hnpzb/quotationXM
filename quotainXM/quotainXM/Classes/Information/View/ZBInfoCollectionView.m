@@ -207,30 +207,35 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 - (void)DTJson{
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://api.yysc.online/share/market"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
     {
-        //Json转字典
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        //临时可变数组
-        NSMutableArray *tempMutableArray = [NSMutableArray array];
-        //字典数组
-        NSArray *listArray = dict[@"data"];
-        //遍历字典数组
-        for (NSDictionary *dict in listArray) {
-//            NSDictionary *userDict = dict[@"user"];
-            ZBColCellModel *tempModel = [[ZBColCellModel alloc] init];
-            tempModel = [ZBColCellModel ZBColCellModelWithDict:dict];
-            [tempMutableArray addObject:tempModel];
+        if (data.length != 0) {
+            //Json转字典
+                    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                    //临时可变数组
+                    NSMutableArray *tempMutableArray = [NSMutableArray array];
+                    //字典数组
+                    NSArray *listArray = dict[@"data"];
+                    //遍历字典数组
+                    for (NSDictionary *dict in listArray) {
+            //            NSDictionary *userDict = dict[@"user"];
+                        ZBColCellModel *tempModel = [[ZBColCellModel alloc] init];
+                        tempModel = [ZBColCellModel ZBColCellModelWithDict:dict];
+                        [tempMutableArray addObject:tempModel];
+                    }
+            /**
+                    NSDictionary *arr =dict[@"data"][@"list"][0][@"user"];
+                    NSMutableArray *arrayM = [NSMutableArray array];
+                    for (NSDictionary *dict in arr) {
+                        [arrayM addObject:[HNPDynamicModle DynamicWithDict:dict]];
+                    }*/
+                    self.dataArray = tempMutableArray;
+            //刷新UI
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                        [self.colView reloadData];
+                    }];
+        }else{
+            
         }
-/**
-        NSDictionary *arr =dict[@"data"][@"list"][0][@"user"];
-        NSMutableArray *arrayM = [NSMutableArray array];
-        for (NSDictionary *dict in arr) {
-            [arrayM addObject:[HNPDynamicModle DynamicWithDict:dict]];
-        }*/
-        self.dataArray = tempMutableArray;
-//刷新UI
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.colView reloadData];
-        }];
+        
          }]resume];
 }
 

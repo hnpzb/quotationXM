@@ -87,14 +87,20 @@ static NSString *ID = @"industry";
      NSURL *url = [NSURL URLWithString:path];
         NSURLSession *session = [NSURLSession sharedSession];
         [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            NSMutableArray *temp = [NSMutableArray array];
-            NSArray *array= dict[@"data"];
-            for (NSDictionary *dict in array) {
-                ZBIndustryMode *model = [ZBIndustryMode ZBIndustryModeWithDict:dict];
-                [temp addObject:model];
+            if (data.length != 0) {
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                NSMutableArray *temp = [NSMutableArray array];
+                NSArray *array= dict[@"data"];
+                for (NSDictionary *dict in array) {
+                    ZBIndustryMode *model = [ZBIndustryMode ZBIndustryModeWithDict:dict];
+                    [temp addObject:model];
             }
             self.dataArray = temp;
+                
+            }else{
+                
+            }
+            
         }]resume];
     [self.tabView reloadData];
 }
