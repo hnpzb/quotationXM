@@ -47,6 +47,7 @@ static  NSString  *ID = @"calendar";
     [self setArrayDataWithTime:[ZBCalendarViewController curYearMD]];
     // Do any additional setup after loading the view from its nib.
     _tableView = [[UITableView alloc] init];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height +44, [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height-[UIApplication sharedApplication].statusBarFrame.size.height - 44 - 49);
     //    temp.origin = CGPointMake(0,[UIApplication sharedApplication].statusBarFrame.size.height +44);
     _tableView.frame = temp;

@@ -23,7 +23,7 @@ static NSString *IDOne = @"UserCenterDetailsCellID";
     [super viewDidLoad];
     
     //在view中添加tableView
-     _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+     _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height + 44) style:UITableViewStylePlain];
     [self.view addSubview:_tableview];
     _tableview.dataSource = self;
     _tableview.delegate = self;
@@ -32,6 +32,7 @@ static NSString *IDOne = @"UserCenterDetailsCellID";
     [_tableview registerNib:[UINib nibWithNibName:NSStringFromClass([HNPUserCenterDetailsCell class]) bundle:nil] forCellReuseIdentifier:IDOne];
        _tableview.estimatedRowHeight = 100;
        _tableview.rowHeight = UITableViewAutomaticDimension;
+        _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //轻扫返回手势
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeView)];
@@ -53,6 +54,7 @@ static NSString *IDOne = @"UserCenterDetailsCellID";
     UserCenterDetailsCell.Head = self.Head;
     UserCenterDetailsCell.nickname = self.nickname;
     UserCenterDetailsCell.UcDymamicModel = self.UserCenterDynamicDetailsModel;
+    UserCenterDetailsCell.selectionStyle = UITableViewCellSelectionStyleNone;
     return UserCenterDetailsCell;
 }
 

@@ -170,6 +170,7 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
         ZBBottomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:bot_ID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.model = _array[indexPath.row];
         return cell;
 

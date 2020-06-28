@@ -22,6 +22,7 @@ static NSString *ID = @"industry";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _tabView = [[UITableView alloc] init];
+    _tabView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tabView];
 //    tabView.frame = self.view.bounds;
     CGRect temp = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44 , [UIApplication sharedApplication].statusBarFrame.size.width, self.view.frame.size.height - 44 - [[UIApplication sharedApplication] statusBarFrame].size.height - 49);
