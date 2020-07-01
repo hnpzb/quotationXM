@@ -70,6 +70,23 @@ static NSString *IDTwo = @"DynamicCellID";
        
        self.tableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
     
+    //屏蔽用户后刷新数据
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PingBi) name:@"PingBi" object:nil];
+    //屏蔽说说后刷新数据
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PingBiSuoSuo) name:@"PingBiSuoSuo" object:nil];
+    
+}
+
+-(void)PingBi{
+    [self DTJson];
+}
+-(void)PingBiSuoSuo{
+    [self DTJson];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 -(void)refresh
 {

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBPingBiViewController">
+            <connections>
+                <outlet property="view" destination="Nvw-rI-gdI" id="UZc-Qq-5im"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Nvw-rI-gdI">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vkh-9f-8F7">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8P8-B0-IrS">
+                    <rect key="frame" x="70" y="213.5" width="274" height="200"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="确认屏蔽该用户？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHz-zH-kBg">
+                            <rect key="frame" x="55" y="30" width="164" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="how-Yl-Q4Y">
+                            <rect key="frame" x="107" y="115" width="60" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="a6l-xH-Xhr"/>
+                                <constraint firstAttribute="height" constant="44" id="tkW-aA-t6J"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="确定" backgroundImage="pic_bg">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="clickPingBi:" destination="-1" eventType="touchUpInside" id="Zn8-pM-TrE"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击屏幕任一区域可取消" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cJ-cF-Pv4">
+                            <rect key="frame" x="41.5" y="64" width="191" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="how-Yl-Q4Y" firstAttribute="top" secondItem="4cJ-cF-Pv4" secondAttribute="bottom" constant="30" id="3dN-Tt-NwH"/>
+                        <constraint firstItem="how-Yl-Q4Y" firstAttribute="centerX" secondItem="8P8-B0-IrS" secondAttribute="centerX" id="5sF-oy-TEi"/>
+                        <constraint firstItem="SHz-zH-kBg" firstAttribute="top" secondItem="8P8-B0-IrS" secondAttribute="top" constant="30" id="Klh-T2-PuS"/>
+                        <constraint firstItem="4cJ-cF-Pv4" firstAttribute="centerX" secondItem="SHz-zH-kBg" secondAttribute="centerX" id="LLd-xN-1nU"/>
+                        <constraint firstItem="SHz-zH-kBg" firstAttribute="centerX" secondItem="8P8-B0-IrS" secondAttribute="centerX" id="Rie-zx-bv6"/>
+                        <constraint firstItem="4cJ-cF-Pv4" firstAttribute="top" secondItem="SHz-zH-kBg" secondAttribute="bottom" constant="10" id="TAp-pC-94d"/>
+                        <constraint firstAttribute="height" constant="200" id="e9u-DS-KhB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="8P8-B0-IrS" firstAttribute="leading" secondItem="Nvw-rI-gdI" secondAttribute="leading" constant="70" id="Bkk-tW-SK6"/>
+                <constraint firstAttribute="bottom" secondItem="Vkh-9f-8F7" secondAttribute="bottom" id="LWc-Gf-h6w"/>
+                <constraint firstItem="Vkh-9f-8F7" firstAttribute="top" secondItem="Nvw-rI-gdI" secondAttribute="top" id="Sdv-ip-UVO"/>
+                <constraint firstAttribute="trailing" secondItem="Vkh-9f-8F7" secondAttribute="trailing" id="XPq-Dx-3Qk"/>
+                <constraint firstItem="8P8-B0-IrS" firstAttribute="centerY" secondItem="Nvw-rI-gdI" secondAttribute="centerY" multiplier="0.7" id="XS4-Mn-kci"/>
+                <constraint firstAttribute="trailing" secondItem="8P8-B0-IrS" secondAttribute="trailing" constant="70" id="oCd-Kj-Yf0"/>
+                <constraint firstItem="Vkh-9f-8F7" firstAttribute="leading" secondItem="Nvw-rI-gdI" secondAttribute="leading" id="wP7-pQ-LBr"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="EuL-qa-ozQ"/>
+            <point key="canvasLocation" x="-275" y="106"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pic_bg" width="375" height="265"/>
+    </resources>
+</document>

@@ -98,8 +98,22 @@ static NSString *fooder_ID = @"InfoFooderReusableView";
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
     
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+    
+    //屏蔽用户后刷新数据
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PingBi) name:@"PingBi" object:nil];
+    //屏蔽说说后刷新数据
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PingBiSuoSuo) name:@"PingBiSuoSuo" object:nil];
 
 }
+
+
+-(void)PingBi{
+    [self reLoadHotnews];
+}
+-(void)PingBiSuoSuo{
+    [self reLoadHotnews];
+}
+
 
 -(void)refresh
 {

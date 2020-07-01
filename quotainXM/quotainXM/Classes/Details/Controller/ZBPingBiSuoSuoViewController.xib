@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBPingBiSuoSuoViewController">
+            <connections>
+                <outlet property="view" destination="h36-aY-i7N" id="tEh-Ne-Knz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="h36-aY-i7N">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHH-kJ-F5g">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pr8-dy-ZVI">
+                    <rect key="frame" x="70" y="213.5" width="274" height="200"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="确认屏蔽该说说？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnI-Nw-CxT">
+                            <rect key="frame" x="55" y="30" width="164" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31O-L1-Mzd">
+                            <rect key="frame" x="107" y="115" width="60" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="AOv-0B-oSK"/>
+                                <constraint firstAttribute="width" constant="60" id="ukG-Mg-1Kv"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="确定" backgroundImage="pic_bg">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="ClickPingBiSuoSuo:" destination="-1" eventType="touchUpInside" id="js0-Uy-ZP6"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击屏幕任一区域可取消" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qla-Do-MKU">
+                            <rect key="frame" x="41.5" y="64" width="191" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Qla-Do-MKU" firstAttribute="top" secondItem="KnI-Nw-CxT" secondAttribute="bottom" constant="10" id="Dyk-Hq-bmc"/>
+                        <constraint firstAttribute="height" constant="200" id="Toe-6U-R7h"/>
+                        <constraint firstItem="KnI-Nw-CxT" firstAttribute="centerX" secondItem="Pr8-dy-ZVI" secondAttribute="centerX" id="Vlh-aF-shE"/>
+                        <constraint firstItem="31O-L1-Mzd" firstAttribute="centerX" secondItem="Pr8-dy-ZVI" secondAttribute="centerX" id="d3f-1g-DuX"/>
+                        <constraint firstItem="Qla-Do-MKU" firstAttribute="centerX" secondItem="KnI-Nw-CxT" secondAttribute="centerX" id="fIp-vc-auC"/>
+                        <constraint firstItem="KnI-Nw-CxT" firstAttribute="top" secondItem="Pr8-dy-ZVI" secondAttribute="top" constant="30" id="mEE-p6-6aY"/>
+                        <constraint firstItem="31O-L1-Mzd" firstAttribute="top" secondItem="Qla-Do-MKU" secondAttribute="bottom" constant="30" id="rbR-HQ-cYG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="wHH-kJ-F5g" secondAttribute="bottom" id="LRG-xt-g9T"/>
+                <constraint firstItem="wHH-kJ-F5g" firstAttribute="top" secondItem="h36-aY-i7N" secondAttribute="top" id="OIm-70-Vaf"/>
+                <constraint firstAttribute="trailing" secondItem="Pr8-dy-ZVI" secondAttribute="trailing" constant="70" id="Puc-SE-Op7"/>
+                <constraint firstItem="wHH-kJ-F5g" firstAttribute="leading" secondItem="h36-aY-i7N" secondAttribute="leading" id="V3S-FD-98r"/>
+                <constraint firstItem="Pr8-dy-ZVI" firstAttribute="centerY" secondItem="h36-aY-i7N" secondAttribute="centerY" multiplier="0.7" id="sah-TF-tJD"/>
+                <constraint firstItem="Pr8-dy-ZVI" firstAttribute="leading" secondItem="h36-aY-i7N" secondAttribute="leading" constant="70" id="tF6-54-eSq"/>
+                <constraint firstAttribute="trailing" secondItem="wHH-kJ-F5g" secondAttribute="trailing" id="ukW-ik-fGO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Eiw-Jq-B8U"/>
+            <point key="canvasLocation" x="-275" y="106"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pic_bg" width="375" height="265"/>
+    </resources>
+</document>

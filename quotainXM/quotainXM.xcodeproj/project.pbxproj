@@ -38,6 +38,12 @@
 		B34719F7249A029E0017CA48 /* YXDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719EF249A029E0017CA48 /* YXDayCell.m */; };
 		B34719F8249A029E0017CA48 /* YXDateHelpObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B34719F2249A029E0017CA48 /* YXDateHelpObject.m */; };
 		B34719F9249A029E0017CA48 /* YXDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34719F3249A029E0017CA48 /* YXDayCell.xib */; };
+		B34884ED24AC257300A23201 /* ZBJuBaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34884EB24AC257300A23201 /* ZBJuBaoViewController.m */; };
+		B34884EE24AC257300A23201 /* ZBJuBaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34884EC24AC257300A23201 /* ZBJuBaoViewController.xib */; };
+		B34884F224AC2E9A00A23201 /* ZBPingBiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34884F024AC2E9A00A23201 /* ZBPingBiViewController.m */; };
+		B34884F324AC2E9A00A23201 /* ZBPingBiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34884F124AC2E9A00A23201 /* ZBPingBiViewController.xib */; };
+		B34884F724AC31FD00A23201 /* ZBPingBiSuoSuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34884F524AC31FD00A23201 /* ZBPingBiSuoSuoViewController.m */; };
+		B34884F824AC31FD00A23201 /* ZBPingBiSuoSuoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34884F624AC31FD00A23201 /* ZBPingBiSuoSuoViewController.xib */; };
 		B34A404E24976E5A0047BF94 /* ZBHeaderCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A404D24976E5A0047BF94 /* ZBHeaderCollectionView.m */; };
 		B34A4055249775070047BF94 /* ZBCalendarColViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B34A4053249775070047BF94 /* ZBCalendarColViewCell.m */; };
 		B34A4056249775070047BF94 /* ZBCalendarColViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34A4054249775070047BF94 /* ZBCalendarColViewCell.xib */; };
@@ -234,6 +240,15 @@
 		B34719F2249A029E0017CA48 /* YXDateHelpObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXDateHelpObject.m; sourceTree = "<group>"; };
 		B34719F3249A029E0017CA48 /* YXDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YXDayCell.xib; sourceTree = "<group>"; };
 		B34719F4249A029E0017CA48 /* YXCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXCalendarView.h; sourceTree = "<group>"; };
+		B34884EA24AC257300A23201 /* ZBJuBaoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBJuBaoViewController.h; sourceTree = "<group>"; };
+		B34884EB24AC257300A23201 /* ZBJuBaoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBJuBaoViewController.m; sourceTree = "<group>"; };
+		B34884EC24AC257300A23201 /* ZBJuBaoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBJuBaoViewController.xib; sourceTree = "<group>"; };
+		B34884EF24AC2E9A00A23201 /* ZBPingBiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBPingBiViewController.h; sourceTree = "<group>"; };
+		B34884F024AC2E9A00A23201 /* ZBPingBiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBPingBiViewController.m; sourceTree = "<group>"; };
+		B34884F124AC2E9A00A23201 /* ZBPingBiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBPingBiViewController.xib; sourceTree = "<group>"; };
+		B34884F424AC31FD00A23201 /* ZBPingBiSuoSuoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBPingBiSuoSuoViewController.h; sourceTree = "<group>"; };
+		B34884F524AC31FD00A23201 /* ZBPingBiSuoSuoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBPingBiSuoSuoViewController.m; sourceTree = "<group>"; };
+		B34884F624AC31FD00A23201 /* ZBPingBiSuoSuoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBPingBiSuoSuoViewController.xib; sourceTree = "<group>"; };
 		B34A404C24976E5A0047BF94 /* ZBHeaderCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBHeaderCollectionView.h; sourceTree = "<group>"; };
 		B34A404D24976E5A0047BF94 /* ZBHeaderCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBHeaderCollectionView.m; sourceTree = "<group>"; };
 		B34A4052249775070047BF94 /* ZBCalendarColViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBCalendarColViewCell.h; sourceTree = "<group>"; };
@@ -1054,6 +1069,15 @@
 				B350C004249070F40026368F /* HNPDetailsVC.h */,
 				B350C003249070F40026368F /* HNPDetailsVC.m */,
 				B350C002249070F40026368F /* HNPDetailsVC.xib */,
+				B34884EA24AC257300A23201 /* ZBJuBaoViewController.h */,
+				B34884EB24AC257300A23201 /* ZBJuBaoViewController.m */,
+				B34884EC24AC257300A23201 /* ZBJuBaoViewController.xib */,
+				B34884EF24AC2E9A00A23201 /* ZBPingBiViewController.h */,
+				B34884F024AC2E9A00A23201 /* ZBPingBiViewController.m */,
+				B34884F124AC2E9A00A23201 /* ZBPingBiViewController.xib */,
+				B34884F424AC31FD00A23201 /* ZBPingBiSuoSuoViewController.h */,
+				B34884F524AC31FD00A23201 /* ZBPingBiSuoSuoViewController.m */,
+				B34884F624AC31FD00A23201 /* ZBPingBiSuoSuoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1682,6 +1706,7 @@
 				B350C098249070F40026368F /* ZBIndustryViewController.xib in Resources */,
 				B350C091249070F40026368F /* HNPPersonView.xib in Resources */,
 				B350C09B249070F40026368F /* HNPNewsletterViewController.xib in Resources */,
+				B34884EE24AC257300A23201 /* ZBJuBaoViewController.xib in Resources */,
 				114A548424A355ED001AA98F /* HNPUserCenterDetailsCell.xib in Resources */,
 				B350C06A249070F40026368F /* ZBInformationViewController.xib in Resources */,
 				B350C08C249070F40026368F /* ZBRegisterViewController.xib in Resources */,
@@ -1701,6 +1726,7 @@
 				B34A4056249775070047BF94 /* ZBCalendarColViewCell.xib in Resources */,
 				B350C075249070F40026368F /* ZBBottomTableViewCell.xib in Resources */,
 				B350C0AA249070F40026368F /* ZBloginViewController.xib in Resources */,
+				B34884F324AC2E9A00A23201 /* ZBPingBiViewController.xib in Resources */,
 				B350C08A249070F40026368F /* HNPCommentCell.xib in Resources */,
 				B3BBD337249DDA0A00A6C790 /* MBProgressHUD.bundle in Resources */,
 				B343183824A82524006BEFBF /* ZBCommentVC.xib in Resources */,
@@ -1710,6 +1736,7 @@
 				B350C072249070F40026368F /* ZBInfoCollectionViewCell.xib in Resources */,
 				B3A10473249CA5740025DE22 /* ZBDayCell.xib in Resources */,
 				B350BFA8249070D50026368F /* Assets.xcassets in Resources */,
+				B34884F824AC31FD00A23201 /* ZBPingBiSuoSuoViewController.xib in Resources */,
 				B350C09F249070F40026368F /* HNPNewSletterCell.xib in Resources */,
 				B350C076249070F40026368F /* ZBCalendarTableViewCell.xib in Resources */,
 				B352DDF72498A329001A3B66 /* ZBInputCodeView.xib in Resources */,
@@ -1777,6 +1804,7 @@
 			files = (
 				11608BFB249B4B9B0070B540 /* HNPFollowuserModel.m in Sources */,
 				B350C2D82490A17A0026368F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				B34884ED24AC257300A23201 /* ZBJuBaoViewController.m in Sources */,
 				B3BBD335249DDA0A00A6C790 /* MBProgressHUD.m in Sources */,
 				B350BFA3249070D30026368F /* ViewController.m in Sources */,
 				B350C073249070F40026368F /* ZBInfoFooderReusableView.m in Sources */,
@@ -1849,6 +1877,7 @@
 				B3BBD30B249DB67600A6C790 /* YKTimeLineView.m in Sources */,
 				B350C07B249070F40026368F /* ZBFollowViewController.m in Sources */,
 				B3A10476249CA5740025DE22 /* ZBDayCell.m in Sources */,
+				B34884F224AC2E9A00A23201 /* ZBPingBiViewController.m in Sources */,
 				B3BBD32A249DB67600A6C790 /* YKLineEntity.m in Sources */,
 				B34A4055249775070047BF94 /* ZBCalendarColViewCell.m in Sources */,
 				B350C066249070F40026368F /* ZBQuotationTableViewCell.m in Sources */,
@@ -1865,6 +1894,7 @@
 				B350C2DF2490A17A0026368F /* MASConstraint.m in Sources */,
 				B34719F5249A029E0017CA48 /* YXCalendarView.m in Sources */,
 				B3BBD310249DB67600A6C790 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				B34884F724AC31FD00A23201 /* ZBPingBiSuoSuoViewController.m in Sources */,
 				B343183724A82524006BEFBF /* ZBCommentVC.m in Sources */,
 				B350C086249070F40026368F /* HNPDetailsVC.m in Sources */,
 				B350C2DB2490A17A0026368F /* MASConstraintMaker.m in Sources */,

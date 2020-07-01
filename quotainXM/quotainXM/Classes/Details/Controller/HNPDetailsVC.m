@@ -16,6 +16,9 @@
 #import "MJExtension/MJExtension.h"
 #import "ZBCommentVC.h"
 #import "ZBloginViewController.h"
+#import "ZBJuBaoViewController.h"
+#import "ZBPingBiViewController.h"
+#import "ZBPingBiSuoSuoViewController.h"
 
 @interface HNPDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -49,7 +52,20 @@ static NSString *IDTwo = @"CommentCellID";
 //    NSLog(@"%@",_dynamicModle.publishTime);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginComment) name:@"beginComment" object:nil];
     
+    
 }
+
+//-(void)PingBi{
+//    [self PLJson];
+//}
+//-(void)PingBiSuoSuo{
+//    [self PLJson];
+//}
+//
+//- (void)dealloc
+//{
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
 
 -(void)beginComment{
     [self determineWhetherToLogin];
@@ -101,9 +117,74 @@ static NSString *IDTwo = @"CommentCellID";
        btn_gd.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 30,20,10,20);
        [btn_gd setImage:[UIImage imageNamed:@"gengduo2"] forState:UIControlStateNormal];
        [vc addSubview:btn_gd];
+    
+    [btn_gd addTarget:self action:@selector(gengduoClick) forControlEvents:UIControlEventTouchUpInside];
        
        [self.view addSubview:vc];
 }
+//点击更多
+-(void)gengduoClick{
+    NSLog(@"123");
+    
+    
+    [self determineWhetherToLogin];
+    
+    if (self.login == YES) {
+        
+        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+               
+               
+               UIAlertAction *jubaoAction = [UIAlertAction actionWithTitle:@"举报说说" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                   NSLog(@"点击了举报说说");
+                   ZBJuBaoViewController *jubao_vc = [[ZBJuBaoViewController alloc] init];
+                   jubao_vc.talkID = self.dynamicModle.talkId;
+                   jubao_vc.userID = self.dynamicModle.userId;
+                   [self presentViewController:jubao_vc animated:YES completion:nil];
+                   
+                   
+               }];
+           
+               UIAlertAction *pingbiAction = [UIAlertAction actionWithTitle:@"屏蔽该用户" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                       NSLog(@"点击了屏蔽该用户");
+                   ZBPingBiViewController *pingbi_vc = [[ZBPingBiViewController alloc] init];
+                   pingbi_vc.userID = self.dynamicModle.userId;
+                   [self presentViewController:pingbi_vc animated:YES completion:nil];
+                       
+                   }];
+            UIAlertAction *pingbiSuoSsuoAction = [UIAlertAction actionWithTitle:@"屏蔽该说说" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                NSLog(@"点击了屏蔽该说说");
+                ZBPingBiSuoSuoViewController *pingbiSuoSuo_vc = [[ZBPingBiSuoSuoViewController alloc] init];
+                pingbiSuoSuo_vc.talkID = self.dynamicModle.talkId;
+                pingbiSuoSuo_vc.userID = self.dynamicModle.userId;
+                [self presentViewController:pingbiSuoSuo_vc animated:YES completion:nil];
+                
+            }];
+               
+           
+               UIAlertAction *quexiaoAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+
+               }];
+               
+
+            [actionSheet addAction:jubaoAction];
+            [actionSheet addAction:pingbiAction];
+            [actionSheet addAction:pingbiSuoSsuoAction];
+            [actionSheet addAction:quexiaoAction];
+            [self presentViewController:actionSheet animated:YES completion:nil];
+        
+            }else{
+                
+            ZBloginViewController *loginVC = [[ZBloginViewController alloc] init];
+            loginVC.loginType = YES;
+            [self presentViewController:loginVC animated:YES completion:nil];
+                
+            }
+    
+    
+}
+
+
+
 
 /**
  在view中添加tableView
