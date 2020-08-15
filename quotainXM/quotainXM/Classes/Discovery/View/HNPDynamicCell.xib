@@ -165,7 +165,7 @@
                 <outlet property="pictureHeight" destination="cf0-As-8f0" id="4mB-6T-BPh"/>
                 <outlet property="zanCountLable" destination="kcY-EN-U3T" id="xc3-fX-3eN"/>
             </connections>
-            <point key="canvasLocation" x="-258" y="-298"/>
+            <point key="canvasLocation" x="229" y="-339"/>
         </tableViewCell>
     </objects>
     <resources>

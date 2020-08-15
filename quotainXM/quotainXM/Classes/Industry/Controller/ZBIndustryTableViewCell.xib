@@ -70,7 +70,7 @@
                 <outlet property="tagLabel" destination="r7O-SI-WxP" id="jWU-of-HgV"/>
                 <outlet property="timerLabel" destination="hFz-n0-KHV" id="Ogh-DW-KCh"/>
             </connections>
-            <point key="canvasLocation" x="-207.97101449275365" y="37.165178571428569"/>
+            <point key="canvasLocation" x="-34" y="45"/>
         </tableViewCell>
     </objects>
     <resources>

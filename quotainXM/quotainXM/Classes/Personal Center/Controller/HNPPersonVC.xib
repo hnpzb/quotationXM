@@ -326,7 +326,7 @@
         <image name="icon_qiandao" width="18" height="16.5"/>
         <image name="icon_shezhi" width="17" height="16"/>
         <image name="icon_wodedongtai" width="17" height="17.5"/>
-        <image name="pic_bg" width="335" height="163.5"/>
+        <image name="pic_bg" width="375" height="265"/>
         <image name="pic_head" width="65" height="65"/>
     </resources>
 </document>

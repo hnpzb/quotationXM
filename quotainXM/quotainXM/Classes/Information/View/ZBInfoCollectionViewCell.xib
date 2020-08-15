@@ -53,7 +53,7 @@
                 <outlet property="priceLabel" destination="Qdd-N2-NwK" id="tTo-Ok-1jF"/>
                 <outlet property="upOrDownPercentLabel" destination="kEA-KT-QQp" id="5W4-c6-2dn"/>
             </connections>
-            <point key="canvasLocation" x="23.188405797101453" y="-24.776785714285712"/>
+            <point key="canvasLocation" x="262" y="-7"/>
         </collectionViewCell>
     </objects>
 </document>
